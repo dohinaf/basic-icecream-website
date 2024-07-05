@@ -1,0 +1,471 @@
+/* Global Styles */
+:root {
+    --main-color: #d3ad7f;
+    --black: #13131a;
+    --bg: #010103;
+    --border: 0.1rem solid rgba(255, 255, 255, 0.3);
+}
+
+* {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: .2s linear;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 9rem;
+    scroll-behavior: smooth;
+}
+
+/* Scrollbar Styles for Webkit */
+html::-webkit-scrollbar {
+    width: .8rem;
+}
+
+html::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: #fff;
+    border-radius: 5rem;
+}
+
+body {
+    background: var(--bg);
+}
+
+section{
+	padding:2rem 7%;
+}
+.btn {
+    margin-top: 1rem;
+    display: inline-block;
+    padding: .9rem 3rem;
+    font-size: 1.7rem;
+    color: #fff;
+    background: var(--main-color);
+    cursor: pointer;
+}
+
+.btn:hover {
+    letter-spacing: .2rem;
+}
+
+/* Header Styles */
+.header {
+    background: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 7%;
+    border-bottom: var(--border);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.header .logo img {
+    height: 6rem;
+}
+
+.header .navbar {
+    display: flex;
+    align-items: center;
+}
+
+.header .navbar a {
+    margin: 0 1rem;
+    font-size: 1.6rem;
+    color: #fff;
+}
+
+.header .navbar a:hover {
+    color: var(--main-color);
+}
+
+.header .icons {
+    display: flex;
+    align-items: center;
+}
+
+.header .icons div {
+    color: #fff;
+    cursor: pointer;
+    font-size: 2.5rem;
+    margin-left: 2rem;
+}
+
+.header .icons div:hover {
+    color: var(--main-color);
+}
+
+#menu-btn {
+    display: none;
+}
+
+.header .search-form {
+    position: absolute;
+    top: calc(100% + 1rem); /* Adjusted to position below header */
+    right: 7%;
+    background: #fff;
+    width: 20rem; /* Adjusted width for better fit */
+    height: auto;
+    display: none; /* Initially hidden */
+    padding: 1rem;
+    box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1); /* Added box shadow */
+    z-index: 100; /* Ensure it's above other content */
+}
+
+.header .search-form.active {
+    display: flex; /* Show when active */
+}
+
+.header .search-form input {
+    width: 100%;
+    font-size: 1.6rem;
+    color: var(--black);
+    padding: 0.5rem;
+    border: none;
+    outline: none;
+}
+
+.header .search-form label {
+    cursor: pointer;
+    font-size: 2.2rem;
+    color: var(--black);
+    margin-left: 1rem; /* Adjusted margin */
+}
+
+.header .search-form label:hover {
+    color: var(--main-color);
+}
+
+.header .cart-items-container {
+    position: absolute;
+    top: calc(100% + 1rem); /* Adjusted to position below header */
+    right: 7%;
+    height: auto;
+    width: 300px; /* Adjusted width for better fit */
+    background: #fff;
+    display: none; /* Initially hidden */
+    padding: 1rem;
+    background-color: var(--black);
+    box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1); /* Added box shadow */
+    z-index: 100; /* Ensure it's above other content */
+}
+
+.header .cart-items-container.active {
+    display: block; /* Show when active */
+}
+
+.header .cart-items-container .cart-item {
+    margin: 1rem 0;
+    display: flex;
+    align-items: center;
+}
+
+.header .cart-items-container .cart-item .fa-times {
+    padding-left: 10px; /* Align to the right */
+    font-size: 1.5rem;
+    padding-right: 15px;
+    color: var(--main-color);
+    cursor: pointer;
+}
+
+.header .cart-items-container .cart-item .fa-times:hover {
+    color: #fff;
+}
+
+.header .cart-items-container .cart-item img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    padding-right: 10px;
+}
+
+.header .cart-items-container .cart-item .content h3 {
+    font-size: 1.6rem;
+    color: var(--main-color);
+}
+
+.header .cart-items-container .cart-item .content .price {
+    font-size: 1.4rem;
+    color: #92866d;
+}
+
+.header .cart-items-container .btn {
+    width: 100%;
+    display: block;
+    margin-top: 1rem;
+    padding: 0.8rem;
+    font-size: 1.6rem;
+    color: #fff;
+    background-color: var(--main-color);
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.header .cart-items-container .btn:hover {
+    background-color: #c49f6a;
+}
+
+
+/* Home Styles */
+
+.home{
+	min-height: 100vh;
+	display:flex;
+	align-items: center;
+	background:url("https://images.unsplash.com/photo-1503438805992-a1f1bcaf6ec9") no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+.home .content{
+	max-width: 60rem;
+}
+.home .content h3{
+	font-size: 50px;
+	text-transform: uppercase;
+	color:#fff;
+}
+
+.home .content p{
+	font-size: 20px;
+	font-weight: lighter;
+	color: #eee;
+	padding: 1rem 0;
+	line-height: 1.8;
+}
+
+/* About Styles */
+
+.heading{
+	text-align: center;
+	color: #fff;
+	text-transform: uppercase;
+	padding-top: 4rem;
+	padding-bottom: 3.5rem;
+	font-size: 4rem;
+}
+
+.heading span{
+	color:var(--main-color);
+	text-transform:uppercase;
+}
+
+.about .row{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap:10px;
+	align-items: center;
+	background:var(--black);
+	flex-wrap: wrap;
+}
+
+.about .row .image img{
+	width:100%;
+	padding-left: 20px;
+}
+
+.about .row .content{
+	flex:1 1 45rem;
+	padding: 2rem;
+}
+
+.about .row .content h3{
+	font-size: 3rem;
+	color: #fff;
+}
+
+.about .row .content p{
+	font-size:  1.6rem;
+	color: #ccc;
+	padding: 1rem 0;
+	line-height: 1.8;
+}
+
+
+/* Menu Styles */
+
+.menu .box-container{
+	display: grid;
+	grid-template-columns: auto auto auto;
+	gap:1.5rem;
+	align-items: center;
+}
+
+.menu .box-container .box{
+	padding: 5rem;
+	text-align: center;
+	border: var(--border);	
+	align-items: center;
+}
+
+.menu .box-container .box h3{
+	padding-top:10px;
+	color: #fff;
+	font-size:2rem;
+}
+
+.menu .box-container .box .price{
+	color: #fff;
+	font-size:2.5rem;
+
+}
+
+.menu .box-container .box .price span{
+	color: #fff;
+	font-size:1.5rem;
+	text-decoration: line-through;
+}
+
+.menu img{
+	width:300px;
+	height:300px;
+}
+
+
+/* Footer Styles */
+
+.footer{
+	background: var(--black);
+	text-align: center;
+}
+
+.footer .share{
+	padding: 1rem 0;
+}
+
+.footer .share a{
+	height: 5rem;
+	width: 5rem;
+	line-height: 5rem;
+	font-size: 2rem;
+	color: #fff;
+	border: var(--border);
+	margin: .3rem;
+	border-radius: 50%;
+}
+
+.footer .share a:hover{
+	background-color: var(--main-color);
+}
+
+.footer .links{
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	padding: 10px 0;
+	gap:10px;
+}
+
+.footer .links a{
+	padding: .7rem 2rem;
+	color:#fff;
+	border: var(--border);
+	font-size:2rem;
+}
+
+.footer .links a:hover{
+	background-color:var(--main-color);
+}
+
+footer .credit{
+	font-size: 2rem;
+	font-weight: lighter;
+	padding: 1.5rem;
+}
+
+.footer .credit p{
+	color:#f5f5f1;
+}
+.footer .credit span{
+	color: var(--main-color);
+}
+
+
+
+
+/* Media Queries */
+@media (max-width: 991px) {
+    html {
+        font-size: 55%;
+    }
+
+    .header {
+        padding: 1.5rem 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    #menu-btn {
+        display: inline-block;
+    }
+
+    .header .navbar {
+        position: absolute;
+        top: calc(100% + 1rem); /* Adjusted top position */
+        right: -100%;
+        background: var(--black);
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding-top: 2rem; /* Added padding top for better spacing */
+        transition: right 0.3s ease;
+    }
+
+    .header.navbar.active {
+        right: 0;
+    }
+
+    .header .navbar a {
+        color: #fff;
+        display: block;
+        margin: 1rem;
+        padding: 1rem;
+        font-size: 2rem;
+    }
+
+    .header .search-form {
+        width: 90%; /* Adjusted width for better fit */
+        right: 2rem; /* Adjusted right position */
+    }
+
+    .header .cart-items-container {
+        width: 90%; /* Adjusted width for better fit */
+        right: 2rem; /* Adjusted right position */
+    }
+    
+    .home{
+    background-position: left;
+    justify-content: center;
+    text-align: center;
+    }
+    
+    .home .content h3{
+    font-size: 4.5rem;
+    }
+    
+    .home .content p{
+    font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 450px) {
+    html {
+        font-size: 50%;
+    }
+}
