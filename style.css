@@ -54,8 +54,19 @@ section{
     background: var(--main-color);
     cursor: pointer;
 }
-
+button{
+	margin-top: 1rem;
+    display: inline-block;
+    padding: .9rem 3rem;
+    font-size: 1.7rem;
+    color: #fff;
+    background: var(--main-color);
+    cursor: pointer;
+}
 .btn:hover {
+    letter-spacing: .2rem;
+}
+button:hover {
     letter-spacing: .2rem;
 }
 
@@ -155,7 +166,7 @@ section{
     top: calc(100% + 1rem); /* Adjusted to position below header */
     right: 7%;
     height: auto;
-    width: 300px; /* Adjusted width for better fit */
+    width: 400px; /* Adjusted width for better fit */
     background: #fff;
     display: none; /* Initially hidden */
     padding: 1rem;
@@ -168,7 +179,7 @@ section{
     display: block; /* Show when active */
 }
 
-.header .cart-items-container .cart-item {
+.header .cart-items-container .cart{
     margin: 1rem 0;
     display: flex;
     align-items: center;
@@ -193,17 +204,20 @@ section{
     padding-right: 10px;
 }
 
-.header .cart-items-container .cart-item .content h3 {
+.header .cart-items-container .cart ul {
     font-size: 1.6rem;
     color: var(--main-color);
+    align-items: center;
 }
 
-.header .cart-items-container .cart-item .content .price {
+
+
+.header .cart-items-container .cart h3{
     font-size: 1.4rem;
     color: #92866d;
 }
 
-.header .cart-items-container .btn {
+.header .cart-items-container button {
     width: 100%;
     display: block;
     margin-top: 1rem;
@@ -216,7 +230,7 @@ section{
     transition: background-color 0.3s ease;
 }
 
-.header .cart-items-container .btn:hover {
+.header .cart-items-container button:hover {
     background-color: #c49f6a;
 }
 
