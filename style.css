@@ -310,6 +310,52 @@ button:hover {
 	line-height: 1.8;
 }
 
+/* Blogs Styles */
+
+.heading{
+	text-align: center;
+	color: #fff;
+	text-transform: uppercase;
+	padding-top: 4rem;
+	padding-bottom: 3.5rem;
+	font-size: 4rem;
+}
+
+.heading span{
+	color:var(--main-color);
+	text-transform:uppercase;
+}
+
+.blogs .row{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap:10px;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.blogs .row .image img{
+	width:100%;
+	padding-left: 20px;
+}
+
+.blogs .content{
+	flex:1 1 45rem;
+	padding: 2rem;
+}
+
+.blogs .content h3{
+	font-size: 3rem;
+	color: #fff;
+}
+
+.blogs .content p{
+	font-size:  2rem;
+	color: #ffffff;
+	padding: 1rem 0;
+	line-height: 1.8;
+}
+
 
 /* Menu Styles */
 
