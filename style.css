@@ -373,6 +373,10 @@ button:hover {
 	border-radius: 50%;
 }
 
+.footer .image {
+    
+}
+
 .footer .share a:hover{
 	background-color: var(--main-color);
 }
