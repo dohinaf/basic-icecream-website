@@ -348,6 +348,11 @@ button:hover {
 .menu img{
 	width:300px;
 	height:300px;
+    transition: transform 0.3s ease;
+}
+
+.menu img:hover {
+    transform: scale(1.1);
 }
 
 
