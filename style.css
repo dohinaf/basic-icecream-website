@@ -50,7 +50,7 @@ section {
 }
 
 
-.animated-button {
+.animated-button {  /*Main Button Design. All other buttons inherit this class Property */
     width: fit-content;
     padding: 5px 20px 5px 20px;
     font-weight: bold;
