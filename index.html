@@ -24,13 +24,15 @@
                 alt="Logo">
         </a>
 
-        <nav class="navbar">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#menu">Menu</a>
-            <a href="#review">Review</a>
-            <a href="#blogs">Blogs</a>
-        </nav>
+        <!-- ... existing code ... -->
+<nav class="navbar">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#menu">Menu</a>
+    <a href="#review">Review</a>
+    <a href="#blogs">Blogs</a>
+    <a href="#" id="my-order-btn">My Order</a>
+</nav>
 
         <div class="icons">
             <div class="fas fa-search" id="search-btn"></div>
@@ -51,6 +53,16 @@
                     <div id="total">Total:$0.00 </div>
                 </h3>
                 <button onclick="checkout()">Checkout</button>
+            </div>
+        </div>
+        <div class="my-order-container">
+            <h2>My Order</h2>
+            <div id="order-details">
+                <!-- Order details will be displayed here -->
+            </div>
+            <div class="order-actions">
+                <button onclick="trackOrder()">Track Order</button>
+                <button onclick="editOrder()">Edit Order</button>
             </div>
         </div>
 
