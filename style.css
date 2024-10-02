@@ -53,6 +53,8 @@ section {
     color: #fff;
     background: var(--main-color);
     cursor: pointer;
+    border-radius: 0.5rem;
+    transition: transform 0.3s ease;
 }
 
 button {
@@ -63,14 +65,16 @@ button {
     color: #fff;
     background: var(--main-color);
     cursor: pointer;
+    border-radius: 0.5rem;
+    transition: transform 0.3s ease;
 }
 
 .btn:hover {
-    letter-spacing: .2rem;
+    transform: scale(1.05);
 }
 
 button:hover {
-    letter-spacing: .2rem;
+    transform: scale(1.05);
 }
 
 .animated-button {
@@ -116,6 +120,85 @@ button:hover {
 
 .animated-button:hover span {
     color: var(--main-color);
+}
+
+/*wishlist styles */
+
+.wishlist-container {
+    position: absolute;
+    top: calc(100% + 1rem);
+    right: 7%;
+    width: 400px;
+    background: var(--black);
+    padding: 2rem;
+    display: none;
+    box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);
+    z-index: 100;
+}
+
+.wishlist-container.active {
+    display: block;
+}
+
+.wishlist-container h2 {
+    color: #fff;
+    font-size: 2.4rem;
+    margin-bottom: 1.5rem;
+}
+
+#wishlistItems {
+    list-style-type: none;
+    padding: 0;
+}
+
+#wishlistItems li {
+    color: #fff;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.wishlist-container button {
+    width: 100%;
+    margin-top: 1.5rem;
+}
+
+.wishlist .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 1.5rem;
+}
+
+.wishlist .box-container .box {
+    padding: 3rem;
+    text-align: center;
+    border: var(--border);
+}
+
+.wishlist .box-container .box img {
+    height: 20rem;
+}
+
+.wishlist .box-container .box h3 {
+    color: #fff;
+    font-size: 2rem;
+    padding: 1rem 0;
+}
+
+.wishlist .box-container .box .price {
+    color: #fff;
+    font-size: 2.5rem;
+    padding: .5rem 0;
+}
+
+.wishlist .box-container .box:hover {
+    background: #fff;
+}
+
+.wishlist .box-container .box:hover > * {
+    color: var(--black);
 }
 
 /* Header Styles */
@@ -508,9 +591,15 @@ button:hover {
     text-decoration: line-through;
 }
 
-.menu img {
-    width: 300px;
-    height: 300px;
+
+.menu img{
+	width:300px;
+	height:300px;
+    transition: transform 0.3s ease;
+}
+
+.menu img:hover {
+    transform: scale(1.1);
 }
 
 
@@ -699,6 +788,7 @@ button:hover,
 
 
 
+
 /* payment styles start */
 
 .payment-section {
@@ -798,3 +888,24 @@ input[type="radio"] {
 
 
 /* payment styles end */
+
+/* Animation for about us */
+.about .row .image {
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.about .row .content {
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    transition-delay: 0.4s;
+}
+
+.about.animate .row .image,
+.about.animate .row .content {
+    opacity: 1;
+    transform: translateX(0);
+}
+
