@@ -272,29 +272,31 @@ button:hover {
     align-items: center;
 }
 
-
-
 .header .cart-items-container .cart h3 {
     font-size: 1.4rem;
     color: #92866d;
 }
 
 .header .cart-items-container button {
-    width: 100%;
+    width: auto;  /* Allows button to size based on content */
     display: block;
-    margin-top: 1rem;
-    padding: 0.8rem;
-    font-size: 1.6rem;
+    margin: 2rem auto;  /* Centers the button */
+    padding: 1rem 2rem;  /* Increased padding */
+    font-size: 1.6rem;  /* Increased font size */
     color: #fff;
     background-color: var(--main-color);
+    border: none;
+    border-radius: 0.3rem;
     text-align: center;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .header .cart-items-container button:hover {
-    background-color: #c49f6a;
+    background-color: #fff;
+    color: var(--main-color);
 }
+
 /* ... existing styles ... */
 
 /* My Order Styles */
@@ -651,3 +653,44 @@ footer .credit {
         font-size: 50%;
     }
 }
+
+/* Global button styles */
+.btn,
+button,
+.header .cart-items-container button,
+.order-actions button {
+    /* ... existing styles ... */
+    transition: background-color 0.3s ease, color 0.3s ease, letter-spacing 0.3s ease;
+}
+
+.btn:hover,
+button:hover,
+.header .cart-items-container button:hover,
+.order-actions button:hover {
+    background-color: #fff;
+    color: var(--main-color);
+    letter-spacing: .2rem;
+}
+
+/* Remove conflicting hover styles */
+.header .cart-items-container button:hover {
+    background-color: #fff;
+    color: var(--main-color);
+}
+
+.order-actions button:hover {
+    background-color: #fff;
+    color: var(--main-color);
+}
+
+/* ... existing code ... */
+
+/* Footer button hover effect */
+.footer .share a:hover,
+.footer .links a:hover {
+    background-color: #fff;
+    color: var(--main-color);
+    letter-spacing: .2rem;
+}
+
+/* ... rest of the existing code ... */
