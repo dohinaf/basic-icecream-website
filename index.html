@@ -12,6 +12,8 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
 </head>
 
 <body>
@@ -248,6 +250,42 @@
 
     <!-- JavaScript File -->
     <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    
+          
+    
+       
+    
+            // Animate the search form
+            gsap.from(".search-form", { opacity: 0, x: -100, duration: 1, ease: "power2.out" });
+    
+            // Animate the cart container
+            gsap.from(".cart-items-container", { opacity: 0, y: 100, duration: 1.5, ease: "power2.out" });
+    
+            // Animate the 'My Order' container
+            gsap.from(".my-order-container", { opacity: 0, x: 100, duration: 1.5, ease: "power2.out" });
+    
+            // Animate home section content
+            gsap.from(".home .content h3", { opacity: 0, x: -100, duration: 1.5, delay :0.1, ease: "power2.out" });
+            gsap.from(".home .content p", { opacity: 0, x: -100, duration: 1.5, delay: 0.1, ease: "power2.out" });
+            gsap.from(".home .animated-button", { opacity: 0, x: -100, duration: 1.5, delay: 0.1, ease: "power2.out" });
+    
+            // Animate buttons on hover for scaling effect
+            const buttons = document.querySelectorAll("button");
+            buttons.forEach(button => {
+                button.addEventListener('mouseover', () => {
+                    gsap.to(button, { scale: 1.1, duration: 0.2 });
+                });
+                button.addEventListener('mouseout', () => {
+                    gsap.to(button, { scale: 1, duration: 0.2 });
+                });
+            });
+    
+        });
+    </script>
+    
+    
 
 </body>
 
