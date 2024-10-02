@@ -51,18 +51,8 @@ let cart = [];
 
 // Function to add items to cart
 function addToCart(productName, price) {
-
-    let existingCartItem = cart.find(item => item?.name == productName);
-    if(existingCartItem){
-        existingCartItem.price= existingCartItem.price + price;
-        existingCartItem.No= existingCartItem.No +1
-        
-    }
-    else{
-    cart.push({ name: productName, No: 1,price: price});
-    }
+    cart.push({ name: productName, price: price });
     displayCart();
-
 }
 
 // Function to remove items from cart
@@ -79,7 +69,7 @@ function displayCart() {
     let total = 0;
 
     cart.forEach((item, index) => {
-        cartItemsHTML += `<li>${item.name} ( ${item.No} ) - $${item.price.toFixed(2)} <button onclick="removeFromCart(${index})">Remove</button></li>`;
+        cartItemsHTML += `<li>${item.name} - $${item.price.toFixed(2)} <button onclick="removeFromCart(${index})">Remove</button></li>`;
         total += item.price;
     });
 
@@ -87,7 +77,6 @@ function displayCart() {
     totalElement.textContent = `Total: $${total.toFixed(2)}`;
     displayOrder();
 }
-
 
 // Function to simulate checkout
 function checkout() {
@@ -113,7 +102,7 @@ function displayOrder() {
 
     let orderHTML = '<h3>Current Order:</h3><ul>';
     cart.forEach((item, index) => {
-        orderHTML += `<li>${item.name} ( ${item.No} )- $${item.price.toFixed(2)}</li>`;
+        orderHTML += `<li>${item.name} - $${item.price.toFixed(2)}</li>`;
     });
     orderHTML += '</ul>';
 
@@ -145,5 +134,4 @@ function editOrder() {
         alert('Your order has been cleared. You can now add new items.');
     }
 }
-displayOrder();									
-
+displayOrder();
