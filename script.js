@@ -49,10 +49,64 @@ document.addEventListener('DOMContentLoaded', () => {
 // Array to store cart items
 let cart = [];
 
+let wishlist = [];
+
 // Function to add items to cart
+
+let wishlistContainer = document.querySelector('.wishlist-container');
+
+document.querySelector('#wishlist-btn').onclick = () => {
+    wishlistContainer.classList.toggle('active');
+    navbar.classList.remove('active');
+    searchForm.classList.remove('active');
+    cartItem.classList.remove('active');
+};
+
+function addToWishlist(productName, price) {
+    const existingItem = wishlist.find(item => item.name === productName);
+    if (!existingItem) {
+        wishlist.push({ name: productName, price: price });
+        displayWishlist();
+    } else {
+        alert(`${productName} is already in your wishlist!`);
+    }
+}
+
+function removeFromWishlist(index) {
+    wishlist.splice(index, 1);
+    displayWishlist();
+}
+
+function displayWishlist() {
+    const wishlistItemsElement = document.getElementById('wishlistItems');
+    const wishlistPageElement = document.getElementById('wishlist-items');
+    let wishlistItemsHTML = '';
+
+    wishlist.forEach((item, index) => {
+        wishlistItemsHTML += `
+            <li>
+                ${item.name} - $${item.price.toFixed(2)}
+                <button onclick="addToCart('${item.name}', ${item.price})">Add to Cart</button>
+                <button onclick="removeFromWishlist(${index})">Remove</button>
+            </li>`;
+    });
+
+    wishlistItemsElement.innerHTML = wishlistItemsHTML;
+}
+
+function clearWishlist() {
+    wishlist = [];
+    displayWishlist();
+}
+
 function addToCart(productName, price) {
     cart.push({ name: productName, price: price });
     displayCart();
+    //remove item from wishlist
+    const wishlistIndex = wishlist.findIndex(item => item.name === productName);
+    if (wishlistIndex !== -1) {
+        removeFromWishlist(wishlistIndex);
+    }
 }
 
 // Function to remove items from cart
@@ -136,6 +190,7 @@ function editOrder() {
 }
 displayOrder();
 
+
 //function for annimation on about us
 document.addEventListener('DOMContentLoaded', function() {
     const aboutSection = document.querySelector('.about');
@@ -152,3 +207,4 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', checkScroll);
     checkScroll(); 
 });
+
