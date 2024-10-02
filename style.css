@@ -43,6 +43,14 @@ body {
 
 section {
     padding: 2rem 7%;
+    opacity: 0; /* Initially hidden for animation */
+    transform: translateY(20px); /* Start slightly lower */
+    transition: opacity 0.03s ease, transform 0.6s ease; /* Smooth transition */
+}
+
+section.visible {
+    opacity: 1; /* Fade in */
+    transform: translateY(0); /* Move to original position */
 }
 
 .btn {
@@ -54,7 +62,7 @@ section {
     background: var(--main-color);
     cursor: pointer;
     border-radius: 0.5rem;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 button {
@@ -70,11 +78,14 @@ button {
 }
 
 .btn:hover {
-    transform: scale(1.05);
+    background-color: #ff7a00; /* darker orange on hover */
+    box-shadow: 0 4px 20px rgba(255, 122, 0, 0.5); /* Added shadow on hover */
+    transform: scale(1.05) rotate(2deg); /* Added rotation effect */
 }
 
 button:hover {
     transform: scale(1.05);
+    
 }
 
 .animated-button {
@@ -90,6 +101,7 @@ button:hover {
     overflow: hidden;
     transition: color 0.8s;
     z-index: 1;
+    transition: color 0.8s, background-color 0.3s ease;
 }
 
 .animated-button::before {
@@ -115,11 +127,13 @@ button:hover {
     position: relative;
     z-index: 1;
     display: inline-block;
-    transition: color 0.8s;
+    
+    transition: color 0.8s, transform 0.2s; /* Added transform transition */
 }
 
 .animated-button:hover span {
     color: var(--main-color);
+    transform: scale(1.1); /* Scale effect on hover */
 }
 
 /*wishlist styles */
@@ -134,6 +148,7 @@ button:hover {
     display: none;
     box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);
     z-index: 100;
+    transition: all 0.3s ease; /* Added transition for smooth appearance */
 }
 
 .wishlist-container.active {
@@ -158,6 +173,10 @@ button:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: background-color 0.3s; /* Added transition for background */
+}
+#wishlistItems li:hover {
+    background-color: rgba(211, 173, 127, 0.1); /* Subtle background color change on hover */
 }
 
 .wishlist-container button {
@@ -175,6 +194,7 @@ button:hover {
     padding: 3rem;
     text-align: center;
     border: var(--border);
+    transition: transform 0.3s ease; 
 }
 
 .wishlist .box-container .box img {
@@ -195,6 +215,7 @@ button:hover {
 
 .wishlist .box-container .box:hover {
     background: #fff;
+    transform: translateY(-5px); /* Lift effect on hover */
 }
 
 .wishlist .box-container .box:hover > * {
@@ -214,10 +235,18 @@ button:hover {
     left: 0;
     right: 0;
     z-index: 1000;
+    transition: background-color 0.3s ease; 
+}
+.header:hover {
+    background-color: rgba(19, 19, 26, 0.8); /* Darken background on hover */
 }
 
 .header .logo img {
     height: 6rem;
+    transition: transform 0.3s ease; /* Added transition */
+}
+.header .logo img:hover {
+    transform: scale(1.1); /* Scale effect on logo hover */
 }
 
 .header .navbar {
@@ -229,10 +258,12 @@ button:hover {
     margin: 0 1rem;
     font-size: 1.6rem;
     color: #fff;
+    transition: color 0.3s ease; /* Added transition */
 }
 
 .header .navbar a:hover {
     color: var(--main-color);
+    text-shadow: 0 0 5px #fff; 
 }
 
 .header .icons {
@@ -245,10 +276,12 @@ button:hover {
     cursor: pointer;
     font-size: 2.5rem;
     margin-left: 2rem;
+    transition: transform 0.3s ease; /* Added transition */
 }
 
 .header .icons div:hover {
     color: var(--main-color);
+    transform: scale(1.2); /* Scale effect on icon hover */
 }
 
 #menu-btn {
@@ -271,6 +304,7 @@ button:hover {
     /* Added box shadow */
     z-index: 100;
     /* Ensure it's above other content */
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .header .search-form.active {
@@ -297,6 +331,7 @@ button:hover {
 
 .header .search-form label:hover {
     color: var(--main-color);
+    text-shadow: 0 0 5px #fff;
 }
 
 .header .cart-items-container {
@@ -316,6 +351,7 @@ button:hover {
     /* Added box shadow */
     z-index: 100;
     /* Ensure it's above other content */
+    transition: all 0.3s ease; /* Added transition */
 }
 
 .header .cart-items-container.active {

@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Animated button functionality
-    if (animatedButton) {
+    if (animate-dButton) {
         animatedButton.addEventListener('mouseenter', handleButtonMouseEffect);
         animatedButton.addEventListener('mouseleave', handleButtonMouseEffect);
     }
@@ -312,3 +312,21 @@ document.addEventListener('DOMContentLoaded', function() {
     checkScroll(); 
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    const sections = document.querySelectorAll('section');
+
+    function checkScroll() {
+        const triggerBottom = window.innerHeight / 5 * 4;
+
+        sections.forEach(section => {
+            const sectionTop = section.getBoundingClientRect().top;
+
+            if (sectionTop < triggerBottom) {
+                section.classList.add('visible');  // Add 'visible' class when section is in view
+            }
+        });
+    }
+
+    window.addEventListener('scroll', checkScroll);
+    checkScroll();  // Trigger the check once on page load
+});
