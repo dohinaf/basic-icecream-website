@@ -135,3 +135,20 @@ function editOrder() {
     }
 }
 displayOrder();
+
+//function for annimation on about us
+document.addEventListener('DOMContentLoaded', function() {
+    const aboutSection = document.querySelector('.about');
+    
+    function checkScroll() {
+        const triggerBottom = window.innerHeight / 5 * 4;
+        const aboutTop = aboutSection.getBoundingClientRect().top;
+
+        if (aboutTop < triggerBottom) {
+            aboutSection.classList.add('animate');
+        }
+    }
+
+    window.addEventListener('scroll', checkScroll);
+    checkScroll(); 
+});

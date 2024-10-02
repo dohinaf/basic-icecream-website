@@ -53,6 +53,8 @@ section {
     color: #fff;
     background: var(--main-color);
     cursor: pointer;
+    border-radius: 0.5rem;
+    transition: transform 0.3s ease;
 }
 
 button {
@@ -63,14 +65,16 @@ button {
     color: #fff;
     background: var(--main-color);
     cursor: pointer;
+    border-radius: 0.5rem;
+    transition: transform 0.3s ease;
 }
 
 .btn:hover {
-    letter-spacing: .2rem;
+    transform: scale(1.05);
 }
 
 button:hover {
-    letter-spacing: .2rem;
+    transform: scale(1.05);
 }
 
 .animated-button {
@@ -694,3 +698,23 @@ button:hover,
 }
 
 /* ... rest of the existing code ... */
+
+/* Animation for about us */
+.about .row .image {
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.about .row .content {
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    transition-delay: 0.4s;
+}
+
+.about.animate .row .image,
+.about.animate .row .content {
+    opacity: 1;
+    transform: translateX(0);
+}
