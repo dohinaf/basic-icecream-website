@@ -26,11 +26,11 @@
 
         <!-- ... existing code ... -->
 <nav class="navbar">
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#menu">Menu</a>
-    <a href="#review">Review</a>
-    <a href="#blogs">Blogs</a>
+    <a href="#home" id="home-link">Home</a>
+    <a href="#about" id="about-link">About</a>
+    <a href="#menu" id="menu-link">Menu</a>
+    <a href="#review" id="review-link">Review</a>
+    <a href="#blogs" id="blogs-link">Blogs</a>
     <a href="#" id="my-order-btn">My Order</a>
 </nav>
 
@@ -53,7 +53,7 @@
                     <div id="total">Total:$0.00 
                     </div>
                 </h3>
-                <button onclick="checkout()">Checkout</button>
+                <button id="checkout-button" onclick="checkout()">Checkout</button>
             </div>
         </div>
         <div class="my-order-container">
@@ -200,6 +200,68 @@
 </section>
 
 <!--Blogs Section Ends Here-->
+
+
+<!-- Payment Section Starts Here -->
+<section id="payment-section" class="payment-section" style="display: none;">
+    <h1 class="heading">Payment <span>Details</span></h1>
+
+    <div class="order-summary">
+        <h2>Order Summary</h2>
+        <p id="order-items">Total Items: 3</p>
+        <p id="order-total">Total Price: $45.99</p>
+    </div>
+
+    <div class="payment-methods">
+        <h2>Select Payment Method</h2>
+        <label><input type="radio" name="payment-method" value="credit-card" onchange="showPaymentDetails()"> Credit/Debit Card</label>
+        <label><input type="radio" name="payment-method" value="paypal" onchange="showPaymentDetails()"> PayPal</label>
+        <label><input type="radio" name="payment-method" value="cod" onchange="showPaymentDetails()"> Cash on Delivery</label>
+    </div>
+
+    <div class="payment-details" id="payment-details">
+        <h2>Payment Details</h2>
+        <div id="card-details" style="display: none;">
+            <label for="card-number">Card Number:</label>
+            <input type="text" id="card-number" placeholder="Enter card number" required>
+
+            <label for="card-expiry">Expiry Date:</label>
+            <input type="text" id="card-expiry" placeholder="MM/YY" required>
+
+            <label for="card-cvc">CVC:</label>
+            <input type="text" id="card-cvc" placeholder="CVC" required>
+        </div>
+        <div id="paypal-details" style="display: none;">
+            <label for="paypal-id">PayPal ID:</label>
+            <input type="text" id="paypal-id" placeholder="Enter your PayPal ID" required>
+        </div>
+        <div id="cod-message" style="display: none;">
+            <p>No payment details needed for Cash on Delivery.</p>
+        </div>
+    </div>
+
+    <div class="billing-address">
+        <h2>Billing Address</h2>
+        <label for="billing-name">Name:</label>
+        <input type="text" id="billing-name" placeholder="Full Name" required>
+
+        <label for="billing-address">Address:</label>
+        <input type="text" id="billing-address" placeholder="Street Address" required>
+
+        <label for="billing-city">City:</label>
+        <input type="text" id="billing-city" placeholder="City" required>
+
+        <label for="billing-zip">ZIP Code:</label>
+        <input type="text" id="billing-zip" placeholder="ZIP Code" required>
+
+        <label for="billing-country">Country:</label>
+        <input type="text" id="billing-country" placeholder="Country" required>
+    </div>
+
+    <button class="payment-button" onclick="confirmPayment()">Confirm Payment</button>
+</section>
+<!-- Payment Section Ends Here -->
+
 
 
 
