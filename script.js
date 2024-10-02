@@ -133,19 +133,123 @@ function displayCart() {
 }
 
 // Function to simulate checkout
-function checkout() {
-    if (cart.length === 0) {
-        alert('Your cart is empty. Please add some items.');
-        return;
-    }
+// function checkout() {
+//     if (cart.length === 0) {
+//         alert('Your cart is empty. Please add some items.');
+//         return;
+//     }
 
-    //redirect to a payment gateway or show a message
-    alert('Redirecting to payment gateway...');
+//     //redirect to a payment gateway or show a message
+//     alert('Redirecting to payment gateway...');
 
-    // After payment, you can clear the cart
-    cart = [];
-    displayCart();
+//     // After payment, you can clear the cart
+//     cart = [];
+//     displayCart();
+// }
+
+
+function showSection(section) {
+    // Hide all sections
+    document.querySelector('.home').style.display = 'none';
+    document.querySelector('.about').style.display = 'none';
+    document.querySelector('.menu').style.display = 'none';
+    document.querySelector('.blogs').style.display = 'none';
+    document.querySelector('.cart-items-container').style.display = 'none'; 
+    document.getElementById('payment-section').style.display = 'none'; 
+
+    // Show the selected section
+    document.querySelector(`.${section}`).style.display = 'block';
 }
+
+// Example event listeners for navigation links
+// document.getElementById('home-link').addEventListener('click', () => showSection('home'));
+// document.getElementById('about-link').addEventListener('click', () => showSection('about'));
+// document.getElementById('menu-link').addEventListener('click', () => showSection('menu'));
+// document.getElementById('blogs-link').addEventListener('click', () => showSection('blogs'));
+
+
+
+function checkout() {
+
+    
+    // Hide other sections
+    document.querySelector('.home').style.display = 'none';
+    document.querySelector('.about').style.display = 'none';
+    document.querySelector('.menu').style.display = 'none';
+    document.querySelector('.blogs').style.display = 'none';
+
+    // Hide the cart section
+    document.querySelector('.cart-items-container').style.display = 'none';
+    
+     // Display the payment section
+     const paymentSection = document.getElementById('payment-section');
+     paymentSection.style.display = 'block';
+    
+    // Update order summary dynamically 
+    updateOrderSummary();
+}
+
+document.getElementById('checkout-button').addEventListener('click', checkout);
+
+function updateOrderSummary() {
+    // Fetch order items and total from cart 
+    const totalItems = 3; 
+    const totalPrice = 45.99; 
+
+    document.getElementById('order-items').textContent = `Total Items: ${totalItems}`;
+    document.getElementById('order-total').textContent = `Total Price: $${totalPrice}`;
+}
+
+// Payment method selection logic
+document.querySelectorAll('input[name="payment-method"]').forEach((input) => {
+    input.addEventListener('change', function() {
+        if (this.value === 'credit-card') {
+            document.getElementById('card-details').style.display = 'block';
+        } else {
+            document.getElementById('card-details').style.display = 'none';
+        }
+    });
+});
+
+function togglePaymentDetails() {
+    const cardDetails = document.getElementById('card-details');
+    const paymentMethod = document.querySelector('input[name="payment-method"]:checked').value;
+
+    if (paymentMethod === 'credit-card') {
+        cardDetails.style.display = 'block';
+    } else {
+        cardDetails.style.display = 'none';
+    }
+}
+
+function showPaymentDetails() {
+    const paymentMethod = document.querySelector('input[name="payment-method"]:checked').value;
+    const cardDetails = document.getElementById('card-details');
+    const paypalDetails = document.getElementById('paypal-details');
+    const codMessage = document.getElementById('cod-message'); 
+
+    // Show/hide payment details based on selected payment method
+    if (paymentMethod === 'credit-card') {
+        cardDetails.style.display = 'block'; 
+        paypalDetails.style.display = 'none'; 
+        codMessage.style.display = 'none'; 
+    } else if (paymentMethod === 'paypal') {
+        cardDetails.style.display = 'none'; 
+        paypalDetails.style.display = 'block'; 
+        codMessage.style.display = 'none'; 
+    } else if (paymentMethod === 'cod') {
+        cardDetails.style.display = 'none'; 
+        paypalDetails.style.display = 'none';
+        codMessage.style.display = 'block'; 
+    }
+}
+
+
+function confirmPayment() {
+    alert("Payment confirmed! Your order is being processed.");
+}
+
+
 
 function displayOrder() {
     const orderDetailsElement = document.getElementById('order-details');
