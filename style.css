@@ -48,33 +48,37 @@ section {
 .btn {
     margin-top: 1rem;
     display: inline-block;
-    padding: .9rem 3rem;
-    font-size: 1.7rem;
+    padding: .7rem 1.4rem;
+    font-size: 1.4rem;
+    font-weight: bold;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: #fff;
     background: var(--main-color);
     cursor: pointer;
     border-radius: 0.5rem;
-    transition: transform 0.3s ease;
+    /*transition: transform 0.3s ease;*/
 }
 
 button {
     margin-top: 1rem;
     display: inline-block;
-    padding: .9rem 3rem;
-    font-size: 1.7rem;
+    padding: .7rem 1.4rem;
+    font-size: 1.4rem;
+    font-weight: bold;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: #fff;
-    background: var(--main-color);
+    /*background: var(--main-color);*/
     cursor: pointer;
     border-radius: 0.5rem;
-    transition: transform 0.3s ease;
+    /*transition: transform 0.3s ease;*/
 }
 
 .btn:hover {
-    transform: scale(1.05);
+    transform: scale(1.009);
 }
 
 button:hover {
-    transform: scale(1.05);
+    transform: scale(1.009);
 }
 
 .animated-button {
@@ -251,9 +255,9 @@ button:hover {
     color: var(--main-color);
 }
 
-#menu-btn {
+/*#menu-btn {
     display: none;
-}
+}*/
 
 .header .search-form {
     position: absolute;
@@ -559,15 +563,36 @@ button:hover {
 
 /* Menu Styles */
 
+#menu h1{
+    font-size: 5.5rem;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-transform: capitalize;
+    color: #4e1a22;
+    letter-spacing: 1px;
+    word-spacing: 2px;
+    margin: 2rem;
+    text-align: center;
+}
+#menu{
+    background-color: rgb(255, 252, 253);
+}
 .menu .box-container {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    gap: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: auto;
+    width: auto;
+    justify-content: space-around;
     align-items: center;
 }
 
 .menu .box-container .box {
-    padding: 5rem;
+    margin: 2rem;
+    padding: 0.7rem;
+    border-radius: 1rem 1rem 0 0;
+    border-width: 1.1rem;
+    border-color: #000;
+    background-color:#010103;
     text-align: center;
     border: var(--border);
     align-items: center;
@@ -576,30 +601,42 @@ button:hover {
 .menu .box-container .box h3 {
     padding-top: 10px;
     color: #fff;
-    font-size: 2rem;
+    font-size: 1.9rem;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: rgb(255, 253, 254);
+
 }
 
 .menu .box-container .box .price {
     color: #fff;
-    font-size: 2.5rem;
-
+    font-size: 1.6rem;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: rgb(255, 250, 252);
 }
 
 .menu .box-container .box .price span {
     color: #fff;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     text-decoration: line-through;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: rgb(255, 250, 252);
 }
 
 
 .menu img{
-	width:300px;
-	height:300px;
+	width:220px;
+	height:220px;
+    border-radius: 1rem;
     transition: transform 0.3s ease;
 }
 
-.menu img:hover {
-    transform: scale(1.1);
+.box:hover {
+    transform: scale(1.05);
+    transition-duration: 0.6s;
+}
+
+#inbox{
+    background-color: rgb(94, 31, 42);
 }
 
 
