@@ -15,6 +15,30 @@ document.addEventListener('DOMContentLoaded', () => {
         searchForm.classList.remove('active');
     };
 
+    // Animated button functionality
+    if (animatedButton) {
+        animatedButton.addEventListener('mouseenter', handleButtonMouseEffect);
+        animatedButton.addEventListener('mouseleave', handleButtonMouseEffect);
+    }
+
+    function handleButtonMouseEffect(e) {
+        const button = e.currentTarget;
+        const rect = button.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        button.style.setProperty('--x', `${x}px`);
+        button.style.setProperty('--y', `${y}px`);
+    }
+
+    let myOrderContainer = document.querySelector('.my-order-container');
+
+    document.querySelector('#my-order-btn').onclick = () => {
+        myOrderContainer.classList.toggle('active');
+        navbar.classList.remove('active');
+        searchForm.classList.remove('active');
+        cartItem.classList.remove('active');
+    };
+
     window.onscroll = () => {
         navbar.classList.remove('active');
         searchForm.classList.remove('active');
@@ -25,10 +49,64 @@ document.addEventListener('DOMContentLoaded', () => {
 // Array to store cart items
 let cart = [];
 
+let wishlist = [];
+
 // Function to add items to cart
+
+let wishlistContainer = document.querySelector('.wishlist-container');
+
+document.querySelector('#wishlist-btn').onclick = () => {
+    wishlistContainer.classList.toggle('active');
+    navbar.classList.remove('active');
+    searchForm.classList.remove('active');
+    cartItem.classList.remove('active');
+};
+
+function addToWishlist(productName, price) {
+    const existingItem = wishlist.find(item => item.name === productName);
+    if (!existingItem) {
+        wishlist.push({ name: productName, price: price });
+        displayWishlist();
+    } else {
+        alert(`${productName} is already in your wishlist!`);
+    }
+}
+
+function removeFromWishlist(index) {
+    wishlist.splice(index, 1);
+    displayWishlist();
+}
+
+function displayWishlist() {
+    const wishlistItemsElement = document.getElementById('wishlistItems');
+    const wishlistPageElement = document.getElementById('wishlist-items');
+    let wishlistItemsHTML = '';
+
+    wishlist.forEach((item, index) => {
+        wishlistItemsHTML += `
+            <li>
+                ${item.name} - $${item.price.toFixed(2)}
+                <button onclick="addToCart('${item.name}', ${item.price})">Add to Cart</button>
+                <button onclick="removeFromWishlist(${index})">Remove</button>
+            </li>`;
+    });
+
+    wishlistItemsElement.innerHTML = wishlistItemsHTML;
+}
+
+function clearWishlist() {
+    wishlist = [];
+    displayWishlist();
+}
+
 function addToCart(productName, price) {
     cart.push({ name: productName, price: price });
     displayCart();
+    //remove item from wishlist
+    const wishlistIndex = wishlist.findIndex(item => item.name === productName);
+    if (wishlistIndex !== -1) {
+        removeFromWishlist(wishlistIndex);
+    }
 }
 
 // Function to remove items from cart
@@ -51,6 +129,7 @@ function displayCart() {
 
     cartItemsElement.innerHTML = cartItemsHTML;
     totalElement.textContent = `Total: $${total.toFixed(2)}`;
+    displayOrder();
 }
 
 // Function to simulate checkout
@@ -68,5 +147,45 @@ function checkout() {
     displayCart();
 }
 
+function displayOrder() {
+    const orderDetailsElement = document.getElementById('order-details');
+    if (cart.length === 0) {
+        orderDetailsElement.innerHTML = '<p>No active order.</p>';
+        return;
+    }
 
-											
+    let orderHTML = '<h3>Current Order:</h3><ul>';
+    cart.forEach((item, index) => {
+        orderHTML += `<li>${item.name} - $${item.price.toFixed(2)}</li>`;
+    });
+    orderHTML += '</ul>';
+
+    const total = cart.reduce((sum, item) => sum + item.price, 0);
+    orderHTML += `<p><strong>Total: $${total.toFixed(2)}</strong></p>`;
+
+    orderDetailsElement.innerHTML = orderHTML;
+}
+
+function trackOrder() {
+    if (cart.length === 0) {
+        alert('No active order to track.');
+        return;
+    }
+    // Simulating order tracking
+    alert('Your order is being prepared and will be delivered soon!');
+}
+
+function editOrder() {
+    if (cart.length === 0) {
+        alert('No active order to edit.');
+        return;
+    }
+    // For simplicity, we'll just clear the cart and allow the user to add items again
+    if (confirm('Do you want to clear your current order and start over?')) {
+        cart = [];
+        displayCart();
+        displayOrder();
+        alert('Your order has been cleared. You can now add new items.');
+    }
+}
+displayOrder();
