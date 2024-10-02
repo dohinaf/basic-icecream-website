@@ -615,7 +615,7 @@ button,
 .header .cart-items-container button,
 .order-actions button {
     /* ... existing styles ... */
-    transition: background-color 0.3s ease, color 0.3s ease, letter-spacing 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, letter-spacing 0.3s ease, box-shadow 0.3s ease;
 }
 
 .btn:hover,
@@ -625,6 +625,7 @@ button:hover,
     background-color: #fff;
     color: var(--main-color);
     letter-spacing: .2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* Remove conflicting hover styles */
@@ -641,11 +642,18 @@ button:hover,
 /* ... existing code ... */
 
 /* Footer button hover effect */
+.footer .share a,
+.footer .links a {
+    /* ... existing styles ... */
+    transition: background-color 0.3s ease, color 0.3s ease, letter-spacing 0.3s ease, box-shadow 0.3s ease;
+}
+
 .footer .share a:hover,
 .footer .links a:hover {
     background-color: #fff;
     color: var(--main-color);
     letter-spacing: .2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* ... rest of the existing code ... */
