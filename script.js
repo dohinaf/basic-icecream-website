@@ -312,3 +312,28 @@ document.addEventListener('DOMContentLoaded', function() {
     checkScroll(); 
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+    const searchBox = document.querySelector('#search-box');
+    const searchBtn = document.querySelector('.search-form label');
+
+    searchBtn.addEventListener('click', performSearch);
+    searchBox.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            performSearch();
+        }
+    });
+
+    function performSearch() {
+        const searchTerm = searchBox.value.toLowerCase();
+        const menuItems = document.querySelectorAll('.menu .box');
+
+        menuItems.forEach(item => {
+            const itemName = item.querySelector('h3').textContent.toLowerCase();
+            if (itemName.includes(searchTerm)) {
+                item.style.display = 'block';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    }
+});
