@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let navbar = document.querySelector('.navbar');
     let searchForm = document.querySelector('.search-form');
     let cartItem = document.querySelector('.cart-items-container');
+    let myOrderContainer = document.querySelector('.my-order-container');
 
     document.querySelector('#search-btn').onclick = () => {
         searchForm.classList.toggle('active');
@@ -11,6 +12,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelector('#cart-btn').onclick = () => {
         cartItem.classList.toggle('active');
+        myOrderContainer.classList.remove('active');
+        navbar.classList.remove('active');
+        searchForm.classList.remove('active');
+    };
+
+    document.querySelector('#my-order-btn').onclick = () => {
+        myOrderContainer.classList.toggle('active');//Order container shown
+        cartItem.classList.remove('active');
         navbar.classList.remove('active');
         searchForm.classList.remove('active');
     };
@@ -30,15 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
         button.style.setProperty('--y', `${y}px`);
     }
 
-    let myOrderContainer = document.querySelector('.my-order-container');
-
-    document.querySelector('#my-order-btn').onclick = () => {
-        myOrderContainer.classList.toggle('active');
-        navbar.classList.remove('active');
-        searchForm.classList.remove('active');
-        cartItem.classList.remove('active');
-    };
-
     window.onscroll = () => {
         navbar.classList.remove('active');
         searchForm.classList.remove('active');
@@ -52,6 +52,7 @@ let cart = [];
 // Function to add items to cart
 function addToCart(productName, price) {
     cart.push({ name: productName, price: price });
+    alert(`Product ${productName} added to cart`);//Added alert message to notify that item has been added
     displayCart();
 }
 

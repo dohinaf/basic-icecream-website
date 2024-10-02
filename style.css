@@ -102,6 +102,20 @@ button:hover {
     z-index: 0;
 }
 
+/*Added css to make the My order button to look same as the rest of the nav buttons*/
+#my-order-btn{
+    border: none;
+    margin: 0px 0px 1px;
+    font-size: 1.6rem;
+    background-color: transparent !important;
+    animation: none !important;
+}
+
+#my-order-btn:hover{
+    letter-spacing: 0rem;
+}
+/*changes end*/
+
 .animated-button:hover::before {
     width: 300%;
     height: 300%;
