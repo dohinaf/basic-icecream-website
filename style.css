@@ -608,3 +608,44 @@ footer .credit {
         font-size: 50%;
     }
 }
+
+/* Global button styles */
+.btn,
+button,
+.header .cart-items-container button,
+.order-actions button {
+    /* ... existing styles ... */
+    transition: background-color 0.3s ease, color 0.3s ease, letter-spacing 0.3s ease;
+}
+
+.btn:hover,
+button:hover,
+.header .cart-items-container button:hover,
+.order-actions button:hover {
+    background-color: #fff;
+    color: var(--main-color);
+    letter-spacing: .2rem;
+}
+
+/* Remove conflicting hover styles */
+.header .cart-items-container button:hover {
+    background-color: #fff;
+    color: var(--main-color);
+}
+
+.order-actions button:hover {
+    background-color: #fff;
+    color: var(--main-color);
+}
+
+/* ... existing code ... */
+
+/* Footer button hover effect */
+.footer .share a:hover,
+.footer .links a:hover {
+    background-color: #fff;
+    color: var(--main-color);
+    letter-spacing: .2rem;
+}
+
+/* ... rest of the existing code ... */
