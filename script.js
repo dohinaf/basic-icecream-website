@@ -15,6 +15,30 @@ document.addEventListener('DOMContentLoaded', () => {
         searchForm.classList.remove('active');
     };
 
+    // Animated button functionality
+    if (animatedButton) {
+        animatedButton.addEventListener('mouseenter', handleButtonMouseEffect);
+        animatedButton.addEventListener('mouseleave', handleButtonMouseEffect);
+    }
+
+    function handleButtonMouseEffect(e) {
+        const button = e.currentTarget;
+        const rect = button.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        button.style.setProperty('--x', `${x}px`);
+        button.style.setProperty('--y', `${y}px`);
+    }
+
+    let myOrderContainer = document.querySelector('.my-order-container');
+
+    document.querySelector('#my-order-btn').onclick = () => {
+        myOrderContainer.classList.toggle('active');
+        navbar.classList.remove('active');
+        searchForm.classList.remove('active');
+        cartItem.classList.remove('active');
+    };
+
     window.onscroll = () => {
         navbar.classList.remove('active');
         searchForm.classList.remove('active');
@@ -51,6 +75,7 @@ function displayCart() {
 
     cartItemsElement.innerHTML = cartItemsHTML;
     totalElement.textContent = `Total: $${total.toFixed(2)}`;
+    displayOrder();
 }
 
 // Function to simulate checkout
@@ -68,5 +93,45 @@ function checkout() {
     displayCart();
 }
 
+function displayOrder() {
+    const orderDetailsElement = document.getElementById('order-details');
+    if (cart.length === 0) {
+        orderDetailsElement.innerHTML = '<p>No active order.</p>';
+        return;
+    }
 
-											
+    let orderHTML = '<h3>Current Order:</h3><ul>';
+    cart.forEach((item, index) => {
+        orderHTML += `<li>${item.name} - $${item.price.toFixed(2)}</li>`;
+    });
+    orderHTML += '</ul>';
+
+    const total = cart.reduce((sum, item) => sum + item.price, 0);
+    orderHTML += `<p><strong>Total: $${total.toFixed(2)}</strong></p>`;
+
+    orderDetailsElement.innerHTML = orderHTML;
+}
+
+function trackOrder() {
+    if (cart.length === 0) {
+        alert('No active order to track.');
+        return;
+    }
+    // Simulating order tracking
+    alert('Your order is being prepared and will be delivered soon!');
+}
+
+function editOrder() {
+    if (cart.length === 0) {
+        alert('No active order to edit.');
+        return;
+    }
+    // For simplicity, we'll just clear the cart and allow the user to add items again
+    if (confirm('Do you want to clear your current order and start over?')) {
+        cart = [];
+        displayCart();
+        displayOrder();
+        alert('Your order has been cleared. You can now add new items.');
+    }
+}
+displayOrder();
