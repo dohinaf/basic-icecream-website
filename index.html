@@ -35,22 +35,25 @@
 </nav>
 
         <div class="icons">
+            <div class = "fas fa-heart" id = "wishlist-btn"></div>
             <div class="fas fa-search" id="search-btn"></div>
             <div class="fas fa-shopping-cart" id="cart-btn"></div>
         </div>
-
         <div class="search-form">
             <input type="search" id="search-box" placeholder="Search...">
             <label for="search-box" class="fas fa-search"></label>
         </div>
-
+        <div class="wishlist-container">
+            <ul id="wishlistItems"></ul>
+            <button onclick="clearWishlist()">Clear Wishlist</button>
+        </div>
         <div class="cart-items-container">
             <div class="cart">
                 <ul id="cartItems">
                     <!-- Cart items will be displayed here -->
                 </ul>
                 <h3>
-                    <div id="total">Total:$0.00 
+                    <div id="total">Total:$0.00
                     </div>
                 </h3>
                 <button onclick="checkout()">Checkout</button>
@@ -113,6 +116,7 @@
                 <h3>Nutty Butterscotch</h3>
                 <div class="price"> $15.99 <span>20.99</span></div>
                 <button onclick="addToCart('Nutty Butterscotch', 20.00)">Add to Cart</button>
+                <button onclick="addToWishlist('Nutty Butterscoth', 20.00)">Add to wishlist</button>
             </div>
 
             <div class="box">
@@ -120,6 +124,7 @@
                 <h3>Berry Pops</h3>
                 <div class="price"> $15.99 <span>20.99</span></div>
                 <button onclick="addToCart('Berry Pops', 20.00)">Add to Cart</button>
+                <button onclick="addToWishlist('Berry Pops', 20.00)">Add to wishlist</button>
             </div>
 
             <div class="box">
@@ -127,6 +132,7 @@
                 <h3>Cherry Sherbet Pops</h3>
                 <div class="price"> $15.99 <span>20.99</span></div>
                 <button onclick="addToCart('Cherry Sherbet Pops', 20.00)">Add to Cart</button>
+                <button onclick="addToWishlist('Cherry Sherbet Pops', 20.00)">Add to wishlist</button>
             </div>
 
             <div class="box">
@@ -134,6 +140,7 @@
                 <h3>Dripping Vannila</h3>
                 <div class="price"> $15.99 <span>20.99</span></div>
                 <button onclick="addToCart('Dripping Vannila', 20.00)">Add to Cart</button>
+                <button onclick="addToWishlist('Dripping Vannila', 20.00)">Add to wishlist</button>
             </div>
 
             <div class="box">
@@ -141,6 +148,7 @@
                 <h3>Very Berry Strawberry</h3>
                 <div class="price"> $15.99 <span>20.99</span></div>
                 <button onclick="addToCart('Very Berry Strawberry', 20.00)">Add to Cart</button>
+                <button onclick="addToWishlist('Very Berry Strawberry', 20.00)">Add to wishlist</button>
             </div>
 
             <div class="box">
@@ -148,6 +156,7 @@
                 <h3>Rainbow Classic Cone</h3>
                 <div class="price"> $15.99 <span>20.99</span></div>
                 <button onclick="addToCart('Rainbow Classic Cone', 20.00)">Add to Cart</button>
+                <button onclick="addToWishlist('Rainbow Classic Cone', 20.00)">Add to wishlist</button>
             </div>
 
             <div class="box">
@@ -155,6 +164,7 @@
                 <h3>Orange Pops</h3>
                 <div class="price"> $15.99 <span>20.99</span></div>
                 <button onclick="addToCart('Orange Pops', 20.00)">Add to Cart</button>
+                <button onclick="addToWishlist('Orange Pops', 20.00)">Add to wishlist</button>
             </div>
 
             <div class="box">
@@ -162,6 +172,7 @@
                 <h3>Choco-Hazel Pops</h3>
                 <div class="price"> $15.99 <span>20.99</span></div>
                 <button onclick="addToCart('Choco-Hazel Pops', 20.00)">Add to Cart</button>
+                <button onclick="addToWishlist('Choco-Hazel Pops', 20.00)">Add to wishlist</button>
             </div>
 
             <div class="box">
@@ -169,6 +180,7 @@
                 <h3>Very Very Peachy</h3>
                 <div class="price"> $15.99 <span>20.99</span></div>
                 <button onclick="addToCart('Very Very Peachy', 20.00)">Add to Cart</button>
+                <button onclick="addToWishlist('Very Very Peachy', 20.00)">Add to wishlist</button>
             </div>
 
         </div>
