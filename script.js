@@ -36,8 +36,18 @@ let cart = [];
 
 // Function to add items to cart
 function addToCart(productName, price) {
-    cart.push({ name: productName, price: price });
+
+    let existingCartItem = cart.find(item => item?.name == productName);
+    if(existingCartItem){
+        existingCartItem.price= existingCartItem.price + price;
+        existingCartItem.No= existingCartItem.No +1
+        
+    }
+    else{
+    cart.push({ name: productName, No: 1,price: price});
+    }
     displayCart();
+
 }
 
 // Function to remove items from cart
@@ -87,7 +97,8 @@ function displayOrder() {
 
     let orderHTML = '<h3>Current Order:</h3><ul>';
     cart.forEach((item, index) => {
-        orderHTML += `<li>${item.name} - $${item.price.toFixed(2)}</li>`;
+        cartItemsHTML += `<li>${item.name} ( ${item.No} ) - $${item.price.toFixed(2)} <button onclick="removeFromCart(${index})">Remove</button></li>`;
+        total += item.price;
     });
     orderHTML += '</ul>';
 
