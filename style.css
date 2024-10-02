@@ -49,88 +49,36 @@ section {
     padding: 2rem 7%;
 }
 
-.btn {
-    margin-top: 1rem;
-    display: inline-block;
-    padding: .7rem 1.4rem;
-    font-size: 1.4rem;
-    font-weight: bold;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    color: var(--text-color);
-    background-color: var(--background-color);
-    cursor: pointer;
-    border-radius: 0.5rem;
-    /*transition: transform 0.3s ease;*/
-}
-
-button {
-    margin-top: 1rem;
-    display: inline-block;
-    padding: .7rem 1.4rem;
-    font-size: 1.4rem;
-    font-weight: bold;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    color: var(--text-color);
-    /*background: var(--main-color);*/
-    cursor: pointer;
-    border-radius: 0.5rem;
-    /*transition: transform 0.3s ease;*/
-}
-
-.btn:hover {
-    transform: scale(1.009);
-}
-
-button:hover {
-    transform: scale(1.009);
-}
 
 .animated-button {
-    position: relative;
-    padding: 10px 20px;
-    font-size: 16px;
-    color: var(--text-color);
-    background-color: #d4af37; 
-    border: none;
-    border-radius: 5px;
-    outline: none;
+    width: fit-content;
+    padding: 5px 20px 5px 20px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    border: var(--main-color) solid 3px;
+    box-shadow: rgba(0, 0, 0, 1) 5px 5px 0px;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to left, var(--main-color) 50%, white 50%);
+    background-size: 200% 100%;
+    background-position: right;
+    transition: all 0.4s ease-in-out;
+    border-radius: 0px;
+    font-size: large;
+}
+
+.animated-button:hover {
+    user-select: none;
+    background-position: left;
     cursor: pointer;
-    overflow: hidden;
-    transition: color 0.8s;
-    z-index: 1;
+    color: var(--main-color);
 }
 
-.animated-button::before {
-    content: '';
-    position: absolute;
-    top: var(--y, 50%);
-    left: var(--x, 50%);
-    width: 0;
-    height: 0;
-    background-color: var(--background-color);
-    transition: width 0.8s, height 0.8s, top 0.8s, left 0.8s;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 0;
-}
-
-/*Added css to make the My order button to look same as the rest of the nav buttons*/
-#my-order-btn{
-    border: none;
-    margin: 0px 0px 1px;
-    font-size: 1.6rem;
-    background-color: transparent !important;
-    animation: none !important;
-}
-
-#my-order-btn:hover{
-    letter-spacing: 0rem;
-}
-/*changes end*/
-
-.animated-button:hover::before {
-    width: 300%;
-    height: 300%;
+.animated-button:active {
+    box-shadow: rgba(251, 250, 250, 0.982) 1.95px 1.95px 2.6px;
+    transform: translateY(4px);  /* Button pushes inside */
+    background-position: left;   /* Keep the gradient transition on click */
+    transition: all 0.1s ease;   /* Faster feedback when clicked */
 }
 
 .animated-button span{
@@ -138,10 +86,19 @@ button:hover {
     z-index: 1;
     display: inline-block;
     transition: color 0.8s;
+    color: white;
 }
 
 .animated-button:hover span {
-    color: var(--text-color);
+    color: var(--main-color);
+}
+.box button {
+    margin-top: 1rem;
+    display: inline-block;
+    padding: .9rem 3rem;
+    font-size: 1.7rem;
+    cursor: pointer;
+    border-radius: 0.2rem;
 }
 
 /*wishlist styles */
