@@ -44,8 +44,8 @@ body {
 section {
     padding: 2rem 7%;
     opacity: 0; /* Initially hidden for animation */
-    transform: translateY(20px); /* Start slightly lower */
-    transition: opacity 0.03s ease, transform 0.6s ease; /* Smooth transition */
+    transform: translateY(10px); /* Start slightly lower */
+    transition: opacity 0.6s ease, transform 0.6s ease; /* Smooth transition */
 }
 
 section.visible {
@@ -266,6 +266,23 @@ button:hover {
     text-shadow: 0 0 5px #fff; 
 }
 
+.header .navbar a::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -5px; /* Position below text */
+    width: 0;
+    height: 2px;
+    background: var(--main-color);
+    transition: width 0.3s ease, left 0.3s ease; /* Smooth transition for underline */
+}
+
+.header .navbar a:hover::after {
+    width: 100%; /* Extend underline on hover */
+    left: 0; /* Reset left position */
+}
+
+
 .header .icons {
     display: flex;
     align-items: center;
@@ -282,6 +299,7 @@ button:hover {
 .header .icons div:hover {
     color: var(--main-color);
     transform: scale(1.2); /* Scale effect on icon hover */
+    
 }
 
 #menu-btn {
