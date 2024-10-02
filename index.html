@@ -12,7 +12,9 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    
 
 </head>
 
@@ -111,7 +113,7 @@
 
     <section class="menu" id="menu">
         <h1 class="heading"> our <span> menu</span></h1>
-        <div class="box-container">
+        <div class="box-container" >
 
             <div class="box">
                 <img src="https://plus.unsplash.com/premium_photo-1678198786405-28e947bb8a12" alt="">
@@ -121,7 +123,7 @@
                 <button onclick="addToWishlist('Nutty Butterscoth', 20.00)">Add to wishlist</button>
             </div>
 
-            <div class="box">
+            <div class="box" >
                 <img src="https://images.unsplash.com/photo-1488900128323-21503983a07e" alt="">
                 <h3>Berry Pops</h3>
                 <div class="price"> $15.99 <span>20.99</span></div>
@@ -129,7 +131,7 @@
                 <button onclick="addToWishlist('Berry Pops', 20.00)">Add to wishlist</button>
             </div>
 
-            <div class="box">
+            <div class="box" >
                 <img src="https://images.unsplash.com/photo-1633933037611-f26e54366832" alt="">
                 <h3>Cherry Sherbet Pops</h3>
                 <div class="price"> $15.99 <span>20.99</span></div>
@@ -214,7 +216,21 @@
 </section>
 
 <!--Blogs Section Ends Here-->
-
+<section>
+    <div class="reviews">
+        <h1 class="heading"> our <span> reviews</span></h1>
+    </div>
+    <div class="review-box">
+        <div class="box1">
+            <img src="website photo (1).png" alt="" height="70" width="70">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, quis ea ipsa odit molestias atque libero optio maxime! Facilis, recusandae!</p>
+        </div>
+        <div class="box1">
+            <img src="website photo (1).png" alt="" height="70" width="70">
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia eaque eveniet quod ad vitae est nam debitis provident quas quo!</p>
+        </div>
+    </div>
+</section>
 
 <!-- Payment Section Starts Here -->
 <section id="payment-section" class="payment-section" style="display: none;">
@@ -346,7 +362,10 @@
     
         });
     </script>
-    
+    <script>
+        AOS.init();
+      </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     
 
 </body>
