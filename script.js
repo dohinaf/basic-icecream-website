@@ -67,6 +67,8 @@ function checkout() {
     cart = [];
     displayCart();
 }
+// review part contributed
+
 
 
 											
