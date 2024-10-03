@@ -518,7 +518,140 @@ button:hover {
 
 /* Blogs Styles */
 
-.heading{
+
+.blogs {
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+    font-family: 'Poppins', sans-serif;  /* Modern and clean font */
+    animation: fadeIn 1.5s ease-out;
+}
+
+/* Heading style */
+.heading {
+    font-size: 3.5rem;
+    font-weight: 800;
+    text-align: center;
+    letter-spacing: 3px;
+    color: #333;  /* Darker color for better contrast */
+    margin-bottom: 40px;
+    animation: slideInFromLeft 1s ease-out;
+}
+
+.heading span {
+    color: #ff5e5e;  /* Red accent on 'span' */
+}
+
+/* Subheading styling */
+.content h3 {
+    font-size: 2.5rem;
+    color: #333;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 30px;
+    line-height: 1.4;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Row styling */
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    gap: 20px;  /* Adds space between image and text */
+    animation: fadeIn 1.5s ease-out;
+}
+
+/* Image styling */
+.row .image {
+    width: 45%;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.row .image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Paragraph text styling */
+.row p {
+    width: 50%;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #e27070;  
+    
+    font-family: 'Roboto', sans-serif;
+    text-align: justify;
+    transition: transform 0.3s ease;
+   
+}
+
+.row p:hover {
+    transform: translateX(10px);
+}
+
+/* Main paragraph styling */
+.content p {
+    font-size: 20px;
+    line-height: 1.8;
+    color: #f7d3d9;
+    
+    font-family: 'Roboto', sans-serif;
+    margin-top: 20px;
+    text-align: justify;
+   
+}
+
+/* Button styling */
+.center {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #ff5e5e;  /* Matching the heading accent */
+    color: white;
+    padding: 15px 35px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+    background-color: #e14d4d;
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+
+
+
+/* .heading{
 	text-align: center;
 	color: #fff;
 	text-transform: uppercase;
@@ -874,7 +1007,7 @@ button:hover {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-}
+} */
 
 
 
