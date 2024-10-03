@@ -185,9 +185,7 @@ button:hover {
     border: var(--border);
 }
 
-.wishlist .box-container .box img {
-    height: 20rem;
-}
+
 
 .wishlist .box-container .box h3 {
     color: #fff;
@@ -1186,4 +1184,41 @@ input[type="radio"] {
     opacity: 1;
     transform: translateX(0);
 }
+.box{
+    transition: all 0.5s ease-in-out;
+}
+.box:hover{
+    border-radius: 10px;
+    transform: scale(0.9);
+    border: 2px solid white;
+    box-shadow: rgba(236, 234, 234, 0.25) 0px 50px 100px -20px, rgba(160, 158, 158, 0.3) 0px 30px 60px -30px, rgba(188, 188, 188, 0.35) 0px -2px 6px 0px inset;
+}
+.navbar a{
+    transition: all 0.2s ease-in;
+}
+.navbar a:hover{
+  transform: scale(1.1);
+}
+.review-box{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 
+}
+.box1{
+   
+    border: 1px solid #d3ad7f;
+    border-radius: 10px;
+    height: 200px;
+    width: 30%;
+    align-items: center;
+    text-align: center;
+    color: #d3ad7f;
+    font-size: 15px;
+    padding: 20px 20px;
+    transition: all 0.5s ease-in-out;
+}
+.box1:hover{
+     transform: scale(1.1);
+     border-color: #eee;
+}
