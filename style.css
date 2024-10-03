@@ -66,11 +66,12 @@ button {
     font-size: 1.4rem;
     font-weight: bold;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    color: #fff;
+    color: #050505;
     /*background: var(--main-color);*/
     cursor: pointer;
     border-radius: 0.5rem;
     /*transition: transform 0.3s ease;*/
+    border-radius: 25px;
 }
 
 .btn:hover {
@@ -133,11 +134,12 @@ button:hover {
     top: calc(100% + 1rem);
     right: 7%;
     width: 400px;
-    background: var(--black);
+    background: #00000045;
     padding: 2rem;
     display: none;
     box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);
     z-index: 100;
+    border-radius: 25px;
 }
 
 .wishlist-container.active {
