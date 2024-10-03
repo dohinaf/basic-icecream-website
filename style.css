@@ -4,6 +4,10 @@
     --black: #13131a;
     --bg: #010103;
     --border: 0.1rem solid rgba(255, 255, 255, 0.3);
+    --primary-color: #ff226f;
+    --primary-color-dark: #fe6769;
+    --text-dark: #333333;
+    --white: #ffffff;
 }
 
 * {
@@ -638,6 +642,243 @@ button:hover {
 #inbox{
     background-color: rgb(94, 31, 42);
 }
+/*review section style contributed*/
+/* Review Section Adjusted Styles */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 3rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 7rem; /* Increased gap for more spacing */
+    background-color: #222; /* Kept the dark background */
+    border-radius: 1rem;
+    margin-bottom: 5rem; /* Added margin between footer */
+}
+
+.container__left h1 {
+    margin-bottom: 3rem;
+    font-size: 4.5rem; /* Increased font size */
+    font-weight: 700;
+    color: #ffbe0b; /* Brighter color */
+}
+
+.container__left p {
+    color: #fff; /* Brighter text */
+    margin-bottom: 2rem;
+    font-size: 2rem; /* Increased font size */
+    line-height: 2.8rem; /* Adjusted line height for readability */
+}
+
+.container__left button {
+    padding: 1.5rem 3rem; /* Increased padding for a bigger button */
+    margin-top: 2rem;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(to right, #ff4e50, #fc913a); /* Brighter gradient */
+    color: var(--white);
+    font-size: 1.8rem; /* Increased button font size */
+    cursor: pointer;
+}
+
+.container__right {
+    display: grid;
+    gap: 4rem; /* Increased gap for larger cards */
+}
+
+.card {
+    padding: 8rem; /* Increased padding for bigger cards */
+    display: flex;
+    align-items: flex-start;
+    gap: 5rem; /* More space between image and content */
+    background-color: #333; /* Darker background */
+    border-radius: 1.5rem;
+    box-shadow: 8px 8px 40px rgba(0, 0, 0, 0.3); /* Stronger shadow for depth */
+    cursor: pointer;
+}
+
+.card img {
+    max-width: 120px; /* Increased size of the image */
+    border-radius: 100%;
+    border: 2px solid #ffbe0b; /* Added border */
+}
+
+.card__content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; /* Adjusted gap for better spacing */
+}
+
+.card__content span i {
+    font-size: 3rem; /* Increased icon size */
+    color: #ffbe0b; /* Brighter icon color */
+}
+
+.card__details p {
+    font-style: italic;
+    color: #ddd; /* Lighter text */
+    margin-bottom: 1.5rem;
+    font-size: 2rem; /* Increased size */
+    line-height: 2.5rem;
+}
+
+.card__details h4 {
+    text-align: right;
+    color: #ffbe0b; /* Brighter color */
+    font-size: 2rem; /* Increased size */
+    font-weight: 700;
+}
+
+@media (width < 900px) {
+    .container {
+        grid-template-columns: repeat(1, 1fr);
+        margin-bottom: 4rem;
+    }
+    
+    .container__right {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (width < 750px) {
+    .container__right {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+/*review adding section contributed*/
+
+.review-section {
+    max-width: 1200px;
+    margin: auto;
+    padding: 4rem 2rem;
+    background-color: #222; /* Dark background */
+    border-radius: 1rem;
+    margin-bottom: 5rem;
+}
+
+.review-container {
+    display: flex;
+    max-width: 1200px;
+    margin: auto;
+    align-items: flex-start;
+    gap: 3rem; /* Increased gap for better spacing */
+}
+
+.review-left {
+    flex: 1;
+}
+
+.ice-cream-image {
+    width: 100%; /* Make the image responsive */
+    border-radius: 10px; /* Rounded edges */
+    box-shadow: 8px 8px 40px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+}
+
+.review-right {
+    flex: 2; /* More space for the form */
+    color: #fff;
+    padding: 2rem; /* Padding for the form */
+    background-color: #333; /* Darker background for the form */
+    border-radius: 1rem; /* Rounded edges */
+}
+
+.review-right h2 {
+    font-size: 2.5rem; /* Adjusted font size */
+    margin-bottom: 2rem; /* Increased margin for more spacing */
+    color: #ffbe0b; /* Brighter color */
+}
+
+.review-right label {
+    font-size: 1.6rem; /* Increased font size */
+    margin-top: 2rem; /* Increased margin for spacing */
+    color: #ffbe0b; /* Brighter color */
+}
+
+.review-right input, 
+.review-right textarea {
+    width: 100%;
+    padding: 1.5rem; /* Increased padding */
+    margin-top: 1rem; /* Increased margin */
+    border-radius: 8px; /* More rounded corners */
+    border: 2px solid #ffbe0b; /* Brighter border */
+    font-size: 1.4rem; /* Increased font size */
+    color: #333; /* Darker text color */
+    background-color: #fff; /* Light background */
+    margin-bottom:1rem;
+}
+
+.submit-button {
+    margin-top: 1.5rem; /* Increased margin for spacing */
+    padding: 1rem 2.5rem; /* Increased button padding */
+    font-size: 1.6rem; /* Increased font size */
+    color: #fff; /* White text */
+    background: linear-gradient(to right, #ff4e50, #fc913a); /* Gradient background */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded edges */
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background: #ffbe0b; /* Change color on hover */
+}
+
+/*Blogs styles contributed*/
+.blogs {
+    padding: 4rem 2rem;
+    background-color: #222; /* Dark background */
+    color: #fff; /* White text */
+}
+
+.blogs .heading {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #ffbe0b; /* Brighter heading color */
+}
+
+.blog-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem; /* Space between blog cards */
+}
+
+.blog {
+    background-color: #333; /* Darker background for blog cards */
+    border-radius: 1rem;
+    padding: 2rem;
+    width: 500px; /* Fixed width for consistency */
+    box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+}
+
+.blog-image {
+    width: 70%; /* Responsive image */
+    border-radius: 1rem;
+}
+
+.blog h3 {
+    font-size: 2rem; /* Blog title size */
+    color: #ffbe0b; /* Brighter color for visibility */
+    margin:5px;
+}
+
+.blog p {
+    font-size: 1.7rem; /* Blog content size */
+    margin: 1rem 0; /* Margin for spacing */
+    
+}
+
+.btn {
+    background: linear-gradient(to right, #ff4e50, #fc913a); /* Button gradient */
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
 
 
 /* Footer Styles */
