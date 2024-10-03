@@ -242,6 +242,8 @@ function showPaymentDetails() {
         codMessage.style.display = 'block'; 
     }
 }
+// review part contributed
+
 
 
 function confirmPayment() {
