@@ -1184,6 +1184,94 @@ input[type="radio"] {
     opacity: 1;
     transform: translateX(0);
 }
+
+/* Contact Form Styles */
+/* Ensure full height for the main content */
+html, body {
+    height: 100%; /* Ensure full height */
+    margin: 0; /* Remove default margin */
+}
+
+/* Body Flexbox setup */
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Main content flex setup */
+.main-content {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    flex: 1; /* Take up remaining space */
+}
+
+/* Contact Form Styles */
+.contact-section {
+    max-width: 800px;
+    margin: 20px; /* Add margin for small screens */
+    padding: 40px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.contact-section h2 {
+    text-align: center;
+    font-size: 2.5em;
+    color: var(--main-color);
+    margin-bottom: 20px;
+}
+
+.contact-section label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1.2em;
+    color: var(--black);
+}
+
+.contact-section input[type="text"],
+.contact-section input[type="email"],
+.contact-section textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid var(--main-color);
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.contact-section textarea {
+    height: 150px; /* Set height for textarea */
+    width: 500px;
+}
+
+.contact-section .submit-button {
+    background-color: var(--main-color);
+    color: var(--black);
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: background-color 0.3s, transform 0.3s;
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.contact-section .submit-button:hover {
+    background-color: #fff;
+    transform: translateY(-3px);
+}
+
+/* Footer Styling */
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--footer-color); /* Add your footer color here */
+}
+
 .box{
     transition: all 0.5s ease-in-out;
 }
