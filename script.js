@@ -193,11 +193,10 @@ document.getElementById('checkout-button').addEventListener('click', checkout);
 
 function updateOrderSummary() {
     // Fetch order items and total from cart 
-    const totalItems = 3; 
-    const totalPrice = 45.99; 
-
+    const totlaPrice = cart.reduce((sum, item) => sum + item.price, 0);
+    const totalItems = totlaPrice/15.99; 
     document.getElementById('order-items').textContent = `Total Items: ${totalItems}`;
-    document.getElementById('order-total').textContent = `Total Price: $${totalPrice}`;
+    document.getElementById('order-total').textContent = `Total Price: $${totlaPrice}`;
 }
 
 // Payment method selection logic
