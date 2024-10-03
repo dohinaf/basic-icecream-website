@@ -312,3 +312,33 @@ document.addEventListener('DOMContentLoaded', function() {
     checkScroll(); 
 });
 
+
+//Image compression
+const lazyLoad = () => {
+    const images = document.querySelectorAll('img.lazy');
+    images.forEach((image) => {
+      image.src = image.dataset.src;
+      image.classList.remove('lazy');
+    });
+  };
+  
+  document.addEventListener('DOMContentLoaded', lazyLoad);
+
+//Minify and Compress Files
+const gzip = require('gulp-gzip');
+
+gulp.task('compress', () => {
+  return gulp.src(['*.css', '*.js', '*.html'])
+    .pipe(gzip())
+    .pipe(gulp.dest('dist'));
+});
+
+// Optimize Server and Network
+const netlify = require('netlify');
+
+netlify.config({
+  cdn: {
+    enabled: true,
+  },
+});
+
