@@ -120,3 +120,18 @@ function editOrder() {
     }
 }
 displayOrder();
+
+
+document.querySelector('.menu-btn').addEventListener('click', function () {
+    const sliderBox = this.querySelector('.slider-box');
+    sliderBox.style.display = sliderBox.style.display === 'block' ? 'none' : 'block';
+});
+const menuBtn = document.getElementById('menu-btn');
+const navbar = document.querySelector('.navbar');
+
+menuBtn.addEventListener('click', () => {
+    navbar.classList.toggle('active');
+});
+
+
+

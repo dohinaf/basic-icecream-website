@@ -90,33 +90,51 @@ button:hover {
 
 .header .logo img {
     height: 6rem;
+    margin-left: 2rem;
 }
 
 .header .navbar {
     display: flex;
     align-items: center;
+    position: relative; /* Ensure proper positioning */
+    z-index: 1000; /* Ensure it stays above other elements */
 }
 
 .header .navbar a {
     margin: 0 1rem;
     font-size: 1.6rem;
     color: #fff;
+    position: relative; /* Enable relative positioning for hover effects */
 }
 
 .header .navbar a:hover {
     color: var(--main-color);
 }
 
+.header .navbar.active {
+    position: absolute; /* Position for dropdown */
+    top: calc(100% + 1rem); /* Adjust position below header */
+    right: 0; /* Align to the right */
+    background: var(--black); /* Background color for dropdown */
+    width: 100%; /* Full width */
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start; /* Align items to the left */
+    padding: 2rem 0; /* Add padding for better spacing */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* Add shadow for depth */
+    transition: all 0.3s ease; /* Smooth transition for dropdown */
+}
+
 .header .icons {
     display: flex;
     align-items: center;
+    /* padding-left:40rem; */
 }
 
 .header .icons div {
     color: #fff;
     cursor: pointer;
     font-size: 2.5rem;
-    margin-left: 2rem;
+    margin-left: 3.4rem;
 }
 
 .header .icons div:hover {
@@ -133,7 +151,7 @@ button:hover {
     /* Adjusted to position below header */
     right: 7%;
     background: #fff;
-    width: 20rem;
+    width: 30rem;
     /* Adjusted width for better fit */
     height: auto;
     display: none;
@@ -143,6 +161,9 @@ button:hover {
     /* Added box shadow */
     z-index: 100;
     /* Ensure it's above other content */
+    border: none;
+    border-radius: 25px;
+    margin-left: 2px;
 }
 
 .header .search-form.active {
@@ -232,24 +253,70 @@ button:hover {
 .header .cart-items-container .cart h3 {
     font-size: 1.4rem;
     color: #92866d;
+    
 }
 
 .header .cart-items-container button {
     width: 100%;
     display: block;
-    margin-top: 1rem;
+    /* margin-top: 1rem; */
     padding: 0.8rem;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     color: #fff;
     background-color: var(--main-color);
     text-align: center;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    /* transition: background-color 0.1s ease; */
+    margin-left: 10px;
+    border: none;
+    border-radius: 15px;
 }
 
 .header .cart-items-container button:hover {
     background-color: #c49f6a;
 }
+
+/* menu_section */
+.header .slider-box {
+    position: absolute;
+    top: 100%; 
+    right: 0;  
+    width: 200px; 
+    background: var(--bg); 
+    border-top: var(--border);
+    border-right: var(--border);  
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    padding: 1rem;
+    display: none;
+    z-index: 10;
+    color: var(--main-color);
+    border-bottom-left-radius: 8px;
+    
+}
+
+.header .slider-box ul {
+    list-style-type: none; 
+    padding: 0;           
+    margin: 0;            
+}
+
+.header .slider-box li {
+    padding: 1.4rem 0;    
+}
+
+.header .slider-box li a {
+    color: var(--main-color); 
+    transition: color 0.2s; 
+}
+
+.header .slider-box li a:hover {
+    color: #fff; 
+}
+
+
+
+
+
 /* ... existing styles ... */
 
 /* My Order Styles */
