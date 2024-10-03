@@ -946,3 +946,68 @@ input[type="radio"] {
     transform: translateX(0);
 }
 
+/*CSS STYLES*/
+/* Reviews Section CSS */
+.reviews {
+    padding: 2rem;
+    background-color: black;
+    text-align: center;
+}
+
+.reviews .heading {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #d3ad7f;
+}
+
+.reviews-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.review-box {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    margin: 0 1rem;
+    padding: 2rem;
+    min-width: 300px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.review-box img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+.review-box h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.review-box p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+.rating {
+    color: #ffc107;
+}
+
+.rating i {
+    margin: 0 0.1rem;
+    font-size: 1.2rem;
+}
+
+/* GSAP Animations */
+.review-box:hover {
+    transform: scale(1.05);
+}
