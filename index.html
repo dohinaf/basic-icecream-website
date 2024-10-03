@@ -7,6 +7,358 @@
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Responsive Ice Cream Website</title>
+    <link rel="icon" href="https://purepng.com/public/uploads/large/purepng.com-ice-creamice-creamcreamfrozensweet-1411527617895aiuhx.png" type="image/x-icon"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"> <!--Updated to latest version-->
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+</head>
+
+<body>
+
+    <!-- Header Starts Here -->
+    <header class="header">
+
+        <a href="#" class="logo">    
+            <img src="https://purepng.com/public/uploads/large/purepng.com-ice-creamice-creamcreamfrozensweet-1411527617895aiuhx.png"
+                alt="Logo">
+        </a>
+
+        <!-- ... existing code ... -->
+<nav class="navbar">
+    <a href="#home" id="home-link">Home</a>
+    <a href="#about" id="about-link">About</a>
+    <a href="#menu" id="menu-link">Menu</a>
+    <a href="#review" id="review-link">Review</a>
+    <a href="#blogs" id="blogs-link">Blogs</a>
+    <a href="#" id="my-order-btn">My Order</a>
+</nav>
+
+        <div class="icons">
+            <div class = "fas fa-heart" id = "wishlist-btn"></div>
+            <div class="fas fa-search" id="search-btn"></div>
+            <div class="fas fa-shopping-cart" id="cart-btn"></div>
+        </div>
+        <div class="search-form">
+            <input type="search" id="search-box" placeholder="Search...">
+            <label for="search-box" class="fas fa-search"></label>
+        </div>
+        <div class="wishlist-container">
+            <ul id="wishlistItems"></ul>
+            <button onclick="clearWishlist()">Clear Wishlist</button>
+        </div>
+        <div class="cart-items-container">
+            <div class="cart">
+                <ul id="cartItems">
+                    <!-- Cart items will be displayed here -->
+                </ul>
+                <h3>
+                    <div id="total">Total:$0.00
+                    </div>
+                </h3>
+                <button id="checkout-button" onclick="checkout()">Checkout</button>
+            </div>
+        </div>
+        <div class="my-order-container">
+            <h2>My Order</h2>
+            <div id="order-details">
+                <!-- Order details will be displayed here -->
+            </div>
+            <div class="order-actions">
+                <button onclick="trackOrder()">Track Order</button>
+                <button onclick="editOrder()">Edit Order</button>
+            </div>
+        </div>
+
+    </header>
+    <!-- Header Ends Here -->
+
+    <!-- Home Section Starts Here -->
+    <section class="home" id="home">
+        <div class="content">
+            <h3>Taste the sweetness with every bite</h3>
+            <p>Amazing ice creams delivered straight to you! Enjoy our fresh and chilled delights, made with love.</p>
+            <button class="animated-button"><a href="#menu"><span>Get yours now!</span></a></button>
+        </div>
+    </section>
+    <!-- Home Section Ends Here -->
+
+
+    <!-- About Section Starts Here -->
+    <section class="about" id="about">
+        <h1 class="heading"> <span> about</span> us</h1>
+        <div class="row">
+            <div class="image">
+                <img src="https://plus.unsplash.com/premium_photo-1681488352667-c4d00b903416" alt="">
+            </div>
+            <div class="content">
+                <h3> What makes our ice cream special?</h3>
+                <p>Arctic Delights handpicks ingredients of the highest quality to make ice creams that you'll love. We
+                    ensure that our ice creams can cool down your days and satisfy all your cravings. </p>
+                <p>Choose your pick from a variety of flavours, select custom toppings, and much more! All of this at
+                    Arctic Delights. </p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- About Section Ends Here -->
+
+    <!-- Menu Section Starts Here -->
+
+    <section class="menu" id="menu">
+        <h1 class="heading"> our <span> menu</span></h1>
+        <div class="box-container">
+
+            <div class="box">
+                <img src="https://plus.unsplash.com/premium_photo-1678198786405-28e947bb8a12" alt="">
+                <h3>Nutty Butterscotch</h3>
+                <div class="price"> $15.99 <span>20.99</span></div>
+                <button onclick="addToCart('Nutty Butterscotch', 20.00)">Add to Cart</button>
+                <button onclick="addToWishlist('Nutty Butterscoth', 20.00)">Add to wishlist</button>
+            </div>
+
+            <div class="box">
+                <img src="https://images.unsplash.com/photo-1488900128323-21503983a07e" alt="">
+                <h3>Berry Pops</h3>
+                <div class="price"> $15.99 <span>20.99</span></div>
+                <button onclick="addToCart('Berry Pops', 20.00)">Add to Cart</button>
+                <button onclick="addToWishlist('Berry Pops', 20.00)">Add to wishlist</button>
+            </div>
+
+            <div class="box">
+                <img src="https://images.unsplash.com/photo-1633933037611-f26e54366832" alt="">
+                <h3>Cherry Sherbet Pops</h3>
+                <div class="price"> $15.99 <span>20.99</span></div>
+                <button onclick="addToCart('Cherry Sherbet Pops', 20.00)">Add to Cart</button>
+                <button onclick="addToWishlist('Cherry Sherbet Pops', 20.00)">Add to wishlist</button>
+            </div>
+
+            <div class="box">
+                <img src="https://images.unsplash.com/photo-1570197788417-0e82375c9371" alt="">
+                <h3>Dripping Vannila</h3>
+                <div class="price"> $15.99 <span>20.99</span></div>
+                <button onclick="addToCart('Dripping Vannila', 20.00)">Add to Cart</button>
+                <button onclick="addToWishlist('Dripping Vannila', 20.00)">Add to wishlist</button>
+            </div>
+
+            <div class="box">
+                <img src="https://images.unsplash.com/photo-1532678465554-94846274c297" alt="">
+                <h3>Very Berry Strawberry</h3>
+                <div class="price"> $15.99 <span>20.99</span></div>
+                <button onclick="addToCart('Very Berry Strawberry', 20.00)">Add to Cart</button>
+                <button onclick="addToWishlist('Very Berry Strawberry', 20.00)">Add to wishlist</button>
+            </div>
+
+            <div class="box">
+                <img src="https://images.unsplash.com/photo-1705103654898-d663145f5f50" alt="">
+                <h3>Rainbow Classic Cone</h3>
+                <div class="price"> $15.99 <span>20.99</span></div>
+                <button onclick="addToCart('Rainbow Classic Cone', 20.00)">Add to Cart</button>
+                <button onclick="addToWishlist('Rainbow Classic Cone', 20.00)">Add to wishlist</button>
+            </div>
+
+            <div class="box">
+                <img src="https://images.unsplash.com/photo-1559340160-146586a4f9b6" alt="">
+                <h3>Orange Pops</h3>
+                <div class="price"> $15.99 <span>20.99</span></div>
+                <button onclick="addToCart('Orange Pops', 20.00)">Add to Cart</button>
+                <button onclick="addToWishlist('Orange Pops', 20.00)">Add to wishlist</button>
+            </div>
+
+            <div class="box">
+                <img src="https://images.unsplash.com/photo-1594305178909-03ab72b8205e" alt="">
+                <h3>Choco-Hazel Pops</h3>
+                <div class="price"> $15.99 <span>20.99</span></div>
+                <button onclick="addToCart('Choco-Hazel Pops', 20.00)">Add to Cart</button>
+                <button onclick="addToWishlist('Choco-Hazel Pops', 20.00)">Add to wishlist</button>
+            </div>
+
+            <div class="box">
+                <img src="https://images.unsplash.com/photo-1499638472904-ea5c6178a300" alt="">
+                <h3>Very Very Peachy</h3>
+                <div class="price"> $15.99 <span>20.99</span></div>
+                <button onclick="addToCart('Very Very Peachy', 20.00)">Add to Cart</button>
+                <button onclick="addToWishlist('Very Very Peachy', 20.00)">Add to wishlist</button>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Menu Section Ends Here -->
+
+
+<!--Blogs Section Starts Here-->
+
+<section class="blogs" id="blogs">
+    <h1 class="heading"> Blo<span>gs</h1>
+    <div class="content">
+        <h3> Never settle for just one scoop</h3><br><br>
+        <div class="row">
+            <img class="image" src="https://t3.ftcdn.net/jpg/05/64/02/34/360_F_564023464_RaZb95D8yFPt2DnxbsYLQaQQ5BSrUImO.jpg" alt="icecream img">
+            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi porta ligula ligula, eu pretium sapien tempor ut. Donec blandit ante sed magna luctus, quis laoreet sapien suscipit. Suspendisse lacinia lorem quis velit ullamcorper ultrices.
+             Maecenas eleifend feugiat enim ut pretium. Nullam eros quam, scelerisque nec mattis imperdiet, molestie ultricies sem. Aliquam vulputate tellus nec auctor dapibus.</p>
+        </div>
+        <p>Mauris arcu velit, dignissim in odio vel, scelerisque porttitor justo. Nunc nisi nulla, molestie nec sollicitudin a, tincidunt 
+            vitae velit. Curabitur lacus erat, hendrerit non orci non, rhoncus placerat purus. Praesent eget nulla enim. Integer porttitor 
+            massa lacinia, condimentum purus eget, porttitor nibh. Integer neque libero, maximus vitae massa nec, imperdiet tempus est. Donec velit nibh,
+            fermentum massa, id placerat sapien. In hac habitasse platea dictumst.</p>
+        <center><a href="#" class="btn">Read More</a></center>
+        <!--Need to add backend if need to add blogs and delete it. there require an admin pannel-->
+    </div>
+    
+</section>
+
+<!--Blogs Section Ends Here-->
+
+
+<!-- Payment Section Starts Here -->
+<section id="payment-section" class="payment-section" style="display: none;">
+    <h1 class="heading">Payment <span>Details</span></h1>
+
+    <div class="order-summary">
+        <h2>Order Summary</h2>
+        <p id="order-items">Total Items: 3</p>
+        <p id="order-total">Total Price: $45.99</p>
+    </div>
+
+    <div class="payment-methods">
+        <h2>Select Payment Method</h2>
+        <label><input type="radio" name="payment-method" value="credit-card" onchange="showPaymentDetails()"> Credit/Debit Card</label>
+        <label><input type="radio" name="payment-method" value="paypal" onchange="showPaymentDetails()"> PayPal</label>
+        <label><input type="radio" name="payment-method" value="cod" onchange="showPaymentDetails()"> Cash on Delivery</label>
+    </div>
+
+    <div class="payment-details" id="payment-details">
+        <h2>Payment Details</h2>
+        <div id="card-details" style="display: none;">
+            <label for="card-number">Card Number:</label>
+            <input type="text" id="card-number" placeholder="Enter card number" required>
+
+            <label for="card-expiry">Expiry Date:</label>
+            <input type="text" id="card-expiry" placeholder="MM/YY" required>
+
+            <label for="card-cvc">CVC:</label>
+            <input type="text" id="card-cvc" placeholder="CVC" required>
+        </div>
+        <div id="paypal-details" style="display: none;">
+            <label for="paypal-id">PayPal ID:</label>
+            <input type="text" id="paypal-id" placeholder="Enter your PayPal ID" required>
+        </div>
+        <div id="cod-message" style="display: none;">
+            <p>No payment details needed for Cash on Delivery.</p>
+        </div>
+    </div>
+
+    <div class="billing-address">
+        <h2>Billing Address</h2>
+        <label for="billing-name">Name:</label>
+        <input type="text" id="billing-name" placeholder="Full Name" required>
+
+        <label for="billing-address">Address:</label>
+        <input type="text" id="billing-address" placeholder="Street Address" required>
+
+        <label for="billing-city">City:</label>
+        <input type="text" id="billing-city" placeholder="City" required>
+
+        <label for="billing-zip">ZIP Code:</label>
+        <input type="text" id="billing-zip" placeholder="ZIP Code" required>
+
+        <label for="billing-country">Country:</label>
+        <input type="text" id="billing-country" placeholder="Country" required>
+    </div>
+
+    <button class="payment-button" onclick="confirmPayment()">Confirm Payment</button>
+</section>
+<!-- Payment Section Ends Here -->
+
+
+
+
+
+    <!-- Footer Section Starts Here -->
+
+    <section class="footer" id="footer">
+
+        <div class="share">
+            <a href="#" class="fab fa-facebook-f"></a>
+            <a href="#" target="_blank" class="fa-brands fa-x-twitter"></a>   <!-- Updated X icon-->
+            <a href="#" class="fab fa-instagram"></a>
+            <a href="#" class="fab fa-linkedin"></a>
+            <a href="#" class="fab fa-pinterest"></a>
+        </div>
+
+        <!--  
+<div class="links">
+<a href="#">Home</a>
+<a href="#">About</a>
+<a href="#">Menu</a>
+<a href="#">Review</a>
+<a href="#">Blogs</a>
+</div> -->
+
+        <div class="credit">
+            <p> created by <span> Dohina</span> | all rights reserved
+            <p>
+        </div>
+
+    </section>
+
+    <!-- Footer Section Ends Here -->
+
+    <!-- JavaScript File -->
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    
+          
+    
+       
+    
+            // Animate the search form
+            gsap.from(".search-form", { opacity: 0, x: -100, duration: 1, ease: "power2.out" });
+    
+            // Animate the cart container
+            gsap.from(".cart-items-container", { opacity: 0, y: 100, duration: 1.5, ease: "power2.out" });
+    
+            // Animate the 'My Order' container
+            gsap.from(".my-order-container", { opacity: 0, x: 100, duration: 1.5, ease: "power2.out" });
+    
+            // Animate home section content
+            gsap.from(".home .content h3", { opacity: 0, x: -100, duration: 1.5, delay :0.1, ease: "power2.out" });
+            gsap.from(".home .content p", { opacity: 0, x: -100, duration: 1.5, delay: 0.1, ease: "power2.out" });
+            gsap.from(".home .animated-button", { opacity: 0, x: -100, duration: 1.5, delay: 0.1, ease: "power2.out" });
+    
+            // Animate buttons on hover for scaling effect
+            const buttons = document.querySelectorAll("button");
+            buttons.forEach(button => {
+                button.addEventListener('mouseover', () => {
+                    gsap.to(button, { scale: 1.1, duration: 0.2 });
+                });
+                button.addEventListener('mouseout', () => {
+                    gsap.to(button, { scale: 1, duration: 0.2 });
+                });
+            });
+    
+        });
+    </script>
+    
+    
+
+</body>
+
+</html><!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Ice Cream Website</title>
 
     <!-- Font Awesome CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"> <!--Updated to latest version-->
