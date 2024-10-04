@@ -1235,6 +1235,7 @@ body {
     max-width: 800px;
     margin: 20px; /* Add margin for small screens */
     padding: 40px;
+    padding-bottom: 0;
     background-color: var(--background-color);
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
@@ -1263,14 +1264,31 @@ body {
     border: 1px solid var(--main-color);
     border-radius: 5px;
     font-size: 1em;
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 
 .contact-section textarea {
-    height: 150px; /* Set height for textarea */
-    width: 500px;
+    width: 100%;
+    height: 150px;
+    resize: vertical;
 }
 
-.contact-section .submit-button {
+.contact-section {
+    background-color: rgb(255, 255, 255);
+    color: var(--black);
+    padding-left: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: background-color 0.3s, transform 0.3s;
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.submit-button {
     background-color: var(--background-color);
     color: var(--black);
     padding: 15px 30px;
@@ -1292,7 +1310,7 @@ body {
 /* Footer Styling */
 .footer {
     text-align: center;
-    padding: 20px;
+    padding: 0;
     background-color: var(--background-color); /* Add your footer color here */
 }
 
@@ -1432,5 +1450,37 @@ body {
     transform: translateX(26px);
   }
   
-  /*---------------------*/
+  .contact-page {
+    padding-top: 100px; /* Adjust this value as needed */
+    min-height: calc(100vh - 100px); /* Subtracting footer height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact-section {
+    max-width: 600px;
+    margin: 20 auto;
+    padding: 20px;
+}
+
+.footer {
+    margin-top: auto;
+}
+
+.contact-section input,
+.contact-section textarea {
+    padding: 8px; /* Reduce padding if needed */
+    margin-bottom: 10px; /* Reduce margin if needed */
+}
+
+.contact-section button {
+    padding: 8px 16px; /* Adjust button size if needed */
+}
+
+.contact-section .submit-button {
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+  
   
