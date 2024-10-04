@@ -1,33 +1,89 @@
+<!--Artic delights-->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE-edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Responsive Ice Cream Website</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArcticDelights</title>
+    <link rel="icon" href="https://purepng.com/public/uploads/large/purepng.com-ice-creamice-creamcreamfrozensweet-1411527617895aiuhx.png" type="image/x-icon"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"> <!--Updated to latest version-->
 
-<!-- Font Awesome CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    
 
-<!-- Custom CSS -->
-<link rel="stylesheet" href="style.css">
+    <style>
+        .chatbot-container {
+            position: fixed;
+            bottom: 20px; /* Adjust the distance from the bottom */
+            right: 20px; /* Adjust the distance from the right */
+            z-index: 1000; /* Ensure it's above other elements */
+        }
+
+        .chatbot-button {
+            background-color: #007bff; /* Button color */
+            border: none;
+            border-radius: 50%; /* Makes the button circular */
+            padding: 10px;
+            cursor: pointer;
+            transition: transform 0.3s; /* Animation for hover */
+            position: relative; /* Required for the tooltip */
+        }
+
+        .chatbot-button:hover {
+            transform: scale(1.1); /* Scale up on hover */
+        }
+
+        .tooltip-text {
+            display: none;
+            position: absolute;
+            bottom: 60px; /* Position the tooltip above the button */
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+            white-space: nowrap;
+            z-index: 1001; /* Ensure tooltip is above other elements */
+        }
+
+        .chatbot-button:hover .tooltip-text {
+            display: block; /* Show tooltip on hover */
+        }
+    </style>
+
 </head>
+
 <body>
 
-<!-- Header Starts Here -->
-<header class="header">
+    <!-- Header Starts Here -->
+    <header class="header">
+
+        <a href="#" class="logo">    
+            <img src="https://purepng.com/public/uploads/large/purepng.com-ice-creamice-creamcreamfrozensweet-1411527617895aiuhx.png"
+                alt="Logo">
+        </a>
+
 
 <a href="#" class="logo"> 
 <img src="image/0.png" alt="Logo">
 </a>
-
 <nav class="navbar">
+
+
 <a href="#home">Home</a>
 <a href="#about">About</a>
 <a href="#menu">Menu</a>
-<a href="#review">Review</a>
+<a href="#review-section">Review</a>
 <a href="#blogs">Blogs</a>
+<a href="contact.html">Contact Us</a>
+<a href="#" id="my-order-btn">My Orders</a>
 </nav>
+
 
 <div class="icons">
 <div class="fas fa-search" id="search-btn"></div>
@@ -152,24 +208,202 @@
 </div>
 
 </div>
+<section class="blogs" id="blogs">
+  <h1 class="heading">Our <span>Blogs</span></h1>
+  <div class="blog-container">
+
+    <div class="blog">
+      <img src="https://plus.unsplash.com/premium_photo-1658526992090-e15722e684c0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8aWNlY3JlYW0lMjBzaG9wfGVufDB8fDB8fHww" alt="Blog Post 1" class="blog-image">
+      <h3>The Journey of Artic Delights</h3>
+      <p>Discover how our ice cream shop began its journey with a passion for creating unique flavors that delight the taste buds. From humble beginnings to a beloved local favorite, read about our story and what makes us special.</p>
+      <a href="#" class="btn">Read More</a>
+    </div>
+
+    <div class="blog">
+      <img src="https://images.unsplash.com/photo-1591261730540-1ab1db33ac78?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGljZWNyZWFtJTIwc2hvcHxlbnwwfHwwfHx8MA%3D%3D" alt="Blog Post 2" class="blog-image">
+      <h3>Crafting the Perfect Scoop</h3>
+      <p>Learn about our meticulous process of crafting the perfect ice cream scoop. We source only the finest ingredients and use artisanal methods to ensure every bite is a delicious experience.</p>
+      <a href="#" class="btn">Read More</a>
+    </div>
+
+    <div class="blog">
+      <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8dGVhbSUyMHdvcmtlcnN8ZW58MHx8MHx8fDA%3D" alt="Blog Post 3" class="blog-image">
+      <h3>Behind the Scenes at Artic Delights</h3>
+      <p>Get a sneak peek behind the scenes at our shop! Meet our passionate team and see how we create our delicious ice cream flavors daily.</p>
+      <a href="#" class="btn">Read More</a>
+    </div>
+
+  </div>
 </section>
+<!-- Blogs Section Ends Here -->
+
+<!-- Payment Section Starts Here -->
+<section id="payment-section" class="payment-section" style="display: none;">
+    <h1 class="heading">Payment <span>Details</span></h1>
+
+    <div class="order-summary">
+        <h2>Order Summary</h2>
+        <p id="order-items">Total Items: 3</p>
+        <p id="order-total">Total Price: $45.99</p>
+    </div>
+
+    <div class="payment-methods">
+        <h2>Select Payment Method</h2>
+        <label><input type="radio" name="payment-method" value="credit-card" onchange="showPaymentDetails()"> Credit/Debit Card</label>
+        <label><input type="radio" name="payment-method" value="paypal" onchange="showPaymentDetails()"> PayPal</label>
+        <label><input type="radio" name="payment-method" value="cod" onchange="showPaymentDetails()"> Cash on Delivery</label>
+    </div>
+
+    <div class="payment-details" id="payment-details">
+        <h2>Payment Details</h2>
+        <div id="card-details" style="display: none;">
+            <label for="card-number">Card Number:</label>
+            <input type="text" id="card-number" placeholder="Enter card number" required>
+
+            <label for="card-expiry">Expiry Date:</label>
+            <input type="text" id="card-expiry" placeholder="MM/YY" required>
+
+            <label for="card-cvc">CVC:</label>
+            <input type="text" id="card-cvc" placeholder="CVC" required>
+        </div>
+        <div id="paypal-details" style="display: none;">
+            <label for="paypal-id">PayPal ID:</label>
+            <input type="text" id="paypal-id" placeholder="Enter your PayPal ID" required>
+        </div>
+        <div id="cod-message" style="display: none;">
+            <p>No payment details needed for Cash on Delivery.</p>
+        </div>
+    </div>
+
+    <div class="billing-address">
+        <h2>Billing Address</h2>
+        <label for="billing-name">Name:</label>
+        <input type="text" id="billing-name" placeholder="Full Name" required>
+
+        <label for="billing-address">Address:</label>
+        <input type="text" id="billing-address" placeholder="Street Address" required>
+
+        <label for="billing-city">City:</label>
+        <input type="text" id="billing-city" placeholder="City" required>
+
+        <label for="billing-zip">ZIP Code:</label>
+        <input type="text" id="billing-zip" placeholder="ZIP Code" required>
+
+        <label for="billing-country">Country:</label>
+        <input type="text" id="billing-country" placeholder="Country" required>
+    </div>
+
+    <button class="payment-button" onclick="confirmPayment()">Confirm Payment</button>
+</section>
+<!-- Payment Section Ends Here -->
+
+    <br>
+<br>
+  
+<!--Review section for adding reviews-->
+<section class="review-section" id="review-section">
+  <div class="review-container">
+    <div class="review-left">
+      <img src="https://images.unsplash.com/photo-1505394033641-40c6ad1178d7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8aWNlY3JlYW18ZW58MHx8MHx8fDA%3D" alt="Delicious Ice Cream" class="ice-cream-image">
+    </div>
+    <div class="review-right">
+      <h2>Share Your Ice Cream Experience!</h2>
+      <form>
+        <label for="user-name">Your Name:</label>
+        <input type="text" id="user-name" name="user-name" required>
 
 
-<!-- Menu Section Ends Here -->
+ <div class="chatbot-container">
+        <a href="chatbot.html">
+            <button class="chatbot-button">
+                <img src="chatbot.gif" alt="chatbot" style="width: 50px; height: 50px;">
+                <span class="tooltip-text">
+                    Welcome to Ice-Cream Web! <br>
+                    How can I help You? ^_^ 
+                </span>
+            </button>
+        </a>
+    </div>
+        <label for="user-review">Your Review:</label>
+        <textarea id="user-review" name="user-review" rows="5" required></textarea>
+
+        <button type="submit" class="submit-button">Submit Review</button>
+      </form>
+    </div>
+  </div>
+
+</section>
+<!--Review adding section ended here-->
+<br>
+<!--Review Section added-->
+<div class="container">
+    <div class="container__left">
+      <h1>Read what our customers love about our ice cream</h1>
+      <p>
+        Over 200 ice cream enthusiasts from different places savor our unique
+        flavors and can't get enough of our delicious offerings.
+      </p>
+      <p>
+        We have made every scoop a memorable experience, bringing smiles and
+        joy with our artisanal ice cream creations.
+      </p>
+      <button>Read our customer stories</button>
+    </div>
+    <div class="container__right">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1482961674540-0b0e8363a005?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fG1hbnxlbnwwfHwwfHx8MA%3D%3D" alt="customer" />
+        <div class="card__content">
+          <span><i class="ri-double-quotes-l"></i></span>
+          <div class="card__details">
+            <p>
+              " The salted caramel flavor was heavenly! The smooth texture and the rich taste won me over completely."
+            </p>
+            <h4>- Marnus Stephen</h4>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://plus.unsplash.com/premium_photo-1689539137236-b68e436248de?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="customer" width="400"/>
+        <div class="card__content">
+          <span><i class="ri-double-quotes-l"></i></span>
+          <div class="card__details">
+            <p>
+              " I tried the mango sorbet, and it was like biting into a fresh mango! I'll definitely be coming back for more."
+            </p>
+            <h4>- Andrew Jettpace</h4>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://plus.unsplash.com/premium_photo-1688385848467-781c5394c017?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHdvbWFufGVufDB8fDB8fHww" alt="customer" />
+        <div class="card__content">
+          <span><i class="ri-double-quotes-l"></i></span>
+          <div class="card__details">
+            <p>
+              " Hands down the best ice cream I've ever had! The strawberry cheesecake flavor was out of this world!  "
+            </p>
+            <h4>- Stacy Stone</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<!--Review section ends-->
 
 <!-- Footer Section Starts Here -->
 
-<section class="footer" id="footer">
+    <section class="footer" id="footer">
 
-<div class="share">
-<a href="#" class="fab fa-facebook-f"></a>
-<a href="#" class="fab fa-twitter"></a>
-<a href="#" class="fab fa-instagram"></a>
-<a href="#" class="fab fa-linkedin"></a>
-<a href="#" class="fab fa-pinterest"></a>
-</div>
+        <div class="share">
+            <a href="#" class="fab fa-facebook-f"></a>
+            <a href="#" target="_blank" class="fa-brands fa-x-twitter"></a>   <!-- Updated X icon-->
+            <a href="#" class="fab fa-instagram"></a>
+            <a href="#" class="fab fa-linkedin"></a>
+            <a href="#" class="fab fa-pinterest"></a>
+        </div>
 
-<!--  
+        <!--  
 <div class="links">
 <a href="#">Home</a>
 <a href="#">About</a>
@@ -178,14 +412,55 @@
 <a href="#">Blogs</a>
 </div> -->
 
-<div class="credit"> <p> created by <span> Dohina</span> | all rights reserved <p></div>
+        <div class="credit">
+            <p> created by <span> Dohina</span> | all rights reserved
+            <p>
+        </div>
 
-</section>
+    </section>
 
-<!-- Footer Section Ends Here -->
+    <!-- Footer Section Ends Here -->
 
-<!-- JavaScript File -->
-<script src="script.js"></script>
-
+    <!-- JavaScript File -->
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    
+          
+    
+       
+    
+            // Animate the search form
+            gsap.from(".search-form", { opacity: 0, x: -100, duration: 1, ease: "power2.out" });
+    
+            // Animate the cart container
+            gsap.from(".cart-items-container", { opacity: 0, y: 100, duration: 1.5, ease: "power2.out" });
+    
+            // Animate the 'My Order' container
+            gsap.from(".my-order-container", { opacity: 0, x: 100, duration: 1.5, ease: "power2.out" });
+    
+            // Animate home section content
+            gsap.from(".home .content h3", { opacity: 0, x: -100, duration: 1.5, delay :0.1, ease: "power2.out" });
+            gsap.from(".home .content p", { opacity: 0, x: -100, duration: 1.5, delay: 0.1, ease: "power2.out" });
+            gsap.from(".home .animated-button", { opacity: 0, x: -100, duration: 1.5, delay: 0.1, ease: "power2.out" });
+    
+            // Animate buttons on hover for scaling effect
+            const buttons = document.querySelectorAll("button");
+            buttons.forEach(button => {
+                button.addEventListener('mouseover', () => {
+                    gsap.to(button, { scale: 1.1, duration: 0.2 });
+                });
+                button.addEventListener('mouseout', () => {
+                    gsap.to(button, { scale: 1, duration: 0.2 });
+                });
+            });
+    
+        });
+        
+    </script>
+    
+    
+    <script src="./darkMode.js"></script>
 </body>
+
 </html>
