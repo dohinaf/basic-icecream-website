@@ -81,8 +81,6 @@
 <a href="#blogs">Blogs</a>
 <a href="contact.html">Contact Us</a>
 <a href="#" id="my-order-btn">My Orders</a>
-
-
 </nav>
 
 
@@ -91,6 +89,13 @@
             <div class="fas fa-search" id="search-btn"></div>
             <div class="fas fa-shopping-cart" id="cart-btn"></div>
         </div>
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox">
+                <div class="slider"></div>
+            </label>
+            <span id="mode-label">Light Mode</span>
+        </div> 
         <div class="search-form">
             <input type="search" id="search-box" placeholder="Search...">
             <label for="search-box" class="fas fa-search"></label>
@@ -120,6 +125,7 @@
                 <button onclick="trackOrder()">Track Order</button>
                 <button onclick="editOrder()">Edit Order</button>
             </div>
+            
         </div>
 
     </header>
@@ -518,7 +524,7 @@
     </script>
     
     
-
+    <script src="./darkMode.js"></script>
 </body>
 
 </html>
