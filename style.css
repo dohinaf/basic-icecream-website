@@ -705,11 +705,15 @@ button:hover {
     align-items: flex-start;
     gap: 5rem; /* More space between image and content */
     background-color: var(--background-color);
+
     border-radius: 1.5rem;
-    box-shadow: 8px 8px 40px rgba(0, 0, 0, 0.3); /* Stronger shadow for depth */
+     /* Stronger shadow for depth */
     cursor: pointer;
 }
+.card:hover {
+    box-shadow: 0 0 6px rgba(255,208,9,1);
 
+}
 .card img {
     border-radius: 100%;
     border: 2px solid #ffbe0b; /* Added border */
@@ -732,14 +736,18 @@ button:hover {
 .card__details p {
     font-style: italic;
     color: var(--text-color);
+
     margin-bottom: 1.5rem;
     font-size: 2rem; /* Increased size */
     line-height: 2.5rem;
 }
+.card__details p:hover{
+    color: #ff6f3c;
+}
 
 .card__details h4 {
     text-align: right;
-    color: #ffbe0b; /* Brighter color */
+    color:#ffbe0b; /* Brighter color */
     font-size: 2rem; /* Increased size */
     font-weight: 700;
 }
