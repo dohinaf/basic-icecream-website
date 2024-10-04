@@ -711,9 +711,11 @@ button:hover {
 }
 
 .card img {
-    max-width: 120px; /* Increased size of the image */
     border-radius: 100%;
     border: 2px solid #ffbe0b; /* Added border */
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
 }
 
 .card__content {
