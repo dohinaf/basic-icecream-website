@@ -16,6 +16,46 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     
 
+    <style>
+        .chatbot-container {
+            position: fixed;
+            bottom: 20px; /* Adjust the distance from the bottom */
+            right: 20px; /* Adjust the distance from the right */
+            z-index: 1000; /* Ensure it's above other elements */
+        }
+
+        .chatbot-button {
+            background-color: #007bff; /* Button color */
+            border: none;
+            border-radius: 50%; /* Makes the button circular */
+            padding: 10px;
+            cursor: pointer;
+            transition: transform 0.3s; /* Animation for hover */
+            position: relative; /* Required for the tooltip */
+        }
+
+        .chatbot-button:hover {
+            transform: scale(1.1); /* Scale up on hover */
+        }
+
+        .tooltip-text {
+            display: none;
+            position: absolute;
+            bottom: 60px; /* Position the tooltip above the button */
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+            white-space: nowrap;
+            z-index: 1001; /* Ensure tooltip is above other elements */
+        }
+
+        .chatbot-button:hover .tooltip-text {
+            display: block; /* Show tooltip on hover */
+        }
+    </style>
+
 </head>
 
 <body>
@@ -328,6 +368,18 @@
         <label for="user-name">Your Name:</label>
         <input type="text" id="user-name" name="user-name" required>
 
+
+ <div class="chatbot-container">
+        <a href="chatbot.html">
+            <button class="chatbot-button">
+                <img src="chatbot.gif" alt="chatbot" style="width: 50px; height: 50px;">
+                <span class="tooltip-text">
+                    Welcome to Ice-Cream Web! <br>
+                    How can I help You? ^_^ 
+                </span>
+            </button>
+        </a>
+    </div>
         <label for="user-review">Your Review:</label>
         <textarea id="user-review" name="user-review" rows="5" required></textarea>
 
@@ -459,6 +511,7 @@
             });
     
         });
+        
     </script>
     
     
