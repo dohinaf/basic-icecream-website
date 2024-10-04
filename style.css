@@ -346,9 +346,34 @@ button:hover {
 .header .cart-items-container .cart {
     margin: 1rem 0;
     display: flex;
+    flex-direction: column; /* Ensure the cart items stack vertically */
     align-items: center;
+    max-height: 400px; /* Limit cart height to 400px */
+    overflow-y: auto; /* Enable vertical scrolling */
+    scrollbar-width: thin; /* For Firefox: make the scrollbar thin */
+    scrollbar-color: #fff transparent; /* For Firefox: custom colors */
 }
 
+/* Reusing the custom scrollbar styles for the cart */
+.header .cart-items-container .cart::-webkit-scrollbar {
+    width: .8rem; /* Same width as the main page scrollbar */
+}
+
+.header .cart-items-container .cart::-webkit-scrollbar-track {
+    background: transparent; /* Transparent background */
+}
+
+.header .cart-items-container .cart::-webkit-scrollbar-thumb {
+    background: #fff; /* White scrollbar thumb */
+    border-radius: 5rem; /* Rounded scrollbar thumb */
+}
+
+.header .cart-items-container ul {
+    list-style-type: none; /* Remove bullet points from the cart list */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    width: 100%; /* Ensure the cart list takes full width */
+}
 .header .cart-items-container .cart-item .fa-times {
     padding-left: 10px;
     /* Align to the right */
