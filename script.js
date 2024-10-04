@@ -51,6 +51,42 @@ let cart = [];
 
 let wishlist = [];
 
+
+document.addEventListener('DOMContentLoaded', () => {
+    // ... existing event listeners ...
+
+    // Filter functionality
+    const applyFilterButton = document.getElementById('apply-filter');
+    const priceFilter = document.getElementById('price-filter');
+    const flavorFilter = document.getElementById('flavor-filter');
+    const menuItems = document.querySelectorAll('.menu .box');
+
+    applyFilterButton.addEventListener('click', filterItems);
+
+    function filterItems() {
+        const selectedPrice = priceFilter.value;
+        const searchFlavor = flavorFilter.value.toLowerCase();
+
+        menuItems.forEach(item => {
+            const price = parseFloat(item.querySelector('.price').textContent.replace('$', ''));
+            const flavor = item.querySelector('h3').textContent.toLowerCase();
+            let showItem = true;
+
+            // Price filter
+            if (selectedPrice !== 'all') {
+                if (selectedPrice === 'under-15' && price >= 15) showItem = false;
+                if (selectedPrice === '15-20' && (price < 15 || price > 20)) showItem = false;
+                if (selectedPrice === 'over-20' && price <= 20) showItem = false;
+            }
+
+            // Flavor filter
+            if (searchFlavor && !flavor.includes(searchFlavor)) showItem = false;
+
+            item.style.display = showItem ? 'block' : 'none';
+        });
+    }
+});
+
 // Function to add items to cart
 
 let wishlistContainer = document.querySelector('.wishlist-container');
