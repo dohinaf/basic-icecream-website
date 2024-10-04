@@ -6,14 +6,55 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Ice Cream Website</title>
-
-    <!-- Font Awesome CSS -->
+    <title>ArcticDelights</title>
+    <link rel="icon" href="https://purepng.com/public/uploads/large/purepng.com-ice-creamice-creamcreamfrozensweet-1411527617895aiuhx.png" type="image/x-icon"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"> <!--Updated to latest version-->
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    
+
+    <style>
+        .chatbot-container {
+            position: fixed;
+            bottom: 20px; /* Adjust the distance from the bottom */
+            right: 20px; /* Adjust the distance from the right */
+            z-index: 1000; /* Ensure it's above other elements */
+        }
+
+        .chatbot-button {
+            background-color: #007bff; /* Button color */
+            border: none;
+            border-radius: 50%; /* Makes the button circular */
+            padding: 10px;
+            cursor: pointer;
+            transition: transform 0.3s; /* Animation for hover */
+            position: relative; /* Required for the tooltip */
+        }
+
+        .chatbot-button:hover {
+            transform: scale(1.1); /* Scale up on hover */
+        }
+
+        .tooltip-text {
+            display: none;
+            position: absolute;
+            bottom: 60px; /* Position the tooltip above the button */
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+            white-space: nowrap;
+            z-index: 1001; /* Ensure tooltip is above other elements */
+        }
+
+        .chatbot-button:hover .tooltip-text {
+            display: block; /* Show tooltip on hover */
+        }
+    </style>
 
 </head>
 
@@ -22,28 +63,39 @@
     <!-- Header Starts Here -->
     <header class="header">
 
-        <a href="#" class="logo">
+        <a href="#" class="logo">    
             <img src="https://purepng.com/public/uploads/large/purepng.com-ice-creamice-creamcreamfrozensweet-1411527617895aiuhx.png"
                 alt="Logo">
         </a>
 
         <!-- ... existing code ... -->
+         <h1 class="site-title">ArcticDelights</h1> 
+
 <nav class="navbar">
+
 
 <a href="#home">Home</a>
 <a href="#about">About</a>
 <a href="#menu">Menu</a>
 <a href="#review-section">Review</a>
 <a href="#blogs">Blogs</a>
+<a href="contact.html">Contact Us</a>
 <a href="#" id="my-order-btn">My Orders</a>
-
 </nav>
+
 
         <div class="icons">
             <div class = "fas fa-heart" id = "wishlist-btn"></div>
             <div class="fas fa-search" id="search-btn"></div>
             <div class="fas fa-shopping-cart" id="cart-btn"></div>
         </div>
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox">
+                <div class="slider"></div>
+            </label>
+            <span id="mode-label">Light Mode</span>
+        </div> 
         <div class="search-form">
             <input type="search" id="search-box" placeholder="Search...">
             <label for="search-box" class="fas fa-search"></label>
@@ -73,6 +125,7 @@
                 <button onclick="trackOrder()">Track Order</button>
                 <button onclick="editOrder()">Edit Order</button>
             </div>
+            
         </div>
 
     </header>
@@ -121,8 +174,8 @@
                 <h3>Nutty Butterscotch</h3>
                 <div class="price"> $15.99 <span>20.99</span></div>
 
-                <button class="animated-button" onclick="addToCart('Nutty Butterscotch', 20.00)">Add to Cart</button>
-                <button class="animated-button" onclick="addToWishlist('Nutty Butterscoth', 20.00)">Add to wishlist</button>
+                <button id="inbox" class="animated-button" onclick="addToCart('Nutty Butterscotch', 20.00)">Add to Cart</button><br>
+                <button id="inbox" class="animated-button" onclick="addToWishlist('Nutty Butterscoth', 20.00)">Add to wishlist</button>
 
 
             </div>
@@ -132,8 +185,8 @@
                 <h3>Berry Pops</h3>
                 <div class="price"> $15.99 <span>20.99</span></div>
 
-                <button class="animated-button" onclick="addToCart('Berry Pops', 20.00)">Add to Cart</button>
-                <button class="animated-button" onclick="addToWishlist('Berry Pops', 20.00)">Add to wishlist</button>
+                <button id="inbox" class="animated-button" onclick="addToCart('Berry Pops', 20.00)">Add to Cart</button><br>
+                <button id="inbox" class="animated-button" onclick="addToWishlist('Berry Pops', 20.00)">Add to wishlist</button>
 
             </div>
 
@@ -142,8 +195,8 @@
                 <h3>Cherry Sherbet Pops</h3>
                 <div class="price"> $15.99 <span>20.99</span></div>
 
-                <button class="animated-button" onclick="addToCart('Cherry Sherbet Pops', 20.00)">Add to Cart</button>
-                <button class="animated-button" onclick="addToWishlist('Cherry Sherbet Pops', 20.00)">Add to wishlist</button>
+                <button id="inbox" class="animated-button" onclick="addToCart('Cherry Sherbet Pops', 20.00)">Add to Cart</button><br>
+                <button id="inbox" class="animated-button" onclick="addToWishlist('Cherry Sherbet Pops', 20.00)">Add to wishlist</button>
 
             </div>
 
@@ -152,8 +205,8 @@
                 <h3>Dripping Vannila</h3>
                 <div class="price"> $15.99 <span>20.99</span></div>
 
-                <button class="animated-button" onclick="addToCart('Dripping Vannila', 20.00)">Add to Cart</button>
-                <button class="animated-button" onclick="addToWishlist('Dripping Vannila', 20.00)">Add to wishlist</button>
+                <button id="inbox" class="animated-button" onclick="addToCart('Dripping Vannila', 20.00)">Add to Cart</button><br>
+                <button id="inbox" class="animated-button" onclick="addToWishlist('Dripping Vannila', 20.00)">Add to wishlist</button>
 
             </div>
 
@@ -162,8 +215,8 @@
                 <h3>Very Berry Strawberry</h3>
                 <div class="price"> $15.99 <span>20.99</span></div>
 
-                <button class="animated-button" onclick="addToCart('Very Berry Strawberry', 20.00)">Add to Cart</button>
-                <button class="animated-button" onclick="addToWishlist('Very Berry Strawberry', 20.00)">Add to wishlist</button>
+                <button id="inbox" class="animated-button" onclick="addToCart('Very Berry Strawberry', 20.00)">Add to Cart</button><br>
+                <button id="inbox" class="animated-button" onclick="addToWishlist('Very Berry Strawberry', 20.00)">Add to wishlist</button>
 
             </div>
 
@@ -172,8 +225,8 @@
                 <h3>Rainbow Classic Cone</h3>
                 <div class="price"> $15.99 <span>20.99</span></div>
 
-                <button class="animated-button" onclick="addToCart('Rainbow Classic Cone', 20.00)">Add to Cart</button>
-                <button class="animated-button" onclick="addToWishlist('Rainbow Classic Cone', 20.00)">Add to wishlist</button>
+                <button id="inbox" class="animated-button" onclick="addToCart('Rainbow Classic Cone', 20.00)">Add to Cart</button><br>
+                <button id="inbox" class="animated-button" onclick="addToWishlist('Rainbow Classic Cone', 20.00)">Add to wishlist</button>
 
             </div>
 
@@ -181,24 +234,24 @@
                 <img src="https://images.unsplash.com/photo-1559340160-146586a4f9b6" alt="">
                 <h3>Orange Pops</h3>
                 <div class="price"> $15.99 <span>20.99</span></div>
-                <button  id="inbox" onclick="addToCart('Orange Pops', 20.00)">Add to Cart</button><br>
-                <button  id="inbox" onclick="addToWishlist('Orange Pops', 20.00)">Add to wishlist</button>
+                <button  id="inbox" class="animated-button"  onclick="addToCart('Orange Pops', 20.00)">Add to Cart</button><br>
+                <button  id="inbox" class="animated-button"  onclick="addToWishlist('Orange Pops', 20.00)">Add to wishlist</button>
             </div>
 
             <div class="box">
                 <img src="https://images.unsplash.com/photo-1594305178909-03ab72b8205e" alt="">
                 <h3>Choco-Hazel Pops</h3>
                 <div class="price"> $15.99 <span>20.99</span></div>
-                <button  id="inbox" onclick="addToCart('Choco-Hazel Pops', 20.00)">Add to Cart</button><br>
-                <button  id="inbox" onclick="addToWishlist('Choco-Hazel Pops', 20.00)">Add to wishlist</button>
+                <button  id="inbox" class="animated-button"  onclick="addToCart('Choco-Hazel Pops', 20.00)">Add to Cart</button><br>
+                <button  id="inbox" class="animated-button"  onclick="addToWishlist('Choco-Hazel Pops', 20.00)">Add to wishlist</button>
             </div>
 
             <div class="box">
                 <img src="https://images.unsplash.com/photo-1499638472904-ea5c6178a300" alt="">
                 <h3>Very Very Peachy</h3>
                 <div class="price"> $15.99 <span>20.99</span></div>
-                <button  id="inbox" onclick="addToCart('Very Very Peachy', 20.00)">Add to Cart</button><br>
-                <button  id="inbox" onclick="addToWishlist('Very Very Peachy', 20.00)">Add to wishlist</button>
+                <button  id="inbox" class="animated-button"  onclick="addToCart('Very Very Peachy', 20.00)">Add to Cart</button><br>
+                <button  id="inbox" class="animated-button"  onclick="addToWishlist('Very Very Peachy', 20.00)">Add to wishlist</button>
 
             </div>
 
@@ -206,9 +259,8 @@
                 <img src="https://images.unsplash.com/photo-1559340160-146586a4f9b6" alt="">
                 <h3>Orange Pops</h3>
                 <div class="price"> $15.99 <span>20.99</span></div>
-
-                <button class="animated-button" onclick="addToCart('Orange Pops', 20.00)">Add to Cart</button>
-                <button class="animated-button" onclick="addToWishlist('Orange Pops', 20.00)">Add to wishlist</button>
+                <button id="inbox" class="animated-button" onclick="addToCart('Orange Pops', 20.00)">Add to Cart</button><br>
+                <button id="inbox" class="animated-button" onclick="addToWishlist('Orange Pops', 20.00)">Add to wishlist</button>
 
             </div>
 
@@ -217,8 +269,8 @@
                 <h3>Choco-Hazel Pops</h3>
                 <div class="price"> $15.99 <span>20.99</span></div>
 
-                <button class="animated-button" onclick="addToCart('Choco-Hazel Pops', 20.00)">Add to Cart</button>
-                <button class="animated-button" onclick="addToWishlist('Choco-Hazel Pops', 20.00)">Add to wishlist</button>
+                <button id="inbox" class="animated-button" onclick="addToCart('Choco-Hazel Pops', 20.00)">Add to Cart</button><br>
+                <button id="inbox" class="animated-button" onclick="addToWishlist('Choco-Hazel Pops', 20.00)">Add to wishlist</button>
 
             </div>
 
@@ -227,8 +279,8 @@
                 <h3>Very Very Peachy</h3>
                 <div class="price"> $15.99 <span>20.99</span></div>
 
-                <button class="animated-button" onclick="addToCart('Very Very Peachy', 20.00)">Add to Cart</button>
-                <button class="animated-button" onclick="addToWishlist('Very Very Peachy', 20.00)">Add to wishlist</button>
+                <button id="inbox" class="animated-button" onclick="addToCart('Very Very Peachy', 20.00)">Add to Cart</button><br>
+                <button id="inbox" class="animated-button" onclick="addToWishlist('Very Very Peachy', 20.00)">Add to wishlist</button>
 
             </div>
 
@@ -248,21 +300,21 @@
       <img src="https://plus.unsplash.com/premium_photo-1658526992090-e15722e684c0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8aWNlY3JlYW0lMjBzaG9wfGVufDB8fDB8fHww" alt="Blog Post 1" class="blog-image">
       <h3>The Journey of Artic Delights</h3>
       <p>Discover how our ice cream shop began its journey with a passion for creating unique flavors that delight the taste buds. From humble beginnings to a beloved local favorite, read about our story and what makes us special.</p>
-      <a href="#" class="btn">Read More</a>
+      <a href="#" class="animated-button">Read More</a>
     </div>
 
     <div class="blog">
       <img src="https://images.unsplash.com/photo-1591261730540-1ab1db33ac78?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGljZWNyZWFtJTIwc2hvcHxlbnwwfHwwfHx8MA%3D%3D" alt="Blog Post 2" class="blog-image">
       <h3>Crafting the Perfect Scoop</h3>
       <p>Learn about our meticulous process of crafting the perfect ice cream scoop. We source only the finest ingredients and use artisanal methods to ensure every bite is a delicious experience.</p>
-      <a href="#" class="btn">Read More</a>
+      <a href="#" class="animated-button">Read More</a>
     </div>
 
     <div class="blog">
       <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8dGVhbSUyMHdvcmtlcnN8ZW58MHx8MHx8fDA%3D" alt="Blog Post 3" class="blog-image">
       <h3>Behind the Scenes at Artic Delights</h3>
       <p>Get a sneak peek behind the scenes at our shop! Meet our passionate team and see how we create our delicious ice cream flavors daily.</p>
-      <a href="#" class="btn">Read More</a>
+      <a href="#" class="animated-button">Read More</a>
     </div>
 
   </div>
@@ -330,7 +382,8 @@
 <!-- Payment Section Ends Here -->
 
     <br>
-
+<br>
+  
 <!--Review section for adding reviews-->
 <section class="review-section" id="review-section">
   <div class="review-container">
@@ -343,16 +396,28 @@
         <label for="user-name">Your Name:</label>
         <input type="text" id="user-name" name="user-name" required>
 
+
+ <div class="chatbot-container">
+        <a href="chatbot.html">
+            <button class="chatbot-button">
+                <img src="chatbot.gif" alt="chatbot" style="width: 50px; height: 50px;">
+                <span class="tooltip-text">
+                    Welcome to Ice-Cream Web! <br>
+                    How can I help You? ^_^ 
+                </span>
+            </button>
+        </a>
+    </div>
         <label for="user-review">Your Review:</label>
         <textarea id="user-review" name="user-review" rows="5" required></textarea>
 
-        <button type="submit" class="submit-button">Submit Review</button>
+        <button type="submit" class="animated-button">Submit Review</button>
       </form>
     </div>
   </div>
 </section>
 <!--Review adding section ended here-->
-
+<br>
 <!--Review Section added-->
 <div class="container">
     <div class="container__left">
@@ -365,7 +430,7 @@
         We have made every scoop a memorable experience, bringing smiles and
         joy with our artisanal ice cream creations.
       </p>
-      <button>Read our customer stories</button>
+      <button class="animated-button">Read our customer stories</button>
     </div>
     <div class="container__right">
       <div class="card">
@@ -374,19 +439,19 @@
           <span><i class="ri-double-quotes-l"></i></span>
           <div class="card__details">
             <p>
-              The salted caramel flavor was heavenly! The smooth texture and the rich taste won me over completely.
+              " The salted caramel flavor was heavenly! The smooth texture and the rich taste won me over completely."
             </p>
             <h4>- Marnus Stephen</h4>
           </div>
         </div>
       </div>
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1508341591423-4347099e1f19?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG1hbnxlbnwwfHwwfHx8MA%3D%3D" alt="customer" />
+        <img src="https://plus.unsplash.com/premium_photo-1689539137236-b68e436248de?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="customer" width="400"/>
         <div class="card__content">
           <span><i class="ri-double-quotes-l"></i></span>
           <div class="card__details">
             <p>
-              I tried the mango sorbet, and it was like biting into a fresh mango! I'll definitely be coming back for more.
+              " I tried the mango sorbet, and it was like biting into a fresh mango! I'll definitely be coming back for more."
             </p>
             <h4>- Andrew Jettpace</h4>
           </div>
@@ -398,7 +463,7 @@
           <span><i class="ri-double-quotes-l"></i></span>
           <div class="card__details">
             <p>
-              Hands down the best ice cream I've ever had! The strawberry cheesecake flavor was out of this world!
+              " Hands down the best ice cream I've ever had! The strawberry cheesecake flavor was out of this world!  "
             </p>
             <h4>- Stacy Stone</h4>
           </div>
@@ -474,10 +539,11 @@
             });
     
         });
+        
     </script>
     
     
-
+    <script src="./darkMode.js"></script>
 </body>
 
 </html>

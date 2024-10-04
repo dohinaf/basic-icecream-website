@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let navbar = document.querySelector('.navbar');
     let searchForm = document.querySelector('.search-form');
     let cartItem = document.querySelector('.cart-items-container');
+    let myOrderContainer = document.querySelector('.my-order-container');
 
     document.querySelector('#search-btn').onclick = () => {
         searchForm.classList.toggle('active');
@@ -11,33 +12,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelector('#cart-btn').onclick = () => {
         cartItem.classList.toggle('active');
+        myOrderContainer.classList.remove('active');
         navbar.classList.remove('active');
         searchForm.classList.remove('active');
     };
-
-    // Animated button functionality
-    if (animatedButton) {
-        animatedButton.addEventListener('mouseenter', handleButtonMouseEffect);
-        animatedButton.addEventListener('mouseleave', handleButtonMouseEffect);
-    }
-
-    function handleButtonMouseEffect(e) {
-        const button = e.currentTarget;
-        const rect = button.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        button.style.setProperty('--x', `${x}px`);
-        button.style.setProperty('--y', `${y}px`);
-    }
-
-    let myOrderContainer = document.querySelector('.my-order-container');
 
     document.querySelector('#my-order-btn').onclick = () => {
-        myOrderContainer.classList.toggle('active');
+        myOrderContainer.classList.toggle('active');//Order container shown
+        cartItem.classList.remove('active');
         navbar.classList.remove('active');
         searchForm.classList.remove('active');
-        cartItem.classList.remove('active');
     };
+
 
     window.onscroll = () => {
         navbar.classList.remove('active');
@@ -101,6 +87,7 @@ function clearWishlist() {
 
 function addToCart(productName, price) {
     cart.push({ name: productName, price: price });
+    alert(`Product ${productName} added to cart`);//Added alert message to notify that item has been added
     displayCart();
     //remove item from wishlist
     const wishlistIndex = wishlist.findIndex(item => item.name === productName);
