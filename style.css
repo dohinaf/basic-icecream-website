@@ -86,33 +86,66 @@ button:hover {
 }
 
 .animated-button {
-    position: relative;
-    padding: 10px 20px;
-    font-size: 16px;
-    color: var(--text-color);
-    background-color: #d4af37; 
-    border: none;
-    border-radius: 5px;
-    outline: none;
-    cursor: pointer;
-    overflow: hidden;
-    transition: color 0.8s;
-    z-index: 1;
-}
+    
+        width: 130px;
+        height: 40px;
+        color: #e10e0e;
+        border-radius: 5px;
+        padding: 10px 25px;
+        font-family: 'Lato', sans-serif;
+        font-weight: 500;
+        background: transparent;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        display: inline-block;
+         box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+         7px 7px 20px 0px rgba(0,0,0,.1),
+         4px 4px 5px 0px rgba(0,0,0,.1);
+        outline: none;
+      }
+      .animated-button{
+      width: 130px;
+      height: 40px;
+      line-height: 42px;
+      padding: 0;
+      border: none;
+      background: rgb(238, 61, 120);
+    background:  rgb(241, 62, 92);
+    }
+    .animated-button:hover {
+      color: #f0094a;
+      background: transparent;
+       box-shadow:none;
+    }
+    .animated-button:after{
+      content:'';
+      position:absolute;
+      top:0;
+      right:0;
+      height:2px;
+      width:0;
+      background: #e83165;
+      box-shadow:
+       -1px -1px 5px 0px #fff,
+       7px 7px 20px 0px #0003,
+       4px 4px 5px 0px #0002;
+      transition:400ms ease all;
+    }
+    .animated-button:after{
+      right:inherit;
+      top:inherit;
+      left:0;
+      bottom:0;
+    }
+    .animated-button:hover:before,
+    .animated-button:hover:after{
+      width:100%;
+      transition:800ms ease all;
+    }
+    
 
-.animated-button::before {
-    content: '';
-    position: absolute;
-    top: var(--y, 50%);
-    left: var(--x, 50%);
-    width: 0;
-    height: 0;
-    background-color: var(--background-color);
-    transition: width 0.8s, height 0.8s, top 0.8s, left 0.8s;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 0;
-}
+
 
 /*Added css to make the My order button to look same as the rest of the nav buttons*/
 #my-order-btn{
@@ -472,13 +505,13 @@ button:hover {
 .home .content h3 {
     font-size: 50px;
     text-transform: uppercase;
-    color: var(--text-color);
+    color: white;
 }
 
 .home .content p {
     font-size: 20px;
     font-weight: lighter;
-    color: var(--text-color);
+    color: white;
     padding: 1rem 0;
     line-height: 1.8;
 }
@@ -651,9 +684,39 @@ button:hover {
     transition-duration: 0.6s;
 }
 
-#inbox{
-    background-color: rgb(175, 61, 80);
+#inbox {
+    border: none;
+    width: 180px;
+    height: 40px;
+    color: #101010;
+   
+    background-color: rgb(221, 213, 215); /* This will now be applied */
+    border-radius: 7px;
+    padding: 10px 25px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
+                7px 7px 20px 0px rgba(0, 0, 0, .1),
+                4px 4px 5px 0px rgba(0, 0, 0, .1);
+    outline: none;
 }
+
+#inbox:before {
+    height: 0%;
+    width: 2px;
+}
+
+#inbox:hover {
+    box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, .5),
+                -4px -4px 6px 0 rgba(116, 125, 136, .5),
+                inset -4px -4px 6px 0 rgba(255, 255, 255, .2),
+                inset 4px 4px 6px 0 rgba(0, 0, 0, .4);
+}
+
 /*review section style contributed*/
 /* Review Section Adjusted Styles */
 .container {
