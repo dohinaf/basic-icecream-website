@@ -315,3 +315,43 @@ document.addEventListener('DOMContentLoaded', function() {
     checkScroll(); 
 });
 
+
+document.addEventListener('DOMContentLoaded', () => {
+    let loginModal = document.getElementById('login-modal');
+    let signupModal = document.getElementById('signup-modal');
+    let loginBtn = document.getElementById('login-btn');
+    let signupBtn = document.getElementById('signup-btn');
+    let closeLogin = document.getElementById('close-login');
+    let closeSignup = document.getElementById('close-signup');
+
+    // Show login modal
+    loginBtn.onclick = () => {
+        loginModal.style.display = 'flex';
+        signupModal.style.display = 'none'; // Ensure signup modal is hidden
+    };
+
+    // Show signup modal
+    signupBtn.onclick = () => {
+        signupModal.style.display = 'flex';
+        loginModal.style.display = 'none'; // Ensure login modal is hidden
+    };
+
+    // Close login modal
+    closeLogin.onclick = () => {
+        loginModal.style.display = 'none';
+    };
+
+    // Close signup modal
+    closeSignup.onclick = () => {
+        signupModal.style.display = 'none';
+    };
+
+    // Close modal if clicked outside the modal content
+    window.onclick = (event) => {
+        if (event.target === loginModal) {
+            loginModal.style.display = 'none';
+        } else if (event.target === signupModal) {
+            signupModal.style.display = 'none';
+        }
+    };
+});
