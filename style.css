@@ -1385,3 +1385,52 @@ body {
   
   /*---------------------*/
   
+
+  /* tooltip */
+
+
+  .notification-tooltip {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #d4af37;
+    color: #ffffff;
+    padding: 15px 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    z-index: 1000;
+    font-size: 18px;
+    text-align: center;
+}
+
+.notification-tooltip.show {
+    display: block;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.1);
+    animation: bounce 0.5s;
+}
+
+.tooltip-icon {
+    display: inline-block;
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    40% {
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+    60% {
+        transform: translate(-50%, -50%) scale(1.05);
+    }
+}
+
+
+  /*---------------------*/
