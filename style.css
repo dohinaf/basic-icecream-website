@@ -50,7 +50,9 @@ section {
 }
 
 
-.animated-button {  /*Main Button Design. All other buttons inherit this class Property */
+
+.animated-button {  
+  /*Main Button Design. All other buttons inherit this class Property */
     width: fit-content;
     padding: 5px 20px 5px 20px;
     font-weight: bold;
@@ -65,6 +67,30 @@ section {
     transition: all 0.4s ease-in-out;
     border-radius: 0px;
     font-size: large;
+}
+
+.btn {
+    margin-top: 1rem;
+    display: inline-block;
+    padding: .7rem 1.4rem;
+    font-size: 1.4rem;
+    font-weight: bold;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    cursor: pointer;
+    border-radius: 0.5rem;
+    /*transition: transform 0.3s ease;*/
+}
+
+
+
+.btn:hover {
+    transform: scale(1.009);
+}
+
+button:hover {
+    transform: scale(1.009);
 }
 
 .animated-button:hover {
@@ -629,7 +655,7 @@ section {
     margin-bottom: 3rem;
     font-size: 4.5rem; /* Increased font size */
     font-weight: 700;
-    color: #ffbe0b; /* Brighter color */
+    color: var(--main-color); /* Brighter color */
 }
 
 .container__left p {
@@ -639,17 +665,6 @@ section {
     line-height: 2.8rem; /* Adjusted line height for readability */
 }
 
-.container__left button {
-    padding: 1.5rem 3rem; /* Increased padding for a bigger button */
-    margin-top: 2rem;
-    outline: none;
-    border: none;
-    border-radius: 5px;
-    background: linear-gradient(to right, #ff4e50, #fc913a); /* Brighter gradient */
-    color: var(--text-color);
-    font-size: 1.8rem; /* Increased button font size */
-    cursor: pointer;
-}
 
 .container__right {
     display: grid;
@@ -673,7 +688,7 @@ section {
 }
 .card img {
     border-radius: 100%;
-    border: 2px solid #ffbe0b; /* Added border */
+    border: 2px solid var(--main-color); /* Added border */
     width: 100px;
     height: 100px;
     object-fit: cover;
@@ -687,7 +702,7 @@ section {
 
 .card__content span i {
     font-size: 3rem; /* Increased icon size */
-    color: #ffbe0b; /* Brighter icon color */
+    color: var(--main-color); /* Brighter icon color */
 }
 
 .card__details p {
@@ -704,7 +719,7 @@ section {
 
 .card__details h4 {
     text-align: right;
-    color:#ffbe0b; /* Brighter color */
+    color:var(--main-color); /* Brighter color */
     font-size: 2rem; /* Increased size */
     font-weight: 700;
 }
@@ -765,13 +780,13 @@ section {
 .review-right h2 {
     font-size: 2.5rem; /* Adjusted font size */
     margin-bottom: 2rem; /* Increased margin for more spacing */
-    color: #ffbe0b; /* Brighter color */
+    color: var(--main-color); /* Brighter color */
 }
 
 .review-right label {
     font-size: 1.6rem; /* Increased font size */
     margin-top: 2rem; /* Increased margin for spacing */
-    color: #ffbe0b; /* Brighter color */
+    color: var(--main-color); /* Brighter color */
 }
 
 .review-right input, 
@@ -780,27 +795,13 @@ section {
     padding: 1.5rem; /* Increased padding */
     margin-top: 1rem; /* Increased margin */
     border-radius: 8px; /* More rounded corners */
-    border: 2px solid #ffbe0b; /* Brighter border */
+    border: 2px solid var(--main-color); /* Brighter border */
     font-size: 1.4rem; /* Increased font size */
     color: var(--text-color);
     background-color: var(--background-color);
     margin-bottom:1rem;
 }
 
-.submit-button {
-    margin-top: 1.5rem; /* Increased margin for spacing */
-    padding: 1rem 2.5rem; /* Increased button padding */
-    font-size: 1.6rem; /* Increased font size */
-    color: #fff; /* White text */
-    background: linear-gradient(to right, #ff4e50, #fc913a); /* Gradient background */
-    border: none; /* No border */
-    border-radius: 5px; /* Rounded edges */
-    cursor: pointer;
-}
-
-.submit-button:hover {
-    background: #ffbe0b; /* Change color on hover */
-}
 
 /*Blogs styles contributed*/
 .blogs {
@@ -813,7 +814,7 @@ section {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 2rem;
-    color: #ffbe0b; /* Brighter heading color */
+    color: var(--main-color); /* Brighter heading color */
 }
 
 .blog-container {
@@ -838,7 +839,7 @@ section {
 
 .blog h3 {
     font-size: 2rem; /* Blog title size */
-    color: #ffbe0b; /* Brighter color for visibility */
+    color: var(--main-color); /* Brighter color for visibility */
     margin:5px;
 }
 
@@ -848,14 +849,7 @@ section {
     
 }
 
-.btn {
-    background: linear-gradient(to right, #ff4e50, #fc913a); /* Button gradient */
-    color: var(--text-color);
-    padding: 0.8rem 1.5rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
+
 
 
 
