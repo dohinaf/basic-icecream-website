@@ -157,7 +157,17 @@
                 <p>
                     Customize your perfect treat with our signature toppings, sauces, and add-ons to create a unique dessert experience tailored just for you. At Arctic Delights, we’re not just about ice cream—we’re about crafting moments of joy in every bite!
                 </p>
-                <a href="#" class="btn">Learn More</a>
+                <a href="#" class="btn" id="learnMoreBtn">Learn More</a>
+
+                <!-- Hidden section to reveal on button click -->
+                <div id="moreContent" style="display: none;">
+                    <p>
+                        Our ice creams are made using traditional methods, ensuring each batch is churned to perfection. From locally sourced dairy to organic fruits, nuts, and chocolates, we are committed to sustainability and exceptional taste. We also offer dairy-free and vegan options to cater to every lifestyle and preference.
+                    </p>
+                    <p>
+                        Whether you're enjoying a scoop in-store or ordering our handcrafted pints to your home, Arctic Delights promises the best quality and an unforgettable experience with every bite.
+                    </p>
+                </div>
             </div>
 
         </div>
@@ -530,6 +540,17 @@
             });
     
         });
+        document.getElementById('learnMoreBtn').addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent default anchor behavior
+        var moreContent = document.getElementById('moreContent');
+        if (moreContent.style.display === "none") {
+            moreContent.style.display = "block";
+            this.textContent = "Show Less"; // Change button text
+        } else {
+            moreContent.style.display = "none";
+            this.textContent = "Learn More"; // Revert button text
+        }
+    });
         
     </script>
     
