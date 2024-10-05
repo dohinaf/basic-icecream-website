@@ -42,7 +42,7 @@ html::-webkit-scrollbar-thumb {
 }
 
 body {
-    background: var(--bg);
+    background-color: var(--background-color);
 }
 
 section {
@@ -56,8 +56,8 @@ section {
     font-size: 1.4rem;
     font-weight: bold;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    color: #fff;
-    background: var(--main-color);
+    color: var(--text-color);
+    background-color: var(--background-color);
     cursor: pointer;
     border-radius: 0.5rem;
     /*transition: transform 0.3s ease;*/
@@ -70,7 +70,7 @@ button {
     font-size: 1.4rem;
     font-weight: bold;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    color: var(--main-color);
+    color: var(--text-color);
     /*background: var(--main-color);*/
     cursor: pointer;
     border-radius: 0.5rem;
@@ -89,7 +89,7 @@ button:hover {
     position: relative;
     padding: 10px 20px;
     font-size: 16px;
-    color: #000;
+    color: var(--text-color);
     background-color: #d4af37; 
     border: none;
     border-radius: 5px;
@@ -107,12 +107,26 @@ button:hover {
     left: var(--x, 50%);
     width: 0;
     height: 0;
-    background-color: #ffffff; 
+    background-color: var(--background-color);
     transition: width 0.8s, height 0.8s, top 0.8s, left 0.8s;
     border-radius: 50%;
     transform: translate(-50%, -50%);
     z-index: 0;
 }
+
+/*Added css to make the My order button to look same as the rest of the nav buttons*/
+#my-order-btn{
+    border: none;
+    margin: 0px 0px 1px;
+    font-size: 1.6rem;
+    background-color: transparent !important;
+    animation: none !important;
+}
+
+#my-order-btn:hover{
+    letter-spacing: 0rem;
+}
+/*changes end*/
 
 .animated-button:hover::before {
     width: 300%;
@@ -127,7 +141,7 @@ button:hover {
 }
 
 .animated-button:hover span {
-    color: var(--main-color);
+    color: var(--text-color);
 }
 
 /*wishlist styles */
@@ -137,7 +151,7 @@ button:hover {
     top: calc(100% + 1rem);
     right: 7%;
     width: 400px;
-    background: var(--black);
+    background-color: var(--background-color);
     padding: 2rem;
     display: none;
     box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);
@@ -149,7 +163,7 @@ button:hover {
 }
 
 .wishlist-container h2 {
-    color: #fff;
+    color: var(--text-color);
     font-size: 2.4rem;
     margin-bottom: 1.5rem;
 }
@@ -160,7 +174,7 @@ button:hover {
 }
 
 #wishlistItems li {
-    color: #fff;
+    color: var(--text-color);
     font-size: 1.6rem;
     margin-bottom: 1rem;
     display: flex;
@@ -188,28 +202,28 @@ button:hover {
 
 
 .wishlist .box-container .box h3 {
-    color: #fff;
+    color: var(--text-color);
     font-size: 2rem;
     padding: 1rem 0;
 }
 
 .wishlist .box-container .box .price {
-    color: #fff;
+    color: var(--text-color);
     font-size: 2.5rem;
     padding: .5rem 0;
 }
 
 .wishlist .box-container .box:hover {
-    background: #fff;
+    background-color: var(--background-color);
 }
 
 .wishlist .box-container .box:hover > * {
-    color: var(--black);
+    color: var(--text-color);
 }
 
 /* Header Styles */
 .header {
-    background: var(--bg);
+    background-color: var(--background-color);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -234,11 +248,11 @@ button:hover {
 .header .navbar a {
     margin: 0 1rem;
     font-size: 1.6rem;
-    color: #fff;
+    color: var(--text-color);
 }
 
 .header .navbar a:hover {
-    color: var(--main-color);
+    color: var(--text-color);
 }
 
 .header .icons {
@@ -247,14 +261,14 @@ button:hover {
 }
 
 .header .icons div {
-    color: #fff;
+    background-color: var(--background-color);
     cursor: pointer;
     font-size: 2.5rem;
     margin-left: 2rem;
 }
 
 .header .icons div:hover {
-    color: var(--main-color);
+    color: var(--text-color);
 }
 
 /*#menu-btn {
@@ -266,7 +280,7 @@ button:hover {
     top: calc(100% + 1rem);
     /* Adjusted to position below header */
     right: 7%;
-    background: #fff;
+    background-color: var(--background-color);
     width: 20rem;
     /* Adjusted width for better fit */
     height: auto;
@@ -287,7 +301,7 @@ button:hover {
 .header .search-form input {
     width: 100%;
     font-size: 1.6rem;
-    color: var(--black);
+    color: var(--text-color);
     padding: 0.5rem;
     border: none;
     outline: none;
@@ -296,13 +310,13 @@ button:hover {
 .header .search-form label {
     cursor: pointer;
     font-size: 2.2rem;
-    color: var(--black);
+    color: var(--text-color);
     margin-left: 1rem;
     /* Adjusted margin */
 }
 
 .header .search-form label:hover {
-    color: var(--main-color);
+    color: var(--text-color);
 }
 
 .header .cart-items-container {
@@ -313,11 +327,11 @@ button:hover {
     height: auto;
     width: 400px;
     /* Adjusted width for better fit */
-    background: #fff;
+    background-color: var(--background-color);
     display: none;
     /* Initially hidden */
     padding: 1rem;
-    background-color: var(--black);
+    background-color: var(--background-color);
     box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);
     /* Added box shadow */
     z-index: 100;
@@ -340,12 +354,12 @@ button:hover {
     /* Align to the right */
     font-size: 1.5rem;
     padding-right: 15px;
-    color: var(--main-color);
+    color: var(--text-color);
     cursor: pointer;
 }
 
 .header .cart-items-container .cart-item .fa-times:hover {
-    color: #fff;
+    color: var(--text-color);
 }
 
 .header .cart-items-container .cart-item img {
@@ -357,7 +371,7 @@ button:hover {
 
 .header .cart-items-container .cart ul {
     font-size: 1.6rem;
-    color: var(--main-color);
+    color: var(--text-color);
     align-items: center;
 }
 
@@ -372,8 +386,8 @@ button:hover {
     margin: 2rem auto;  /* Centers the button */
     padding: 1rem 2rem;  /* Increased padding */
     font-size: 1.6rem;  /* Increased font size */
-    color: #fff;
-    background-color: var(--main-color);
+    color: var(--text-color);
+    background-color: var(--background-color);
     border: none;
     border-radius: 0.3rem;
     text-align: center;
@@ -382,8 +396,8 @@ button:hover {
 }
 
 .header .cart-items-container button:hover {
-    background-color: #fff;
-    color: var(--main-color);
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 
 /* ... existing styles ... */
@@ -394,7 +408,7 @@ button:hover {
     top: calc(100% + 1rem);
     right: 7%;
     width: 400px;
-    background: var(--black);
+    background-color: var(--background-color);
     padding: 2rem;
     display: none;
     box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);
@@ -406,13 +420,13 @@ button:hover {
 }
 
 .my-order-container h2 {
-    color: #fff;
+    color: var(--text-color);
     font-size: 2.4rem;
     margin-bottom: 1.5rem;
 }
 
 #order-details {
-    color: #fff;
+    ccolor: var(--text-color);
     font-size: 1.6rem;
     margin-bottom: 1.5rem;
 }
@@ -426,8 +440,8 @@ button:hover {
     width: 48%;
     padding: 1rem;
     font-size: 1.6rem;
-    color: #fff;
-    background-color: var(--main-color);
+    color: var(--text-color);
+    background-color: var(--background-color);
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -458,13 +472,13 @@ button:hover {
 .home .content h3 {
     font-size: 50px;
     text-transform: uppercase;
-    color: #fff;
+    color: var(--text-color);
 }
 
 .home .content p {
     font-size: 20px;
     font-weight: lighter;
-    color: #eee;
+    color: var(--text-color);
     padding: 1rem 0;
     line-height: 1.8;
 }
@@ -473,7 +487,7 @@ button:hover {
 
 .heading {
     text-align: center;
-    color: #fff;
+    color: var(--text-color);
     text-transform: uppercase;
     padding-top: 4rem;
     padding-bottom: 3.5rem;
@@ -481,7 +495,7 @@ button:hover {
 }
 
 .heading span {
-    color: var(--main-color);
+    color: var(--text-color);
     text-transform: uppercase;
 }
 
@@ -490,7 +504,7 @@ button:hover {
     grid-template-columns: 1fr 1fr;
     gap: 10px;
     align-items: center;
-    background: var(--black);
+    background-color: var(--background-color);
     flex-wrap: wrap;
 }
 
@@ -506,12 +520,12 @@ button:hover {
 
 .about .row .content h3 {
     font-size: 3rem;
-    color: #fff;
+    color: var(--text-color);
 }
 
 .about .row .content p {
     font-size: 1.6rem;
-    color: #ccc;
+    color: var(--text-color);
     padding: 1rem 0;
     line-height: 1.8;
 }
@@ -520,7 +534,7 @@ button:hover {
 
 .heading{
 	text-align: center;
-	color: #fff;
+	color: var(--text-color);
 	text-transform: uppercase;
 	padding-top: 4rem;
 	padding-bottom: 3.5rem;
@@ -528,7 +542,7 @@ button:hover {
 }
 
 .heading span{
-	color:var(--main-color);
+	color: var(--text-color);
 	text-transform:uppercase;
 }
 
@@ -552,12 +566,12 @@ button:hover {
 
 .blogs .content h3{
 	font-size: 3rem;
-	color: #fff;
+	color: var(--text-color);
 }
 
 .blogs .content p{
 	font-size:  2rem;
-	color: #ffffff;
+	color: var(--text-color);
 	padding: 1rem 0;
 	line-height: 1.8;
 }
@@ -576,7 +590,7 @@ button:hover {
     text-align: center;
 }
 #menu{
-    background-color: rgb(255, 252, 253);
+    background-color: var(--background-color);
 }
 .menu .box-container {
     display: flex;
@@ -593,35 +607,35 @@ button:hover {
     padding: 0.7rem;
     border-radius: 1rem 1rem 0 0;
     border-width: 1.1rem;
-    border-color: #000;
-    background-color:#010103;
+    border-color: var(--text-color);
+    background-color: var(--background-color);
     text-align: center;
-    border: var(--border);
+    border:var(--text-color);
     align-items: center;
 }
 
 .menu .box-container .box h3 {
     padding-top: 10px;
-    color: #fff;
+    color: var(--text-color);
     font-size: 1.9rem;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    color: rgb(255, 253, 254);
+    color: var(--text-color);
 
 }
 
 .menu .box-container .box .price {
-    color: #fff;
+    color: var(--text-color);
     font-size: 1.6rem;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    color: rgb(255, 250, 252);
+    color: var(--text-color);
 }
 
 .menu .box-container .box .price span {
-    color: #fff;
+    color: var(--text-color);
     font-size: 1.2rem;
     text-decoration: line-through;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    color: rgb(255, 250, 252);
+    color: var(--text-color);
 }
 
 
@@ -638,7 +652,7 @@ button:hover {
 }
 
 #inbox{
-    background-color: rgb(94, 31, 42);
+    background-color: rgb(175, 61, 80);
 }
 /*review section style contributed*/
 /* Review Section Adjusted Styles */
@@ -649,7 +663,7 @@ button:hover {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 7rem; /* Increased gap for more spacing */
-    background-color: #222; /* Kept the dark background */
+    background-color: var(--background-color);/* Kept the dark background */
     border-radius: 1rem;
     margin-bottom: 5rem; /* Added margin between footer */
 }
@@ -662,7 +676,7 @@ button:hover {
 }
 
 .container__left p {
-    color: #fff; /* Brighter text */
+    color: var(--text-color);
     margin-bottom: 2rem;
     font-size: 2rem; /* Increased font size */
     line-height: 2.8rem; /* Adjusted line height for readability */
@@ -675,7 +689,7 @@ button:hover {
     border: none;
     border-radius: 5px;
     background: linear-gradient(to right, #ff4e50, #fc913a); /* Brighter gradient */
-    color: var(--white);
+    color: var(--text-color);
     font-size: 1.8rem; /* Increased button font size */
     cursor: pointer;
 }
@@ -690,16 +704,22 @@ button:hover {
     display: flex;
     align-items: flex-start;
     gap: 5rem; /* More space between image and content */
-    background-color: #333; /* Darker background */
+    background-color: var(--background-color);
+
     border-radius: 1.5rem;
-    box-shadow: 8px 8px 40px rgba(0, 0, 0, 0.3); /* Stronger shadow for depth */
+     /* Stronger shadow for depth */
     cursor: pointer;
 }
+.card:hover {
+    box-shadow: 0 0 6px rgba(255,208,9,1);
 
+}
 .card img {
-    max-width: 120px; /* Increased size of the image */
     border-radius: 100%;
     border: 2px solid #ffbe0b; /* Added border */
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
 }
 
 .card__content {
@@ -715,15 +735,19 @@ button:hover {
 
 .card__details p {
     font-style: italic;
-    color: #ddd; /* Lighter text */
+    color: var(--text-color);
+
     margin-bottom: 1.5rem;
     font-size: 2rem; /* Increased size */
     line-height: 2.5rem;
 }
+.card__details p:hover{
+    color: #ff6f3c;
+}
 
 .card__details h4 {
     text-align: right;
-    color: #ffbe0b; /* Brighter color */
+    color:#ffbe0b; /* Brighter color */
     font-size: 2rem; /* Increased size */
     font-weight: 700;
 }
@@ -750,7 +774,7 @@ button:hover {
     max-width: 1200px;
     margin: auto;
     padding: 4rem 2rem;
-    background-color: #222; /* Dark background */
+    background-color: var(--background-color);
     border-radius: 1rem;
     margin-bottom: 5rem;
 }
@@ -775,9 +799,9 @@ button:hover {
 
 .review-right {
     flex: 2; /* More space for the form */
-    color: #fff;
+    color: var(--text-color);
     padding: 2rem; /* Padding for the form */
-    background-color: #333; /* Darker background for the form */
+    background-color: var(--background-color);
     border-radius: 1rem; /* Rounded edges */
 }
 
@@ -801,8 +825,8 @@ button:hover {
     border-radius: 8px; /* More rounded corners */
     border: 2px solid #ffbe0b; /* Brighter border */
     font-size: 1.4rem; /* Increased font size */
-    color: #333; /* Darker text color */
-    background-color: #fff; /* Light background */
+    color: var(--text-color);
+    background-color: var(--background-color);
     margin-bottom:1rem;
 }
 
@@ -824,8 +848,8 @@ button:hover {
 /*Blogs styles contributed*/
 .blogs {
     padding: 4rem 2rem;
-    background-color: #222; /* Dark background */
-    color: #fff; /* White text */
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 
 .blogs .heading {
@@ -843,7 +867,7 @@ button:hover {
 }
 
 .blog {
-    background-color: #333; /* Darker background for blog cards */
+    background-color: var(--background-color);
     border-radius: 1rem;
     padding: 2rem;
     width: 500px; /* Fixed width for consistency */
@@ -869,7 +893,7 @@ button:hover {
 
 .btn {
     background: linear-gradient(to right, #ff4e50, #fc913a); /* Button gradient */
-    color: #fff;
+    color: var(--text-color);
     padding: 0.8rem 1.5rem;
     border: none;
     border-radius: 5px;
@@ -882,7 +906,7 @@ button:hover {
 /* Footer Styles */
 
 .footer {
-    background: var(--black);
+    background-color: var(--background-color);
     text-align: center;
 }
 
@@ -895,14 +919,14 @@ button:hover {
     width: 5rem;
     line-height: 5rem;
     font-size: 2rem;
-    color: #fff;
+    color: var(--text-color);
     border: var(--border);
     margin: .3rem;
     border-radius: 50%;
 }
 
 .footer .share a:hover {
-    background-color: var(--main-color);
+    background-color: var(--background-color);
 }
 
 .footer .links {
@@ -915,13 +939,13 @@ button:hover {
 
 .footer .links a {
     padding: .7rem 2rem;
-    color: #fff;
+    color: var(--text-color);
     border: var(--border);
     font-size: 2rem;
 }
 
 .footer .links a:hover {
-    background-color: var(--main-color);
+    background-color: var(--background-color);
 }
 
 footer .credit {
@@ -931,11 +955,11 @@ footer .credit {
 }
 
 .footer .credit p {
-    color: #f5f5f1;
+    color: var(--text-color);
 }
 
 .footer .credit span {
-    color: var(--main-color);
+    color: var(--text-color);
 }
 
 
@@ -962,7 +986,7 @@ footer .credit {
         top: calc(100% + 1rem);
         /* Adjusted top position */
         right: -100%;
-        background: var(--black);
+        background-color: var(--background-color);
         width: 100%;
         flex-direction: column;
         align-items: flex-start;
@@ -1032,19 +1056,19 @@ button,
 button:hover,
 .header .cart-items-container button:hover,
 .order-actions button:hover {
-    background-color: #fff;
+    background-color: var(--background-color);
     color: var(--main-color);
     letter-spacing: .2rem;
 }
 
 /* Remove conflicting hover styles */
 .header .cart-items-container button:hover {
-    background-color: #fff;
+    background-color: var(--background-color);
     color: var(--main-color);
 }
 
 .order-actions button:hover {
-    background-color: #fff;
+    background-color: var(--background-color);
     color: var(--main-color);
 }
 
@@ -1053,7 +1077,7 @@ button:hover,
 /* Footer button hover effect */
 .footer .share a:hover,
 .footer .links a:hover {
-    background-color: #fff;
+    background-color: var(--background-color);
     color: var(--main-color);
     letter-spacing: .2rem;
 }
@@ -1096,7 +1120,7 @@ button:hover,
 }
 
 .order-summary, .payment-methods, .payment-details, .billing-address {
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: var(--background-color);
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 30px;
@@ -1120,7 +1144,7 @@ input[type="text"], input[type="radio"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: var(--background-color);
     border: 1px solid var(--main-color);
     border-radius: 5px;
     color: #fff;
@@ -1146,7 +1170,7 @@ input[type="radio"] {
 }
 
 .payment-button:hover {
-    background-color: #fff;
+    background-color: var(--background-color);
     transform: translateY(-3px);
 }
 
@@ -1259,7 +1283,7 @@ body {
     max-width: 800px;
     margin: 20px; /* Add margin for small screens */
     padding: 40px;
-    background-color: white;
+    background-color: var(--background-color);
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
@@ -1295,7 +1319,7 @@ body {
 }
 
 .contact-section .submit-button {
-    background-color: var(--main-color);
+    background-color: var(--background-color);
     color: var(--black);
     padding: 15px 30px;
     border: none;
@@ -1309,7 +1333,7 @@ body {
 }
 
 .contact-section .submit-button:hover {
-    background-color: #fff;
+    background-color: var(--background-color);
     transform: translateY(-3px);
 }
 
@@ -1317,7 +1341,7 @@ body {
 .footer {
     text-align: center;
     padding: 20px;
-    background-color: var(--footer-color); /* Add your footer color here */
+    background-color: var(--background-color); /* Add your footer color here */
 }
 
 .box{
@@ -1327,6 +1351,33 @@ body {
     border-radius: 10px;
     transform: scale(0.9);
     border: 2px solid white;
-    box-shadow: rgba(236, 234, 234, 0.25) 0px 50px 100px -20px, rgba(160, 158, 158, 0.3)
-      
-      
+.navbar {
+  box-shadow: rgba(236, 234, 234, 0.25) 0px 50px 100px -20px, rgba(160, 158, 158, 0.3) 0px 30px 60px -30px, rgba(188, 188, 188, 0.35) 0px -2px 6px 0px inset;
+}
+
+.navbar a {
+  transition: all 0.2s ease-in;
+}
+
+.navbar a:hover {
+  transform: scale(1.1);
+}
+
+.box1 {
+  border: 1px solid #d3ad7f;
+  border-radius: 10px;
+  height: 200px;
+  width: 30%;
+  align-items: center;
+  text-align: center;
+  color: #d3ad7f;
+  font-size: 15px;
+  padding: 20px 20px;
+  transition: all 0.5s ease-in-out;
+}
+
+.box1:hover {
+  transform: scale(1.1);
+  border-color: #eee;
+}
+  
