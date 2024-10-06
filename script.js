@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let navbar = document.querySelector('.navbar');
     let searchForm = document.querySelector('.search-form');
     let cartItem = document.querySelector('.cart-items-container');
+    let myOrderContainer = document.querySelector('.my-order-container');
 
     document.querySelector('#search-btn').onclick = () => {
         searchForm.classList.toggle('active');
@@ -11,6 +12,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelector('#cart-btn').onclick = () => {
         cartItem.classList.toggle('active');
+        myOrderContainer.classList.remove('active');
+        navbar.classList.remove('active');
+        searchForm.classList.remove('active');
+    };
+
+    document.querySelector('#my-order-btn').onclick = () => {
+        myOrderContainer.classList.toggle('active');//Order container shown
+        cartItem.classList.remove('active');
         navbar.classList.remove('active');
         searchForm.classList.remove('active');
     };
@@ -29,15 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
         button.style.setProperty('--x', `${x}px`);
         button.style.setProperty('--y', `${y}px`);
     }
-
-    let myOrderContainer = document.querySelector('.my-order-container');
-
-    document.querySelector('#my-order-btn').onclick = () => {
-        myOrderContainer.classList.toggle('active');
-        navbar.classList.remove('active');
-        searchForm.classList.remove('active');
-        cartItem.classList.remove('active');
-    };
 
     window.onscroll = () => {
         navbar.classList.remove('active');
@@ -99,20 +99,69 @@ function clearWishlist() {
     displayWishlist();
 }
 
+
+
+
+ 
+
+
+// Function to add items to the cart
 function addToCart(productName, price) {
-    cart.push({ name: productName, price: price });
-    displayCart();
-    //remove item from wishlist
-    const wishlistIndex = wishlist.findIndex(item => item.name === productName);
-    if (wishlistIndex !== -1) {
-        removeFromWishlist(wishlistIndex);
+    const existingItem = cart.find(item => item.name === productName);
+    
+    if (!existingItem) {
+        // Add the product to the cart
+        cart.push({ name: productName, price: price });
+        alert(`Product ${productName} added to cart`); // Notify the user
+        displayCart(); // Update the cart display
+
+        // Show notification tooltip
+        const notification = document.getElementById('notification-tooltip');
+        notification.classList.add('show');
+
+        // Hide notification after 2 seconds
+        setTimeout(() => {
+            notification.classList.remove('show');
+        }, 2000);
+        
+        // Optionally remove item from wishlist if necessary
+        const wishlistIndex = wishlist.findIndex(item => item.name === productName);
+        if (wishlistIndex !== -1) {
+            removeFromWishlist(wishlistIndex);
+        }
+    } else {
+        alert(`${productName} is already in your cart!`); // Alert if the item is already in the cart
     }
 }
 
-// Function to remove items from cart
+
+
+
+// Function to remove items from the cart
 function removeFromCart(index) {
-    cart.splice(index, 1);
-    displayCart();
+    cart.splice(index, 1); // Remove item from cart array
+    displayCart(); // Update the cart display
+}
+
+// Function to display cart items and calculate total
+function displayCart() {
+    const cartItemsElement = document.getElementById('cartItems'); // Container for cart items
+    const totalElement = document.getElementById('total'); // Element for displaying total price
+    let cartItemsHTML = '';
+    let total = 0;
+
+    // Iterate through the cart array to build the HTML for each item
+    cart.forEach((item, index) => {
+        cartItemsHTML += `
+            <li>
+                ${item.name} - $${item.price.toFixed(2)}
+                <button onclick="removeFromCart(${index})">Remove</button>
+            </li>`;
+        total += item.price; // Accumulate total price
+    });
+
+    cartItemsElement.innerHTML = cartItemsHTML; // Insert the built HTML into the cart
+    totalElement.textContent = `Total: $${total.toFixed(2)}`; // Display the total
 }
 
 // Function to display cart items and calculate total
@@ -313,3 +362,43 @@ document.addEventListener('DOMContentLoaded', function() {
     checkScroll(); 
 });
 
+
+document.addEventListener('DOMContentLoaded', () => {
+    let loginModal = document.getElementById('login-modal');
+    let signupModal = document.getElementById('signup-modal');
+    let loginBtn = document.getElementById('login-btn');
+    let signupBtn = document.getElementById('signup-btn');
+    let closeLogin = document.getElementById('close-login');
+    let closeSignup = document.getElementById('close-signup');
+
+    // Show login modal
+    loginBtn.onclick = () => {
+        loginModal.style.display = 'flex';
+        signupModal.style.display = 'none'; // Ensure signup modal is hidden
+    };
+
+    // Show signup modal
+    signupBtn.onclick = () => {
+        signupModal.style.display = 'flex';
+        loginModal.style.display = 'none'; // Ensure login modal is hidden
+    };
+
+    // Close login modal
+    closeLogin.onclick = () => {
+        loginModal.style.display = 'none';
+    };
+
+    // Close signup modal
+    closeSignup.onclick = () => {
+        signupModal.style.display = 'none';
+    };
+
+    // Close modal if clicked outside the modal content
+    window.onclick = (event) => {
+        if (event.target === loginModal) {
+            loginModal.style.display = 'none';
+        } else if (event.target === signupModal) {
+            signupModal.style.display = 'none';
+        }
+    };
+});
