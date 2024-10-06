@@ -559,6 +559,14 @@ background-color: var(--background-color, #00000045);
     padding: 1rem 0;
     line-height: 1.8;
 }
+/* Filter styles */
+.filter-box {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: var(--background-color);
+    border-radius: 0.5rem;
+}
+
 
 /* Filter box styles */
 .filter-box {
@@ -567,6 +575,7 @@ background-color: var(--background-color, #00000045);
     background-color: var(--background-color);
     border-radius: 0.5rem;
 }
+
 
 .filter-box h3 {
     color: var(--text-color);
@@ -600,7 +609,9 @@ background-color: var(--background-color, #00000045);
     background-color: var(--primary-color-dark);
 }
 
+
 /* filter box styles end */
+
 
 /* Blogs Styles */
 
