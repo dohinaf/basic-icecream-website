@@ -1,0 +1,76 @@
+/* Basic Reset */
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Body styles */
+body {
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header styles */
+header {
+    background-color: #FF6F61; /* Ice cream color */
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Main section styles */
+main {
+    padding: 20px;
+}
+
+/* Blog details section */
+#blog-details {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Blog detail article styles */
+.blog-detail {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.blog-detail:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Image styles */
+.blog-detail img {
+    width: 650px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Heading styles */
+h2 {
+    color: #FF6F61; /* Ice cream color */
+    padding: 10px;
+    text-align: center;
+}
+
+/* Paragraph styles */
+p {
+    padding: 0 15px 15px;
+}
+
+/* Footer styles */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #FF6F61; /* Ice cream color */
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}

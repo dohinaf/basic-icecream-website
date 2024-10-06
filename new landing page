@@ -1,0 +1,84 @@
+<style>
+.hero-section { display: flex; flex-direction: column; overflow: hidden; }
+.hero-background { border-radius: 200px; background-color: #B26175; min-height: 353px; width: 100%; }
+.hero-content { z-index: 10; margin-top: -46px; width: 100%; }
+.content-wrapper { gap: 20px; display: flex; }
+.text-column { display: flex; flex-direction: column; width: 72%; }
+.text-content { display: flex; width: 100%; flex-direction: column; }
+.hero-title { color: #6D2714; margin: 0 85px 0 50px; font: 700 96px 'Lobster Two', sans-serif; }
+.subtitle-wrapper { display: flex; margin-top: 11px; width: 100%; align-items: start; gap: 40px 65px; color: #6D2714; flex-wrap: wrap; font: 500 37px 'Inter', sans-serif; }
+.subtitle-content { display: flex; margin-top: 20px; gap: 17px; flex-wrap: wrap; flex-grow: 1; flex-basis: auto; }
+.accent-circle-pink { background-color: #FD9485; border-radius: 50%; align-self: start; display: flex; margin-top: 4px; width: 40px; height: 40px; }
+.subtitle-text { flex-basis: auto; flex-grow: 1; }
+.accent-circle-red { background-color: #D2717A; border-radius: 50%; display: flex; width: 40px; height: 40px; }
+.description-wrapper { display: flex; margin-top: 27px; width: 100%; flex-direction: column; padding: 0 57px; }
+.description-text { color: #51140A; margin-right: 26px; font: 300 20px 'Poppins', sans-serif; }
+.cta-wrapper { align-self: end; margin-top: 52px; width: 758px; max-width: 100%; }
+.cta-content { gap: 20px; display: flex; }
+.cta-button-column { display: flex; flex-direction: column; width: 60%; }
+.cta-button { border-radius: 100px; background-color: #6D2714; color: #FFF; text-align: center; width: 100%; padding: 34px 45px; font: 400 33px 'Inter', sans-serif; }
+.accent-column { display: flex; flex-direction: column; width: 40%; margin-left: 20px; }
+.accent-circles { display: flex; margin-top: 32px; flex-grow: 1; flex-direction: column; }
+.accent-circle-yellow { background-color: #FFC368; border-radius: 50%; display: flex; width: 40px; height: 40px; }
+.accent-circle-red-bottom { background-color: #D2717A; border-radius: 50%; align-self: end; display: flex; margin-top: 72px; width: 40px; height: 40px; }
+.image-column { display: flex; flex-direction: column; width: 28%; margin-left: 20px; }
+.image-wrapper { display: flex; margin-top: 56px; flex-grow: 1; flex-direction: column; }
+.accent-circle-orange { background-color: #FDC672; border-radius: 50%; display: flex; margin-left: 118px; width: 40px; height: 40px; }
+.hero-image { aspect-ratio: 0.73; object-fit: contain; object-position: center; width: 100%; margin-top: 123px; }
+
+@media (max-width: 991px) {
+  .hero-background, .hero-content, .text-content, .description-wrapper, .cta-wrapper, .image-wrapper { max-width: 100%; }
+  .content-wrapper, .cta-content { flex-direction: column; align-items: stretch; gap: 0; }
+  .text-column, .cta-button-column, .accent-column, .image-column { width: 100%; margin-left: 0; }
+  .text-content, .image-wrapper { margin-top: 40px; }
+  .hero-title { margin-right: 10px; font-size: 40px; }
+  .description-wrapper { padding: 0 20px; }
+  .description-text { margin-right: 10px; }
+  .cta-button { margin-top: 40px; padding: 0 20px; }
+  .accent-circles, .accent-circle-red-bottom { margin-top: 40px; }
+  .accent-circle-orange { margin-left: 10px; }
+  .hero-image { margin-top: 40px; }
+}
+</style>
+
+<section class="hero-section">
+  <div class="hero-background"></div>
+  <div class="hero-content">
+    <div class="content-wrapper">
+      <div class="text-column">
+        <div class="text-content">
+          <h1 class="hero-title">Taste the Joy: Indulge in Our Heavenly Ice Cream!</h1>
+          <div class="subtitle-wrapper">
+            <div class="subtitle-content">
+              <div class="accent-circle-pink" aria-hidden="true"></div>
+              <p class="subtitle-text">"Discover the Creamiest, Dreamiest Ice Cream Flavors <br /> Crafted Just for You!"</p>
+            </div>
+            <div class="accent-circle-red" aria-hidden="true"></div>
+          </div>
+          <div class="description-wrapper">
+            <p class="description-text">"At Arcticdelights, we believe that every scoop tells a story. From classic favorites to adventurous concoctions, our artisan ice cream is made with the finest ingredients and a whole lot of love. Whether you're treating yourself to a delicious dessert or looking for the perfect gift, we have something for everyone!"</p>
+            <div class="cta-wrapper">
+              <div class="cta-content">
+                <div class="cta-button-column">
+                  <button class="cta-button">Explore Our Flavors</button>
+                </div>
+                <div class="accent-column">
+                  <div class="accent-circles">
+                    <div class="accent-circle-yellow" aria-hidden="true"></div>
+                    <div class="accent-circle-red-bottom" aria-hidden="true"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="image-column">
+        <div class="image-wrapper">
+          <div class="accent-circle-orange" aria-hidden="true"></div>
+          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/2285215a23e1edaf4c302ca5f666a039729a9d875a812fc8eb209f2a792c8ee4?placeholderIfAbsent=true&apiKey=fa22c26009ce45f18ff293ca0a4356fa" alt="Delicious ice cream cone" class="hero-image" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
