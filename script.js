@@ -3,6 +3,12 @@ document.addEventListener('DOMContentLoaded', () => {
     let searchForm = document.querySelector('.search-form');
     let cartItem = document.querySelector('.cart-items-container');
     let myOrderContainer = document.querySelector('.my-order-container');
+    const applyFilterButton = document.getElementById('apply-filter');
+    const priceFilter = document.getElementById('price-filter');
+    const flavorFilter = document.getElementById('flavor-filter');
+    const menuItems = document.querySelectorAll('.menu .box');
+
+    applyFilterButton.addEventListener('click', filterItems);
 
     document.querySelector('#search-btn').onclick = () => {
         searchForm.classList.toggle('active');
@@ -44,12 +50,70 @@ document.addEventListener('DOMContentLoaded', () => {
         searchForm.classList.remove('active');
         cartItem.classList.remove('active');
     };
+    function filterItems() {
+        const selectedPrice = priceFilter.value;
+        const searchFlavor = flavorFilter.value.toLowerCase();
+
+        menuItems.forEach(item => {
+            const price = parseFloat(item.querySelector('.price').textContent.replace('$', ''));
+            const flavor = item.querySelector('h3').textContent.toLowerCase();
+            let showItem = true;
+
+            // Price filter
+            if (selectedPrice !== 'all') {
+                if (selectedPrice === 'under-15' && price >= 15) showItem = false;
+                if (selectedPrice === '15-20' && (price < 15 || price > 20)) showItem = false;
+                if (selectedPrice === 'over-20' && price <= 20) showItem = false;
+            }
+
+            // Flavor filter
+            if (searchFlavor && !flavor.includes(searchFlavor)) showItem = false;
+
+            item.style.display = showItem ? 'block' : 'none';
+        });
+    }
 });
 
 // Array to store cart items
 let cart = [];
 
 let wishlist = [];
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    // ... existing event listeners ...
+
+    // Filter functionality
+    const applyFilterButton = document.getElementById('apply-filter');
+    const priceFilter = document.getElementById('price-filter');
+    const flavorFilter = document.getElementById('flavor-filter');
+    const menuItems = document.querySelectorAll('.menu .box');
+
+    applyFilterButton.addEventListener('click', filterItems);
+
+    function filterItems() {
+        const selectedPrice = priceFilter.value;
+        const searchFlavor = flavorFilter.value.toLowerCase();
+
+        menuItems.forEach(item => {
+            const price = parseFloat(item.querySelector('.price').textContent.replace('$', ''));
+            const flavor = item.querySelector('h3').textContent.toLowerCase();
+            let showItem = true;
+
+            // Price filter
+            if (selectedPrice !== 'all') {
+                if (selectedPrice === 'under-15' && price >= 15) showItem = false;
+                if (selectedPrice === '15-20' && (price < 15 || price > 20)) showItem = false;
+                if (selectedPrice === 'over-20' && price <= 20) showItem = false;
+            }
+
+            // Flavor filter
+            if (searchFlavor && !flavor.includes(searchFlavor)) showItem = false;
+
+            item.style.display = showItem ? 'block' : 'none';
+        });
+    }
+});
 
 // Function to add items to cart
 
@@ -86,8 +150,8 @@ function displayWishlist() {
         wishlistItemsHTML += `
             <li>
                 ${item.name} - $${item.price.toFixed(2)}
-                <button onclick="addToCart('${item.name}', ${item.price})">Add to Cart</button>
-                <button onclick="removeFromWishlist(${index})">Remove</button>
+                <button class="add-to-cart-btn" onclick="addToCart('${item.name}', ${item.price})">Add to Cart</button>
+                <button class="remove-from-wishlist-btn" onclick="removeFromWishlist(${index})">Remove</button>
             </li>`;
     });
 
@@ -363,3 +427,43 @@ document.addEventListener('DOMContentLoaded', function() {
     checkScroll(); 
 });
 
+
+document.addEventListener('DOMContentLoaded', () => {
+    let loginModal = document.getElementById('login-modal');
+    let signupModal = document.getElementById('signup-modal');
+    let loginBtn = document.getElementById('login-btn');
+    let signupBtn = document.getElementById('signup-btn');
+    let closeLogin = document.getElementById('close-login');
+    let closeSignup = document.getElementById('close-signup');
+
+    // Show login modal
+    loginBtn.onclick = () => {
+        loginModal.style.display = 'flex';
+        signupModal.style.display = 'none'; // Ensure signup modal is hidden
+    };
+
+    // Show signup modal
+    signupBtn.onclick = () => {
+        signupModal.style.display = 'flex';
+        loginModal.style.display = 'none'; // Ensure login modal is hidden
+    };
+
+    // Close login modal
+    closeLogin.onclick = () => {
+        loginModal.style.display = 'none';
+    };
+
+    // Close signup modal
+    closeSignup.onclick = () => {
+        signupModal.style.display = 'none';
+    };
+
+    // Close modal if clicked outside the modal content
+    window.onclick = (event) => {
+        if (event.target === loginModal) {
+            loginModal.style.display = 'none';
+        } else if (event.target === signupModal) {
+            signupModal.style.display = 'none';
+        }
+    };
+});
