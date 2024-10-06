@@ -1216,6 +1216,10 @@ button:hover,
     color: white;
 }
 
+.dark-mode #heading2{
+    color: white;
+}
+
 #order-items,
 #order-total {
     color: white; 
