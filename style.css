@@ -1360,7 +1360,7 @@ body {
     margin: 20px;
     padding: 40px;
     padding-bottom: 0;
-    background-color: var(--background-color);
+    background-color:rgb(14, 13, 13);
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
@@ -1368,7 +1368,7 @@ body {
 .contact-section h2 {
     text-align: center;
     font-size: 2.5em;
-    color: var(--main-color);
+    color: white;
     margin-bottom: 20px;
 }
 
@@ -1382,13 +1382,14 @@ body {
     border-radius: 5px;
     font-size: 1em;
     background-color: var(--background-color);
-    color: var(--text-color);
+    color:black;
 }
 
 .contact-section textarea {
     width: 100%;
     height: 150px;
     resize: vertical;
+    
 }
 
 .submit-button {
@@ -1545,6 +1546,9 @@ header {
     transition: 0.4s;
     top: 3px;
     left: 4px;
+}
+label {
+    color: rgba(230, 43, 43, 0.789); 
 }
 
 input:checked + .slider {
