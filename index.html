@@ -128,6 +128,10 @@
             </div>
             
         </div>
+        <div class="icons">
+            <button id="login-btn">Login</button>
+            <button id="signup-btn">Sign Up</button>
+        </div>
 
     </header>
     <!-- Header Ends Here -->
@@ -165,6 +169,33 @@
 
         </div>
     </section>
+    <!-- Login Modal -->
+<div id="login-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" id="close-login">&times;</span>
+        <h2>Login</h2>
+        <form>
+            <input type="email" placeholder="Email" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</div>
+
+<!-- Signup Modal -->
+<div id="signup-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" id="close-signup">&times;</span>
+        <h2>Sign Up</h2>
+        <form>
+            <input type="text" placeholder="Full Name" required>
+            <input type="email" placeholder="Email" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
+</div>
+
 
     <!-- About Section Ends Here -->
    
@@ -180,27 +211,26 @@
                 <img src="https://plus.unsplash.com/premium_photo-1678198786405-28e947bb8a12" alt="">
                 <h3>Nutty Butterscotch</h3>
                 <div class="price"> $15.99 <span>20.99</span></div>
-                <button  id="inbox" onclick="addToCart('Nutty Butterscotch', 20.00)">Add to Cart</button><br>
-   
-                <button  id="inbox" onclick="addToWishlist('Nutty Butterscoth', 20.00)">Add to wishlist</button>
+                <button  id="inbox" onclick="addToCart('Nutty Butterscotch', 15.99)">Add to Cart</button><br>
+                <button  id="inbox" onclick="addToWishlist('Nutty Butterscoth', 15.99)">Add to wishlist</button>
           </div>
 
             <div class="box"  data-aos="fade-up"
             data-aos-anchor-placement="top-bottom">
                 <img src="https://images.unsplash.com/photo-1488900128323-21503983a07e" alt="">
                 <h3>Berry Pops</h3>
-                <div class="price"> $15.99 <span>20.99</span></div>
-                <button  id="inbox" onclick="addToCart('Berry Pops', 20.00)">Add to Cart</button><br>
-                <button  id="inbox" onclick="addToWishlist('Berry Pops', 20.00)">Add to wishlist</button>
+                <div class="price"> $18.99 <span>20.99</span></div>
+                <button  id="inbox" onclick="addToCart('Berry Pops', 18.99)">Add to Cart</button><br>
+                <button  id="inbox" onclick="addToWishlist('Berry Pops', 18.99)">Add to wishlist</button>
             </div>
 
             <div class="box"  data-aos="fade-up"
             data-aos-anchor-placement="top-bottom">
                 <img src="https://images.unsplash.com/photo-1633933037611-f26e54366832" alt="">
                 <h3>Cherry Sherbet Pops</h3>
-                <div class="price"> $15.99 <span>20.99</span></div>
-                <button  id="inbox" onclick="addToCart('Cherry Sherbet Pops', 20.00)">Add to Cart</button><br>
-                <button  id="inbox" onclick="addToWishlist('Cherry Sherbet Pops', 20.00)">Add to wishlist</button>
+                <div class="price"> $18.99 <span>20.99</span></div>
+                <button  id="inbox" onclick="addToCart('Cherry Sherbet Pops', 18.99)">Add to Cart</button><br>
+                <button  id="inbox" onclick="addToWishlist('Cherry Sherbet Pops', 18.99)">Add to wishlist</button>
             </div>
 
             <div class="box"  data-aos="fade-up"
@@ -208,44 +238,44 @@
                 <img src="https://images.unsplash.com/photo-1570197788417-0e82375c9371" alt="">
                 <h3>Dripping Vannila</h3>
                 <div class="price"> $15.99 <span>20.99</span></div>
-                <button  id="inbox" onclick="addToCart('Dripping Vannila', 20.00)">Add to Cart</button><br>
-                <button  id="inbox" onclick="addToWishlist('Dripping Vannila', 20.00)">Add to wishlist</button>
+                <button  id="inbox" onclick="addToCart('Dripping Vannila', 15.99)">Add to Cart</button><br>
+                <button  id="inbox" onclick="addToWishlist('Dripping Vannila', 15.99)">Add to wishlist</button>
             </div>
 
             <div class="box"  data-aos="fade-up"
             data-aos-anchor-placement="top-bottom">
                 <img src="https://images.unsplash.com/photo-1532678465554-94846274c297" alt="">
                 <h3>Very Berry Strawberry</h3>
-                <div class="price"> $15.99 <span>20.99</span></div>
-                <button  id="inbox" onclick="addToCart('Very Berry Strawberry', 20.00)">Add to Cart</button><br>
-                <button  id="inbox" onclick="addToWishlist('Very Berry Strawberry', 20.00)">Add to wishlist</button>
+                <div class="price"> $16.99 <span>20.99</span></div>
+                <button  id="inbox" onclick="addToCart('Very Berry Strawberry', 16.99)">Add to Cart</button><br>
+                <button  id="inbox" onclick="addToWishlist('Very Berry Strawberry', 16.99)">Add to wishlist</button>
             </div>
 
             <div class="box"  data-aos="fade-up"
             data-aos-anchor-placement="top-bottom">
                 <img src="https://images.unsplash.com/photo-1705103654898-d663145f5f50" alt="">
                 <h3>Rainbow Classic Cone</h3>
-                <div class="price"> $15.99 <span>20.99</span></div>
-                <button  id="inbox" onclick="addToCart('Rainbow Classic Cone', 20.00)">Add to Cart</button><br>
-                <button  id="inbox" onclick="addToWishlist('Rainbow Classic Cone', 20.00)">Add to wishlist</button>
+                <div class="price"> $18.99 <span>20.99</span></div>
+                <button  id="inbox" onclick="addToCart('Rainbow Classic Cone', 18.99)">Add to Cart</button><br>
+                <button  id="inbox" onclick="addToWishlist('Rainbow Classic Cone', 18.99)">Add to wishlist</button>
             </div>
 
             <div class="box"  data-aos="fade-up"
             data-aos-anchor-placement="top-bottom">
                 <img src="https://images.unsplash.com/photo-1559340160-146586a4f9b6" alt="">
                 <h3>Orange Pops</h3>
-                <div class="price"> $15.99 <span>20.99</span></div>
-                <button  id="inbox" onclick="addToCart('Orange Pops', 20.00)">Add to Cart</button><br>
-                <button  id="inbox" onclick="addToWishlist('Orange Pops', 20.00)">Add to wishlist</button>
+                <div class="price"> $12.99 <span>20.99</span></div>
+                <button  id="inbox" onclick="addToCart('Orange Pops', 12.99)">Add to Cart</button><br>
+                <button  id="inbox" onclick="addToWishlist('Orange Pops', 12.99)">Add to wishlist</button>
             </div>
 
             <div class="box"  data-aos="fade-up"
             data-aos-anchor-placement="top-bottom">
                 <img src="https://images.unsplash.com/photo-1594305178909-03ab72b8205e" alt="">
                 <h3>Choco-Hazel Pops</h3>
-                <div class="price"> $15.99 <span>20.99</span></div>
-                <button  id="inbox" onclick="addToCart('Choco-Hazel Pops', 20.00)">Add to Cart</button><br>
-                <button  id="inbox" onclick="addToWishlist('Choco-Hazel Pops', 20.00)">Add to wishlist</button>
+                <div class="price"> $18.99 <span>20.99</span></div>
+                <button  id="inbox" onclick="addToCart('Choco-Hazel Pops', 18.99)">Add to Cart</button><br>
+                <button  id="inbox" onclick="addToWishlist('Choco-Hazel Pops', 18.99)">Add to wishlist</button>
             </div>
 
             <div class="box"  data-aos="fade-up"
@@ -253,35 +283,35 @@
                 <img src="https://images.unsplash.com/photo-1499638472904-ea5c6178a300" alt="">
                 <h3>Very Very Peachy</h3>
                 <div class="price"> $15.99 <span>20.99</span></div>
-                <button  id="inbox" onclick="addToCart('Very Very Peachy', 20.00)">Add to Cart</button><br>
-                <button  id="inbox" onclick="addToWishlist('Very Very Peachy', 20.00)">Add to wishlist</button>
+                <button  id="inbox" onclick="addToCart('Very Very Peachy',15.99)">Add to Cart</button><br>
+                <button  id="inbox" onclick="addToWishlist('Very Very Peachy', 15.99)">Add to wishlist</button>
             </div>
 
             <div class="box"  data-aos="fade-up"
             data-aos-anchor-placement="top-bottom">
                 <img src="https://images.unsplash.com/photo-1559340160-146586a4f9b6" alt="">
                 <h3>Orange Pops</h3>
-                <div class="price"> $15.99 <span>20.99</span></div>
-                <button  id="inbox" onclick="addToCart('Orange Pops', 20.00)">Add to Cart</button><br>
-                <button  id="inbox" onclick="addToWishlist('Orange Pops', 20.00)">Add to wishlist</button>
+                <div class="price"> $14.99 <span>20.99</span></div>
+                <button  id="inbox" onclick="addToCart('Orange Pops', 14.99)">Add to Cart</button><br>
+                <button  id="inbox" onclick="addToWishlist('Orange Pops', 14.99)">Add to wishlist</button>
             </div>
 
             <div class="box"  data-aos="fade-up"
             data-aos-anchor-placement="top-bottom">
                 <img src="https://images.unsplash.com/photo-1594305178909-03ab72b8205e" alt="">
                 <h3>Choco-Hazel Pops</h3>
-                <div class="price"> $15.99 <span>20.99</span></div>
-                <button  id="inbox" onclick="addToCart('Choco-Hazel Pops', 20.00)">Add to Cart</button><br>
-                <button  id="inbox" onclick="addToWishlist('Choco-Hazel Pops', 20.00)">Add to wishlist</button>
+                <div class="price"> $14.99 <span>20.99</span></div>
+                <button  id="inbox" onclick="addToCart('Choco-Hazel Pops', 14.99)">Add to Cart</button><br>
+                <button  id="inbox" onclick="addToWishlist('Choco-Hazel Pops', 14.99)">Add to wishlist</button>
             </div>
 
             <div class="box"  data-aos="fade-up"
             data-aos-anchor-placement="top-bottom">
                 <img src="https://images.unsplash.com/photo-1499638472904-ea5c6178a300" alt="">
                 <h3>Very Very Peachy</h3>
-                <div class="price"> $15.99 <span>20.99</span></div>
-                <button  id="inbox" onclick="addToCart('Very Very Peachy', 20.00)">Add to Cart</button><br>
-                <button  id="inbox" onclick="addToWishlist('Very Very Peachy', 20.00)">Add to wishlist</button>
+                <div class="price"> $16.99 <span>20.99</span></div>
+                <button  id="inbox" onclick="addToCart('Very Very Peachy', 16.99)">Add to Cart</button><br>
+                <button  id="inbox" onclick="addToWishlist('Very Very Peachy', 16.99)">Add to wishlist</button>
             </div>
 
             <div class="notification-tooltip" id="notification-tooltip">
