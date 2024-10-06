@@ -926,9 +926,9 @@ background-color: var(--background-color, #00000045);
 
 .blogs .heading {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 4rem;
     margin-bottom: 2rem;
-    color: #ffbe0b; /* Brighter heading color */
+    color: black; /* Brighter heading color */
 }
 
 .blog-container {
@@ -1196,14 +1196,24 @@ button:hover,
 
 .heading {
     text-align: center;
-    font-size: 2.5em;
-    color: var(--main-color);
+    font-size: 4rem;
+    text-decoration: underline;
+    color: black;
     margin-bottom: 30px;
     text-transform: uppercase;
 }
 
+.dark-mode #heading{
+    color: white;
+}
+
 .heading span {
-    color: #fff;
+    color: black;
+    font-size: 4rem;
+}
+
+.dark-mode #heading1{
+    color: white;
 }
 
 #order-items,

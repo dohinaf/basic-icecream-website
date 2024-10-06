@@ -21,3 +21,7 @@ checkbox.addEventListener('change', () => {
     }
 })
 
+document.getElementById("toggle-button").onclick=function(){
+    document.body.classList.toggle("dark-mode");
+}
+
