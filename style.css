@@ -726,7 +726,47 @@ background-color: var(--background-color, #00000045);
 	width:220px;
 	height:220px;
     border-radius: 1rem;
-    transition: transform 0.3s ease;
+    transition: transform 0.5s ease-in-out;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.menu .picture {
+    position: relative; /* Added to position the .flip div correctly */
+    perspective: 1000px;
+}
+
+/* CSS for flip element */
+.menu .flip {
+    width: 220px;
+    height: 220px;
+    border-radius: 1rem;
+    transition: transform 0.5s ease-in-out;
+    background: linear-gradient(135deg, #D5006D, #9C0B2D);
+    color: #FFFFFF;
+    font-size: 1.6rem;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    border: 2px solid #FFFFFF;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    padding: 10px;
+}
+
+.picture:hover img {
+    transform: rotateY(180deg); /* Rotate the image on hover */
+}
+
+.picture:hover .flip {
+    transform: rotateY(0); /* Show the .flip text on hover */
 }
 
 .box:hover {
