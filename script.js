@@ -150,8 +150,8 @@ function displayWishlist() {
         wishlistItemsHTML += `
             <li>
                 ${item.name} - $${item.price.toFixed(2)}
-                <button onclick="addToCart('${item.name}', ${item.price})">Add to Cart</button>
-                <button onclick="removeFromWishlist(${index})">Remove</button>
+                <button class="add-to-cart-btn" onclick="addToCart('${item.name}', ${item.price})">Add to Cart</button>
+                <button class="remove-from-wishlist-btn" onclick="removeFromWishlist(${index})">Remove</button>
             </li>`;
     });
 
