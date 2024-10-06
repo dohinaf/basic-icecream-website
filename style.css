@@ -168,7 +168,7 @@ background-color: var(--background-color, #00000045);
 }
 
 .wishlist-container h2 {
-    color: var(--text-color);
+    color: yellow;
     font-size: 2.4rem;
     margin-bottom: 1.5rem;
 }
@@ -179,7 +179,7 @@ background-color: var(--background-color, #00000045);
 }
 
 #wishlistItems li {
-    color: var(--text-color);
+    color: var(--main-color);
     font-size: 1.6rem;
     margin-bottom: 1rem;
     display: flex;
@@ -187,6 +187,32 @@ background-color: var(--background-color, #00000045);
     align-items: center;
 }
 
+.add-to-cart-btn {
+    background-color: #4CAF50; 
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.add-to-cart-btn:hover{
+    background-color: #388d3b; 
+    color: white;
+}
+.remove-from-wishlist-btn {
+    background-color: #f44336; 
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.remove-from-wishlist-btn:hover{
+    background-color: #aa2f26;
+    color: white;
+}
+.clear-from-wishlist-btn{
+    background-color: #c49f6a;
+}
 .wishlist-container button {
     width: 100%;
     margin-top: 1.5rem;
