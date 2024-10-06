@@ -307,33 +307,30 @@ background-color: var(--background-color, #00000045);
 }*/
 
 .header .search-form {
+    display: flex;
+    align-items: center; /* Aligns the search input and icon in the center */
+    justify-content: space-between; /* Ensures proper spacing between input and icon */
     position: absolute;
-    top: calc(100% + 1rem);
-    /* Adjusted to position below header */
-    right: 7%;
+    top: calc( 25%); /* Positions the form just below the header */
+    right: 27%; /* Adjust as per the layout */
     background-color: var(--background-color);
     width: 20rem;
-    /* Adjusted width for better fit */
     height: auto;
-    display: none;
-    /* Initially hidden */
-    padding: 1rem;
+    padding: 0.5rem;
     box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);
-    /* Added box shadow */
-    z-index: 100;
-    /* Ensure it's above other content */
+    z-index: 1000;
+    border-radius: 5px; /* Adds subtle rounded corners */
 }
 
 .header .search-form.active {
-    display: flex;
-    /* Show when active */
+    display: flex; /* Display the form when active */
 }
 
 .header .search-form input {
-    width: 100%;
+    width: 85%; /* Adjust width to ensure the search input and icon fit well in the box */
     font-size: 1.6rem;
     color: var(--text-color);
-    padding: 0.5rem;
+    padding: 0.2rem;
     border: none;
     outline: none;
 }
@@ -343,7 +340,6 @@ background-color: var(--background-color, #00000045);
     font-size: 2.2rem;
     color: var(--text-color);
     margin-left: 1rem;
-    /* Adjusted margin */
 }
 
 .header .search-form label:hover {
@@ -1518,10 +1514,11 @@ header {
 .theme-switch-wrapper {
     display: flex;
     align-items: center;
+    margin-left:20%;
 }
 
 #mode-label {
-    margin-left: 10px;
+    margin-left: 30px;
     font-size: 1rem;
 }
 
