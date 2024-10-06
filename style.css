@@ -68,16 +68,16 @@ button {
     display: inline-block;
     padding: .7rem 1.4rem;
     font-size: 1.4rem;
-    font-weight: bold;
+    /* font-weight: bold; */
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 /* Use a CSS variable for text color to support both light and dark modes */
-color: var(--text-color);
+color: #d3ad7f;
 
     /*background: var(--main-color);*/
     cursor: pointer;
-    border-radius: 0.5rem;
+    /* border-radius: 0.5rem; */
     /*transition: transform 0.3s ease;*/
-    border-radius: 25px;
+    border-radius: 8px;
 }
 
 .btn:hover {
@@ -86,6 +86,7 @@ color: var(--text-color);
 
 button:hover {
     transform: scale(1.009);
+    color: #ac8350;
 }
 
 .animated-button {
@@ -688,10 +689,13 @@ background-color: var(--background-color, #00000045);
 .menu .box-container .box {
     margin: 2rem;
     padding: 0.7rem;
-    border-radius: 1rem 1rem 0 0;
+    border-radius: 8px;
     border-width: 1.1rem;
     border-color: var(--text-color);
-    background-color: var(--background-color);
+   background-color: #D2A679;
+/* border: 1px solid brown; */
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 
+                0 6px 20px rgba(0, 0, 0, 0.19);
     text-align: center;
     border:var(--text-color);
     align-items: center;
@@ -735,7 +739,23 @@ background-color: var(--background-color, #00000045);
 }
 
 #inbox{
-    background-color: rgb(175, 61, 80);
+    background-color: #FFF8E7   ;
+    border: 0.5px solid #c69861;
+    color:#d3ad7f ;
+    width:fit-content;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+#pro-name{
+    color: #4e1a22;
+}
+
+#inbox:hover {
+    /* background-color: #d3ad7f; Darkens background on hover */
+    color: #ca7c1d; /* Lightens text color on hover */
+    border-color: #b89b57; /* Subtle change in border color */
+    background-color: beige;
+    
 }
 /*review section style contributed*/
 /* Review Section Adjusted Styles */
