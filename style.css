@@ -1,4 +1,41 @@
 /* Global Styles */
+.rating {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.rating span {
+    font-size: 26px;
+    margin-right: 10px;
+    background: linear-gradient(to right, #ff459f, #ff9532, #ffd700, #32cd32, #1e90ff);
+    /* Example gradient colors */
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.rating p {
+    font-size: 14px;
+    color: #707070;
+    margin: 0;
+}
+
+.overall-rating {
+    margin: 14px 0;
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.overall-rating .star {
+    margin-left: 5px;
+    color: #ff3c6d;
+    font-weight: 600;
+}
+css 
+
 :root {
     --main-color: #d3ad7f;
     --black: #13131a;
