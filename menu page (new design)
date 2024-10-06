@@ -1,0 +1,230 @@
+<style>
+.about-section {
+  background-color: rgba(178, 97, 117, 1);
+  overflow: hidden;
+}
+
+.content-wrapper {
+  background-color: rgba(178, 97, 117, 0.61);
+  width: 100%;
+  padding-right: 56px;
+  overflow: hidden;
+}
+
+.two-column-layout {
+  display: flex;
+  gap: 20px;
+}
+
+.left-column {
+  width: 33%;
+}
+
+.image-placeholder {
+  background-color: rgba(223, 184, 197, 0.5);
+  width: 798px;
+  max-width: 100%;
+  height: 1117px;
+  margin: 0 auto;
+}
+
+.right-column {
+  width: 67%;
+  margin-left: 20px;
+}
+
+.info-container {
+  background-color: rgba(255, 254, 245, 1);
+  width: 100%;
+  margin: 76px auto 0;
+  padding: 49px 0 15px 46px;
+}
+
+.info-content {
+  margin-right: -41px;
+}
+
+.info-layout {
+  display: flex;
+  gap: 20px;
+}
+
+.text-column {
+  width: 41%;
+}
+
+.text-content {
+  background-color: rgba(247, 204, 214, 0.58);
+  padding: 179px 0 179px 44px;
+  font: 600 32px Inter, sans-serif;
+}
+
+.main-title {
+  color: rgba(127, 53, 40, 1);
+  font: 700 64px 'Lobster Two', sans-serif;
+  margin-right: -245px;
+}
+
+.description {
+  color: rgba(178, 97, 117, 1);
+  margin: 39px -80px 0 0;
+}
+
+.cta-button {
+  background-color: rgba(127, 53, 40, 0.87);
+  color: rgba(245, 245, 245, 1);
+  width: 296px;
+  max-width: 100%;
+  padding: 18px 70px;
+  margin-top: 47px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.image-column {
+  width: 59%;
+  margin-left: 20px;
+}
+
+.image-content {
+  display: flex;
+  flex-direction: column;
+  margin-top: 41px;
+  color: #000;
+  font: 900 48px Inter, sans-serif;
+}
+
+.about-title {
+  align-self: flex-start;
+}
+
+.highlight {
+  color: rgba(178, 97, 117, 1);
+}
+
+.feature-image {
+  aspect-ratio: 1.91;
+  object-fit: contain;
+  width: 843px;
+  max-width: 100%;
+  margin-top: 154px;
+}
+
+.features-list {
+  display: flex;
+  width: 1108px;
+  max-width: 100%;
+  gap: 40px 100px;
+  color: #000;
+  margin: 12px 0 0 49px;
+  font: 700 20px Inter, sans-serif;
+}
+
+.feature-item {
+  flex-grow: 1;
+}
+
+@media (max-width: 991px) {
+  .content-wrapper {
+    max-width: 100%;
+    padding-right: 20px;
+  }
+
+  .two-column-layout {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .left-column,
+  .right-column {
+    width: 100%;
+  }
+
+  .info-container {
+    max-width: 100%;
+    margin-top: 40px;
+  }
+
+  .info-content {
+    max-width: 100%;
+  }
+
+  .info-layout {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .text-column,
+  .image-column {
+    width: 100%;
+  }
+
+  .text-content {
+    max-width: 100%;
+    padding: 100px 0;
+  }
+
+  .main-title {
+    max-width: 100%;
+    font-size: 40px;
+  }
+
+  .description {
+    max-width: 100%;
+  }
+
+  .cta-button {
+    margin-top: 40px;
+    padding: 18px 20px;
+  }
+
+  .image-content {
+    max-width: 100%;
+    margin-top: 40px;
+    font-size: 40px;
+  }
+
+  .feature-image {
+    margin-top: 40px;
+  }
+}
+</style>
+
+<section class="about-section">
+  <div class="content-wrapper">
+    <div class="two-column-layout">
+      <div class="left-column">
+        <div class="image-placeholder"></div>
+      </div>
+      <div class="right-column">
+        <div class="info-container">
+          <div class="info-content">
+            <div class="info-layout">
+              <div class="text-column">
+                <div class="text-content">
+                  <h2 class="main-title">What makes our ice cream special?</h2>
+                  <p class="description">Arctic Delights handpicks ingredients of the highest quality to make ice creams that you'll love. We ensure that our ice creams can cool down your days and satisfy all your cravings.<br />Choose your pick from a variety of flavours, select custom toppings, and much more! All of this at Arctic Delights.</p>
+                  <button class="cta-button" tabindex="0">TRY NOW</button>
+                </div>
+              </div>
+              <div class="image-column">
+                <div class="image-content">
+                  <h3 class="about-title">ABOUT <span class="highlight">US</span></h3>
+                  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/374f714e221f04a9a9976dc35317d9e705623b622c5b06964827508ade381f48?placeholderIfAbsent=true&apiKey=fa22c26009ce45f18ff293ca0a4356fa" alt="About Us illustration" class="feature-image" loading="lazy" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <ul class="features-list">
+            <li class="feature-item">NO CHEMICALS</li>
+            <li class="feature-item">NO SACCHARINE</li>
+            <li class="feature-item">NATURAL FLAVOURS</li>
+            <li class="feature-item">100% HYGIENIC</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

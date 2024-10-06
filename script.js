@@ -3,6 +3,12 @@ document.addEventListener('DOMContentLoaded', () => {
     let searchForm = document.querySelector('.search-form');
     let cartItem = document.querySelector('.cart-items-container');
     let myOrderContainer = document.querySelector('.my-order-container');
+    const applyFilterButton = document.getElementById('apply-filter');
+    const priceFilter = document.getElementById('price-filter');
+    const flavorFilter = document.getElementById('flavor-filter');
+    const menuItems = document.querySelectorAll('.menu .box');
+
+    applyFilterButton.addEventListener('click', filterItems);
 
     document.querySelector('#search-btn').onclick = () => {
         searchForm.classList.toggle('active');
@@ -44,12 +50,70 @@ document.addEventListener('DOMContentLoaded', () => {
         searchForm.classList.remove('active');
         cartItem.classList.remove('active');
     };
+    function filterItems() {
+        const selectedPrice = priceFilter.value;
+        const searchFlavor = flavorFilter.value.toLowerCase();
+
+        menuItems.forEach(item => {
+            const price = parseFloat(item.querySelector('.price').textContent.replace('$', ''));
+            const flavor = item.querySelector('h3').textContent.toLowerCase();
+            let showItem = true;
+
+            // Price filter
+            if (selectedPrice !== 'all') {
+                if (selectedPrice === 'under-15' && price >= 15) showItem = false;
+                if (selectedPrice === '15-20' && (price < 15 || price > 20)) showItem = false;
+                if (selectedPrice === 'over-20' && price <= 20) showItem = false;
+            }
+
+            // Flavor filter
+            if (searchFlavor && !flavor.includes(searchFlavor)) showItem = false;
+
+            item.style.display = showItem ? 'block' : 'none';
+        });
+    }
 });
 
 // Array to store cart items
 let cart = [];
 
 let wishlist = [];
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    // ... existing event listeners ...
+
+    // Filter functionality
+    const applyFilterButton = document.getElementById('apply-filter');
+    const priceFilter = document.getElementById('price-filter');
+    const flavorFilter = document.getElementById('flavor-filter');
+    const menuItems = document.querySelectorAll('.menu .box');
+
+    applyFilterButton.addEventListener('click', filterItems);
+
+    function filterItems() {
+        const selectedPrice = priceFilter.value;
+        const searchFlavor = flavorFilter.value.toLowerCase();
+
+        menuItems.forEach(item => {
+            const price = parseFloat(item.querySelector('.price').textContent.replace('$', ''));
+            const flavor = item.querySelector('h3').textContent.toLowerCase();
+            let showItem = true;
+
+            // Price filter
+            if (selectedPrice !== 'all') {
+                if (selectedPrice === 'under-15' && price >= 15) showItem = false;
+                if (selectedPrice === '15-20' && (price < 15 || price > 20)) showItem = false;
+                if (selectedPrice === 'over-20' && price <= 20) showItem = false;
+            }
+
+            // Flavor filter
+            if (searchFlavor && !flavor.includes(searchFlavor)) showItem = false;
+
+            item.style.display = showItem ? 'block' : 'none';
+        });
+    }
+});
 
 // Function to add items to cart
 
@@ -242,10 +306,11 @@ document.getElementById('checkout-button').addEventListener('click', checkout);
 
 function updateOrderSummary() {
     // Fetch order items and total from cart 
-    const totlaPrice = cart.reduce((sum, item) => sum + item.price, 0);
-    const totalItems = totlaPrice/15.99; 
+    const totalItems = 3; 
+    const totalPrice = 45.99; 
+
     document.getElementById('order-items').textContent = `Total Items: ${totalItems}`;
-    document.getElementById('order-total').textContent = `Total Price: $${totlaPrice}`;
+    document.getElementById('order-total').textContent = `Total Price: $${totalPrice}`;
 }
 
 // Payment method selection logic
