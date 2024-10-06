@@ -287,7 +287,7 @@ background-color: var(--background-color, #00000045);
 }
 
 .header .icons {
-    display: flex;
+
     align-items: center;
 }
 
@@ -456,6 +456,93 @@ background-color: var(--background-color, #00000045);
     color: var(--text-color);
 }
 
+
+/* General Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        padding: 1rem 3%;
+    }
+
+    .header .logo img {
+        height: 4rem;
+    }
+
+    .header .navbar {
+        display: none; /* Initially hide the navbar on small screens */
+        flex-direction: column;
+        background-color: var(--background-color);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 1rem 0;
+        z-index: 1000;
+    }
+
+    .header .navbar.active {
+        display: flex; /* Show the navbar when active */
+    }
+
+    .header .navbar a {
+        margin: 1rem 0;
+        text-align: center;
+        font-size: 1.4rem;
+        padding: 0.5rem 0;
+    }
+
+    .header .icons {
+        margin-top: 1rem;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .header .theme-switch-wrapper {
+        margin-top: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .header .search-form {
+        width: 100%;
+        right: 0;
+        padding: 0.5rem;
+    }
+
+    .header .cart-items-container,
+    .header .wishlist-container {
+        right: 0;
+        width: 100%;
+    }
+    .mobile_logo{
+        width: 100%;
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+    }
+}
+
+/* Toggle Menu Icon */
+#menu-btn {
+    display: none;
+    font-size: 2.5rem;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+/* Display Menu Icon on Small Screens */
+@media (max-width: 768px) {
+    #menu-btn {
+        display: block;
+    }
+}
+
+
+
+
+
+
 /* ... existing styles ... */
 
 /* My Order Styles */
@@ -506,6 +593,7 @@ background-color: var(--background-color, #00000045);
 .order-actions button:hover {
     background-color: #c49f6a;
 }
+
 
 
 
