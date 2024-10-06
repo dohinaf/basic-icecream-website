@@ -276,22 +276,24 @@ button:hover {
 }*/
 
 .header .search-form {
+    margin-right:9% ;
     position: absolute;
-    top: calc(100% + 1rem);
-    /* Adjusted to position below header */
-    right: 7%;
-    background-color: var(--background-color);
-    width: 20rem;
-    /* Adjusted width for better fit */
+
+    right: 0rem; /* Adjust to position near the search icon */
+    top: 50%; /* Vertically centers it within the navbar */
+    transform: translateY(-50%); /* Correct vertical alignment */
+    background: #fff;
+    width: 20rem; /* Width for better fit */
     height: auto;
-    display: none;
-    /* Initially hidden */
+   display: none; /* Initially hidden */
     padding: 1rem;
     box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);
     /* Added box shadow */
     z-index: 100;
     /* Ensure it's above other content */
 }
+
+
 
 .header .search-form.active {
     display: flex;
@@ -456,31 +458,38 @@ button:hover {
 
 /* Home Styles */
 
-.home {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    background: url("https://images.unsplash.com/photo-1503438805992-a1f1bcaf6ec9") no-repeat;
-    background-size: cover;
-    background-position: center;
+.home{
+	min-height: 100vh;
+	display:flex;
+	align-items: center;
+	background:url("image/2.jpg") no-repeat;
+	background-size: cover;
+	background-position: center;
 }
 
 .home .content {
     max-width: 60rem;
 }
-
-.home .content h3 {
-    font-size: 50px;
-    text-transform: uppercase;
-    color: var(--text-color);
+.home .content h3{
+    margin-top: 450px;
+	font-size: 50px;
+	text-transform: uppercase;
+	color:#420c10;
 }
 
-.home .content p {
-    font-size: 20px;
-    font-weight: lighter;
-    color: var(--text-color);
-    padding: 1rem 0;
-    line-height: 1.8;
+.home .content p{
+	font-size: 20px;
+	font-weight: lighter;
+	color: #180202;
+	padding: 1rem 0;
+	line-height: 1.8;
+}
+
+.btn1 {
+    padding: 1.5%;
+    font-size: 2rem;
+    background-color: #f1c0de;
+    border-radius: 5px;
 }
 
 /* About Styles */
@@ -640,8 +649,10 @@ button:hover {
 
 
 .menu img{
-	width:220px;
-	height:220px;
+        width: 100%;
+        height: 350px;
+        object-fit: cover; /* Ensures images maintain aspect ratio and don't distort */
+        border-radius: 8px;
     border-radius: 1rem;
     transition: transform 0.3s ease;
 }
@@ -697,6 +708,7 @@ button:hover {
 .container__right {
     display: grid;
     gap: 4rem; /* Increased gap for larger cards */
+
 }
 
 .card {

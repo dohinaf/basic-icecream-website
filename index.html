@@ -68,9 +68,10 @@
                 alt="Logo">
         </a>
 
-        <!-- ... existing code ... -->
-         <h1 class="site-title">ArcticDelights</h1> 
 
+<a href="#" class="logo"> 
+<img src="image/0.png" alt="Logo">
+</a>
 <nav class="navbar">
 
 
@@ -83,53 +84,28 @@
 <a href="#" id="my-order-btn">My Orders</a>
 </nav>
 
+<div class="icons">
+<div class="fas fa-search" id="search-btn"></div>
+<div class="fas fa-shopping-cart" id="cart-btn"></div>
+</div>
 
-        <div class="icons">
-            <div class = "fas fa-heart" id = "wishlist-btn"></div>
-            <div class="fas fa-search" id="search-btn"></div>
-            <div class="fas fa-shopping-cart" id="cart-btn"></div>
-        </div>
-        <div class="theme-switch-wrapper">
-            <label class="theme-switch" for="checkbox">
-                <input type="checkbox" id="checkbox">
-                <div class="slider"></div>
-            </label>
-            <span id="mode-label">Light Mode</span>
-        </div> 
-        <div class="search-form">
-            <input type="search" id="search-box" placeholder="Search...">
-            <label for="search-box" class="fas fa-search"></label>
-        </div>
-        <div class="wishlist-container">
-            <ul id="wishlistItems"></ul>
-            <button onclick="clearWishlist()">Clear Wishlist</button>
-        </div>
-        <div class="cart-items-container">
-            <div class="cart">
-                <ul id="cartItems">
-                    <!-- Cart items will be displayed here -->
-                </ul>
-                <h3>
-                    <div id="total">Total:$0.00
-                    </div>
-                </h3>
-                <button id="checkout-button" onclick="checkout()">Checkout</button>
-            </div>
-        </div>
-        <div class="my-order-container">
-            <h2>My Order</h2>
-            <div id="order-details">
-                <!-- Order details will be displayed here -->
-            </div>
-            <div class="order-actions">
-                <button onclick="trackOrder()">Track Order</button>
-                <button onclick="editOrder()">Edit Order</button>
-            </div>
-            
-        </div>
+<div class="search-form">
+<input type="search" id="search-box" placeholder="Search...">
+<label for="search-box" class="fas fa-search"></label>
+</div>
 
-    </header>
-    <!-- Header Ends Here -->
+<div class="cart-items-container">
+<div class="cart">
+    <ul id="cartItems">
+        <!-- Cart items will be displayed here -->
+    </ul>
+    <h3><div id="total">Total:$0.00 </div></h3>
+    <button onclick="checkout()">Checkout</button>
+</div>
+</div>
+
+</header>
+<!-- Header Ends Here -->
 
     <!-- Home Section Starts Here -->
     <section class="home" id="home">
@@ -147,7 +123,7 @@
         <h1 class="heading"> <span> about</span> us</h1>
         <div class="row">
             <div class="image">
-                <img src="https://plus.unsplash.com/premium_photo-1681488352667-c4d00b903416" alt="">
+                <img src="image/1.jpg" alt="">
             </div>
             <div class="content">
                 <h3> What makes our ice cream special?</h3>
@@ -166,11 +142,11 @@
     <!-- Menu Section Starts Here -->
 
     <section class="menu" id="menu">
-        <h1>here's, what we have in store for you!</h1>
+        <h1>Here's, what we have in store for you!</h1>
         <div class="box-container">
 
             <div class="box">
-                <img src="https://plus.unsplash.com/premium_photo-1678198786405-28e947bb8a12" alt="">
+                <img src="image/3.jpg" alt="">
                 <h3>Nutty Butterscotch</h3>
                 <div class="price"> $15.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Nutty Butterscotch', 15.99)">Add to Cart</button><br>
@@ -178,7 +154,7 @@
             </div>
            
             <div class="box">
-                <img src="https://images.unsplash.com/photo-1488900128323-21503983a07e" alt="">
+                <img src="image/4.jpg" alt="">
                 <h3>Berry Pops</h3>
                 <div class="price"> $18.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Berry Pops', 18.99)">Add to Cart</button><br>
@@ -186,7 +162,7 @@
             </div>
 
             <div class="box">
-                <img src="https://images.unsplash.com/photo-1633933037611-f26e54366832" alt="">
+                <img src="image/5.jpg" alt="">
                 <h3>Cherry Sherbet Pops</h3>
                 <div class="price"> $18.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Cherry Sherbet Pops', 18.99)">Add to Cart</button><br>
@@ -194,7 +170,7 @@
             </div>
 
             <div class="box">
-                <img src="https://images.unsplash.com/photo-1570197788417-0e82375c9371" alt="">
+                <img src="image/6.jpg" alt="">
                 <h3>Dripping Vannila</h3>
                 <div class="price"> $15.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Dripping Vannila', 15.99)">Add to Cart</button><br>
@@ -202,7 +178,7 @@
             </div>
 
             <div class="box">
-                <img src="https://images.unsplash.com/photo-1532678465554-94846274c297" alt="">
+                <img src="image/7.jpg" alt="">
                 <h3>Very Berry Strawberry</h3>
                 <div class="price"> $16.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Very Berry Strawberry', 16.99)">Add to Cart</button><br>
@@ -210,7 +186,7 @@
             </div>
 
             <div class="box">
-                <img src="https://images.unsplash.com/photo-1705103654898-d663145f5f50" alt="">
+                <img src="image/8.jpg" alt="">
                 <h3>Rainbow Classic Cone</h3>
                 <div class="price"> $18.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Rainbow Classic Cone', 18.99)">Add to Cart</button><br>
@@ -218,7 +194,7 @@
             </div>
 
             <div class="box">
-                <img src="https://images.unsplash.com/photo-1559340160-146586a4f9b6" alt="">
+                <img src="image/9.jpg" alt="">
                 <h3>Orange Pops</h3>
                 <div class="price"> $12.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Orange Pops', 12.99)">Add to Cart</button><br>
@@ -226,7 +202,7 @@
             </div>
 
             <div class="box">
-                <img src="https://images.unsplash.com/photo-1594305178909-03ab72b8205e" alt="">
+                <img src="image/10.jpg" alt="">
                 <h3>Choco-Hazel Pops</h3>
                 <div class="price"> $18.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Choco-Hazel Pops', 18.99)">Add to Cart</button><br>
@@ -234,7 +210,7 @@
             </div>
 
             <div class="box">
-                <img src="https://images.unsplash.com/photo-1499638472904-ea5c6178a300" alt="">
+                <img src="image/11.jpg" alt="">
                 <h3>Very Very Peachy</h3>
                 <div class="price"> $15.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Very Very Peachy',15.99)">Add to Cart</button><br>
@@ -242,7 +218,7 @@
             </div>
 
             <div class="box">
-                <img src="https://images.unsplash.com/photo-1559340160-146586a4f9b6" alt="">
+                <img src="image/2.jpg" alt="">
                 <h3>Orange Pops</h3>
                 <div class="price"> $14.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Orange Pops', 14.99)">Add to Cart</button><br>
@@ -250,7 +226,7 @@
             </div>
 
             <div class="box">
-                <img src="https://images.unsplash.com/photo-1594305178909-03ab72b8205e" alt="">
+                <img src="image/4.jpg" alt="">
                 <h3>Choco-Hazel Pops</h3>
                 <div class="price"> $14.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Choco-Hazel Pops', 14.99)">Add to Cart</button><br>
@@ -258,7 +234,7 @@
             </div>
 
             <div class="box">
-                <img src="https://images.unsplash.com/photo-1499638472904-ea5c6178a300" alt="">
+                <img src="image/5.jpg" alt="">
                 <h3>Very Very Peachy</h3>
                 <div class="price"> $16.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Very Very Peachy', 16.99)">Add to Cart</button><br>
@@ -274,10 +250,6 @@
 
         
     </section>
-
-    
-    <!-- Menu Section Ends Here -->
-
 
 <!-- Blogs Section Starts Here -->
 <section class="blogs" id="blogs">
@@ -403,6 +375,7 @@
       </form>
     </div>
   </div>
+
 </section>
 <!--Review adding section ended here-->
 <br>
