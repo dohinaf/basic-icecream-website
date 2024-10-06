@@ -102,7 +102,7 @@
         </div>
         <div class="wishlist-container">
             <ul id="wishlistItems"></ul>
-            <button onclick="clearWishlist()">Clear Wishlist</button>
+            <button class="clear-from-wishlist-btn" onclick="clearWishlist()">Clear Wishlist</button>
         </div>
         <div class="cart-items-container">
             <div class="cart">
@@ -216,19 +216,19 @@
     <section class="menu" id="menu">
             <h1 data-aos="fade-up"
         data-aos-anchor-placement="top-bottom"><span id="heading2">here's, what we have in store for you!</span></h1>
-            
-            <!-- Add this filter box -->
-            <div class="filter-box">
-                <h3>Filter Ice Creams</h3>
-                <select id="price-filter">
-                    <option value="all">All Prices</option>
-                    <option value="under-15">Under $15</option>
-                    <option value="15-20">$15 - $20</option>
-                    <option value="over-20">Over $20</option>
-                </select>
-                <button id="apply-filter">Apply Filter</button>
-            </div>
-        
+
+        <div class="filter-box">
+            <h3>Filter Ice Creams</h3>
+            <select id="price-filter">
+                <option value="all">All Prices</option>
+                <option value="under-15">Under $15</option>
+                <option value="15-20">$15 - $20</option>
+                <option value="over-20">Over $20</option>
+            </select>
+            <input type="text" id="flavor-filter" placeholder="Search by flavor...">
+            <button id="apply-filter">Apply Filter</button>
+        </div>
+
         <div class="box-container">
 
             <div class="box"  data-aos="fade-up"
