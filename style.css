@@ -1482,7 +1482,6 @@ body {
     margin-top: auto;
 }
 
-<<<<<<< HEAD
 /* Box Hover Effect */
 .box {
     transition: all 0.5s ease-in-out;
@@ -1495,8 +1494,6 @@ body {
     box-shadow: rgba(236, 234, 234, 0.25) 0px 50px 100px -20px, rgba(160, 158, 158, 0.3) 0px 30px 60px -30px, rgba(188, 188, 188, 0.35) 0px -2px 6px 0px inset;
 }
 
-=======
->>>>>>> c418a10bd337987af71c6f6602dafe245bad8496
 /* Navbar Hover Effect */
 .navbar a {
     transition: all 0.2s ease-in;
