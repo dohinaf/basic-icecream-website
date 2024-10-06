@@ -695,6 +695,12 @@ background-color: var(--background-color, #00000045);
     text-align: center;
     border:var(--text-color);
     align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu .box-container .box:hover {
+    transform: scale(1.05);
+    box-shadow: rgba(236, 234, 234, 0.25) 0px 50px 100px -20px, rgba(160, 158, 158, 0.3) 0px 30px 60px -30px, rgba(188, 188, 188, 0.35) 0px -2px 6px 0px inset;
 }
 
 .menu .box-container .box h3 {
@@ -727,11 +733,6 @@ background-color: var(--background-color, #00000045);
 	height:220px;
     border-radius: 1rem;
     transition: transform 0.3s ease;
-}
-
-.box:hover {
-    transform: scale(1.05);
-    transition-duration: 0.6s;
 }
 
 #inbox{
@@ -1416,18 +1417,6 @@ body {
     padding: 0;
     background-color: var(--background-color);
     margin-top: auto;
-}
-
-/* Box Hover Effect */
-.box {
-    transition: all 0.5s ease-in-out;
-}
-
-.box:hover {
-    border-radius: 10px;
-    transform: scale(0.9);
-    border: 2px solid white;
-    box-shadow: rgba(236, 234, 234, 0.25) 0px 50px 100px -20px, rgba(160, 158, 158, 0.3) 0px 30px 60px -30px, rgba(188, 188, 188, 0.35) 0px -2px 6px 0px inset;
 }
 
 /* Navbar Hover Effect */
