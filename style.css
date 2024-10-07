@@ -168,7 +168,7 @@ background-color: var(--background-color, #00000045);
 }
 
 .wishlist-container h2 {
-    color: var(--text-color);
+    color: yellow;
     font-size: 2.4rem;
     margin-bottom: 1.5rem;
 }
@@ -179,7 +179,7 @@ background-color: var(--background-color, #00000045);
 }
 
 #wishlistItems li {
-    color: var(--text-color);
+    color: var(--main-color);
     font-size: 1.6rem;
     margin-bottom: 1rem;
     display: flex;
@@ -187,6 +187,32 @@ background-color: var(--background-color, #00000045);
     align-items: center;
 }
 
+.add-to-cart-btn {
+    background-color: #4CAF50; 
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.add-to-cart-btn:hover{
+    background-color: #388d3b; 
+    color: white;
+}
+.remove-from-wishlist-btn {
+    background-color: #f44336; 
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.remove-from-wishlist-btn:hover{
+    background-color: #aa2f26;
+    color: white;
+}
+.clear-from-wishlist-btn{
+    background-color: #c49f6a;
+}
 .wishlist-container button {
     width: 100%;
     margin-top: 1.5rem;
@@ -559,6 +585,14 @@ background-color: var(--background-color, #00000045);
     padding: 1rem 0;
     line-height: 1.8;
 }
+/* Filter styles */
+.filter-box {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: var(--background-color);
+    border-radius: 0.5rem;
+}
+
 
 /* Filter box styles */
 .filter-box {
@@ -567,6 +601,7 @@ background-color: var(--background-color, #00000045);
     background-color: var(--background-color);
     border-radius: 0.5rem;
 }
+
 
 .filter-box h3 {
     color: var(--text-color);
@@ -600,7 +635,9 @@ background-color: var(--background-color, #00000045);
     background-color: var(--primary-color-dark);
 }
 
+
 /* filter box styles end */
+
 
 /* Blogs Styles */
 
@@ -684,6 +721,12 @@ background-color: var(--background-color, #00000045);
     text-align: center;
     border:var(--text-color);
     align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu .box-container .box:hover {
+    transform: scale(1.05);
+    box-shadow: rgba(236, 234, 234, 0.25) 0px 50px 100px -20px, rgba(160, 158, 158, 0.3) 0px 30px 60px -30px, rgba(188, 188, 188, 0.35) 0px -2px 6px 0px inset;
 }
 
 .menu .box-container .box h3 {
@@ -716,11 +759,6 @@ background-color: var(--background-color, #00000045);
 	height:220px;
     border-radius: 1rem;
     transition: transform 0.3s ease;
-}
-
-.box:hover {
-    transform: scale(1.05);
-    transition-duration: 0.6s;
 }
 
 #inbox{
@@ -1420,18 +1458,6 @@ body {
     padding: 0;
     background-color: var(--background-color);
     margin-top: auto;
-}
-
-/* Box Hover Effect */
-.box {
-    transition: all 0.5s ease-in-out;
-}
-
-.box:hover {
-    border-radius: 10px;
-    transform: scale(0.9);
-    border: 2px solid white;
-    box-shadow: rgba(236, 234, 234, 0.25) 0px 50px 100px -20px, rgba(160, 158, 158, 0.3) 0px 30px 60px -30px, rgba(188, 188, 188, 0.35) 0px -2px 6px 0px inset;
 }
 
 /* Navbar Hover Effect */
