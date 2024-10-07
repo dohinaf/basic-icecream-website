@@ -12,6 +12,46 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        .contact-section {
+            width: 400px; /* Set width for the box */
+            height: 400px; /* Set height for the box */
+            background-color: #f9f9f9; /* Background color */
+            border: 2px solid #ccc; /* Border */
+            border-radius: 10px; /* Rounded corners */
+            padding: 20px; /* Inner spacing */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+            margin: 50px auto; /* Center horizontally */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; /* Center content */
+        }
+
+        .contact-section h2 {
+            margin-bottom: 20px; /* Space below the heading */
+        }
+
+        .contact-section input,
+        .contact-section textarea {
+            width: 100%; /* Full width inputs */
+            margin-bottom: 10px; /* Space between inputs */
+            padding: 10px; /* Inner spacing */
+            border: 1px solid #ccc; /* Border */
+            border-radius: 5px; /* Rounded corners */
+        }
+
+        .submit-button {
+            background-color: #4CAF50; /* Button color */
+            color: white; /* Text color */
+            border: none; /* No border */
+            border-radius: 5px; /* Rounded corners */
+            padding: 10px 20px; /* Inner spacing */
+            cursor: pointer; /* Pointer on hover */
+        }
+    </style>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </head>
 
@@ -40,7 +80,6 @@
 
     <!-- Contact Section Starts Here -->
     <div class="main-content">
-        <!-- Your other content goes here, including the contact form -->
         <div class="contact-section contact-page">
             <h2>Contact Us</h2>
             <form>
