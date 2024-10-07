@@ -310,7 +310,7 @@ background-color: var(--background-color, #00000045);
     display: flex;
     align-items: center; /* Aligns the search input and icon in the center */
     justify-content: space-between; /* Ensures proper spacing between input and icon */
-    position: fixed;
+    position: absolute;
     top: calc( 2.5%); /* Positions the form just below the header */
     right: 24%; / Adjust as per the layout */
     background-color: var(--background-color);
