@@ -2028,3 +2028,31 @@ input:checked + .slider:before {
         transform: translate(-50%, -50%) scale(1.05);
     }
 }
+/*hover animation for cart itmes container*/
+.header .fa-shopping-cart, .header .fa-heart, .header .fa-search {
+    transition: transform 0.3s ease-in-out; /* Smooth transition */
+}
+
+.header .fa-shopping-cart:hover, .header .fa-heart:hover, .header .fa-search:hover {
+    transform: scale(1.2); /* Slightly enlarges the icons */
+    cursor: pointer; /* Changes cursor to pointer */
+}
+/* Hover effect on the entire theme switch wrapper */
+.theme-switch-wrapper {
+    display: inline-block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.theme-switch-wrapper:hover {
+    transform: scale(1.1); /* Slightly enlarges the switch */
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+}
+.theme-switch .slider {
+    transition: background-color 0.3s ease;
+}
+
+.theme-switch .slider:hover {
+    background-color: #f0f0f0; /* Lighter color on hover */
+    cursor: pointer; /* Shows pointer on hover */
+}
+
