@@ -908,7 +908,7 @@ background-color: var(--background-color, #00000045);
 }
 
 .review-right {
-    flex: 2; /* More space for the form */
+    flex: 3; /* More space for the form */
     color: var(--text-color);
     padding: 2rem; /* Padding for the form */
     background-color: var(--background-color);
@@ -1518,6 +1518,7 @@ header {
 .theme-switch-wrapper {
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 #mode-label {
