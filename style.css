@@ -155,7 +155,7 @@ button:hover {
     top: calc(100% + 1rem);
     right: 7%;
     width: 400px;
-background-color: var(--background-color, #00000045);
+    background-color: var(--background-color, #00000045);
 
     padding: 2rem;
     display: none;
@@ -266,6 +266,7 @@ background-color: var(--background-color, #00000045);
     left: 0;
     right: 0;
     z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a shadow to separate from page */
 }
 
 .header .logo img {
@@ -280,11 +281,28 @@ background-color: var(--background-color, #00000045);
 .header .navbar a {
     margin: 0 1rem;
     font-size: 1.6rem;
+    font-weight: bold;
     color: var(--text-color);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-bottom: 2px solid transparent;
+    transition: color 0.3s ease, border-color 0.3s ease;
 }
 
 .header .navbar a:hover {
-    color: var(--text-color);
+    color: #007BFF; /* Customize hover color */
+    border-bottom: 2px solid #007BFF; /* Add underline on hover */
+}
+
+.navbar_ele::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    background-color: #007BFF; /* Customize your underline color */
+    left: 0;
+    bottom: 0;
+    transition: width 0.3s ease-in-out;
 }
 
 .header .icons {
@@ -293,49 +311,39 @@ background-color: var(--background-color, #00000045);
 }
 
 .header .icons div {
-    background-color: var(--background-color);
     cursor: pointer;
     font-size: 2.5rem;
     margin-left: 2rem;
+    transition: color 0.3s ease;
 }
 
 .header .icons div:hover {
-    color: var(--text-color);
+    color: #007BFF;
 }
 
-/*#menu-btn {
-    display: none;
-}*/
-
+/* Search Form Styling */
 .header .search-form {
     position: absolute;
-    top: calc(100% + 1rem);
-    /* Adjusted to position below header */
+    top: calc(100% + 1rem); /* Positioned below header */
     right: 7%;
     background-color: var(--background-color);
     width: 20rem;
-    /* Adjusted width for better fit */
-    height: auto;
-    display: none;
-    /* Initially hidden */
+    display: none; /* Initially hidden */
     padding: 1rem;
     box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);
-    /* Added box shadow */
     z-index: 100;
-    /* Ensure it's above other content */
 }
 
 .header .search-form.active {
     display: flex;
-    /* Show when active */
 }
 
 .header .search-form input {
     width: 100%;
     font-size: 1.6rem;
-    color: var(--text-color);
     padding: 0.5rem;
-    border: none;
+    border: 1px solid #ddd;
+    border-radius: 0.3rem;
     outline: none;
 }
 
@@ -344,84 +352,70 @@ background-color: var(--background-color, #00000045);
     font-size: 2.2rem;
     color: var(--text-color);
     margin-left: 1rem;
-    /* Adjusted margin */
 }
 
 .header .search-form label:hover {
-    color: var(--text-color);
+    color: #007BFF;
 }
 
+/* Cart Container */
 .header .cart-items-container {
     position: absolute;
-    top: calc(100% + 1rem);
-    /* Adjusted to position below header */
+    top: calc(100% + 1rem); /* Positioned below header */
     right: 7%;
-    height: auto;
     width: 400px;
-    /* Adjusted width for better fit */
     background-color: var(--background-color);
-    display: none;
-    /* Initially hidden */
+    display: none; /* Initially hidden */
     padding: 1rem;
-    background-color: var(--background-color);
     box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);
-    /* Added box shadow */
     z-index: 100;
-    /* Ensure it's above other content */
 }
 
 .header .cart-items-container.active {
-    display: block;
-    /* Show when active */
+    display: block; /* Show cart when active */
 }
 
 .header .cart-items-container .cart {
     margin: 1rem 0;
     display: flex;
-    flex-direction: column; /* Ensure the cart items stack vertically */
+    flex-direction: column;
     align-items: center;
-    max-height: 400px; /* Limit cart height to 400px */
-    overflow-y: auto; /* Enable vertical scrolling */
-    scrollbar-width: thin; /* For Firefox: make the scrollbar thin */
-    scrollbar-color: #fff transparent; /* For Firefox: custom colors */
+    max-height: 400px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #ddd transparent;
 }
 
-/* Reusing the custom scrollbar styles for the cart */
 .header .cart-items-container .cart::-webkit-scrollbar {
-    width: .8rem; /* Same width as the main page scrollbar */
-}
-
-.header .cart-items-container .cart::-webkit-scrollbar-track {
-    background: transparent; /* Transparent background */
+    width: 0.8rem;
 }
 
 .header .cart-items-container .cart::-webkit-scrollbar-thumb {
-    background: #fff; /* White scrollbar thumb */
-    border-radius: 5rem; /* Rounded scrollbar thumb */
+    background: #ddd;
+    border-radius: 5rem;
 }
 
 .header .cart-items-container ul {
-    list-style-type: none; /* Remove bullet points from the cart list */
-    padding: 0; /* Remove default padding */
-    margin: 0; /* Remove default margin */
-    width: 100%; /* Ensure the cart list takes full width */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
 }
+
 .header .cart-items-container .cart-item .fa-times {
     padding-left: 10px;
-    /* Align to the right */
     font-size: 1.5rem;
-    padding-right: 15px;
     color: var(--text-color);
     cursor: pointer;
 }
 
 .header .cart-items-container .cart-item .fa-times:hover {
-    color: var(--text-color);
+    color: #ff4444;
 }
 
 .header .cart-items-container .cart-item img {
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
     object-fit: cover;
     padding-right: 10px;
 }
@@ -437,24 +431,23 @@ background-color: var(--background-color, #00000045);
     color: #92866d;
 }
 
+/* Cart Button Styling */
 .header .cart-items-container button {
-    width: auto;  /* Allows button to size based on content */
+    width: auto;
     display: block;
-    margin: 2rem auto;  /* Centers the button */
-    padding: 1rem 2rem;  /* Increased padding */
-    font-size: 1.6rem;  /* Increased font size */
-    color: var(--text-color);
-    background-color: var(--background-color);
+    margin: 2rem auto;
+    padding: 1rem 2rem;
+    font-size: 1.6rem;
+    color: #fff;
+    background-color: #007BFF;
     border: none;
     border-radius: 0.3rem;
-    text-align: center;
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .header .cart-items-container button:hover {
-    background-color: var(--background-color);
-    color: var(--text-color);
+    background-color: #0056b3;
 }
 
 /* ... existing styles ... */
@@ -1427,11 +1420,14 @@ input[type="radio"] {
 html, body {
     height: 100%;
     margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5; /* Soft background color */
 }
 
 body {
     display: flex;
     flex-direction: column;
+    justify-content: center; /* Center the form vertically */
 }
 
 .main-content {
@@ -1442,58 +1438,82 @@ body {
 }
 
 .contact-section {
-    max-width: 800px;
+    max-width: 700px;
+    width: 100%;
     margin: 20px;
     padding: 40px;
-    padding-bottom: 0;
-    background-color: var(--background-color);
+    background-color: #ffffff; /* White background for contrast */
     border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Smooth shadow for depth */
 }
 
 .contact-section h2 {
     text-align: center;
-    font-size: 2.5em;
-    color: var(--main-color);
-    margin-bottom: 20px;
+    font-size: 2.5rem;
+    color: #333; /* Darker color for clarity */
+    margin-bottom: 30px;
 }
 
 .contact-section input[type="text"],
 .contact-section input[type="email"],
 .contact-section textarea {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid var(--main-color);
-    border-radius: 5px;
-    font-size: 1em;
-    background-color: var(--background-color);
-    color: var(--text-color);
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 2px solid #007BFF; /* Highlight input fields with main color */
+    border-radius: 8px;
+    font-size: 1.1rem;
+    background-color: #f9f9f9; /* Subtle background for inputs */
+    color: #333;
+    transition: border 0.3s ease; /* Smooth border transition */
+}
+
+.contact-section input[type="text"]:focus,
+.contact-section input[type="email"]:focus,
+.contact-section textarea:focus {
+    border-color: #0056b3; /* Change border on focus */
+    outline: none;
 }
 
 .contact-section textarea {
-    width: 100%;
     height: 150px;
     resize: vertical;
 }
 
 .submit-button {
-    background-color: var(--background-color);
-    color: var(--black);
-    padding: 15px 30px;
+    background-color: #007BFF; /* Blue button for clear CTA */
+    color: rgb(0, 0, 0);
+    padding: 15px;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: bold;
     cursor: pointer;
-    font-size: 1.2em;
-    transition: background-color 0.3s, transform 0.3s;
-    display: block;
     width: 100%;
     margin-top: 10px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.contact-section .submit-button:hover {
-    background-color: var(--background-color);
-    transform: translateY(-3px);
+.submit-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+.submit-button:active {
+    transform: translateY(0); /* Reset on click */
+    background-color: #004494; /* Even darker on click */
+}
+
+/* Additional styling for responsive design */
+@media (max-width: 768px) {
+    .contact-section {
+        padding: 20px;
+    }
+
+    .contact-section h2 {
+        font-size: 2rem;
+    }
 }
 
 /* Footer Styling */
