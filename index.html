@@ -57,6 +57,113 @@
         }
     </style>
 
+    /* Styling for the pop-up Discount */
+    <style>
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .popup-content {
+      display: flex;
+      background-color: white;
+      border-radius: 10px;
+      width: 500px;
+      height: 350px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .popup-left img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .popup-right {
+      padding-left: 40px;
+      width: 50%;
+      position: relative;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 30px;
+      cursor: pointer;
+    }
+
+    h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin-bottom: 30px;
+      font-size: small;
+    }
+
+    input[type="email"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    .signup-btn {
+      width: 100%;
+      padding: 10px;
+      background-color: black;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .signup-btn:hover {
+      background-color: #333;
+    }
+
+    .no-thanks {
+      display: block;
+      margin-top: 10px;
+      text-align: center;
+      color: #1173f3;
+      text-decoration: none;
+      font-size: small;
+    }
+
+    .terms {
+      margin-top: 10px;
+      font-size: 12px;
+      text-align: center;
+      color: #aaa;
+    }
+
+    .terms a {
+      color: #888;
+      text-decoration: underline;
+    }
+
+    /* Main content styling */
+    .content {
+      text-align: center;
+      margin-top: 50px;
+    }
+  </style>
+
 </head>
 
 <body>
@@ -146,6 +253,57 @@
     </section>
     <!-- Home Section Ends Here -->
 
+    <!-- Pop-up for Discount and Sign up Starts here -->
+      <div id="popup" class="popup">
+        <div class="popup-content">
+          <div class="popup-left">
+            <img src="C:\Users\admin\Downloads\basic-icecream-website-main\basic-icecream-website-main\ICECREAM.jpg" alt="Discount Image">
+          </div>
+          <div class="popup-right">
+            <span class="close-btn">&times;</span>
+            <h2>Scoop Up the Savings!</h2>
+            <p>Get 20% off on your first order when you Sign up.</p>
+            <form id="emailForm">
+              <input type="email" id="email" placeholder="Enter your email" required>
+              <button type="submit" class="signup-btn">SIGN UP</button>
+            </form>
+            <a href="#" class="no-thanks">No thanks</a>
+            <p class="terms">By signing up, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>
+          </div>
+        </div>
+      </div>
+    <!--  Pop-up for Discount and Sign up Ends here  -->
+    
+    <!-- Script for pop up discount Starts Here -->
+    <script>
+    // Show the pop-up automatically when the page loads
+    window.onload = function() {
+      document.getElementById('popup').style.display = 'flex';
+    };
+
+    // Close the pop-up when the user clicks the close button
+    document.querySelector('.close-btn').addEventListener('click', function() {
+      document.getElementById('popup').style.display = 'none';
+    });
+
+    // Handle form submission
+    document.getElementById('emailForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      const email = document.getElementById('email').value;
+      if (email) {
+        alert(`Thank you! A 20% discount code has been sent to ${email}`);
+        document.getElementById('popup').style.display = 'none';
+      }
+    });
+
+    // Handle "No thanks" link
+    document.querySelector('.no-thanks').addEventListener('click', function(event) {
+      event.preventDefault();
+      document.getElementById('popup').style.display = 'none';
+    });
+  </script>
+    <!-- Script for pop up discount ends Here -->
 
     <!-- About Section Starts Here -->
     <section class="about" id="about">
