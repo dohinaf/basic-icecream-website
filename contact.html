@@ -28,6 +28,160 @@
             /* Stays on top of all elements */
         }
     </style>
+    <style>
+  /* General page settings */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #fdf3f3; /* Light background to match your design */
+}
+
+/* Header styling */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: 80px;
+}
+
+.header .navbar a {
+    color: #333;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: 500;
+}
+
+.header .icons div {
+    font-size: 18px;
+    color: #ff9900;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+/* Main content area */
+.main-content {
+    padding: 30px 20px;
+    min-height: calc(100vh - 160px); /* Ensure the page takes up the full screen */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: #f9f9f9;
+    margin-top: 20px;
+}
+
+/* Contact section styling */
+.contact-section {
+    width: 100%;
+    max-width: 450px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+}
+
+/* Title styling */
+.contact-section h2 {
+    text-align: center;
+    color: #ff9900;
+    font-size: 28px;
+    margin-bottom: 10px; /* Reduced margin for less gap */
+}
+
+/* Form styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Reduced gap between form fields */
+}
+
+label {
+    font-size: 16px;
+    margin-bottom: 5px; /* Reduced margin for less gap between label and input */
+    color: #333;
+}
+
+/* Input and textarea fields */
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+textarea {
+    
+   max-height: 100px;
+    resize: vertical;
+    overflow: auto;
+    font-family: 'Arial', sans-serif;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+    margin-bottom: 10px; /* Reduced margin for less gap */
+   
+}
+
+/* Submit button styling */
+button {
+    padding: 12px;
+    background-color: #ff9900;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 5px; /* Reduced gap above button */
+}
+
+/* Button hover effect */
+button:hover {
+    background-color: #e68a00;
+}
+
+/* Footer section */
+.footer {
+    padding: 20px;
+    /* background-color: #ff9900; */
+    color: white;
+    text-align: center;
+    height: 90px;
+}
+
+.footer .share a {
+    color: #ff9900;
+    margin: 0 10px;
+    font-size: 20px;
+
+}
+
+.footer .credit {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .contact-section {
+        width: 90%;
+    }
+
+    .header .navbar a {
+        margin: 0 10px;
+    }
+}
+
+.heading{
+    margin-top: 15px;
+}
+    </style>
 </head>
 
 <body>
@@ -78,7 +232,7 @@
     <div class="main-content">
         <!-- Your other content goes here, including the contact form -->
         <div class="contact-section contact-page">
-            <h2>Contact Us</h2>
+            <h2 class="heading">Contact Us</h2>
             <form>
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" required>
