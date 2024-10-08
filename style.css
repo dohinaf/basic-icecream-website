@@ -2029,3 +2029,23 @@ input:checked + .slider:before {
     transform: translate(-50%, -50%) scale(1.05);
   }
 }
+#backToTop {
+    width: 50px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    display: none; /* Hide the button by default */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 1000; /* Ensure it's above other elements */
+}
+#backToTop:hover {
+    background-color: #0056b3; /* Darken on hover */
+}
