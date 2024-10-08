@@ -1320,20 +1320,16 @@ label {
   font-size: medium;
 }
 
-input[type="text"],
+
 input[type="radio"] {
-  width: 100%;
+  width: auto;
+  margin-right: 10px;
   padding: 10px;
   margin-bottom: 15px;
   background-color: var(--background-color);
   border: 1px solid var(--main-color);
   border-radius: 5px;
   color: #fff;
-}
-
-input[type="radio"] {
-  width: auto;
-  margin-right: 10px;
 }
 
 .payment-button {
@@ -1413,8 +1409,7 @@ input[type="radio"] {
 }
 
 /* Contact Form Styles */
-html,
-body {
+html, body {
   height: 100%;
   margin: 0;
 }
@@ -1424,67 +1419,177 @@ body {
   flex-direction: column;
 }
 
-.main-content {
+
+svg {
+  margin-top: 250px;
+height: 40rem;
+margin-right: 4rem;
+}
+
+#envelope {
+animation: float 2s ease-in-out infinite;
+}
+
+#star1, #star2, #star3, #star4, #star5, #star6 {
+animation: blink 1s ease-in-out infinite;
+}
+#star2 { animation-delay: 100ms; }
+#star3 { animation-delay: 500ms; }
+#star4 { animation-delay: 700ms; }
+#star5 { animation-delay: 300ms; }
+#star6 { animation-delay: 200ms }
+
+@keyframes float {
+0% {
+  transform: translateY(0px);
+}
+50% {
+  transform: translateY(-20px);
+}
+100% {
+  transform: translateY(0px);
+}
+}
+
+@keyframes blink {
+0% {
+  opacity: 0;
+}
+50% {
+  opacity: .5;
+}
+100% {
+  opacity: 1;
+}
+}
+
+/* Container for the entire form */
+.contact-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex: 1;
+  height: 100vh;
+  padding: 2rem;
+  background-color: #f0f4f8;
 }
 
-.contact-section {
-  max-width: 800px;
-  margin: 20px;
-  padding: 40px;
-  padding-bottom: 0;
-  background-color: var(--background-color);
+/* Contact form styles */
+.contact-form {
+  max-width: 700px;
+  width: 100%;
+  background-color: #fff;
+  padding: 2.5rem;
   border-radius: 15px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
 }
 
-.contact-section h2 {
+/* Form title styling */
+.form-title {
+  font-family: 'Pacifico', cursive;
+  font-size: 2.5rem;
+  color: #333;
   text-align: center;
-  font-size: 2.5em;
-  color: var(--main-color);
-  margin-bottom: 20px;
+  margin-bottom: 2rem;
 }
 
-.contact-section input[type="text"],
-.contact-section input[type="email"],
-.contact-section textarea {
+/* Form group spacing */
+.form-group {
+  margin-bottom: 1.5rem;
+  position: relative;
+  color:black;
+}
+/* Input fields and textarea styles */
+.form-input {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid var(--main-color);
-  border-radius: 5px;
-  font-size: 1em;
-  background-color: var(--background-color);
-  color: var(--text-color);
+  padding: 1rem 1.5rem;
+  padding-left: 3.5rem;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 1.1rem;
+  font-family: 'Quicksand', sans-serif;
+  color: #333;
+  background-color: #bfebe9;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.contact-section textarea {
-  width: 100%;
-  height: 150px;
-  resize: vertical;
+/* Hover and focus effects for inputs */
+.form-input:focus {
+  border-color: #ff923c;
+  box-shadow: 0 0 10px rgba(255, 146, 60, 0.2);
+  outline: none;
 }
 
+/* Message text area padding */
+.message-input {
+  padding: 1rem;
+}
+
+/* Submit button styling */
 .submit-button {
-  background-color: var(--background-color);
-  color: var(--black);
-  padding: 15px 30px;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: bold;
+  font-size: 1.2rem;
+  background-image: linear-gradient(131deg, #ffd340, #ff923c);
+  color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 50px;
+  padding: 0.75rem 2.5rem;
   cursor: pointer;
-  font-size: 1.2em;
-  transition: background-color 0.3s, transform 0.3s;
-  display: block;
+  transition: all 0.3s ease;
   width: 100%;
-  margin-top: 10px;
+  display: inline-block;
+  text-align: center;
 }
 
-.contact-section .submit-button:hover {
-  background-color: var(--background-color);
+/* Submit button hover effect */
+.submit-button:hover {
+  background-image: linear-gradient(131deg, #ff923c, #ffd340);
+  box-shadow: 0 8px 15px rgba(255, 146, 60, 0.4);
   transform: translateY(-3px);
 }
+
+/* Adjustments for icons inside the inputs */
+.icon-container {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+  color: #57565c;
+}
+
+.form-icon {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+/* Adjust message text area styling */
+.message-group {
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+  /* Make form more responsive for smaller devices */
+  .contact-form {
+    max-width: 90%;
+    padding: 1.5rem;
+  }
+
+  .form-title {
+    font-size: 2rem;
+  }
+
+  .submit-button {
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+  }
+
+  .form-input {
+    padding-left: 2.5rem;
+  }
+}
+
+
 
 /* Footer Styling */
 .footer {
@@ -1737,67 +1842,6 @@ body {
   flex-direction: column;
 }
 
-.main-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex: 1;
-}
-
-.contact-section {
-  max-width: 800px;
-  margin: 20px;
-  padding: 40px;
-  padding-bottom: 0;
-  background-color: var(--background-color);
-  border-radius: 15px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-}
-
-.contact-section h2 {
-  text-align: center;
-  font-size: 2.5em;
-  color: var(--main-color);
-  margin-bottom: 20px;
-}
-
-.contact-section input[type="text"],
-.contact-section input[type="email"],
-.contact-section textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid var(--main-color);
-  border-radius: 5px;
-  font-size: 1em;
-  background-color: var(--background-color);
-  color: var(--text-color);
-}
-
-.contact-section textarea {
-  width: 100%;
-  height: 150px;
-  resize: vertical;
-}
-
-.submit-button {
-  background-color: var(--background-color);
-  color: var(--black);
-  padding: 15px 30px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1.2em;
-  transition: background-color 0.3s, transform 0.3s;
-  display: block;
-  width: 100%;
-  margin-top: 10px;
-}
-
-.contact-section .submit-button:hover {
-  background-color: var(--background-color);
-  transform: translateY(-3px);
-}
 
 /* Footer Styling */
 .footer {
