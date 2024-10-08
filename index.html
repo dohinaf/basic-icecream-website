@@ -57,10 +57,119 @@
         }
     </style>
 
+    
+    <style>
+        /* Styling for the pop-up Discount */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .popup-content {
+      display: flex;
+      background-color: white;
+      border-radius: 10px;
+      width: 500px;
+      height: 350px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .popup-left img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .popup-right {
+      padding-left: 20px;
+      padding-top: 30px;
+      width: 50%;
+      position: relative;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 30px;
+      cursor: pointer;
+    }
+
+    h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin-bottom: 30px;
+      font-size: small;
+    }
+
+    input[type="email"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    .signup-btn {
+      width: 100%;
+      padding: 10px;
+      background-color: black;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .signup-btn:hover {
+      background-color: #333;
+    }
+
+    .no-thanks {
+      display: block;
+      margin-top: 10px;
+      text-align: center;
+      color: #1173f3;
+      text-decoration: none;
+      font-size: small;
+    }
+
+    .terms {
+      margin-top: 10px;
+      font-size: 12px;
+      text-align: center;
+      color: #aaa;
+    }
+
+    .terms a {
+      color: #888;
+      text-decoration: underline;
+    }
+
+    /* Main content styling */
+    .content {
+      text-align: center;
+      margin-top: 50px;
+    }
+  </style>
+
 </head>
 
 <body>
-
+    <button id="backToTop">&#8679;</button>
     <!-- Header Starts Here -->
     <header class="header">
 
@@ -146,6 +255,57 @@
     </section>
     <!-- Home Section Ends Here -->
 
+    <!-- Pop-up for Discount and Sign up Starts here -->
+      <div id="popup" class="popup">
+        <div class="popup-content">
+          <div class="popup-left">
+            <img src="ICECREAM.jpg" alt="Discount Image">
+          </div>
+          <div class="popup-right">
+            <span class="close-btn">&times;</span>
+            <h2>Scoop Up the Savings!</h2>
+            <p>Get 20% off on your first order when you Sign up.</p>
+            <form id="emailForm">
+              <input type="email" id="email" placeholder="Enter your email" required>
+              <button type="submit" class="signup-btn">SIGN UP</button>
+            </form>
+            <a href="#" class="no-thanks">No thanks</a>
+            <p class="terms">By signing up, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>
+          </div>
+        </div>
+      </div>
+    <!--  Pop-up for Discount and Sign up Ends here  -->
+    
+    <!-- Script for pop up discount Starts Here -->
+    <script>
+    // Show the pop-up automatically when the page loads
+    window.onload = function() {
+      document.getElementById('popup').style.display = 'flex';
+    };
+
+    // Close the pop-up when the user clicks the close button
+    document.querySelector('.close-btn').addEventListener('click', function() {
+      document.getElementById('popup').style.display = 'none';
+    });
+
+    // Handle form submission
+    document.getElementById('emailForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      const email = document.getElementById('email').value;
+      if (email) {
+        alert(`Thank you! A 20% discount code has been sent to ${email}`);
+        document.getElementById('popup').style.display = 'none';
+      }
+    });
+
+    // Handle "No thanks" link
+    document.querySelector('.no-thanks').addEventListener('click', function(event) {
+      event.preventDefault();
+      document.getElementById('popup').style.display = 'none';
+    });
+  </script>
+    <!-- Script for pop up discount ends Here -->
 
     <!-- About Section Starts Here -->
     <section class="about" id="about">
@@ -218,7 +378,7 @@
         data-aos-anchor-placement="top-bottom">here's, what we have in store for you!</h1>
 
         <div class="filter-box">
-            <h3>Filter Ice Creams</h3>
+            <h3  id="pro-name">Filter Ice Creams</h3>
             <select id="price-filter">
                 <option value="all">All Prices</option>
                 <option value="under-15">Under $15</option>
@@ -232,8 +392,11 @@
 
             <div class="box"  data-aos="fade-up"
             data-aos-anchor-placement="top-bottom">
+            <div class="picture">
                 <img src="https://plus.unsplash.com/premium_photo-1678198786405-28e947bb8a12" alt="">
-                <h3>Nutty Butterscotch</h3>
+                <h3 id="pro-name">Nutty Butterscotch</h3>
+                <div class="flip">A delightful blend of crunchy nuts and rich butterscotch, creating a sweet and savory treat that melts in your mouth!</div>
+            </div>
                 <div class="price"> $15.99 <span>20.99</span></div>
                 <div class="rating">
                     <span id="stars">★★★★☆</span>
@@ -250,8 +413,13 @@
 
             <div class="box"  data-aos="fade-up"
             data-aos-anchor-placement="top-bottom">
+            <div class="picture">
                 <img src="https://images.unsplash.com/photo-1488900128323-21503983a07e" alt="">
-                <h3>Berry Pops</h3>
+                <h3 id="pro-name">Berry Pops</h3>
+
+                <div class="flip">Refreshing frozen treats bursting with the vibrant flavors of mixed berries, perfect for a cool and fruity indulgence!</div>
+            </div>
+
                 <div class="price"> $18.99 <span>20.99</span></div>
                 <div class="rating">
                     <span id="stars">★★★★☆</span>
@@ -267,8 +435,12 @@
 
             <div class="box"  data-aos="fade-up"
             data-aos-anchor-placement="top-bottom">
-                <img src="https://images.unsplash.com/photo-1633933037611-f26e54366832" alt="">
-                <h3>Cherry Sherbet Pops</h3>
+                <div class="picture">
+                    <img src="https://images.unsplash.com/photo-1633933037611-f26e54366832" alt="">
+                  <h3 id="pro-name">Cherry Sherbet Pops</h3>
+                    <div class="flip">Creamy, fruity popsicles crafted with luscious cherry sherbet, delivering a sweet and tangy burst of summer in every bite!</div>
+                </div>
+
                 <div class="price"> $18.99 <span>20.99</span></div>
                 <div class="rating">
                     <span id="stars">★★★★☆</span>
@@ -284,8 +456,14 @@
 
             <div class="box"  data-aos="fade-up"
             data-aos-anchor-placement="top-bottom">
+            <div class="picture">
                 <img src="https://images.unsplash.com/photo-1570197788417-0e82375c9371" alt="">
-                <h3>Dripping Vannila</h3>
+
+                <h3 id="pro-name">Dripping Vannila</h3>
+
+                <div class="flip">A luscious vanilla treat that oozes creamy goodness, delivering a rich and indulgent flavor experience with every delightful drop!</div>
+            </div>
+
                 <div class="price"> $15.99 <span>20.99</span></div>
                 <div class="rating">
                     <span id="stars">★★★★☆</span>
@@ -301,8 +479,14 @@
 
             <div class="box"  data-aos="fade-up"
             data-aos-anchor-placement="top-bottom">
+            <div class="picture">
                 <img src="https://images.unsplash.com/photo-1532678465554-94846274c297" alt="">
-                <h3>Very Berry Strawberry</h3>
+
+                <h3 id="pro-name">Very Berry Strawberry</h3>
+
+                <div class="flip">A delightful fusion of fresh strawberries and a medley of berries, creating a vibrant and sweet explosion of flavor in every bite!</div>
+            </div>
+
                 <div class="price"> $16.99 <span>20.99</span></div>
                 <div class="rating">
                     <span id="stars">★★★★☆</span>
@@ -318,8 +502,14 @@
 
             <div class="box"  data-aos="fade-up"
             data-aos-anchor-placement="top-bottom">
+            <div class="picture">
                 <img src="https://images.unsplash.com/photo-1705103654898-d663145f5f50" alt="">
-                <h3>Rainbow Classic Cone</h3>
+                <h3 id="pro-name">Rainbow Classic Cone</h3>
+
+                <div class="flip">A colorful twist on a timeless favorite, featuring layers of vibrant, fruity flavors swirled into a creamy cone, making every lick a joyful, nostalgic experience!</div>
+            </div>
+ 
+
                 <div class="price"> $18.99 <span>20.99</span></div>
                 <div class="rating">
                     <span id="stars">★★★★☆</span>
@@ -335,8 +525,13 @@
 
             <div class="box"  data-aos="fade-up"
             data-aos-anchor-placement="top-bottom">
+            <div class="picture">
                 <img src="https://images.unsplash.com/photo-1559340160-146586a4f9b6" alt="">
-                <h3>Orange Pops</h3>
+                <h3 id="pro-name">Orange Pops</h3>
+
+                <div class="flip">Refreshing frozen delights bursting with zesty orange flavor, offering a sunny, sweet, and tangy treat that’s perfect for cooling off on a hot day!</div>
+            </div>
+
                 <div class="price"> $12.99 <span>20.99</span></div>
                 <div class="rating">
                     <span id="stars">★★★★☆</span>
@@ -352,8 +547,14 @@
 
             <div class="box"  data-aos="fade-up"
             data-aos-anchor-placement="top-bottom">
+            <div class="picture">
                 <img src="https://images.unsplash.com/photo-1594305178909-03ab72b8205e" alt="">
-                <h3>Choco-Hazel Pops</h3>
+
+                <h3 id="pro-name">Choco-Hazel Pops</h3>
+
+                <div class="flip">Indulgent frozen treats infused with rich chocolate and crunchy hazelnuts, creating a decadent and nutty flavor experience that melts delightfully in every bite!</div>
+            </div>
+
                 <div class="price"> $18.99 <span>20.99</span></div>
                 <div class="rating">
                     <span id="stars">★★★★☆</span>
@@ -369,8 +570,13 @@
 
             <div class="box"  data-aos="fade-up"
             data-aos-anchor-placement="top-bottom">
+            <div class="picture">
                 <img src="https://images.unsplash.com/photo-1499638472904-ea5c6178a300" alt="">
-                <h3>Very Very Peachy</h3>
+                <h3 id="pro-name">Very Very Peachy</h3>
+
+                <div class="flip">A refreshing and juicy delight packed with the sweet, sunny flavor of ripe peaches, delivering a taste of summer in every delicious bite!</div>
+            </div>
+
                 <div class="price"> $15.99 <span>20.99</span></div>
                 <div class="rating">
                     <span id="stars">★★★★☆</span>
@@ -386,7 +592,9 @@
 
             <div class="box"  data-aos="fade-up"
             data-aos-anchor-placement="top-bottom">
+            <div class="picture">
                 <img src="https://images.unsplash.com/photo-1559340160-146586a4f9b6" alt="">
+<<<<<<< HEAD
                 <h3>Orange Pops</h3>
                 <div class="price"> $14.99 <span>20.99</span></div>
                 <div class="rating">
@@ -399,11 +607,24 @@
                 </div>
                 <button  id="inbox" onclick="addToCart('Orange Pops', 14.99)">Add to Cart</button><br>
                 <button  id="inbox" onclick="addToWishlist('Orange Pops', 14.99)">Add to wishlist</button>
+=======
+
+                <h3 id="pro-name">Orange Pops</h3>
+
+                <div class="flip">Refreshing frozen delights bursting with zesty orange flavor, offering a sunny, sweet, and tangy treat that’s perfect for cooling off on a hot day!</div>
+            </div>
+                <div class="price"> $12.99 <span>20.99</span></div>
+                <button  id="inbox" onclick="addToCart('Orange Pops', 12.99)">Add to Cart</button><br>
+                <button  id="inbox" onclick="addToWishlist('Orange Pops', 12.99)">Add to wishlist</button>
+
+>>>>>>> b0ca760c7fd68f8190be3025a3d4434ca25a3cdc
             </div>
 
             <div class="box"  data-aos="fade-up"
             data-aos-anchor-placement="top-bottom">
+            <div class="picture">
                 <img src="https://images.unsplash.com/photo-1594305178909-03ab72b8205e" alt="">
+<<<<<<< HEAD
                 <h3>Choco-Hazel Pops</h3>
                 <div class="price"> $14.99 <span>20.99</span></div>
                 <div class="rating">
@@ -416,13 +637,28 @@
                 </div>
                 <button  id="inbox" onclick="addToCart('Choco-Hazel Pops', 14.99)">Add to Cart</button><br>
                 <button  id="inbox" onclick="addToWishlist('Choco-Hazel Pops', 14.99)">Add to wishlist</button>
+=======
+
+                <h3 id="pro-name">Choco-Hazel Pops</h3>
+
+                <div class="flip">Indulgent frozen treats infused with rich chocolate and crunchy hazelnuts, creating a decadent and nutty flavor experience that melts delightfully in every bite!</div>
+            </div>
+
+                <div class="price"> $18.99 <span>20.99</span></div>
+                <button  id="inbox" onclick="addToCart('Choco-Hazel Pops', 18.99)">Add to Cart</button><br>
+                <button  id="inbox" onclick="addToWishlist('Choco-Hazel Pops', 18.99)">Add to wishlist</button>
+
+>>>>>>> b0ca760c7fd68f8190be3025a3d4434ca25a3cdc
             </div>
 
             <div class="box"  data-aos="fade-up"
             data-aos-anchor-placement="top-bottom">
+            <div class="picture">
                 <img src="https://images.unsplash.com/photo-1499638472904-ea5c6178a300" alt="">
-                <h3>Very Very Peachy</h3>
+
+                <h3 id="pro-name">Very Very Peachy</h3>
                 <div class="price"> $16.99 <span>20.99</span></div>
+<<<<<<< HEAD
                 <div class="rating">
                     <span id="stars">★★★★☆</span>
                     <p id="review-count">(0 reviews)</p> <!-- Updated ID for reviews -->
@@ -433,6 +669,16 @@
                 </div>
                 <button  id="inbox" onclick="addToCart('Very Very Peachy', 16.99)">Add to Cart</button><br>
                 <button  id="inbox" onclick="addToWishlist('Very Very Peachy', 16.99)">Add to wishlist</button>
+=======
+
+                <div class="flip">A refreshing and juicy delight packed with the sweet, sunny flavor of ripe peaches, delivering a taste of summer in every delicious bite!</div>
+            </div>
+
+                <div class="price"> $15.99 <span>20.99</span></div>
+                <button  id="inbox" onclick="addToCart('Very Very Peachy',15.99)">Add to Cart</button><br>
+                <button  id="inbox" onclick="addToWishlist('Very Very Peachy', 15.99)">Add to wishlist</button>
+
+>>>>>>> b0ca760c7fd68f8190be3025a3d4434ca25a3cdc
             </div>
 
             <div class="notification-tooltip" id="notification-tooltip">
@@ -652,7 +898,9 @@
 <!-- Footer Section Starts Here -->
 
     <section class="footer" id="footer">
-
+<div>
+    <img src="https://hits.sh/arcticdelights.netlify.app.svg?label=Website%20Visitors&extraCount=6520&color=FE6648&labelColor=white" alt="web-views">
+</div>
 <div class="social-icons">
     <a href="#"><i class="fa-brands fa-linkedin"></i></a>
     <a href="#"><i class="fa-brands fa-facebook"></i></a>
@@ -672,7 +920,7 @@
 </div> -->
 
         <div class="credit">
-            <p> created by <span> Dohina</span> | all rights reserved
+            <p> created by <span> Dohina</span> | <a href="copyright.html"> &copy;Copyright 2024 </a> | all rights reserved
             <p>
         </div>
 
