@@ -863,15 +863,14 @@ button:hover {
 }
 
 .card {
-  padding: 8rem; /* Increased padding for bigger cards */
-  display: flex;
-  align-items: flex-start;
-  gap: 5rem; /* More space between image and content */
-  background-color: var(--background-color);
-
-  border-radius: 1.5rem;
+    padding: 2rem; /* Increased padding for bigger cards */
+    display: flex;
+    align-items: flex-start;
+    gap: 5rem; /* More space between image and content */
+    background-color: var(--background-color);
+    border-radius: 1.5rem;
   /* Stronger shadow for depth */
-  cursor: pointer;
+    cursor: pointer;
 }
 .card:hover {
   box-shadow: 0 0 6px rgba(255, 208, 9, 1);
