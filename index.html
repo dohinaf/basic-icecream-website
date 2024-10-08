@@ -55,6 +55,170 @@
         .chatbot-button:hover .tooltip-text {
             display: block; /* Show tooltip on hover */
         }
+        /* Footer Section Styles */
+.footer {
+    background-color: lightcoral;
+    padding: 40px 0;
+    text-align: center;
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Social Media Icons */
+.footer .social-icons {
+    margin: 20px 0;
+}
+
+.footer .social-icons a {
+    margin: 0 10px;
+    font-size: 30px;
+    color: #00a6fb;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer .social-icons a:hover {
+    color: #ffffff;
+    transform: scale(1.2);
+}
+
+/* Footer Text */
+.footer p {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #ccc;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    .footer {
+        padding: 20px 0;
+    }
+
+    .footer .social-icons a {
+        font-size: 24px;
+    }
+
+    .footer p {
+        font-size: 14px;
+    }
+}
+/* Footer Styles */
+.footer {
+    background-color: #f8f4f4;
+    color: rgb(182, 106, 157);
+    text-align: center;
+}
+
+.footer-content h2 {
+    font-size: 36px;
+    color: #f770e0; /* Ice-cream themed color */
+    font-family: 'Playfair Display', serif;
+}
+
+.footer-content p {
+    font-size: 16px;
+    margin: 15px 0;
+    color: #8f3f8f;
+}
+
+.footer-links {
+    margin: 20px 0;
+}
+
+.footer-links a {
+    color: #b836b8;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+}
+
+.footer-links a:hover {
+    color: #ffffff;
+}
+
+.social-icons {
+    margin: 20px 0;
+}
+
+.social-icons a {
+    color: white;
+    margin: 0 10px;
+    font-size: 24px;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #f9b233;
+}
+
+/* Subscription Form */
+.subscribe-form h3 {
+    font-size: 24px;
+    color: #da1671;
+    margin-bottom: 10px;
+}
+
+.subscribe-form p {
+    color: #c04478;
+}
+
+.subscribe-form input[type="email"] {
+    padding: 10px;
+    width: 250px;
+    border: none;
+    border-radius: 25px;
+    margin-right: 10px;
+}
+
+.subscribe-form button {
+    padding: 10px 20px;
+    background-color: #f9b233;
+    color: #f7f3f3;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.subscribe-form button:hover {
+    background-color: #ffbf69;
+}
+
+/* Contact Information */
+.footer-contact p {
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    margin-top: 20px;
+    border-top: 1px solid #d14cb4;
+    padding-top: 10px;
+}
+
+.footer-bottom p {
+    font-size: 14px;
+    color: #e986af;
+}
+
+/* Responsive Styling */
+@media screen and (max-width: 768px) {
+    .footer-content h2 {
+        font-size: 28px;
+    }
+    .subscribe-form input[type="email"] {
+        width: 200px;
+    }
+    .social-icons a {
+        font-size: 20px;
+    }
+}
+
+
     </style>
 
 </head>
@@ -620,17 +784,54 @@
 <!--Review section ends-->
 
 <!-- Footer Section Starts Here -->
+<!-- Footer Section Starts Here -->
+<section class="footer" id="footer">
+    <div class="container">
+        <div class="footer-content">
+            <h2>Artic Delights</h2>
+            <p>Your destination for handcrafted, delicious ice creams made with love.</p>
 
-    <section class="footer" id="footer">
+            <div class="footer-links">
+                <a href="#about">About Us</a>
+                <a href="#menu">Our Flavors</a>
+                <a href="#shop">Shop</a>
+                <a href="#contact">Contact Us</a>
+            </div>
 
-<div class="social-icons">
-    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-    <a href="#"><i class="fa-brands fa-facebook"></i></a>
-    <a href="#"><i class="fa-brands fa-x-twitter"></i></a> <!-- Updated X icon -->
-    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-    <a href="#"><i class="fa-brands fa-pinterest"></i></a>
-</div>
-</div>
+            <!-- Social Media Icons -->
+            <div class="social-icons">
+                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-pinterest"></i></a>
+            </div>
+
+            <!-- Subscription Form -->
+            <div class="subscribe-form">
+                <h3>Subscribe to our Newsletter</h3>
+                <p>Get updates on new flavors and exclusive offers</p>
+                <form action="#">
+                    <input type="email" placeholder="Your Email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="footer-contact">
+                <p>Email: support@articdelights.com</p>
+                <p>Phone: +1 123-456-7890</p>
+                <p>Location: 1234 Ice Cream Lane, Coolville, USA</p>
+            </div>
+
+            <!-- Copyright -->
+            <div class="footer-bottom">
+                <p>&copy; 2024 Artic Delights. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
 
         <!--  
 <div class="links">
