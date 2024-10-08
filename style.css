@@ -869,7 +869,7 @@ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2),
 }
 
 .card {
-    padding: 8rem; /* Increased padding for bigger cards */
+    padding: 2rem; /* Increased padding for bigger cards */
     display: flex;
     align-items: flex-start;
     gap: 5rem; /* More space between image and content */
