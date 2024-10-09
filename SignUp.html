@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Page</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #eef2f3;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            width: 100%;
+            max-width: 400px;
+            transition: transform 0.3s;
+        }
+
+        .container:hover {
+            transform: scale(1.02);
+        }
+
+        .form-title {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 26px;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="tel"],
+        select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            box-sizing: border-box;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus,
+        input[type="tel"]:focus,
+        select:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
+            outline: none;
+        }
+
+        .error {
+            color: red;
+            font-size: 0.8rem;
+            margin-top: 0.25rem;
+        }
+
+        .password-strength {
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            color: #333;
+        }
+
+        .strong {
+            color: green;
+        }
+
+        .medium {
+            color: orange;
+        }
+
+        .weak {
+            color: red;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-button::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 300%;
+            height: 300%;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transition: width 0.5s, height 0.5s, top 0.5s, left 0.5s;
+            z-index: 0;
+            opacity: 0;
+        }
+
+        .submit-button:hover::after {
+            width: 400%;
+            height: 400%;
+            top: -50%;
+            left: -50%;
+            opacity: 1;
+            transition: 0s;
+        }
+
+        .submit-button:hover {
+            background-color: #2563eb;
+            transform: translateY(-2px);
+        }
+
+        .submit-button:active {
+            transform: translateY(0);
+            background-color: #1d4ed8;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            margin-top: 0.5rem;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .checkbox-label input {
+            margin-right: 0.5rem;
+        }
+
+        .loading {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .loading.active {
+            display: flex;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 1.5rem;
+            }
+
+            .form-title {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form id="signUpForm">
+            <h2 class="form-title">Sign Up</h2>
+
+            <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="fullName" required>
+                <span class="error" id="fullNameError"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+                <span class="error" id="emailError"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+                <span class="error" id="passwordError"></span>
+                <div class="password-strength" id="passwordStrength"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+                <span class="error" id="confirmPasswordError"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="phoneNumber">Phone Number</label>
+                <input type="tel" id="phoneNumber" name="phoneNumber">
+            </div>
+
+            <div class="form-group">
+                <label for="userType">User Type</label>
+                <select id="userType" name="userType">
+                    <option value="individual">Individual</option>
+                    <option value="business">Business</option>
+                </select>
+            </div>
+
+            <div class="checkbox-label">
+                <label>
+                    <input type="checkbox" id="termsAccepted" name="termsAccepted" required>
+                    I accept the terms and conditions
+                </label>
+                <span class="error" id="termsAcceptedError"></span>
+            </div>
+
+            <div class="checkbox-label">
+                <label>
+                    <input type="checkbox" id="newsletter" name="newsletter">
+                    Subscribe to the newsletter
+                </label>
+            </div>
+
+            <button type="submit" class="submit-button">Sign Up</button>
+            <div class="loading" id="loading">Sending confirmation email...</div>
+        </form>
+    </div>
+    <script>
+        document.getElementById("signUpForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+            document.getElementById("loading").classList.add("active");
+
+            // Clear previous error messages
+            document.querySelectorAll(".error").forEach(error => {
+                error.textContent = "";
+            });
+
+            // Gather input values
+            const fullName = document.getElementById("fullName").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("confirmPassword").value;
+            const phoneNumber = document.getElementById("phoneNumber").value.trim();
+            const userType = document.getElementById("userType").value;
+            const termsAccepted = document.getElementById("termsAccepted").checked;
+
+            let isValid = true;
+
+            // Validation
+            if (!fullName) {
+                document.getElementById("fullNameError").textContent = "Full Name is required";
+                isValid = false;
+            }
+
+            if (!email.includes("@")) {
+                document.getElementById("emailError").textContent = "Invalid email";
+                isValid = false;
+            }
+
+            if (password.length < 6) {
+                document.getElementById("passwordError").textContent = "Password too short";
+                isValid = false;
+            }
+
+            if (password !== confirmPassword) {
+                document.getElementById("confirmPasswordError").textContent = "Passwords must match";
+                isValid = false;
+            }
+
+            if (!termsAccepted) {
+                document.getElementById("termsAcceptedError").textContent = "You must accept the terms and conditions";
+                isValid = false;
+            }
+
+            if (isValid) {
+                setTimeout(() => {
+                    alert("Registration successful! Confirmation email sent.");
+                    document.getElementById("signUpForm").reset();
+                    document.getElementById("loading").classList.remove("active");
+                }, 2000);
+            } else {
+                document.getElementById("loading").classList.remove("active");
+            }
+        });
+
+        const passwordField = document.getElementById("password");
+        passwordField.addEventListener("input", function () {
+            const strengthText = document.getElementById("passwordStrength");
+            const password = passwordField.value;
+            let strength = "Weak";
+            let className = "weak";
+
+            if (password.length >= 6) {
+                strength = "Medium";
+                className = "medium";
+                if (/[A-Z]/.test(password) && /[0-9]/.test(password) && /[!@#$%^&*]/.test(password)) {
+                    strength = "Strong";
+                    className = "strong";
+                }
+            }
+
+            strengthText.textContent = `Password strength: ${strength}`;
+            strengthText.className = `password-strength ${className}`;
+        });
+    </script>
+</body>
+</html>
