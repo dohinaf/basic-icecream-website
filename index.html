@@ -57,9 +57,157 @@
         }
     </style>
 
+    
+    <style>
+        /* Styling for the pop-up Discount */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .popup-content {
+      display: flex;
+      background-color: white;
+      border-radius: 10px;
+      width: 500px;
+      height: 350px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .popup-left img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .popup-right {
+      padding-left: 20px;
+      padding-top: 30px;
+      width: 50%;
+      position: relative;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 30px;
+      cursor: pointer;
+    }
+
+    h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin-bottom: 30px;
+      font-size: small;
+    }
+
+    input[type="email"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    .signup-btn {
+      width: 100%;
+      padding: 10px;
+      background-color: black;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .signup-btn:hover {
+      background-color: #333;
+    }
+
+    .no-thanks {
+      display: block;
+      margin-top: 10px;
+      text-align: center;
+      color: #1173f3;
+      text-decoration: none;
+      font-size: small;
+    }
+
+    .terms {
+      margin-top: 10px;
+      font-size: 12px;
+      text-align: center;
+      color: #aaa;
+    }
+
+    .terms a {
+      color: #888;
+      text-decoration: underline;
+    }
+
+    /* Main content styling */
+    .content {
+      text-align: center;
+      margin-top: 50px;
+    }
+  </style>
+<style>
+  /* Circle styles */
+  .circle {
+    height: 24px;
+    width: 24px;
+    border-radius: 24px;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 99999999;
+    /* Stays on top of all elements */
+  }
+</style>
 </head>
 
 <body>
+
+<!-- Circles -->
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+
+
+    <button id="backToTop">&#8679;</button>
 
     <!-- Header Starts Here -->
     <header class="header">
@@ -127,9 +275,10 @@
             </div>
             
         </div>
-        <div class="icons">
-            <button id="login-btn">Login</button>
-            <button id="signup-btn">Sign Up</button>
+        <div class="icons login-signup-collection">
+            <button id="login-btn" class="auth-btn">Login</button>
+            <!-- <p style="padding-right: 10px;">        </p> -->
+            <button id="signup-btn" class="auth-btn">Sign Up</button>
         </div>
 
     </header>
@@ -146,6 +295,57 @@
     </section>
     <!-- Home Section Ends Here -->
 
+    <!-- Pop-up for Discount and Sign up Starts here -->
+      <div id="popup" class="popup">
+        <div class="popup-content">
+          <div class="popup-left">
+            <img src="ICECREAM.jpg" alt="Discount Image">
+          </div>
+          <div class="popup-right">
+            <span class="close-btn">&times;</span>
+            <h2>Scoop Up the Savings!</h2>
+            <p>Get 20% off on your first order when you Sign up.</p>
+            <form id="emailForm">
+              <input type="email" id="email" placeholder="Enter your email" required>
+              <button type="submit" class="signup-btn">SIGN UP</button>
+            </form>
+            <a href="#" class="no-thanks">No thanks</a>
+            <p class="terms">By signing up, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>
+          </div>
+        </div>
+      </div>
+    <!--  Pop-up for Discount and Sign up Ends here  -->
+    
+    <!-- Script for pop up discount Starts Here -->
+    <script>
+    // Show the pop-up automatically when the page loads
+    window.onload = function() {
+      document.getElementById('popup').style.display = 'flex';
+    };
+
+    // Close the pop-up when the user clicks the close button
+    document.querySelector('.close-btn').addEventListener('click', function() {
+      document.getElementById('popup').style.display = 'none';
+    });
+
+    // Handle form submission
+    document.getElementById('emailForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      const email = document.getElementById('email').value;
+      if (email) {
+        alert(`Thank you! A 20% discount code has been sent to ${email}`);
+        document.getElementById('popup').style.display = 'none';
+      }
+    });
+
+    // Handle "No thanks" link
+    document.querySelector('.no-thanks').addEventListener('click', function(event) {
+      event.preventDefault();
+      document.getElementById('popup').style.display = 'none';
+    });
+  </script>
+    <!-- Script for pop up discount ends Here -->
 
     <!-- About Section Starts Here -->
     <section class="about" id="about">
@@ -240,8 +440,11 @@
                 <div class="price"> $15.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Nutty Butterscotch', 15.99)">Add to Cart</button><br>
                 <button  id="inbox" onclick="addToWishlist('Nutty Butterscoth', 15.99)">Add to wishlist</button>
-          </div>
+                <button id="inbox" onclick="window.location.href='nut_butter.html';">Read more</button>
 
+
+          </div>
+        
             <div class="box"  data-aos="fade-up"
             data-aos-anchor-placement="top-bottom">
             <div class="picture">
@@ -254,8 +457,13 @@
                 <div class="price"> $18.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Berry Pops', 18.99)">Add to Cart</button><br>
                 <button  id="inbox" onclick="addToWishlist('Berry Pops', 18.99)">Add to wishlist</button>
-            </div>
+                <button id="inbox" onclick="window.location.href='berry_pops.html';">Read more</button>
 
+
+            </div>
+        
+
+        
             <div class="box"  data-aos="fade-up"
             data-aos-anchor-placement="top-bottom">
                 <div class="picture">
@@ -267,21 +475,29 @@
                 <div class="price"> $18.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Cherry Sherbet Pops', 18.99)">Add to Cart</button><br>
                 <button  id="inbox" onclick="addToWishlist('Cherry Sherbet Pops', 18.99)">Add to wishlist</button>
-            </div>
+                <button id="inbox" onclick="window.location.href='cherry_pops.html';">Read more</button>
 
+
+            </div>
+        
+
+        
             <div class="box"  data-aos="fade-up"
             data-aos-anchor-placement="top-bottom">
             <div class="picture">
                 <img src="https://images.unsplash.com/photo-1570197788417-0e82375c9371" alt="">
 
-                <h3 id="pro-name">Dripping Vannila</h3>
+                <h3 id="pro-name">Dripping Vanilla</h3>
 
                 <div class="flip">A luscious vanilla treat that oozes creamy goodness, delivering a rich and indulgent flavor experience with every delightful drop!</div>
             </div>
+       
 
+        
                 <div class="price"> $15.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Dripping Vannila', 15.99)">Add to Cart</button><br>
                 <button  id="inbox" onclick="addToWishlist('Dripping Vannila', 15.99)">Add to wishlist</button>
+                <button id="inbox" onclick="window.location.href='drip_vanilla.html';">Read more</button>
             </div>
 
             <div class="box"  data-aos="fade-up"
@@ -293,10 +509,13 @@
 
                 <div class="flip">A delightful fusion of fresh strawberries and a medley of berries, creating a vibrant and sweet explosion of flavor in every bite!</div>
             </div>
+        
 
+       
                 <div class="price"> $16.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Very Berry Strawberry', 16.99)">Add to Cart</button><br>
                 <button  id="inbox" onclick="addToWishlist('Very Berry Strawberry', 16.99)">Add to wishlist</button>
+                <button id="inbox" onclick="window.location.href='very_straw.html';">Read more</button>
             </div>
 
             <div class="box"  data-aos="fade-up"
@@ -307,11 +526,13 @@
 
                 <div class="flip">A colorful twist on a timeless favorite, featuring layers of vibrant, fruity flavors swirled into a creamy cone, making every lick a joyful, nostalgic experience!</div>
             </div>
+        
  
-
+            
                 <div class="price"> $18.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Rainbow Classic Cone', 18.99)">Add to Cart</button><br>
                 <button  id="inbox" onclick="addToWishlist('Rainbow Classic Cone', 18.99)">Add to wishlist</button>
+                <button id="inbox" onclick="window.location.href='rain_classic.html';">Read more</button>
             </div>
 
             <div class="box"  data-aos="fade-up"
@@ -322,10 +543,15 @@
 
                 <div class="flip">Refreshing frozen delights bursting with zesty orange flavor, offering a sunny, sweet, and tangy treat that’s perfect for cooling off on a hot day!</div>
             </div>
+        
+
+            
 
                 <div class="price"> $12.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Orange Pops', 12.99)">Add to Cart</button><br>
                 <button  id="inbox" onclick="addToWishlist('Orange Pops', 12.99)">Add to wishlist</button>
+                <button id="inbox" onclick="window.location.href='orange_pops.html';">Read more</button>
+
             </div>
 
             <div class="box"  data-aos="fade-up"
@@ -337,15 +563,20 @@
 
                 <div class="flip">Indulgent frozen treats infused with rich chocolate and crunchy hazelnuts, creating a decadent and nutty flavor experience that melts delightfully in every bite!</div>
             </div>
+      
 
+            
                 <div class="price"> $18.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Choco-Hazel Pops', 18.99)">Add to Cart</button><br>
                 <button  id="inbox" onclick="addToWishlist('Choco-Hazel Pops', 18.99)">Add to wishlist</button>
+                <button id="inbox" onclick="window.location.href='choco_hazel.html';">Read more</button>
+
             </div>
 
             <div class="box"  data-aos="fade-up"
             data-aos-anchor-placement="top-bottom">
             <div class="picture">
+                <br>
                 <img src="https://images.unsplash.com/photo-1499638472904-ea5c6178a300" alt="">
                 <h3 id="pro-name">Very Very Peachy</h3>
 
@@ -355,8 +586,11 @@
                 <div class="price"> $15.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Very Very Peachy',15.99)">Add to Cart</button><br>
                 <button  id="inbox" onclick="addToWishlist('Very Very Peachy', 15.99)">Add to wishlist</button>
+                <button id="inbox" onclick="window.location.href='very_peachy.html';">Read more</button>
             </div>
+        
 
+            
             <div class="box"  data-aos="fade-up"
             data-aos-anchor-placement="top-bottom">
             <div class="picture">
@@ -369,9 +603,11 @@
                 <div class="price"> $12.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Orange Pops', 12.99)">Add to Cart</button><br>
                 <button  id="inbox" onclick="addToWishlist('Orange Pops', 12.99)">Add to wishlist</button>
-
+                <button id="inbox" onclick="window.location.href='orange_pops1.html';">Read more</button>
             </div>
+            
 
+            
             <div class="box"  data-aos="fade-up"
             data-aos-anchor-placement="top-bottom">
             <div class="picture">
@@ -385,9 +621,11 @@
                 <div class="price"> $18.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Choco-Hazel Pops', 18.99)">Add to Cart</button><br>
                 <button  id="inbox" onclick="addToWishlist('Choco-Hazel Pops', 18.99)">Add to wishlist</button>
-
+                <button id="inbox" onclick="window.location.href='choco_hazel.html';">Read more</button>
             </div>
+       
 
+           
             <div class="box"  data-aos="fade-up"
             data-aos-anchor-placement="top-bottom">
             <div class="picture">
@@ -402,6 +640,8 @@
                 <div class="price"> $15.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Very Very Peachy',15.99)">Add to Cart</button><br>
                 <button  id="inbox" onclick="addToWishlist('Very Very Peachy', 15.99)">Add to wishlist</button>
+                <button id="inbox" onclick="window.location.href='very_peachy2.html';">Read more</button>
+
 
             </div>
 
@@ -409,6 +649,7 @@
                 <span class="tooltip-icon">✅</span>
                 <span>Added to Cart!</span>
             </div>
+            
 
         </div>
 
@@ -622,7 +863,9 @@
 <!-- Footer Section Starts Here -->
 
     <section class="footer" id="footer">
-
+<div>
+    <img src="https://hits.sh/arcticdelights.netlify.app.svg?label=Website%20Visitors&extraCount=6520&color=FE6648&labelColor=white" alt="web-views">
+</div>
 <div class="social-icons">
     <a href="#"><i class="fa-brands fa-linkedin"></i></a>
     <a href="#"><i class="fa-brands fa-facebook"></i></a>
@@ -642,7 +885,7 @@
 </div> -->
 
         <div class="credit">
-            <p> created by <span> Dohina</span> | all rights reserved
+            <p> created by <span> Dohina</span> | <a href="copyright.html"> &copy;Copyright 2024 </a> | all rights reserved
             <p>
         </div>
 
@@ -704,6 +947,59 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
+      </script>
+      <script>
+        // Coordinates for the cursor
+        const coords = { x: 0, y: 0 };
+        const circles = document.querySelectorAll(".circle");
+
+        // Colors for the circles
+        const colors = [
+          "#ffb56b", "#fdaf69", "#f89d63", "#f59761", "#ef865e", "#ec805d",
+          "#e36e5c", "#df685c", "#d5585c", "#d1525c", "#c5415d", "#c03b5d",
+          "#b22c5e", "#ac265e", "#9c155f", "#950f5f", "#830060", "#7c0060",
+          "#680060", "#60005f", "#48005f", "#3d005e"
+        ];
+
+        // Assign colors and initial position to each circle
+        circles.forEach(function (circle, index) {
+          circle.x = 0;
+          circle.y = 0;
+          circle.style.backgroundColor = colors[index % colors.length];
+        });
+
+        // Update the coordinates when the mouse moves
+        window.addEventListener("mousemove", function (e) {
+          coords.x = e.clientX;
+          coords.y = e.clientY;
+        });
+
+        // Animation function to move the circles
+        function animateCircles() {
+          let x = coords.x;
+          let y = coords.y;
+
+          circles.forEach(function (circle, index) {
+            // Update the position and scale of each circle
+            circle.style.left = x - 12 + "px";
+            circle.style.top = y - 12 + "px";
+            circle.style.scale = (circles.length - index) / circles.length;
+
+            circle.x = x;
+            circle.y = y;
+
+            // Get the next circle in the sequence
+            const nextCircle = circles[index + 1] || circles[0];
+            x += (nextCircle.x - x) * 0.3;
+            y += (nextCircle.y - y) * 0.3;
+          });
+
+          // Repeat the animation
+          requestAnimationFrame(animateCircles);
+        }
+
+        // Start the animation
+        animateCircles();
       </script>
 </body>
 
