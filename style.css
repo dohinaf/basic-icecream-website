@@ -257,6 +257,21 @@ button:hover {
   color: var(--text-color);
 }
 
+.login-signup-collection{
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.auth-btn{
+  background: linear-gradient(to right, #ff4e50, #fc913a);
+  color: var(--text-color);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  padding: 1rem 1.5rem;
+}
+
 /* Header Styles */
 .header {
   background-color: var(--background-color);
