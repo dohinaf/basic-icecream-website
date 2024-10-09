@@ -498,8 +498,9 @@ button:hover {
 .my-order-container {
   position: absolute;
   top: calc(100% + 1rem);
-  right: 7%;
+  right: 1%;
   width: 400px;
+  border-radius: 20px;
   background-color: var(--background-color);
   padding: 2rem;
   display: none;
@@ -533,14 +534,10 @@ button:hover {
   padding: 1rem;
   font-size: 1.6rem;
   color: var(--text-color);
-  background-color: var(--background-color);
+  background-color: rgba(0, 0, 0, 0.1);
   border: none;
   cursor: pointer;
   transition: background-color 0.3s ease;
-}
-
-.order-actions button:hover {
-  background-color: #c49f6a;
 }
 
 /* Home Styles */
