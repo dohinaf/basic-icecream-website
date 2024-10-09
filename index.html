@@ -230,13 +230,11 @@
       <img
         src="https://purepng.com/public/uploads/large/purepng.com-ice-creamice-creamcreamfrozensweet-1411527617895aiuhx.png"
         alt="Logo">
+      <h1 class="site-title">ArcticDelights</h1>
     </a>
     <!-- ... existing code ... -->
-    <h1 class="site-title">ArcticDelights</h1>
 
     <nav class="navbar">
-
-
       <a href="#home">Home</a>
       <a href="#about">About</a>
       <a href="#menu">Menu</a>
@@ -244,58 +242,55 @@
       <a href="#blogs">Blogs</a>
       <a href="contact.html">Contact Us</a>
       <a href="#" id="my-order-btn">My Orders</a>
+      <div class="icons">
+        <div class="fas fa-heart" id="wishlist-btn"></div>
+        <div class="fas fa-search" id="search-btn"></div>
+        <div class="fas fa-shopping-cart" id="cart-btn"></div>
+      </div>
+      <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+          <input type="checkbox" id="checkbox">
+          <div class="slider"></div>
+        </label>
+      </div>
+      <div class="search-form">
+        <input type="search" id="search-box" placeholder="Search...">
+        <label for="search-box" class="fas fa-search"></label>
+      </div>
+      <div class="wishlist-container">
+        <ul id="wishlistItems"></ul>
+        <button class="clear-from-wishlist-btn" onclick="clearWishlist()">
+          <h2>Clear Wishlist</h2>
+        </button>
+      </div>
+      <div class="cart-items-container">
+        <div class="cart">
+          <ul id="cartItems">
+            <!-- Cart items will be displayed here -->
+          </ul>
+          <h3>
+            <div id="total">Total:$0.00
+            </div>
+          </h3>
+          <button id="checkout-button" onclick="checkout()">Checkout</button>
+        </div>
+      </div>
+      <div class="my-order-container">
+        <h2>My Order</h2>
+        <div id="order-details">
+          <!-- Order details will be displayed here -->
+        </div>
+        <div class="order-actions">
+          <button onclick="trackOrder()">Track Order</button>
+          <button onclick="editOrder()">Edit Order</button>
+        </div>
+      </div>
+      <div class="icons">
+        <button id="login-btn">Login</button>
+        <p style="padding-right: 10px;"> </p>
+        <button id="signup-btn">Sign Up</button>
+      </div>
     </nav>
-
-
-    <div class="icons">
-      <div class="fas fa-heart" id="wishlist-btn"></div>
-      <div class="fas fa-search" id="search-btn"></div>
-      <div class="fas fa-shopping-cart" id="cart-btn"></div>
-    </div>
-    <div class="theme-switch-wrapper">
-      <label class="theme-switch" for="checkbox">
-        <input type="checkbox" id="checkbox">
-        <div class="slider"></div>
-      </label>
-      <span id="mode-label">Light Mode</span>
-    </div>
-    <div class="search-form">
-      <input type="search" id="search-box" placeholder="Search...">
-      <label for="search-box" class="fas fa-search"></label>
-    </div>
-    <div class="wishlist-container">
-      <ul id="wishlistItems"></ul>
-      <button class="clear-from-wishlist-btn" onclick="clearWishlist()">Clear Wishlist</button>
-    </div>
-    <div class="cart-items-container">
-      <div class="cart">
-        <ul id="cartItems">
-          <!-- Cart items will be displayed here -->
-        </ul>
-        <h3>
-          <div id="total">Total:$0.00
-          </div>
-        </h3>
-        <button id="checkout-button" onclick="checkout()">Checkout</button>
-      </div>
-    </div>
-    <div class="my-order-container">
-      <h2>My Order</h2>
-      <div id="order-details">
-        <!-- Order details will be displayed here -->
-      </div>
-      <div class="order-actions">
-        <button onclick="trackOrder()">Track Order</button>
-        <button onclick="editOrder()">Edit Order</button>
-      </div>
-
-    </div>
-    <div class="icons">
-      <button id="login-btn">Login</button>
-      <p style="padding-right: 10px;"> </p>
-      <button id="signup-btn">Sign Up</button>
-    </div>
-
   </header>
   <!-- Header Ends Here -->
 
