@@ -36,10 +36,19 @@
             color: white;
             border: none;
             cursor: pointer;
+            margin-right: 10px;
         }
 
         button:hover {
             background-color: #218838;
+        }
+
+        #back-btn {
+            background-color: #007bff;
+        }
+
+        #back-btn:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
@@ -72,6 +81,7 @@
         <input type="text" id="cvv" required>
 
         <button type="button" id="confirm-btn" onclick="confirmCheckout()">Confirm and Pay</button>
+        <button type="button" id="back-btn" onclick="goBack()">Go Back</button>
     </form>
 
     <script>
@@ -96,11 +106,20 @@
         // Call the function to display cart items on checkout page
         displayCart();
 
-        // Function to confirm checkout
+        // Function to confirm checkout and redirect to confirmation page
         function confirmCheckout() {
-            alert('Order placed successfully!');
-            localStorage.clear();  // Clear cart data after checkout
-            window.close();  // Optionally close the window
+            // Here you can add validation and processing of payment if necessary
+
+            // Clear cart data after checkout
+            localStorage.clear();
+
+            // Redirect to confirmation page
+            window.location.href = 'confirmation.html';
+        }
+
+        // Function to go back to the index.html page
+        function goBack() {
+            window.location.href = 'index.html';  // Redirect to index.html
         }
     </script>
     
