@@ -253,8 +253,11 @@ button:hover {
 /* Header Styles */
 .header {
   background-color: var(--background-color);
+  border-radius: 25px;
+  margin: 0.2%;
   display: flex;
   align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   justify-content: space-between;
   border-bottom: var(--border);
   position: fixed;
@@ -281,10 +284,11 @@ button:hover {
 .header .navbar {
   display: flex;
   align-items: center;
+  justify-content: space-around;
   /* background-color: #007bff;
   border: 2px dashed black; */
   height: 50px;
-  width: 72%;
+  width: 77%;
 }
 
 .header .navbar a, #my-order-btn {
