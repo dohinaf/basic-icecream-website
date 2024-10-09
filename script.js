@@ -435,6 +435,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let signupBtn = document.getElementById('signup-btn');
     let closeLogin = document.getElementById('close-login');
     let closeSignup = document.getElementById('close-signup');
+    const emailInput = document.querySelector('input[type="email"]');
+    const passwordInput = document.querySelector('input[type="password"]');
 
     // Show login modal
     loginBtn.onclick = () => {
@@ -450,6 +452,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Close login modal
     closeLogin.onclick = () => {
+          resetLoginForm();
         loginModal.style.display = 'none';
     };
 
@@ -457,6 +460,10 @@ document.addEventListener('DOMContentLoaded', () => {
     closeSignup.onclick = () => {
         signupModal.style.display = 'none';
     };
+    function resetLoginForm() {
+        emailInput.value = '';   
+        passwordInput.value = '';   
+      }
 
     // Close modal if clicked outside the modal content
     window.onclick = (event) => {

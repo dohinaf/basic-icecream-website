@@ -108,6 +108,9 @@
       font-size: 24px;
       margin-bottom: 10px;
     }
+    h3{
+      font-weight: 700;
+    }
 
     p {
       margin-bottom: 30px;
@@ -121,6 +124,16 @@
       border: 1px solid #ccc;
       border-radius: 5px;
       font-size: 14px;
+      margin-bottom: 20px;
+    }
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+      margin-bottom: 20px;
     }
 
     .signup-btn {
@@ -382,15 +395,27 @@
         </div>
     </section>
     <!-- Login Modal -->
-<div id="login-modal" class="modal">
-    <div class="modal-content">
+<div id="login-modal" class="modal login-container">
+    <div class="login-card">
+      <div class="login-image">
+        <img src="https://static.vecteezy.com/system/resources/thumbnails/044/570/761/small_2x/assortment-of-colorful-ice-cream-scoops-in-waffle-cones-with-fresh-fruits-on-a-transparent-background-png.png" alt="Ice Cream" />
+      </div>
+      
+      <div class="modal-content login-form">
         <span class="close-btn" id="close-login">&times;</span>
-        <h2>Login</h2>
+        <h2>Login to Your Account</h2>
         <form>
+          <h3>Email :-</h3>
+           <br>
             <input type="email" placeholder="Email" required>
-            <input type="password" placeholder="Password" required>
+            <h3>Password :-</h3>
+             <br>
+            <input type="password" placeholder="Password" required class="inputFields">
             <button type="submit">Login</button>
+            
+          <p>Don't have an account? <a href="signup.html">Sign up</a></p>
         </form>
+    </div>
     </div>
 </div>
 

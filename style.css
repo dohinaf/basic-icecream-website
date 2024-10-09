@@ -1970,10 +1970,78 @@ input:checked + .slider:before {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
+  
   justify-content: center;
   align-items: center;
 }
+/* start */
+.login-container {
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+}
 
+/* Login Card */
+.login-card {
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  max-width: 900px;
+  width: 100%;
+  height: 400px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.login-card:hover {
+  transform: scale(1.05);
+}
+
+/* Image Side */
+.login-image {
+  flex: 1;
+  overflow: hidden;
+}
+
+.login-image img {
+  width: 90%;
+  height: 100%;
+  object-fit: cover;
+}
+button[type = "submit"]{
+  background:  #ea9481;
+  color: black;
+  width: 12em;
+  align-items: center;
+  border-radius: 10px;
+   border: none;
+   margin-bottom: 20px;
+}
+form h3{
+  font-size: medium;
+}
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .login-card {
+      flex-direction: column;
+      height: auto;
+    }
+  
+    .login-image, .login-form {
+      width: 100%;
+      height: auto;
+    }
+  
+    .login-form {
+      padding: 20px;
+    }
+  }
+/* end */
 .modal-content {
   background-color: #fff;
   padding: 2rem;
@@ -1981,6 +2049,9 @@ input:checked + .slider:before {
   max-width: 400px;
   width: 100%;
   text-align: center;
+}
+.modal-content form{
+  text-align: left;
 }
 
 .close-btn {
