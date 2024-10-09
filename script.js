@@ -245,6 +245,51 @@ function displayCart() {
     displayOrder();
 }
 
+
+let total = 0; // Global variable to store total amount
+
+// Function to display cart items and calculate total
+function displayCart() {
+    const cartItemsElement = document.getElementById('cartItems');
+    const totalElement = document.getElementById('total');
+    let cartItemsHTML = '';
+    total = 0;
+
+    cart.forEach((item, index) => {
+        cartItemsHTML += `
+            <li>
+                ${item.name} - $${item.price.toFixed(2)}
+                <button onclick="removeFromCart(${index})">Remove</button>
+            </li>`;
+        total += item.price;
+    });
+
+    cartItemsElement.innerHTML = cartItemsHTML;
+    totalElement.textContent = `$${total.toFixed(2)}`;
+}
+
+// Function to handle navigating to the checkout page
+function goToCheckout() {
+    if (cart.length === 0) {
+        alert('Your cart is empty!');
+        return;
+    }
+
+    // Save cart data to localStorage to pass it to the checkout page
+    localStorage.setItem('cart', JSON.stringify(cart));
+    localStorage.setItem('total', JSON.stringify(total));
+
+    // Open the checkout page in a new tab
+    window.open('checkout.html', '_blank');
+}
+
+// Function to remove item from the cart
+function removeFromCart(index) {
+    cart.splice(index, 1); // Remove the item from the cart
+    displayCart(); // Refresh the cart display
+}
+
+
 // Function to simulate checkout
 // function checkout() {
 //     if (cart.length === 0) {

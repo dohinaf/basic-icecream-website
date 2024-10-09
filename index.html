@@ -255,15 +255,15 @@
         <div class="cart-items-container">
             <div class="cart">
                 <ul id="cartItems">
-                    <!-- Cart items will be displayed here -->
+                    <!-- Cart items will be dynamically displayed here -->
                 </ul>
-                <h3>
-                    <div id="total">Total:$0.00
-                    </div>
-                </h3>
-                <button id="checkout-button" onclick="checkout()">Checkout</button>
+                <div class="cart-summary">
+                    <h3>Total: <span id="total">$0.00</span></h3>
+                </div>
+                <button id="checkout-button" onclick="goToCheckout()">Proceed to Checkout</button>
             </div>
         </div>
+        
         <div class="my-order-container">
             <h2>My Order</h2>
             <div id="order-details">
