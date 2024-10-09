@@ -176,7 +176,7 @@ function addToCart(productName, price) {
     if (!existingItem) {
         // Add the product to the cart
         cart.push({ name: productName, price: price });
-        alert(`Product ${productName} added to cart`); // Notify the user
+         // Notify the user
         displayCart(); // Update the cart display
 
         // Show notification tooltip
@@ -232,8 +232,10 @@ function displayCart() {
 function displayCart() {
     const cartItemsElement = document.getElementById('cartItems');
     const totalElement = document.getElementById('total');
+    const cartCountElement = document.getElementById('cart-count');
     let cartItemsHTML = '';
     let total = 0;
+    const itemCount = cart.length;
 
     cart.forEach((item, index) => {
         cartItemsHTML += `<li>${item.name} - $${item.price.toFixed(2)} <button onclick="removeFromCart(${index})">Remove</button></li>`;
@@ -242,6 +244,7 @@ function displayCart() {
 
     cartItemsElement.innerHTML = cartItemsHTML;
     totalElement.textContent = `Total: $${total.toFixed(2)}`;
+    cartCountElement.textContent = `(${itemCount})`; 
     displayOrder();
 }
 
