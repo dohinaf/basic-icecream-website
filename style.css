@@ -940,13 +940,12 @@ button:hover {
   margin-bottom: 5rem;
 }
 
-.review-container {
-  display: flex;
-  max-width: 1200px;
-  margin: auto;
-  align-items: flex-start;
-  gap: 3rem; /* Increased gap for better spacing */
-}
+
+  .review-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
 
 .review-left {
   flex: 1;
@@ -958,13 +957,14 @@ button:hover {
   box-shadow: 8px 8px 40px rgba(0, 0, 0, 0.3); /* Shadow for depth */
 }
 
-.review-right {
-  flex: 2; /* More space for the form */
-  color: var(--text-color);
-  padding: 2rem; /* Padding for the form */
-  background-color: var(--background-color);
-  border-radius: 1rem; /* Rounded edges */
-}
+
+
+ .review-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+ }
 
 .review-right h2 {
   font-size: 2.5rem; /* Adjusted font size */
@@ -1007,7 +1007,8 @@ button:hover {
 }
 
 .submit-button:hover {
-  background: #ffbe0b; /* Change color on hover */
+  background: #ffbe0b;
+  color: #0c5f0f; /* Change color on hover */
 }
 
 /*Blogs styles contributed*/
