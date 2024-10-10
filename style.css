@@ -1058,7 +1058,6 @@ button:hover {
 }
 
 .blog {
-  background-color: var(--background-color);
   border-radius: 1rem;
   padding: 2rem;
   width: 500px; /* Fixed width for consistency */
@@ -1067,8 +1066,9 @@ button:hover {
 
 .blog-image {
   width: 70%; /* Responsive image */
-  border-radius: 1rem;
+  border-radius: 10rem;
 }
+
 
 .blog h3 {
   font-size: 2rem; /* Blog title size */
