@@ -133,7 +133,16 @@
       border: 1px solid #ccc;
       border-radius: 5px;
       font-size: 14px;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+      margin-bottom: 10px;
     }
     
  
@@ -184,7 +193,7 @@
       width: 100%;
       padding: 10px;
       margin-bottom: 15px;
-      background-color: var(--background-color);
+      background-color:  white;
       border: 1px solid var(--main-color);
       border-radius: 5px;
       color: #000000;
@@ -447,16 +456,26 @@
 </div>
 
 <!-- Signup Modal -->
-<div id="signup-modal" class="modal">
-    <div class="modal-content">
+<div id="signup-modal" class="modal signup-container">
+  <div class="signup-card">
+    <!-- Image Section -->
+    <div class="signup-image">
+      <img src="https://static.vecteezy.com/system/resources/thumbnails/044/570/761/small_2x/assortment-of-colorful-ice-cream-scoops-in-waffle-cones-with-fresh-fruits-on-a-transparent-background-png.png" alt="Ice Cream" />
+    </div>
+    <div class="modal-content signup-form">
         <span class="close-btn" id="close-signup">&times;</span>
-        <h2>Sign Up</h2>
+        <h2>Sign Up to Your Account</h2>
         <form>
+          <h3>Full Name :-</h3><br>
             <input type="text" placeholder="Full Name" required>
+            <h3>Email :-</h3><br>
             <input type="email" placeholder="Email" required>
+            <h3>Password :-</h3><br>
             <input type="password" class="pass-btn" placeholder="Password" required>
             <button type="submit" class="sign-btn">Sign Up</button>
+            <p>Already have an account? <a href="login-model">Log in</a></p>
         </form>
+    </div>
     </div>
 </div>
 
