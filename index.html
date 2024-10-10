@@ -1241,7 +1241,99 @@
 </section>
 <!--Review adding section ended here-->
 <br>
+<style>
+  body {
+      font-family: Arial, sans-serif; /* Modern font style */
+      background-color: #f8f9fa; /* Light background color */
+      margin: 0;
+      padding: 20px;
+  }
 
+  .footer-content {
+      max-width: 97%; /* Fit the box to the page width */
+      margin: 0 auto; /* Center the content */
+      background-color: white; /* White background for the FAQ section */
+      border-radius: 8px; /* Rounded corners */
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+      padding: 20px; /* Inner padding */
+  }
+
+  .faq-heading {
+      text-align: center; /* Center-aligns the heading */
+      margin-bottom: 20px; /* Space below the heading */
+      color: gold; /* Gold color for the heading */
+      font-size: 7em; /* Increase font size */
+  }
+
+  .faq-list {
+      list-style: none; /* Remove default list styling */
+      padding: 0; /* Remove default padding */
+  }
+
+  .faq-list li {
+      border-bottom: 1px solid #e9ecef; /* Separator between questions */
+      padding: 15px 0; /* Padding for each question */
+      transition: background-color 0.3s; /* Smooth background transition */
+  }
+
+  .faq-list li:hover {
+      background-color: #f1f1f1; /* Light background on hover */
+  }
+
+  .faq-question {
+      color: #007bff; /* Bright blue color for questions */
+      font-weight: bold; /* Bold font for questions */
+      cursor: pointer; /* Pointer cursor for clickable questions */
+      font-size: 2em; /* Increased font size for questions */
+  }
+
+  .faq-answer {
+      color: #555; /* Darker gray for answers */
+      margin-top: 5px; /* Space above the answer */
+      margin-bottom: 10px; /* Space below the answer */
+      font-size: 2em; /* Smaller font size for answers */
+      display: none; /* Hide answers by default */
+  }
+</style>
+<script>
+  function toggleAnswer(answerId) {
+      const answerElement = document.getElementById(answerId);
+      if (answerElement.style.display === "none" || answerElement.style.display === "") {
+          answerElement.style.display = "block"; // Show answer
+      } else {
+          answerElement.style.display = "none"; // Hide answer
+      }
+  }
+</script>
+</head>
+<body>
+
+<div class="footer-content">
+<h2 class="faq-heading">Frequently Asked Questions (FAQ)</h2>
+<ul class="faq-list">
+  <li>
+      <strong class="faq-question" onclick="toggleAnswer('answer1')">1. What flavors of ice cream do you offer?</strong>
+      <p class="faq-answer" id="answer1">We offer a variety of flavors including classic options like vanilla, chocolate, and strawberry, as well as unique flavors like mint chocolate chip and cookie dough. Check our menu for the full list!</p>
+  </li>
+  <li>
+      <strong class="faq-question" onclick="toggleAnswer('answer2')">2. Do you offer dairy-free or vegan options?</strong>
+      <p class="faq-answer" id="answer2">Yes! We have several dairy-free and vegan ice cream options made from almond milk, coconut milk, and other plant-based ingredients. Ask our staff for recommendations.</p>
+  </li>
+  <li>
+      <strong class="faq-question" onclick="toggleAnswer('answer3')">3. Can I customize my ice cream order?</strong>
+      <p class="faq-answer" id="answer3">Absolutely! You can mix and match flavors, add toppings, and create your own sundaes. Let us know what you’d like, and we’ll make it happen!</p>
+  </li>
+  <li>
+      <strong class="faq-question" onclick="toggleAnswer('answer4')">4. Do you offer ice cream cakes?</strong>
+      <p class="faq-answer" id="answer4">Yes, we do! Our ice cream cakes are made to order and can be customized with your favorite flavors and decorations. Please place your order at least 24 hours in advance.</p>
+  </li>
+  <li>
+      <strong class="faq-question" onclick="toggleAnswer('answer5')">5. What are your hours of operation?</strong>
+      <p class="faq-answer" id="answer5">We are open from 12 PM to 10 PM, seven days a week. Check our website for any holiday hours or special events.</p>
+  </li>
+</ul>
+</div>
+</body>
 
 <!-- Footer Section Starts Here -->
 
@@ -1384,6 +1476,5 @@
         // Start the animation
         animateCircles();
       </script>
-</body>
 
-</html>
+</body>
