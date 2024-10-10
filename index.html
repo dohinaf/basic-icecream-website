@@ -117,6 +117,16 @@
       font-size: small;
     }
 
+    input[type="name"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
     input[type="email"] {
       width: 100%;
       padding: 10px;
@@ -124,7 +134,7 @@
       border: 1px solid #ccc;
       border-radius: 5px;
       font-size: 14px;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
     input[type="password"] {
       width: 100%;
@@ -133,14 +143,14 @@
       border: 1px solid #ccc;
       border-radius: 5px;
       font-size: 14px;
-      margin-bottom: 20px;
+      margin-bottom: 0px;
     }
     
  
 
     .signup-btn {
       width: 100%;
-      padding: 10px;
+      padding: 8px;
       background-color: black;
       color: white;
       border: none;
@@ -150,7 +160,7 @@
     }
 
     .signup-btn:hover {
-      background-color: #333;
+      background-color: #00ff15;
     }
 
     .no-thanks {
@@ -341,7 +351,9 @@
             <h2>Scoop Up the Savings!</h2>
             <p>Get 20% off on your first order when you Sign up.</p>
             <form id="emailForm">
-              <input type="email" id="email" placeholder="Enter your email" required>
+              <input type="name" id="name" placeholder="Enter your Name">
+              <input type="email" id="email" placeholder="Enter your Email" required>
+              <input type="password" id="password" placeholder="Enter your Password" required>
               <button type="submit" class="signup-btn">SIGN UP</button>
             </form>
             <a href="#" class="no-thanks">No thanks</a>
