@@ -124,6 +124,7 @@
       border: 1px solid #ccc;
       border-radius: 5px;
       font-size: 14px;
+/* <<<<<<< Icecream_Website */
       margin-bottom: 20px;
     }
     input[type="password"] {
@@ -135,6 +136,9 @@
       font-size: 14px;
       margin-bottom: 20px;
     }
+      border: 1px solid var(--main-color);
+      background-color: var(--background-color);    }
+/* >>>>>>> main */
 
     .signup-btn {
       width: 100%;
@@ -176,6 +180,25 @@
     .content {
       text-align: center;
       margin-top: 50px;
+    }
+
+    .pass-btn{
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      background-color: var(--background-color);
+      border: 1px solid var(--main-color);
+      border-radius: 5px;
+      color: #000000;
+  
+    }
+    .sign-btn{
+      width: 100%;
+      background-color: #fb285d;
+      border: none;
+      color: white;
+      font-size: 16px;
+      height: 40px;
     }
   </style>
 <style>
@@ -408,12 +431,17 @@
           <h3>Email :-</h3>
            <br>
             <input type="email" placeholder="Email" required>
+<!-- <<<<<<< Icecream_Website -->
             <h3>Password :-</h3>
              <br>
             <input type="password" placeholder="Password" required class="inputFields">
             <button type="submit">Login</button>
             
           <p>Don't have an account? <a href="signup.html">Sign up</a></p>
+=======
+            <input type="password" class="pass-btn" placeholder="Password" required>
+            <button type="submit" class="sign-btn">Login</button>
+<!-- >>>>>>> main -->
         </form>
     </div>
     </div>
@@ -427,8 +455,8 @@
         <form>
             <input type="text" placeholder="Full Name" required>
             <input type="email" placeholder="Email" required>
-            <input type="password" placeholder="Password" required>
-            <button type="submit">Sign Up</button>
+            <input type="password" class="pass-btn" placeholder="Password" required>
+            <button type="submit" class="sign-btn">Sign Up</button>
         </form>
     </div>
 </div>

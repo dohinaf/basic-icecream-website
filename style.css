@@ -1342,7 +1342,7 @@ input[type="radio"] {
   background-color: var(--background-color);
   border: 1px solid var(--main-color);
   border-radius: 5px;
-  color: #fff;
+  color: #000000;
 }
 
 input[type="radio"] {
