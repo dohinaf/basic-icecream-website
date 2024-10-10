@@ -2017,8 +2017,8 @@ input:checked + .slider:before {
 }
 
 .login-image img {
-  width: 90%;
-  height: 100%;
+  width: 82%;
+  height: 98%;
   object-fit: cover;
 }
 button[type = "submit"]{
