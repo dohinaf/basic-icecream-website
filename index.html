@@ -1244,21 +1244,21 @@
 <style>
   body {
       font-family: Arial, sans-serif; /* Modern font style */
-      background-color: #000; /* Completely black background */
-      color: white; /* White text for the body */
+      background-color: #fff; /* Default light background */
+      color: black; /* Default text color */
       margin: 0;
       padding: 20px;
+      transition: background-color 0.5s, color 0.5s; /* Smooth transition for theme change */
   }
 
   .footer-content {
       max-width: 100%; /* Fit the box to the full screen width */
       margin: 0 auto; /* Center the content */
-      background-color: #343a40; /* Darker background for the FAQ section */
+      background-color: #f8f9fa; /* Light background for FAQ section */
       border-radius: 8px; /* Rounded corners */
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
       padding: 20px; /* Inner padding */
-      padding-left: 30px; /* Left padding */
-      padding-right: 30px; /* Right padding */
+      transition: background-color 0.5s; /* Smooth transition for background */
   }
 
   .faq-heading {
@@ -1283,10 +1283,6 @@
       margin-bottom: 20px; /* Space below the last question */
   }
 
-  .faq-list li:hover {
-      background-color: #495057; /* Darker background on hover */
-  }
-
   .faq-question {
       color: #007bff; /* Bright blue color for questions */
       font-weight: bold; /* Bold font for questions */
@@ -1301,22 +1297,31 @@
       font-size: 2em; /* Smaller font size for answers */
       display: none; /* Hide answers by default */
   }
-</style>
-<script>
-  function toggleAnswer(answerId) {
-      const answerElement = document.getElementById(answerId);
-      if (answerElement.style.display === "none" || answerElement.style.display === "") {
-          answerElement.style.display = "block"; // Show answer
-      } else {
-          answerElement.style.display = "none"; // Hide answer
-      }
+
+  /* Dark Mode Styles */
+  [data-theme="dark"] {
+      background-color: #000; /* Dark black background */
+      color: white; /* White text for dark mode */
   }
-</script>
+
+  [data-theme="dark"] .footer-content {
+      background-color: #343a40; /* Darker background for the FAQ section in dark mode */
+  }
+
+  [data-theme="dark"] .faq-list li {
+      background-color: #495057; /* Darker background for FAQ list items in dark mode */
+  }
+
+  [data-theme="dark"] .faq-list li:hover {
+      background-color: #6c757d; /* Darker background on hover in dark mode */
+  }
+</style>
 </head>
 <body>
 
 <div class="footer-content">
 <h2 class="faq-heading">Frequently Asked Questions (FAQ)</h2>
+
 <ul class="faq-list">
   <li>
       <strong class="faq-question" onclick="toggleAnswer('answer1')">1. What flavors of ice cream do you offer?</strong>
@@ -1341,7 +1346,51 @@
 </ul>
 </div>
 
+<script>
+const checkbox = document.getElementById('checkbox');
+const modeLabel = document.getElementById('mode-label');
+
+// Check if dark mode is already enabled
+if (localStorage.getItem('theme') === 'dark') {
+document.documentElement.setAttribute('data-theme', 'dark');
+checkbox.checked = true;
+modeLabel.textContent = 'Dark Mode';
+}
+
+// Add event listener for toggle switch
+checkbox.addEventListener('change', () => {
+if (checkbox.checked) {
+  document.documentElement.setAttribute('data-theme', 'dark');
+  localStorage.setItem('theme', 'dark');
+  modeLabel.textContent = 'Dark Mode';
+} else {
+  document.documentElement.setAttribute('data-theme', 'light');
+  localStorage.setItem('theme', 'light');
+  modeLabel.textContent = 'Light Mode';
+}
+});
+
+// Function to toggle FAQ answer visibility
+function toggleAnswer(answerId) {
+const answerElement = document.getElementById(answerId);
+if (answerElement.style.display === "none" || answerElement.style.display === "") {
+  answerElement.style.display = "block"; // Show answer
+} else {
+  answerElement.style.display = "none"; // Hide answer
+}
+}
+</script>
+
 </body>
+
+
+
+
+
+  
+  
+
+
 <!-- Footer Section Starts Here -->
 
     <section class="footer" id="footer">
