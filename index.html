@@ -469,15 +469,29 @@
             <h1 data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
         data-aos-anchor-placement="top-bottom">here's, what we have in store for you!</h1>
 
-        <div class="filter-box">
-            <h3  id="pro-name">Filter Ice Creams</h3>
+          <div class="filter-box">
+            <h3 id="pro-name">Filter Ice Creams</h3>
             <select id="price-filter">
                 <option value="all">All Prices</option>
                 <option value="under-15">Under $15</option>
                 <option value="15-20">$15 - $20</option>
                 <option value="over-20">Over $20</option>
             </select>
-            <input type="text" id="flavor-filter" placeholder="Search by flavor...">
+            
+            <!-- Dropdown menu for flavors -->
+            <select id="flavor-filter">
+                <option value="all">All Flavors</option>
+                <option value="Nutty Butterscotch">Nutty Butterscotch</option>
+                <option value="Berry Pops">Berry Pops</option>
+                <option value="Cherry Sherbet Pops">Cherry Sherbet Pops</option>
+                <option value="Dripping Vanilla">Dripping Vanilla</option>
+                <option value="Very Berry Strawberry">Very Berry Strawberry</option>
+                <option value="Rainbow Classic Cone">Rainbow Classic Cone</option>
+                <option value="Orange Pops">Orange Pops</option>
+                <option value="Choco-Hazel Pops">Choco-Hazel Pops</option>
+                <option value="Very Very Peachy">Very Very Peachy</option>
+            </select>
+            
             <button id="apply-filter">Apply Filter</button>
             <button id="remove-filter">Remove Filter</button> <!-- New Remove Filter Button -->
         </div>
