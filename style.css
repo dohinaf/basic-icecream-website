@@ -55,6 +55,8 @@ body {
 
 section {
   padding: 2rem 7%;
+  position: relative;
+  top: 70px;
 }
 
 .btn {
@@ -129,7 +131,6 @@ button:hover {
 /*Added css to make the My order button to look same as the rest of the nav buttons*/
 #my-order-btn {
   border: none;
-  margin: 0px 0px 1px;
   font-size: 1.6rem;
   background-color: transparent !important;
   animation: none !important;
@@ -533,6 +534,7 @@ button:hover {
 
 .home {
   min-height: 100vh;
+  min-width: 100vw;
   display: flex;
   align-items: center;
   background: url("https://images.unsplash.com/photo-1503438805992-a1f1bcaf6ec9")
@@ -1016,7 +1018,8 @@ button:hover {
 
 .submit-button {
   margin-top: 1.5rem; /* Increased margin for spacing */
-  padding: 1rem 2.5rem; /* Increased button padding */
+  padding: 2rem 4rem;
+    margin: 2rem;
   font-size: 1.6rem; /* Increased font size */
   color: #fff; /* White text */
   background: linear-gradient(
@@ -1151,10 +1154,6 @@ footer .credit {
 @media (max-width: 991px) {
   html {
     font-size: 55%;
-  }
-
-  .header {
-    padding: 1.5rem 2rem;
   }
 }
 
