@@ -1,0 +1,77 @@
+.header {
+    display: flex;
+    flex-direction: column; /* Stack items for mobile */
+    align-items: center; /* Center items */
+  }
+  
+  .logo img {
+    max-width: 100px; /* Set a max width for the logo */
+  }
+  
+  .navbar {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping for small screens */
+    justify-content: center; /* Center nav items */
+  }
+  
+  .navbar a {
+    margin: 0 1rem; /* Add spacing between nav items */
+  }
+  
+  .icons {
+    display: flex;
+    justify-content: center; /* Center icons */
+    margin-top: 1rem; /* Spacing above icons */
+  }
+  
+  .theme-switch-wrapper {
+    margin: 1rem 0; /* Spacing for theme switch */
+  }
+  
+  /* Media queries for responsiveness */
+  @media (min-width: 768px) {
+    .header {
+      flex-direction: row; /* Row layout for larger screens */
+      justify-content: space-between; /* Space between elements */
+      align-items: center; /* Center items vertically */
+    }
+  
+    .navbar {
+      flex-grow: 1; /* Allow navbar to grow */
+    }
+  
+    .search-form {
+      position: relative; /* Adjust positioning */
+      display: flex; /* Align input and label horizontally */
+    }
+  
+    .cart-items-container, .my-order-container {
+      width: 400px; /* Fixed width for larger screens */
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .navbar a {
+      font-size: 1.4rem; /* Smaller font size for mobile */
+      padding: 0.5rem; /* Add padding for touch targets */
+    }
+  
+    .search-form {
+      width: 100%; /* Full width on mobile */
+    }
+  
+    .cart-items-container, .my-order-container {
+      width: 90%; /* Slightly narrower on mobile */
+      max-width: 400px; /* Ensure it doesn't get too wide */
+    }
+  
+    .my-order-container h2 {
+      font-size: 2rem; /* Slightly smaller heading */
+    }
+  
+    .order-actions button {
+      width: 100%; /* Full width buttons for mobile */
+      margin: 0.5rem 0; /* Add margin for spacing */
+    }
+  }
+  
