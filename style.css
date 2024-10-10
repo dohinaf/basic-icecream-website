@@ -1348,8 +1348,8 @@ input[type="radio"] {
   width: 100%;
   padding: 10px;
   margin-bottom: 15px;
-  background-color: var(--background-color);
-  border: 1px solid var(--main-color);
+  background-color: white;
+  /* border: 1px solid var(--main-color); */
   border-radius: 5px;
   color: #000000;
 }
@@ -1984,7 +1984,7 @@ input:checked + .slider:before {
   align-items: center;
 }
 /* start */
-.login-container {
+.login-container , .signup-container {
   /* display: flex; */
   justify-content: center;
   align-items: center;
@@ -1994,7 +1994,7 @@ input:checked + .slider:before {
 }
 
 /* Login Card */
-.login-card {
+.login-card , .signup-card {
   background-color: white;
   border-radius: 12px;
   overflow: hidden;
@@ -2010,14 +2010,22 @@ input:checked + .slider:before {
 .login-card:hover {
   transform: scale(1.05);
 }
+.signup-card:hover {
+  transform: scale(1.05);
+}
 
 /* Image Side */
-.login-image {
+.login-image , .signup-image{
   flex: 1;
   overflow: hidden;
 }
 
 .login-image img {
+  width: 82%;
+  height: 98%;
+  object-fit: cover;
+}
+.signup-image img {
   width: 82%;
   height: 98%;
   object-fit: cover;
@@ -2036,17 +2044,17 @@ form h3{
 }
   /* Responsive Design */
   @media (max-width: 768px) {
-    .login-card {
+    .login-card , .signup-card{
       flex-direction: column;
       height: auto;
     }
   
-    .login-image, .login-form {
+    .login-image, .login-form , .login-image , .login-form{
       width: 100%;
       height: auto;
     }
   
-    .login-form {
+    .login-form , .signup-form{
       padding: 20px;
     }
   }
