@@ -1190,6 +1190,11 @@ footer .credit {
     font-size: 2rem;
   }
 
+  .header .navbar a:hover{
+    color: red;
+
+  }
+
   .header .search-form {
     width: 90%;
     /* Adjusted width for better fit */
@@ -2072,3 +2077,56 @@ input:checked + .slider:before {
 #backToTop:hover {
     background-color: #0056b3; /* Darken on hover */
 }
+
+
+
+
+
+
+
+
+
+
+
+
+/* Basic styles for the header and navbar */
+.header {
+  display: flex; /* Use flexbox to align items */
+  justify-content: space-between; /* Space out logo and navbar */
+  align-items: center; /* Center items vertically */
+  padding: 10px; /* Padding around the header */
+  background-color: ; /* Background color of the header */
+}
+
+.navbar {
+  display: flex; /* Use flexbox for the navbar links */
+}
+
+/* Navbar links */
+.navbar a {
+  color: white; /* Default link color */
+  text-decoration: none; /* Remove underline */
+  padding: 10px 20px; /* Padding for the links */
+  transition: color 0.3s ease; /* Smooth transition for text color */
+}
+
+/* Hover effect for the links */
+.navbar a:hover {
+  color: red; /* Change text color on hover */
+}
+
+/* Active link styling (for current page) */
+.navbar a.active {
+  font-weight: bold; /* Highlight active link */
+}
+
+
+
+
+
+
+
+
+
+
+
