@@ -272,6 +272,8 @@ button:hover {
   cursor: pointer;
   font-weight: 500;
   padding: 1rem 1.5rem;
+  width: 95px; 
+  height: 40px;
 }
 
 /* Header Styles */
@@ -1589,7 +1591,8 @@ header {
 /* Toggle Switch */
 .theme-switch-wrapper {
   display: flex;
-  align-items: center;
+  align-items: center; 
+  margin-left: 20px; 
 }
 
 #mode-label {
