@@ -241,7 +241,7 @@
 <div class="circle"></div>
 
 
-    <button id="backToTop">&#8679;</button>
+    <button id="backToTop" style="font-size: 30px; font-weight: bold;">&#8673;</button>
 
     <!-- Header Starts Here -->
     <header class="header">
@@ -268,8 +268,9 @@
 
         <div class="icons">
             <div class = "fas fa-heart" id = "wishlist-btn"></div>
-            <div class="fas fa-search" id="search-btn"></div>
-            <div class="fas fa-shopping-cart" id="cart-btn"></div>
+            <div class="fas fa-search" id="search-btn"></div>                    
+            <div class="fas fa-shopping-cart" id="cart-btn"><span id="cart-count">(0)</span></div>
+          
         </div>
         <div class="theme-switch-wrapper">
             <label class="theme-switch" for="checkbox">
@@ -310,9 +311,11 @@
             
         </div>
         <div class="icons login-signup-collection">
-            <!-- <button id="login-btn" class="auth-btn">Login</button> -->
-            <!-- <p style="padding-right: 10px;">        </p> -->
-            <!-- <button id="signup-btn" class="auth-btn">Sign Up</button> -->
+
+<!-- 
+            <button style="max-height: 40px;" id="login-btn" class="auth-btn">Login</button>
+            <p style="padding-right: 10px;">        </p>
+            <button style="max-height: 40px;" id="signup-btn" class="auth-btn">SignUp</button> -->
              <button><a href="./login/login.html">Login</a></button>
              <button><a href="./signup/signup.html">signUp</a></button>
         </div>
@@ -385,20 +388,20 @@
 
     <!-- About Section Starts Here -->
     <section class="about" id="about">
-        <h1 class="heading"  data-aos="fade-up"
-        data-aos-anchor-placement="top-bottom"> <span> about</span> us</h1>
+        <h1 class="heading"  data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
+        data-aos-anchor-placement="top-bottom"> <span style="color: orangered;"> about</span> us</h1>
         <div class="row">
             <div class="image">
-                <img src="ice cream.jpg" alt="ice cream" data-aos="fade-up"
+                <img src="ice cream.jpg" alt="ice cream" data-aos="fade-right"  data-aos-duration="1200" data-aos-delay="200"
             data-aos-anchor-placement="top-bottom">
             </div>
-            <div class="content" data-aos="fade-up"
+            <div class="content" style="text-align: left;"
             data-aos-anchor-placement="top-bottom">
-                <h3> What Makes Our Ice Cream Special?</h3>
-                <p>
+                <h3 data-aos="fade-left"  data-aos-duration="1200" data-aos-delay="200"> What Makes Our Ice Cream Special?</h3>
+                <p data-aos="fade-left"  data-aos-duration="1200" data-aos-delay="200">
                     At Arctic Delights, we believe that every scoop of ice cream should be a masterpiece. We handpick the finest, sustainably sourced ingredients to craft flavors that not only cool you down but also take your taste buds on an unforgettable journey. Whether you crave something classic or adventurous, we offer a wide range of flavors designed to surprise and delight.
                 </p>
-                <p>
+                <p data-aos="fade-left"  data-aos-duration="1200" data-aos-delay="200">
                     Customize your perfect treat with our signature toppings, sauces, and add-ons to create a unique dessert experience tailored just for you. At Arctic Delights, we’re not just about ice cream—we’re about crafting moments of joy in every bite!
                 </p>
                 
@@ -467,7 +470,7 @@
     <!-- Menu Section Starts Here -->
 
     <section class="menu" id="menu">
-            <h1 data-aos="fade-up"
+            <h1 data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
         data-aos-anchor-placement="top-bottom">here's, what we have in store for you!</h1>
 
         <div class="filter-box">
@@ -484,7 +487,7 @@
         </div>
         <div class="box-container">
 
-            <div class="box"  data-aos="fade-up"
+            <div class="box"  data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200"
             data-aos-anchor-placement="top-bottom">
             <div class="picture">
                 <img src="https://plus.unsplash.com/premium_photo-1678198786405-28e947bb8a12" alt="">
@@ -499,7 +502,7 @@
 
           </div>
         
-            <div class="box"  data-aos="fade-up"
+            <div class="box"  data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
             data-aos-anchor-placement="top-bottom">
             <div class="picture">
                 <img src="https://images.unsplash.com/photo-1488900128323-21503983a07e" alt="">
@@ -518,7 +521,7 @@
         
 
         
-            <div class="box"  data-aos="fade-up"
+            <div class="box"  data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
             data-aos-anchor-placement="top-bottom">
                 <div class="picture">
                     <img src="https://images.unsplash.com/photo-1633933037611-f26e54366832" alt="">
@@ -536,7 +539,7 @@
         
 
         
-            <div class="box"  data-aos="fade-up"
+            <div class="box"  data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200"
             data-aos-anchor-placement="top-bottom">
             <div class="picture">
                 <img src="https://images.unsplash.com/photo-1570197788417-0e82375c9371" alt="">
@@ -554,7 +557,7 @@
                 <button id="inbox" onclick="window.location.href='drip_vanilla.html';">Read more</button>
             </div>
 
-            <div class="box"  data-aos="fade-up"
+            <div class="box"  data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200"
             data-aos-anchor-placement="top-bottom">
             <div class="picture">
                 <img src="https://images.unsplash.com/photo-1532678465554-94846274c297" alt="">
@@ -572,7 +575,7 @@
                 <button id="inbox" onclick="window.location.href='very_straw.html';">Read more</button>
             </div>
 
-            <div class="box"  data-aos="fade-up"
+            <div class="box"  data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
             data-aos-anchor-placement="top-bottom">
             <div class="picture">
                 <img src="https://images.unsplash.com/photo-1705103654898-d663145f5f50" alt="">
@@ -589,7 +592,7 @@
                 <button id="inbox" onclick="window.location.href='rain_classic.html';">Read more</button>
             </div>
 
-            <div class="box"  data-aos="fade-up"
+            <div class="box"  data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
             data-aos-anchor-placement="top-bottom">
             <div class="picture">
                 <img src="https://images.unsplash.com/photo-1559340160-146586a4f9b6" alt="">
@@ -608,7 +611,7 @@
 
             </div>
 
-            <div class="box"  data-aos="fade-up"
+            <div class="box"  data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200"
             data-aos-anchor-placement="top-bottom">
             <div class="picture">
                 <img src="https://images.unsplash.com/photo-1594305178909-03ab72b8205e" alt="">
@@ -627,7 +630,7 @@
 
             </div>
 
-            <div class="box"  data-aos="fade-up"
+            <div class="box"  data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200"
             data-aos-anchor-placement="top-bottom">
             <div class="picture">
                 <br>
@@ -645,7 +648,7 @@
         
 
             
-            <div class="box"  data-aos="fade-up"
+            <div class="box"  data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
             data-aos-anchor-placement="top-bottom">
             <div class="picture">
                 <img src="https://images.unsplash.com/photo-1559340160-146586a4f9b6" alt="">
@@ -662,7 +665,7 @@
             
 
             
-            <div class="box"  data-aos="fade-up"
+            <div class="box"  data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
             data-aos-anchor-placement="top-bottom">
             <div class="picture">
                 <img src="https://images.unsplash.com/photo-1594305178909-03ab72b8205e" alt="">
@@ -680,7 +683,7 @@
        
 
            
-            <div class="box"  data-aos="fade-up"
+            <div class="box"  data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200"
             data-aos-anchor-placement="top-bottom">
             <div class="picture">
                 <img src="https://images.unsplash.com/photo-1499638472904-ea5c6178a300" alt="">
@@ -716,18 +719,18 @@
 
 <!-- Blogs Section Starts Here -->
 <section class="blogs" id="blogs">
-  <h1 class="heading"  data-aos="fade-up"
-  data-aos-anchor-placement="top-bottom">Our <span>Blogs</span></h1>
+  <h1 class="heading"  data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
+  data-aos-anchor-placement="top-bottom">Our <span style="color: orangered;">Blogs</span></h1>
   <div class="blog-container">
 
-    <div class="blog"  data-aos="fade-up-right">
+    <div class="blog"  data-aos="fade-up-right" data-aos-duration="1200" data-aos-delay="200">
       <img  src="https://plus.unsplash.com/premium_photo-1658526992090-e15722e684c0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8aWNlY3JlYW0lMjBzaG9wfGVufDB8fDB8fHww" alt="Blog Post 1" class="blog-image">
       <h3>The Journey of Artic Delights</h3>
       <p>Discover how our ice cream shop began its journey with a passion for creating unique flavors that delight the taste buds. From humble beginnings to a beloved local favorite, read about our story and what makes us special.</p>
       <a href="icecream-details.html" class="btn">Read More</a>
     </div>
 
-    <div class="blog">
+    <div class="blog" data-aos="fade-up-left" data-aos-duration="1200" data-aos-delay="200">
         <img style="border-radius: 15px; width: 300px; display: block"
          src="https://th.bing.com/th/id/R.676adb6d7539038b901d8242cc145fa1?rik=VtRfS5RbwsuVWQ&riu=http%3a%2f%2fimages6.fanpop.com%2fimage%2fphotos%2f34700000%2fIce-Creams-ice-cream-34733250-1200-972.jpg&ehk=%2baCoHwlvOoQkOsJx859JKiu%2fVnB7JSAfddJUpaHxeQo%3d&risl=&pid=ImgRaw&r=0">
         <h3>The Art of Perfect Ice Cream Scoops</h3>
@@ -735,7 +738,7 @@
         <a href="icecream-details.html" class="btn">Read More</a>
       </div>
 
-    <div class="blog">
+    <div class="blog" data-aos="fade-up-right" data-aos-duration="1200" data-aos-delay="200">
         <img style="border-radius: 15px; width: 300px; display: block"
          src="https://th.bing.com/th/id/R.342ee8a18ef0c4c428ff5288e7567400?rik=nrNVZmqpGpWe9g&riu=http%3a%2f%2fwallpapercave.com%2fwp%2fTS014mt.jpg&ehk=xOshdAfsEoqt8T%2bU%2fZtJiZCXCT8PRAv8B6aLJ4FMWZ0%3d&risl=&pid=ImgRaw&r=0">
          <h3>Chilling Adventures with Exotic Flavors</h3>
@@ -743,14 +746,14 @@
   <a href="icecream-details.html" class="btn">Read More</a>
       </div>
 
-    <div class="blog" data-aos="fade-up-left">
+    <div class="blog" data-aos="fade-up-left" data-aos-duration="1200" data-aos-delay="200">
       <img src="https://images.unsplash.com/photo-1591261730540-1ab1db33ac78?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGljZWNyZWFtJTIwc2hvcHxlbnwwfHwwfHx8MA%3D%3D" alt="Blog Post 2" class="blog-image">
       <h3>Crafting the Perfect Scoop</h3>
       <p>Learn about our meticulous process of crafting the perfect ice cream scoop. We source only the finest ingredients and use artisanal methods to ensure every bite is a delicious experience.</p>
       <a href="icecream-details.html" class="btn">Read More</a>
     </div>
 
-    <div class="blog" data-aos="zoom-out-down">
+    <div class="blog" data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200">
       <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8dGVhbSUyMHdvcmtlcnN8ZW58MHx8MHx8fDA%3D" alt="Blog Post 3" class="blog-image">
       <h3>Behind the Scenes at Artic Delights</h3>
       <p>Get a sneak peek behind the scenes at our shop! Meet our passionate team and see how we create our delicious ice cream flavors daily.</p>
@@ -1194,18 +1197,18 @@
 <div class="container">
   <div class="container__left">
     <h1 data-aos="zoom-out-down" >Read what our customers love about our ice cream</h1>
-    <p data-aos="zoom-out-down">
+    <p data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200">
       Over 200 ice cream enthusiasts from different places savor our unique
       flavors and can't get enough of our delicious offerings.
     </p>
-    <p data-aos="zoom-out-down">
+    <p data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200">
       We have made every scoop a memorable experience, bringing smiles and
       joy with our artisanal ice cream creations.
     </p>
-    <button data-aos="zoom-out-down">Read our customer stories</button>
+    <button data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200">Read our customer stories</button>
   </div>
   <div class="container__right">
-    <div class="card" data-aos="zoom-out-down">
+    <div class="card" data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200">
       <img src="https://images.unsplash.com/photo-1482961674540-0b0e8363a005?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fG1hbnxlbnwwfHwwfHx8MA%3D%3D" alt="customer" />
       <div class="card__content">
         <span><i class="ri-double-quotes-l"></i></span>
@@ -1217,7 +1220,7 @@
         </div>
       </div>
     </div>
-    <div class="card" data-aos="zoom-out-down">
+    <div class="card" data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200">
       <img src="https://plus.unsplash.com/premium_photo-1689539137236-b68e436248de?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="customer" width="400"/>
       <div class="card__content">
         <span><i class="ri-double-quotes-l"></i></span>
@@ -1229,7 +1232,7 @@
         </div>
       </div>
     </div>
-    <div class="card" data-aos="zoom-out-down">
+    <div class="card" data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200">
       <img src="https://plus.unsplash.com/premium_photo-1688385848467-781c5394c017?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHdvbWFufGVufDB8fDB8fHww" alt="customer" />
       <div class="card__content">
         <span><i class="ri-double-quotes-l"></i></span>
@@ -1250,15 +1253,15 @@
 <section class="review-section" id="review-section">
   <div class="review-container">
     <div class="review-left">
-      <img data-aos="zoom-out-down" src="https://images.unsplash.com/photo-1505394033641-40c6ad1178d7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8aWNlY3JlYW18ZW58MHx8MHx8fDA%3D" alt="Delicious Ice Cream" class="ice-cream-image">
+      <img data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200" src="https://images.unsplash.com/photo-1505394033641-40c6ad1178d7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8aWNlY3JlYW18ZW58MHx8MHx8fDA%3D" alt="Delicious Ice Cream" class="ice-cream-image">
     </div>
     <div class="review-right">
-      <h2 data-aos="zoom-out-down">Share Your Ice Cream Experience!</h2>
+      <h2 data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200">Share Your Ice Cream Experience!</h2>
 <form id="review-form" onsubmit="storeReview(event)">
-  <label for="user-name" data-aos="zoom-out-down">Your Name:</label>
+  <label for="user-name" data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200">Your Name:</label>
   <input type="text" id="user-name" name="user-name" data-aos="zoom-out-down" required>
   
-  <label for="user-review" data-aos="zoom-out-down">Your Review:</label>
+  <label for="user-review" data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200">Your Review:</label>
   <textarea id="user-review" name="user-review" rows="5" required data-aos="zoom-out-down"></textarea>
   
   <button type="submit" class="submit-button" data-aos="zoom-out-down">Submit Review</button>
@@ -1460,6 +1463,7 @@
         // Start the animation
         animateCircles();
       </script>
+      
 </body>
 
 </html>
