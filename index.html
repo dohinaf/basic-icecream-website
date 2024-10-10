@@ -135,6 +135,8 @@
       font-size: 14px;
       margin-bottom: 20px;
     }
+    
+ 
 
     .signup-btn {
       width: 100%;
@@ -176,6 +178,25 @@
     .content {
       text-align: center;
       margin-top: 50px;
+    }
+
+    .pass-btn{
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      background-color: var(--background-color);
+      border: 1px solid var(--main-color);
+      border-radius: 5px;
+      color: #000000;
+  
+    }
+    .sign-btn{
+      width: 100%;
+      background-color: #fb285d;
+      border: none;
+      color: white;
+      font-size: 16px;
+      height: 40px;
     }
   </style>
 <style>
@@ -225,12 +246,12 @@
     <!-- Header Starts Here -->
     <header class="header">
 
-        <a href="#" class="logo">    
+        <a href="#" class="logo">
             <img src="https://purepng.com/public/uploads/large/purepng.com-ice-creamice-creamcreamfrozensweet-1411527617895aiuhx.png"
                 alt="Logo">
         </a>
         <!-- ... existing code ... -->
-        <h1 class="site-title">ArcticDelights</h1> 
+        <h1 class="site-title">ArcticDelights</h1>
 
 <nav class="navbar">
 
@@ -256,7 +277,7 @@
                 <div class="slider"></div>
             </label>
             <span id="mode-label">Light Mode</span>
-        </div> 
+        </div>
         <div class="search-form">
             <input type="search" id="search-box" placeholder="Search...">
             <label for="search-box" class="fas fa-search"></label>
@@ -408,12 +429,17 @@
           <h3>Email :-</h3>
            <br>
             <input type="email" placeholder="Email" required>
+ 
             <h3>Password :-</h3>
              <br>
             <input type="password" placeholder="Password" required class="inputFields">
             <button type="submit">Login</button>
             
           <p>Don't have an account? <a href="#sign-modal">Sign up</a></p>
+ 
+            <input type="password" class="pass-btn" placeholder="Password" required>
+            <button type="submit" class="sign-btn">Login</button>
+ 
         </form>
     </div>
     </div>
@@ -427,8 +453,8 @@
         <form>
             <input type="text" placeholder="Full Name" required>
             <input type="email" placeholder="Email" required>
-            <input type="password" placeholder="Password" required>
-            <button type="submit">Sign Up</button>
+            <input type="password" class="pass-btn" placeholder="Password" required>
+            <button type="submit" class="sign-btn">Sign Up</button>
         </form>
     </div>
 </div>
@@ -452,6 +478,7 @@
             </select>
             <input type="text" id="flavor-filter" placeholder="Search by flavor...">
             <button id="apply-filter">Apply Filter</button>
+            <button id="remove-filter">Remove Filter</button> <!-- New Remove Filter Button -->
         </div>
         <div class="box-container">
 
@@ -788,7 +815,367 @@
         <input type="text" id="billing-country" placeholder="Country" required>
     </div>
 
-    <button class="payment-button" onclick="confirmPayment()">Confirm Payment</button>
+    <button class="order"><span class="default">Complete Order</span><span class="success">Order Placed<svg viewbox="0 0 12 10"></svg></span>
+      <div class="box"></div>
+    <div class="truck">
+        <div class="back"></div>
+        <div class="front">
+            <div class="window"></div>
+        </div>
+        <div class="light top"></div>
+        <div class="light bottom"></div>
+    </div>
+    <div class="lines"></div>
+</button>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script><script  src="./script.js"></script>
+<style>
+  :root {
+  --primary: #f6f8ff;
+  --primary-light: #7699FF;
+  --dark: #1C212E;
+  --grey-dark: #3F4656;
+  --grey: #6C7486;
+  --grey-light: #CDD9ED;
+  --white: #FFF;
+  --green: #16BF78;
+  --sand: #DCB773;
+  --sand-light: #EDD9A9;
+}
+.order {
+  appearance: none;
+  border: 0;
+  background: var(--dark);
+  position: relative;
+  height: 63px;
+  width: 240px;
+  padding: 0;
+  outline: none;
+  cursor: pointer;
+  border-radius: 32px;
+  /* -webkit-mask-image: -webkit-radial-gradient(white, black); */
+  -webkit-tap-highlight-color: transparent;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+.order span {
+  --o: 1;
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+  top: 19px;
+  line-height: 24px;
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 500;
+  opacity: var(--o);
+  transition: opacity 0.3s ease;
+}
+.order span.default {
+  transition-delay: 0.3s;
+}
+.order span.success {
+  --offset: 16px;
+  --o: 0;
+}
+.order span.success svg {
+  width: 12px;
+  height: 10px;
+  display: inline-block;
+  vertical-align: top;
+  fill: none;
+  margin: 7px 0 0 4px;
+  stroke: var(--green);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 16px;
+  stroke-dashoffset: var(--offset);
+  transition: stroke-dashoffset 0.3s ease;
+}
+.order:active {
+  transform: scale(0.96);
+}
+.order .lines {
+  opacity: 0;
+  position: absolute;
+  height: 3px;
+  background: var(--white);
+  border-radius: 2px;
+  width: 6px;
+  top: 30px;
+  left: 100%;
+  box-shadow: 15px 0 0 var(--white), 30px 0 0 var(--white), 45px 0 0 var(--white), 60px 0 0 var(--white), 75px 0 0 var(--white), 90px 0 0 var(--white), 105px 0 0 var(--white), 120px 0 0 var(--white), 135px 0 0 var(--white), 150px 0 0 var(--white), 165px 0 0 var(--white), 180px 0 0 var(--white), 195px 0 0 var(--white), 210px 0 0 var(--white), 225px 0 0 var(--white), 240px 0 0 var(--white), 255px 0 0 var(--white), 270px 0 0 var(--white), 285px 0 0 var(--white), 300px 0 0 var(--white), 315px 0 0 var(--white), 330px 0 0 var(--white);
+}
+.order .back, .order .box {
+  --start: var(--white);
+  --stop: var(--grey-light);
+  border-radius: 2px;
+  background: linear-gradient(var(--start), var(--stop));
+  position: absolute;
+}
+.order .truck {
+  width: 60px;
+  height: 41px;
+  left: 100%;
+  z-index: 1;
+  top: 11px;
+  position: absolute;
+  transform: translateX(24px);
+}
+.order .truck:before, .order .truck:after {
+  --r: -90deg;
+  content: '';
+  height: 2px;
+  width: 20px;
+  right: 58px;
+  position: absolute;
+  display: block;
+  background: var(--white);
+  border-radius: 1px;
+  transform-origin: 100% 50%;
+  transform: rotate(var(--r));
+}
+.order .truck:before {
+  top: 4px;
+}
+.order .truck:after {
+  --r: 90deg;
+  bottom: 4px;
+}
+.order .truck .back {
+  left: 0;
+  top: 0;
+  width: 60px;
+  height: 41px;
+  z-index: 1;
+}
+.order .truck .front {
+  overflow: hidden;
+  position: absolute;
+  border-radius: 2px 9px 9px 2px;
+  width: 26px;
+  height: 41px;
+  left: 60px;
+}
+.order .truck .front:before, .order .truck .front:after {
+  content: '';
+  position: absolute;
+  display: block;
+}
+.order .truck .front:before {
+  height: 13px;
+  width: 2px;
+  left: 0;
+  top: 14px;
+  background: linear-gradient(var(--grey), var(--grey-dark));
+}
+.order .truck .front:after {
+  border-radius: 2px 9px 9px 2px;
+  background: var(--primary);
+  width: 24px;
+  height: 41px;
+  right: 0;
+}
+.order .truck .front .window {
+  overflow: hidden;
+  border-radius: 2px 8px 8px 2px;
+  background: var(--primary-light);
+  transform: perspective(4px) rotateY(3deg);
+  width: 22px;
+  height: 41px;
+  position: absolute;
+  left: 2px;
+  top: 0;
+  z-index: 1;
+  transform-origin: 0 50%;
+}
+.order .truck .front .window:before, .order .truck .front .window:after {
+  content: '';
+  position: absolute;
+  right: 0;
+}
+.order .truck .front .window:before {
+  top: 0;
+  bottom: 0;
+  width: 14px;
+  background: var(--dark);
+}
+.order .truck .front .window:after {
+  width: 14px;
+  top: 7px;
+  height: 4px;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.14);
+  transform: skewY(14deg);
+  box-shadow: 0 7px 0 rgba(255, 255, 255, 0.14);
+}
+.order .truck .light {
+  width: 3px;
+  height: 8px;
+  left: 83px;
+  transform-origin: 100% 50%;
+  position: absolute;
+  border-radius: 2px;
+  transform: scaleX(0.8);
+  background: #f0dc5f;
+}
+.order .truck .light:before {
+  content: '';
+  height: 4px;
+  width: 7px;
+  opacity: 0;
+  transform: perspective(2px) rotateY(-15deg) scaleX(0.94);
+  position: absolute;
+  transform-origin: 0 50%;
+  left: 3px;
+  top: 50%;
+  margin-top: -2px;
+  background: linear-gradient(90deg, #f0dc5f, rgba(240, 220, 95, 0.7), rgba(240, 220, 95, 0));
+}
+.order .truck .light.top {
+  top: 4px;
+}
+.order .truck .light.bottom {
+  bottom: 4px;
+}
+.order .box {
+  --start: var(--sand-light);
+  --stop: var(--sand);
+  width: 21px;
+  height: 21px;
+  right: 100%;
+  top: 21px;
+}
+.order .box:before, .order .box:after {
+  content: '';
+  top: 10px;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+.order .box:before {
+  height: 3px;
+  margin-top: -1px;
+  background: rgba(0, 0, 0, 0.1);
+}
+.order .box:after {
+  height: 1px;
+  background: rgba(0, 0, 0, 0.15);
+}
+.order.animate .default {
+  --o: 0;
+  transition-delay: 0s;
+}
+.order.animate .success {
+  --offset: 0;
+  --o: 1;
+  transition-delay: 7s;
+}
+.order.animate .success svg {
+  transition-delay: 7.3s;
+}
+.order.animate .truck {
+  animation: truck 10s ease forwards;
+}
+.order.animate .truck:before {
+  animation: door1 2.4s ease forwards 0.3s;
+}
+.order.animate .truck:after {
+  animation: door2 2.4s ease forwards 0.6s;
+}
+.order.animate .truck .light:before, .order.animate .truck .light:after {
+  animation: light 10s ease forwards;
+}
+.order.animate .box {
+  animation: box 10s ease forwards;
+}
+.order.animate .lines {
+  animation: lines 10s ease forwards;
+}
+@keyframes truck {
+  10%, 30% {
+    transform: translateX(-164px);
+  }
+  40% {
+    transform: translateX(-104px);
+  }
+  60% {
+    transform: translateX(-224px);
+  }
+  75%, 100% {
+    transform: translateX(24px);
+  }
+}
+@keyframes lines {
+  0%, 30% {
+    opacity: 0;
+    transform: scaleY(0.7) translateX(0);
+  }
+  35%, 65% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0;
+  }
+  100% {
+    transform: scaleY(0.7) translateX(-400px);
+  }
+}
+@keyframes light {
+  0%, 30% {
+    opacity: 0;
+    transform: perspective(2px) rotateY(-15deg) scaleX(0.88);
+  }
+  40%, 100% {
+    opacity: 1;
+    transform: perspective(2px) rotateY(-15deg) scaleX(0.94);
+  }
+}
+@keyframes door1 {
+  30%, 50% {
+    transform: rotate(32deg);
+  }
+}
+@keyframes door2 {
+  30%, 50% {
+    transform: rotate(-32deg);
+  }
+}
+@keyframes box {
+  8%, 10% {
+    transform: translateX(40px);
+    opacity: 1;
+  }
+  25% {
+    transform: translateX(112px);
+    opacity: 1;
+  }
+  26% {
+    transform: translateX(112px);
+    opacity: 0;
+  }
+  27%, 100% {
+    transform: translateX(0px);
+    opacity: 0;
+  }
+}
+
+</style>
+<script>
+  $('.order').click(function(e) {
+    let button = $(this);
+
+    if(!button.hasClass('animate')) {
+        button.addClass('animate');
+        setTimeout(() => {
+            button.removeClass('animate');
+        }, 10000);
+    }
+
+});
+</script>
 </section>
 <!-- Payment Section Ends Here -->
 

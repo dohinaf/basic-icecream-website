@@ -114,7 +114,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+// Remove filter funtion 
+document.getElementById('remove-filter').addEventListener('click', function() {
+    // Reset filters
+    document.getElementById('price-filter').value = 'all';
+    document.getElementById('flavor-filter').value = '';
 
+    // Show all boxes
+    let boxes = document.querySelectorAll('.box');
+    boxes.forEach(box => {
+        box.style.display = 'block';
+    });
+});
 // Function to add items to cart
 
 let wishlistContainer = document.querySelector('.wishlist-container');
