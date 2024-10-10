@@ -65,17 +65,25 @@ html {
 }
 
 /* Scrollbar Styles for Webkit */
-html::-webkit-scrollbar {
-  width: 0.8rem;
+html ::-webkit-scrollbar {
+  width: 8px;
 }
 
-html::-webkit-scrollbar-track {
-  background: transparent;
+html ::-webkit-scrollbar-track {
+  background-color: rgb(255, 255, 255);
+  /* background: none; */
 }
 
-html::-webkit-scrollbar-thumb {
-  background: #fff;
-  border-radius: 5rem;
+html ::-webkit-scrollbar-thumb {
+  /* background-color: rgb(255, 0, 0); */
+  background: linear-gradient(135deg, rgb(198, 6, 153), rgb(232, 167, 218));
+  border-radius: 4px;
+  border: 1px solid rgb(217, 60, 178);
+  transition: background 0.3s ease-in-out;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, rgb(214, 134, 181), rgb(225, 64, 166));
 }
 
 body {
@@ -286,6 +294,21 @@ button:hover {
 
 .wishlist .box-container .box:hover > * {
   color: var(--text-color);
+}
+
+.login-signup-collection{
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.auth-btn{
+  background: linear-gradient(to right, #ff4e50, #fc913a);
+  color: var(--text-color);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  padding: 1rem 1.5rem;
 }
 
 /* Header Styles */
@@ -900,15 +923,14 @@ button:hover {
 }
 
 .card {
-  padding: 8rem; /* Increased padding for bigger cards */
-  display: flex;
-  align-items: flex-start;
-  gap: 5rem; /* More space between image and content */
-  background-color: var(--background-color);
-
-  border-radius: 1.5rem;
+    padding: 2rem; /* Increased padding for bigger cards */
+    display: flex;
+    align-items: flex-start;
+    gap: 5rem; /* More space between image and content */
+    background-color: var(--background-color);
+    border-radius: 1.5rem;
   /* Stronger shadow for depth */
-  cursor: pointer;
+    cursor: pointer;
 }
 .card:hover {
   box-shadow: 0 0 6px rgba(255, 208, 9, 1);
@@ -978,13 +1000,12 @@ button:hover {
   margin-bottom: 5rem;
 }
 
-.review-container {
-  display: flex;
-  max-width: 1200px;
-  margin: auto;
-  align-items: flex-start;
-  gap: 3rem; /* Increased gap for better spacing */
-}
+
+  .review-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
 
 .review-left {
   flex: 1;
@@ -996,13 +1017,14 @@ button:hover {
   box-shadow: 8px 8px 40px rgba(0, 0, 0, 0.3); /* Shadow for depth */
 }
 
-.review-right {
-  flex: 2; /* More space for the form */
-  color: var(--text-color);
-  padding: 2rem; /* Padding for the form */
-  background-color: var(--background-color);
-  border-radius: 1rem; /* Rounded edges */
-}
+
+
+ .review-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+ }
 
 .review-right h2 {
   font-size: 2.5rem; /* Adjusted font size */
@@ -1045,7 +1067,8 @@ button:hover {
 }
 
 .submit-button:hover {
-  background: #ffbe0b; /* Change color on hover */
+  background: #ffbe0b;
+  color: #0c5f0f; /* Change color on hover */
 }
 
 /*Blogs styles contributed*/
@@ -1365,7 +1388,7 @@ input[type="radio"] {
   background-color: var(--background-color);
   border: 1px solid var(--main-color);
   border-radius: 5px;
-  color: #fff;
+  color: #000000;
 }
 
 input[type="radio"] {
