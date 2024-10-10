@@ -330,25 +330,38 @@
     </section>
     <!-- Home Section Ends Here -->
 
-    <!-- Pop-up for Discount and Sign up Starts here -->
-      <div id="popup" class="popup">
-        <div class="popup-content">
-          <div class="popup-left">
-            <img src="ICECREAM.jpg" alt="Discount Image">
-          </div>
-          <div class="popup-right">
-            <span class="close-btn">&times;</span>
-            <h2>Scoop Up the Savings!</h2>
-            <p>Get 20% off on your first order when you Sign up.</p>
-            <form id="emailForm">
+<!-- Pop-up for Discount and Sign up Starts here -->
+<div id="popup" class="popup">
+  <div class="popup-content">
+      <div class="popup-left">
+          <img src="ICECREAM.jpg" alt="Discount Image">
+      </div>
+      <div class="popup-right">
+          <span class="close-btn">&times;</span>
+          <h2>Scoop Up the Savings!</h2>
+          <p>Get 20% off on your first order when you Sign up.</p>
+          <form id="emailForm">
               <input type="email" id="email" placeholder="Enter your email" required>
               <button type="submit" class="signup-btn">SIGN UP</button>
-            </form>
-            <a href="#" class="no-thanks">No thanks</a>
-            <p class="terms">By signing up, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>
-          </div>
-        </div>
+          </form>
+          <a href="#" class="no-thanks">No thanks</a>
+          <p class="terms">By signing up, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>
       </div>
+  </div>
+</div>
+
+<script>
+  // Handle form submission for the pop-up sign-up form
+  document.getElementById('emailForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent default form submission
+      
+      // Perform any sign-up logic here, such as email validation or server requests
+      
+      // Redirect to profile.html after sign-up
+      window.location.href = 'profile.html'; // Redirect user to the profile page
+  });
+</script>
+
     <!--  Pop-up for Discount and Sign up Ends here  -->
     
     <!-- Script for pop up discount Starts Here -->
@@ -448,18 +461,28 @@
 
 <!-- Signup Modal -->
 <div id="signup-modal" class="modal">
-    <div class="modal-content">
-        <span class="close-btn" id="close-signup">&times;</span>
-        <h2>Sign Up</h2>
-        <form>
-            <input type="text" placeholder="Full Name" required>
-            <input type="email" placeholder="Email" required>
-            <input type="password" class="pass-btn" placeholder="Password" required>
-            <button type="submit" class="sign-btn">Sign Up</button>
-        </form>
-    </div>
+  <div class="modal-content">
+      <span class="close-btn" id="close-signup">&times;</span>
+      <h2>Sign Up</h2>
+      <form id="signup-form">
+          <input type="text" placeholder="Full Name" required>
+          <input type="email" placeholder="Email" required>
+          <input type="password" class="pass-btn" placeholder="Password" required>
+          <button type="submit" class="sign-btn">Sign Up</button>
+      </form>
+  </div>
 </div>
 
+<script>
+  document.getElementById('signup-form').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent default form submission
+      
+      // Perform validation or backend signup request here
+      // If signup is successful, redirect to profile.html
+      
+      window.location.href = 'profile.html'; // Redirect to profile page
+  });
+</script>
 
     <!-- About Section Ends Here -->
    
