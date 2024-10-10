@@ -797,31 +797,63 @@
       <img data-aos="zoom-out-down" src="https://images.unsplash.com/photo-1505394033641-40c6ad1178d7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8aWNlY3JlYW18ZW58MHx8MHx8fDA%3D" alt="Delicious Ice Cream" class="ice-cream-image">
     </div>
     <div class="review-right">
-      <h2 data-aos="zoom-out-down" >Share Your Ice Cream Experience!</h2>
-      <form>
-        <label for="user-name" data-aos="zoom-out-down">Your Name:</label>
-        <input type="text" id="user-name" name="user-name" data-aos="zoom-out-down" required>
+      <h2 data-aos="zoom-out-down">Share Your Ice Cream Experience!</h2>
+<form id="review-form" onsubmit="storeReview(event)">
+  <label for="user-name" data-aos="zoom-out-down">Your Name:</label>
+  <input type="text" id="user-name" name="user-name" data-aos="zoom-out-down" required>
+  
+  <label for="user-review" data-aos="zoom-out-down">Your Review:</label>
+  <textarea id="user-review" name="user-review" rows="5" required data-aos="zoom-out-down"></textarea>
+  
+  <button type="submit" class="submit-button" data-aos="zoom-out-down">Submit Review</button>
+</form>
 
+<script>
+  // Function to store data in local storage, clear the form, and check for empty inputs
+  function storeReview(event) {
+    event.preventDefault(); // Prevent default form submission
+    
+    const userName = document.getElementById('user-name').value;
+    const userReview = document.getElementById('user-review').value;
 
- <div class="chatbot-container">
-        <a href="chatbot.html">
-            <button class="chatbot-button">
-                <img src="chatbot.gif" alt="chatbot" style="width: 50px; height: 50px;">
-                <span class="tooltip-text">
-                    Welcome to Ice-Cream Web! <br>
-                    How can I help You? ^_^ 
-                </span>
-            </button>
-        </a>
-    </div>
-        <label for="user-review" data-aos="zoom-out-down">Your Review:</label>
-        <textarea id="user-review" name="user-review" rows="5" required data-aos="zoom-out-down"></textarea>
+    // Check if either field is empty
+    if (userName === '') {
+      alert('name must be filled out before submitting!');
+      return; // Exit the function if fields are empty
+    }
+       // Check if either field is empty
+       if (userReview === '') {
+      alert('review must be filled out before submitting!');
+      return; // Exit the function if fields are empty
+    }
+    const reviewData = {
+      name: userName,
+      review: userReview
+    };
 
-        <button type="submit" class="submit-button"  data-aos="zoom-out-down">Submit Review</button>
-      </form>
-    </div>
-  </div>
+    // Store the JSON object in local storage
+    localStorage.setItem('reviewData', JSON.stringify(reviewData));
+
+    // Clear the form fields after submission
+    document.getElementById('user-name').value = '';
+    document.getElementById('user-review').value = '';
+
+    alert('Thanks for leaving us a review!');
+  }
+</script>
+
 </section>
+<div class="chatbot-container">
+  <a href="chatbot.html">
+      <button class="chatbot-button">
+          <img src="chatbot.gif" alt="chatbot" style="width: 50px; height: 50px;">
+          <span class="tooltip-text">
+              Welcome to Ice-Cream Web! <br>
+              How can I help You? ^_^ 
+          </span>
+      </button>
+  </a>
+</div>
 <!--Review adding section ended here-->
 <br>
 <!--Review Section added-->
