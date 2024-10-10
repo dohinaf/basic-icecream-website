@@ -135,7 +135,8 @@
       border: 1px solid #ccc;
       border-radius: 5px;
       font-size: 14px;
-    }
+      border: 1px solid var(--main-color);
+      background-color: var(--background-color);    }
 
     .signup-btn {
       width: 100%;
@@ -178,6 +179,25 @@
       text-align: center;
       margin-top: 50px;
     }
+
+    .pass-btn{
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      background-color: var(--background-color);
+      border: 1px solid var(--main-color);
+      border-radius: 5px;
+      color: #000000;
+  
+    }
+    .sign-btn{
+      width: 100%;
+      background-color: #fb285d;
+      border: none;
+      color: white;
+      font-size: 16px;
+      height: 40px;
+    }
   </style>
   <style>
     /* Circle styles */
@@ -197,7 +217,6 @@
 </head>
 
 <body>
-
   <!-- Circles -->
   <div class="circle"></div>
   <div class="circle"></div>
@@ -270,6 +289,7 @@
           </ul>
           <h3>
             <div id="total">Total:$0.00
+
             </div>
           </h3>
           <button id="checkout-button" onclick="checkout()">Checkout</button>
@@ -391,6 +411,7 @@
             Whether you're enjoying a scoop in-store or ordering our handcrafted pints to your home, Arctic Delights
             promises the best quality and an unforgettable experience with every bite.
           </p>
+
         </div>
       </div>
 
@@ -406,6 +427,7 @@
         <input type="password" placeholder="Password" required>
         <button type="submit">Login</button>
       </form>
+
     </div>
   </div>
 
@@ -422,6 +444,7 @@
       </form>
     </div>
   </div>
+
 
 
 
@@ -853,6 +876,7 @@
             </p>
             <h4>- Stacy Stone</h4>
           </div>
+
         </div>
       </div>
     </div>
@@ -877,7 +901,6 @@
     </div>
     </div>
 
-    <!--  
 <div class="links">
 <a href="#">Home</a>
 <a href="#">About</a>
