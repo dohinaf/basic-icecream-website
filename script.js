@@ -2,6 +2,13 @@ document.addEventListener('DOMContentLoaded', () => {
     let navbar = document.querySelector('.navbar');
     let searchForm = document.querySelector('.search-form');
     let cartItem = document.querySelector('.cart-items-container');
+    let myOrderContainer = document.querySelector('.my-order-container');
+    const applyFilterButton = document.getElementById('apply-filter');
+    const priceFilter = document.getElementById('price-filter');
+    const flavorFilter = document.getElementById('flavor-filter');
+    const menuItems = document.querySelectorAll('.menu .box');
+
+    applyFilterButton.addEventListener('click', filterItems);
 
     document.querySelector('#search-btn').onclick = () => {
         searchForm.classList.toggle('active');
@@ -11,6 +18,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelector('#cart-btn').onclick = () => {
         cartItem.classList.toggle('active');
+        myOrderContainer.classList.remove('active');
+        navbar.classList.remove('active');
+        searchForm.classList.remove('active');
+    };
+
+    document.querySelector('#my-order-btn').onclick = () => {
+        myOrderContainer.classList.toggle('active');//Order container shown
+        cartItem.classList.remove('active');
         navbar.classList.remove('active');
         searchForm.classList.remove('active');
     };
@@ -30,20 +45,33 @@ document.addEventListener('DOMContentLoaded', () => {
         button.style.setProperty('--y', `${y}px`);
     }
 
-    let myOrderContainer = document.querySelector('.my-order-container');
-
-    document.querySelector('#my-order-btn').onclick = () => {
-        myOrderContainer.classList.toggle('active');
-        navbar.classList.remove('active');
-        searchForm.classList.remove('active');
-        cartItem.classList.remove('active');
-    };
-
     window.onscroll = () => {
         navbar.classList.remove('active');
         searchForm.classList.remove('active');
         cartItem.classList.remove('active');
     };
+    function filterItems() {
+        const selectedPrice = priceFilter.value;
+        const searchFlavor = flavorFilter.value.toLowerCase();
+
+        menuItems.forEach(item => {
+            const price = parseFloat(item.querySelector('.price').textContent.replace('$', ''));
+            const flavor = item.querySelector('h3').textContent.toLowerCase();
+            let showItem = true;
+
+            // Price filter
+            if (selectedPrice !== 'all') {
+                if (selectedPrice === 'under-15' && price >= 15) showItem = false;
+                if (selectedPrice === '15-20' && (price < 15 || price > 20)) showItem = false;
+                if (selectedPrice === 'over-20' && price <= 20) showItem = false;
+            }
+
+            // Flavor filter
+            if (searchFlavor && !flavor.includes(searchFlavor)) showItem = false;
+
+            item.style.display = showItem ? 'block' : 'none';
+        });
+    }
 });
 
 // Array to store cart items
@@ -51,6 +79,53 @@ let cart = [];
 
 let wishlist = [];
 
+
+document.addEventListener('DOMContentLoaded', () => {
+    // ... existing event listeners ...
+
+    // Filter functionality
+    const applyFilterButton = document.getElementById('apply-filter');
+    const priceFilter = document.getElementById('price-filter');
+    const flavorFilter = document.getElementById('flavor-filter');
+    const menuItems = document.querySelectorAll('.menu .box');
+
+    applyFilterButton.addEventListener('click', filterItems);
+
+    function filterItems() {
+        const selectedPrice = priceFilter.value;
+        const searchFlavor = flavorFilter.value.toLowerCase();
+
+        menuItems.forEach(item => {
+            const price = parseFloat(item.querySelector('.price').textContent.replace('$', ''));
+            const flavor = item.querySelector('h3').textContent.toLowerCase();
+            let showItem = true;
+
+            // Price filter
+            if (selectedPrice !== 'all') {
+                if (selectedPrice === 'under-15' && price >= 15) showItem = false;
+                if (selectedPrice === '15-20' && (price < 15 || price > 20)) showItem = false;
+                if (selectedPrice === 'over-20' && price <= 20) showItem = false;
+            }
+
+            // Flavor filter
+            if (searchFlavor && !flavor.includes(searchFlavor)) showItem = false;
+
+            item.style.display = showItem ? 'block' : 'none';
+        });
+    }
+});
+// Remove filter funtion 
+document.getElementById('remove-filter').addEventListener('click', function() {
+    // Reset filters
+    document.getElementById('price-filter').value = 'all';
+    document.getElementById('flavor-filter').value = '';
+
+    // Show all boxes
+    let boxes = document.querySelectorAll('.box');
+    boxes.forEach(box => {
+        box.style.display = 'block';
+    });
+});
 // Function to add items to cart
 
 let wishlistContainer = document.querySelector('.wishlist-container');
@@ -86,8 +161,8 @@ function displayWishlist() {
         wishlistItemsHTML += `
             <li>
                 ${item.name} - $${item.price.toFixed(2)}
-                <button onclick="addToCart('${item.name}', ${item.price})">Add to Cart</button>
-                <button onclick="removeFromWishlist(${index})">Remove</button>
+                <button class="add-to-cart-btn" onclick="addToCart('${item.name}', ${item.price})">Add to Cart</button>
+                <button class="remove-from-wishlist-btn" onclick="removeFromWishlist(${index})">Remove</button>
             </li>`;
     });
 
@@ -99,38 +174,111 @@ function clearWishlist() {
     displayWishlist();
 }
 
+
+
+
+ 
+
+
+// Function to add items to the cart
 function addToCart(productName, price) {
-    cart.push({ name: productName, price: price });
-    displayCart();
-    //remove item from wishlist
-    const wishlistIndex = wishlist.findIndex(item => item.name === productName);
-    if (wishlistIndex !== -1) {
-        removeFromWishlist(wishlistIndex);
+    const existingItem = cart.find(item => item.name === productName);
+    
+    if (!existingItem) {
+        // Add the product to the cart
+        cart.push({ name: productName, price: price });
+         // Notify the user
+        displayCart(); // Update the cart display
+
+        // Show notification tooltip
+        const notification = document.getElementById('notification-tooltip');
+        notification.classList.add('show');
+
+        // Hide notification after 2 seconds
+        setTimeout(() => {
+            notification.classList.remove('show');
+        }, 2000);
+        
+        // Optionally remove item from wishlist if necessary
+        const wishlistIndex = wishlist.findIndex(item => item.name === productName);
+        if (wishlistIndex !== -1) {
+            removeFromWishlist(wishlistIndex);
+        }
+    } else {
+        alert(`${productName} is already in your cart!`); // Alert if the item is already in the cart
     }
 }
 
-// Function to remove items from cart
+
+
+
+// Function to remove items from the cart
 function removeFromCart(index) {
-    cart.splice(index, 1);
-    displayCart();
+    cart.splice(index, 1); // Remove item from cart array
+    displayCart(); // Update the cart display
 }
 
+// Function to display cart items and calculate total
 // Function to display cart items and calculate total
 function displayCart() {
     const cartItemsElement = document.getElementById('cartItems');
     const totalElement = document.getElementById('total');
+    const cartCountElement = document.getElementById('cart-count'); // Element to show item count
     let cartItemsHTML = '';
     let total = 0;
+
+    // Count the number of items in the cart
+    const itemCount = cart.length;
 
     cart.forEach((item, index) => {
         cartItemsHTML += `<li>${item.name} - $${item.price.toFixed(2)} <button onclick="removeFromCart(${index})">Remove</button></li>`;
         total += item.price;
     });
 
+    // Update cart items display
     cartItemsElement.innerHTML = cartItemsHTML;
+
+    // Update total price display
     totalElement.textContent = `Total: $${total.toFixed(2)}`;
+
+    // Update cart count display
+    cartCountElement.textContent = `(${itemCount})`;
+
+    // Optionally display an order summary or other elements
     displayOrder();
 }
+
+
+// Function to display cart items and calculate total
+// Function to display cart items and calculate total
+function displayCart() {
+    const cartItemsElement = document.getElementById('cartItems');
+    const totalElement = document.getElementById('total');
+    const cartCountElement = document.getElementById('cart-count'); // Element to show item count
+    let cartItemsHTML = '';
+    let total = 0;
+
+    // Count the number of items in the cart
+    const itemCount = cart.length;
+
+    cart.forEach((item, index) => {
+        cartItemsHTML += `<li>${item.name} - $${item.price.toFixed(2)} <button onclick="removeFromCart(${index})">Remove</button></li>`;
+        total += item.price;
+    });
+
+    // Update cart items display
+    cartItemsElement.innerHTML = cartItemsHTML;
+
+    // Update total price display
+    totalElement.textContent = `Total: $${total.toFixed(2)}`;
+
+    // Update cart count display
+    cartCountElement.textContent = `(${itemCount})`;
+
+    // Optionally display an order summary or other elements
+    displayOrder();
+}
+
 
 // Function to simulate checkout
 // function checkout() {
@@ -243,6 +391,8 @@ function showPaymentDetails() {
         codMessage.style.display = 'block'; 
     }
 }
+// review part contributed
+
 
 
 function confirmPayment() {
@@ -312,7 +462,55 @@ document.addEventListener('DOMContentLoaded', function() {
     checkScroll(); 
 });
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
+    // Modal Elements
+    let loginModal = document.getElementById('login-modal');
+    let signupModal = document.getElementById('signup-modal');
+    let loginBtn = document.getElementById('login-btn');
+    let signupBtn = document.getElementById('signup-btn');
+    let closeLogin = document.getElementById('close-login');
+    let closeSignup = document.getElementById('close-signup');
+    const emailInput = document.querySelector('input[type="email"]');
+    const passwordInput = document.querySelector('input[type="password"]');
+
+    // Show login modal
+    loginBtn.onclick = () => {
+        loginModal.style.display = 'flex';
+        signupModal.style.display = 'none'; // Ensure signup modal is hidden
+    };
+
+    // Show signup modal
+    signupBtn.onclick = () => {
+        signupModal.style.display = 'flex';
+        loginModal.style.display = 'none'; // Ensure login modal is hidden
+    };
+
+    // Close login modal
+    closeLogin.onclick = () => {
+        resetLoginForm();
+        loginModal.style.display = 'none';
+    };
+
+    // Close signup modal
+    closeSignup.onclick = () => {
+        signupModal.style.display = 'none';
+    };
+
+    function resetLoginForm() {
+        emailInput.value = '';   
+        passwordInput.value = '';   
+    }
+
+    // Close modal if clicked outside the modal content
+    window.onclick = (event) => {
+        if (event.target === loginModal) {
+            loginModal.style.display = 'none';
+        } else if (event.target === signupModal) {
+            signupModal.style.display = 'none';
+        }
+    };
+
+    // Scroll functionality for sections visibility
     const sections = document.querySelectorAll('section');
 
     function checkScroll() {
@@ -329,4 +527,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
     window.addEventListener('scroll', checkScroll);
     checkScroll();  // Trigger the check once on page load
+
+    // Back to top button functionality
+    const button = document.getElementById('backToTop');
+    window.onscroll = function () {
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            button.style.display = "block";
+        } else {
+            button.style.display = "none"; 
+        }
+    };
+
+    button.onclick = function () {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    };
 });
