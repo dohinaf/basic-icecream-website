@@ -807,38 +807,40 @@
   
   <button type="submit" class="submit-button" data-aos="zoom-out-down">Submit Review</button>
 </form>
-
 <script>
-  // Function to store data in local storage, clear the form, and check for empty inputs
+  // Function to store multiple reviews as JSON in local storage
   function storeReview(event) {
     event.preventDefault(); // Prevent default form submission
     
-    const userName = document.getElementById('user-name').value;
-    const userReview = document.getElementById('user-review').value;
+    const userName = document.getElementById('user-name').value.trim();
+    const userReview = document.getElementById('user-review').value.trim();
 
     // Check if either field is empty
-    if (userName === '') {
-      alert('name must be filled out before submitting!');
+    if (userName === '' || userReview === '') {
+      alert('Both name and review must be filled out before submitting!');
       return; // Exit the function if fields are empty
     }
-       // Check if either field is empty
-       if (userReview === '') {
-      alert('review must be filled out before submitting!');
-      return; // Exit the function if fields are empty
-    }
-    const reviewData = {
+
+    // Create a JSON object for the new review
+    const newReview = {
       name: userName,
       review: userReview
     };
 
-    // Store the JSON object in local storage
-    localStorage.setItem('reviewData', JSON.stringify(reviewData));
+    // Get existing reviews from local storage or initialize as an empty array
+    let reviews = JSON.parse(localStorage.getItem('reviews')) || [];
+
+    // Add the new review to the beginning of the array
+    reviews.unshift(newReview); // Adds new review to the top
+
+    // Store the updated array back in local storage
+    localStorage.setItem('reviews', JSON.stringify(reviews));
 
     // Clear the form fields after submission
     document.getElementById('user-name').value = '';
     document.getElementById('user-review').value = '';
 
-    alert('Thanks for leaving us a review!');
+    alert('Thank you for sharing your review!'); // Show a success message
   }
 </script>
 
