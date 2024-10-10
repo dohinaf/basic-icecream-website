@@ -280,14 +280,13 @@ button:hover {
   right: 0;
   z-index: 1000;
 }
-
 .header .logo img {
   height: 6rem;
 }
-
 .header .navbar {
   display: flex;
   align-items: center;
+  transition: max-height 0.3s ease;
 }
 
 .header .navbar a {
@@ -297,7 +296,7 @@ button:hover {
 }
 
 .header .navbar a:hover {
-  color: var(--text-color);
+  color: rgb(51, 168, 235) !important;
 }
 
 .header .icons {
@@ -319,7 +318,45 @@ button:hover {
 /*#menu-btn {
     display: none;
 }*/
+.menu-btn {
+  display: none;
+  cursor: pointer;
+  font-size: 2.5rem;
+  color: var(--text-color);
+  margin-left: 1rem;
+}
+/* Navbar on Small Screens */
+@media (max-width: 768px) {
+  .header .navbar {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color:transparent !important;
+      flex-direction: column;
+      align-items: flex-start;
+      max-height: 0;
+      overflow: hidden;
+  }
 
+  .header .navbar a {
+      padding: 1rem;
+      width: 100%;
+      color: #010103 !important;
+      text-align: left;
+      margin: 0;
+  }
+ 
+  /* Show Menu Button */
+  .menu-btn {
+      display: block;
+  }
+
+  /* Navbar expanded on click */
+  .navbar.active {
+      max-height: 500px; /* Adjust according to your content */
+  }
+}
 .header .search-form {
   position: absolute;
   top: calc(100% + 1rem);
