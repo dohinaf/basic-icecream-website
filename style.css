@@ -34,17 +34,25 @@ html {
 }
 
 /* Scrollbar Styles for Webkit */
-html::-webkit-scrollbar {
-  width: 0.8rem;
+html ::-webkit-scrollbar {
+  width: 8px;
 }
 
-html::-webkit-scrollbar-track {
-  background: transparent;
+html ::-webkit-scrollbar-track {
+  background-color: rgb(255, 255, 255);
+  /* background: none; */
 }
 
-html::-webkit-scrollbar-thumb {
-  background: #fff;
-  border-radius: 5rem;
+html ::-webkit-scrollbar-thumb {
+  /* background-color: rgb(255, 0, 0); */
+  background: linear-gradient(135deg, rgb(198, 6, 153), rgb(232, 167, 218));
+  border-radius: 4px;
+  border: 1px solid rgb(217, 60, 178);
+  transition: background 0.3s ease-in-out;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, rgb(214, 134, 181), rgb(225, 64, 166));
 }
 
 body {
@@ -961,13 +969,12 @@ button:hover {
   margin-bottom: 5rem;
 }
 
-.review-container {
-  display: flex;
-  max-width: 1200px;
-  margin: auto;
-  align-items: flex-start;
-  gap: 3rem; /* Increased gap for better spacing */
-}
+
+  .review-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
 
 .review-left {
   flex: 1;
@@ -979,13 +986,14 @@ button:hover {
   box-shadow: 8px 8px 40px rgba(0, 0, 0, 0.3); /* Shadow for depth */
 }
 
-.review-right {
-  flex: 2; /* More space for the form */
-  color: var(--text-color);
-  padding: 2rem; /* Padding for the form */
-  background-color: var(--background-color);
-  border-radius: 1rem; /* Rounded edges */
-}
+
+
+ .review-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+ }
 
 .review-right h2 {
   font-size: 2.5rem; /* Adjusted font size */
@@ -1028,7 +1036,8 @@ button:hover {
 }
 
 .submit-button:hover {
-  background: #ffbe0b; /* Change color on hover */
+  background: #ffbe0b;
+  color: #0c5f0f; /* Change color on hover */
 }
 
 /*Blogs styles contributed*/
@@ -1370,7 +1379,7 @@ input[type="radio"] {
   background-color: var(--background-color);
   border: 1px solid var(--main-color);
   border-radius: 5px;
-  color: #fff;
+  color: #000000;
 }
 
 input[type="radio"] {
@@ -1998,10 +2007,78 @@ input:checked + .slider:before {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
+  
   justify-content: center;
   align-items: center;
 }
+/* start */
+.login-container {
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+}
 
+/* Login Card */
+.login-card {
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  max-width: 900px;
+  width: 100%;
+  height: 400px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.login-card:hover {
+  transform: scale(1.05);
+}
+
+/* Image Side */
+.login-image {
+  flex: 1;
+  overflow: hidden;
+}
+
+.login-image img {
+  width: 82%;
+  height: 98%;
+  object-fit: cover;
+}
+button[type = "submit"]{
+  background:  #ea9481;
+  color: black;
+  width: 12em;
+  align-items: center;
+  border-radius: 10px;
+   border: none;
+   margin-bottom: 20px;
+}
+form h3{
+  font-size: medium;
+}
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .login-card {
+      flex-direction: column;
+      height: auto;
+    }
+  
+    .login-image, .login-form {
+      width: 100%;
+      height: auto;
+    }
+  
+    .login-form {
+      padding: 20px;
+    }
+  }
+/* end */
 .modal-content {
   background-color: #fff;
   padding: 2rem;
@@ -2009,6 +2086,9 @@ input:checked + .slider:before {
   max-width: 400px;
   width: 100%;
   text-align: center;
+}
+.modal-content form{
+  text-align: left;
 }
 
 .close-btn {
