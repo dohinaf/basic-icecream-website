@@ -305,7 +305,8 @@ button:hover {
 }
 
 .header .navbar a:hover {
-  color: var(--text-color);
+  color: rgba(234, 108, 154, 1);
+  transform: scale(1.3);
 }
 
 .header .icons {
@@ -482,7 +483,7 @@ button:hover {
 
 /* My Order Styles */
 .my-order-container {
-  position: absolute;
+  position: relative;
   top: calc(100% + 1rem);
   right: 7%;
   width: 400px;
@@ -492,6 +493,7 @@ button:hover {
   box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);
   z-index: 100;
 }
+
 
 .my-order-container.active {
   display: block;
@@ -1163,7 +1165,7 @@ footer .credit {
     display: inline-block;
   }
 
-  .header .navbar {
+  .navbar {
     position: absolute;
     top: calc(100% + 1rem);
     /* Adjusted top position */
@@ -1190,10 +1192,9 @@ footer .credit {
     font-size: 2rem;
   }
 
-  .header .navbar a:hover{
-    color: red;
+  
 
-  }
+
 
   .header .search-form {
     width: 90%;
@@ -2088,37 +2089,6 @@ input:checked + .slider:before {
 
 
 
-
-/* Basic styles for the header and navbar */
-.header {
-  display: flex; /* Use flexbox to align items */
-  justify-content: space-between; /* Space out logo and navbar */
-  align-items: center; /* Center items vertically */
-  padding: 10px; /* Padding around the header */
-  background-color: ; /* Background color of the header */
-}
-
-.navbar {
-  display: flex; /* Use flexbox for the navbar links */
-}
-
-/* Navbar links */
-.navbar a {
-  color: white; /* Default link color */
-  text-decoration: none; /* Remove underline */
-  padding: 10px 20px; /* Padding for the links */
-  transition: color 0.3s ease; /* Smooth transition for text color */
-}
-
-/* Hover effect for the links */
-.navbar a:hover {
-  color: red; /* Change text color on hover */
-}
-
-/* Active link styling (for current page) */
-.navbar a.active {
-  font-weight: bold; /* Highlight active link */
-}
 
 
 
