@@ -1,4 +1,41 @@
 /* Global Styles */
+.rating {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.rating span {
+    font-size: 26px;
+    margin-right: 10px;
+    background: linear-gradient(to right, #ff459f, #ff9532, #ffd700, #32cd32, #1e90ff);
+    /* Example gradient colors */
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.rating p {
+    font-size: 14px;
+    color: #707070;
+    margin: 0;
+}
+
+.overall-rating {
+    margin: 14px 0;
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.overall-rating .star {
+    margin-left: 5px;
+    color: #ff3c6d;
+    font-weight: 600;
+}
+css 
+
 :root {
   --main-color: #d3ad7f;
   --black: #13131a;
@@ -1515,6 +1552,18 @@ body {
   padding: 0;
   background-color: var(--background-color);
   margin-top: auto;
+}
+
+/* Box Hover Effect */
+.box {
+    transition: all 0.5s ease-in-out;
+}
+
+.box:hover {
+    border-radius: 10px;
+    transform: scale(0.9);
+    border: 2px solid white;
+    box-shadow: rgba(236, 234, 234, 0.25) 0px 50px 100px -20px, rgba(160, 158, 158, 0.3) 0px 30px 60px -30px, rgba(188, 188, 188, 0.35) 0px -2px 6px 0px inset;
 }
 
 /* Navbar Hover Effect */
