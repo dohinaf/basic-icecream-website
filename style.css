@@ -161,15 +161,14 @@ button:hover {
 .wishlist-container {
   position: absolute;
   top: calc(100% + 1rem);
-  right: 7%;
+  right: 1%;
   width: 400px;
   background-color: var(--background-color, #00000045);
-
-  padding: 2rem;
+  padding: 0.5%;
   display: none;
   box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);
   z-index: 100;
-  border-radius: 25px;
+  border-radius: 10px;
 }
 
 .wishlist-container.active {
@@ -177,9 +176,9 @@ button:hover {
 }
 
 .wishlist-container h2 {
-  color: yellow;
-  font-size: 2.4rem;
-  margin-bottom: 1.5rem;
+  color: rgb(255, 255, 255);
+  font-size: 2rem;
+  transform: translateY(25%);
 }
 
 #wishlistItems {
@@ -224,7 +223,7 @@ button:hover {
 }
 .wishlist-container button {
   width: 100%;
-  margin-top: 1.5rem;
+  margin-top: 0rem;
 }
 
 .wishlist .box-container {
@@ -277,10 +276,12 @@ button:hover {
 /* Header Styles */
 .header {
   background-color: var(--background-color);
+  border-radius: 25px;
+  margin: 0.2%;
   display: flex;
   align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   justify-content: space-between;
-  padding: 1.5rem 7%;
   border-bottom: var(--border);
   position: fixed;
   top: 0;
@@ -289,21 +290,35 @@ button:hover {
   z-index: 1000;
 }
 
+.header .logo{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 2%;
+}
+.header .logo h1{
+  font-size: 15px;
+}
 .header .logo img {
   height: 6rem;
+  width: 10rem;
 }
 
 .header .navbar {
   display: flex;
   align-items: center;
+  justify-content: space-around;
+  /* background-color: #007bff;
+  border: 2px dashed black; */
+  height: 50px;
+  width: 77%;
 }
 
-.header .navbar a {
+.header .navbar a, #my-order-btn {
   margin: 0 1rem;
   font-size: 1.6rem;
   color: var(--text-color);
 }
-
 .header .navbar a:hover {
   color: var(--text-color);
 }
@@ -312,38 +327,64 @@ button:hover {
   display: flex;
   align-items: center;
 }
+/* .icons #login-btn, #signup-btn{
+  margin: 0;
+  transform: translateY(0%);
+  border: none;
+} */
 
+.icons #login-btn, #signup-btn {
+  margin: 0;
+  transform: translateY(0%);
+  border: none;
+  background-color: #c2fbd7;
+  border-radius: 100px;
+  box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 5px 6px,rgba(44, 187, 99, .15) 0 16px 32px;
+  color: green;
+  cursor: pointer;
+  display: inline-block;
+  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.icons #login-btn:hover, #signup-btn:hover {
+  box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
+  transform: scale(1.05) rotate(-1deg);
+}
 .header .icons div {
   background-color: var(--background-color);
   cursor: pointer;
   font-size: 2.5rem;
-  margin-left: 2rem;
+  margin: 1rem;
 }
 
 .header .icons div:hover {
   color: var(--text-color);
 }
 
-/*#menu-btn {
-    display: none;
-}*/
-
 .header .search-form {
   position: absolute;
   top: calc(100% + 1rem);
   /* Adjusted to position below header */
-  right: 7%;
+  right: 1%;
   background-color: var(--background-color);
   width: 20rem;
   /* Adjusted width for better fit */
   height: auto;
   display: none;
   /* Initially hidden */
-  padding: 1rem;
+  padding: 0.5rem;
   box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);
   /* Added box shadow */
   z-index: 100;
   /* Ensure it's above other content */
+  border-radius: 5px;
 }
 
 .header .search-form.active {
@@ -355,17 +396,17 @@ button:hover {
   width: 100%;
   font-size: 1.6rem;
   color: var(--text-color);
-  padding: 0.5rem;
+  padding: 0.6rem;
   border: none;
+  border-radius: 3px;
   outline: none;
 }
 
 .header .search-form label {
   cursor: pointer;
-  font-size: 2.2rem;
+  font-size: 2rem;
   color: var(--text-color);
-  margin-left: 1rem;
-  /* Adjusted margin */
+  padding: 3%;
 }
 
 .header .search-form label:hover {
@@ -484,8 +525,9 @@ button:hover {
 .my-order-container {
   position: absolute;
   top: calc(100% + 1rem);
-  right: 7%;
+  right: 1%;
   width: 400px;
+  border-radius: 20px;
   background-color: var(--background-color);
   padding: 2rem;
   display: none;
@@ -519,14 +561,10 @@ button:hover {
   padding: 1rem;
   font-size: 1.6rem;
   color: var(--text-color);
-  background-color: var(--background-color);
+  background-color: rgba(0, 0, 0, 0.1);
   border: none;
   cursor: pointer;
   transition: background-color 0.3s ease;
-}
-
-.order-actions button:hover {
-  background-color: #c49f6a;
 }
 
 /* Home Styles */
@@ -1590,6 +1628,7 @@ header {
 .theme-switch-wrapper {
   display: flex;
   align-items: center;
+  margin: 0 1%;
 }
 
 #mode-label {
@@ -1600,8 +1639,7 @@ header {
 .theme-switch {
   position: relative;
   display: inline-block;
-  width: 50px;
-  height: 24px;
+  margin: 1%;
 }
 
 .theme-switch input {
@@ -1618,8 +1656,8 @@ header {
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  transition: 0.4s;
-  border-radius: 24px;
+  transition: 0.5s;
+  border-radius: 25px;
 }
 
 .slider:before {
