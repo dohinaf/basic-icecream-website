@@ -174,7 +174,31 @@ function clearWishlist() {
     displayWishlist();
 }
 
-
+let quantities = {
+    'Nutty Butterscotch': 1,
+    'Berry Pops': 1,
+    'Cherry Sherbet Pops': 1,
+    'Dripping Vannila': 1,
+    'Very Berry Strawberry': 1,
+    'Rainbow Classic Cone': 1,
+    'Orange Pops': 1,
+    'Choco Hazel Pops': 1,
+    'Very Very Peachy': 1
+  };
+  
+  // Increase quantity
+  function increaseQuantity(itemId) {
+    quantities[itemId]++;
+    document.getElementById(`itemQuantity-${itemId}`).innerText = quantities[itemId];
+  }
+  
+  // Decrease quantity
+  function decreaseQuantity(itemId) {
+    if (quantities[itemId] > 1) {
+      quantities[itemId]--;
+      document.getElementById(`itemQuantity-${itemId}`).innerText = quantities[itemId];
+    }
+  }
 
 
  
@@ -184,7 +208,7 @@ function clearWishlist() {
 function addToCart(productName, price) {
     const existingItem = cart.find(item => item.name === productName);
     
-    if (!existingItem) {
+    if (existingItem) {
         // Add the product to the cart
         cart.push({ name: productName, price: price });
          // Notify the user
@@ -205,7 +229,9 @@ function addToCart(productName, price) {
             removeFromWishlist(wishlistIndex);
         }
     } else {
-        alert(`${productName} is already in your cart!`); // Alert if the item is already in the cart
+        cart.push({ name: productName, price: price });
+        // Notify the user
+       displayCart(); 
     }
 }
 
@@ -229,9 +255,9 @@ function displayCart() {
 
     // Count the number of items in the cart
     const itemCount = cart.length;
-
     cart.forEach((item, index) => {
-        cartItemsHTML += `<li>${item.name} - $${item.price.toFixed(2)} <button onclick="removeFromCart(${index})">Remove</button></li>`;
+        const quantity=quantities[item.name];
+        cartItemsHTML += `<li>${item.name} - (${quantity}) price= $${quantity*item.price.toFixed(2)} <button onclick="removeFromCart(${index})">Remove</button></li>`;
         total += item.price;
     });
 
@@ -249,35 +275,36 @@ function displayCart() {
 }
 
 
-// Function to display cart items and calculate total
-// Function to display cart items and calculate total
-function displayCart() {
-    const cartItemsElement = document.getElementById('cartItems');
-    const totalElement = document.getElementById('total');
-    const cartCountElement = document.getElementById('cart-count'); // Element to show item count
-    let cartItemsHTML = '';
-    let total = 0;
+// // Function to display cart items and calculate total
+// // Function to display cart items and calculate total
+// function displayCart() {
+//     const cartItemsElement = document.getElementById('cartItems');
+//     const totalElement = document.getElementById('total');
+//     const cartCountElement = document.getElementById('cart-count'); // Element to show item count
+//     let cartItemsHTML = '';
+//     let total = 0;
 
-    // Count the number of items in the cart
-    const itemCount = cart.length;
+//     // Count the number of items in the cart
+//     const itemCount = cart.length;
 
-    cart.forEach((item, index) => {
-        cartItemsHTML += `<li>${item.name} - $${item.price.toFixed(2)} <button onclick="removeFromCart(${index})">Remove</button></li>`;
-        total += item.price;
-    });
+//     cart.forEach((item, index) => {
+//         const quantity=quantities[item.name];
+//         cartItemsHTML += `<li>${item.name} - $${quantity*item.price.toFixed(2)} <button onclick="removeFromCart(${index})">Remove</button></li>`;
+//         total += item.price;
+//     });
 
-    // Update cart items display
-    cartItemsElement.innerHTML = cartItemsHTML;
+//     // Update cart items display
+//     cartItemsElement.innerHTML = cartItemsHTML;
 
-    // Update total price display
-    totalElement.textContent = `Total: $${total.toFixed(2)}`;
+//     // Update total price display
+//     totalElement.textContent = `Total: $${total.toFixed(2)}`;
 
-    // Update cart count display
-    cartCountElement.textContent = `(${itemCount})`;
+//     // Update cart count display
+//     cartCountElement.textContent = `(${itemCount})`;
 
-    // Optionally display an order summary or other elements
-    displayOrder();
-}
+//     // Optionally display an order summary or other elements
+//     displayOrder();
+// }
 
 
 // Function to simulate checkout
