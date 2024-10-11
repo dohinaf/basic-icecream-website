@@ -626,10 +626,12 @@ button:hover {
   border: none;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  background: linear-gradient(to bottom right, #d3ad7f, #fe6769);
 }
 
 .filter-box button:hover {
   background-color: var(--primary-color-dark);
+  color: black;
 }
 
 /* filter box styles end */
@@ -717,6 +719,7 @@ button:hover {
   text-align: center;
   border: var(--text-color);
   align-items: center;
+  background: linear-gradient(to bottom right, #d3ad7f, #fe6769);
 }
 
 .menu .box-container .box h3 {
