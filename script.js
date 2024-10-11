@@ -114,7 +114,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+// Remove filter funtion 
+document.getElementById('remove-filter').addEventListener('click', function() {
+    // Reset filters
+    document.getElementById('price-filter').value = 'all';
+    document.getElementById('flavor-filter').value = '';
 
+    // Show all boxes
+    let boxes = document.querySelectorAll('.box');
+    boxes.forEach(box => {
+        box.style.display = 'block';
+    });
+});
 // Function to add items to cart
 
 let wishlistContainer = document.querySelector('.wishlist-container');
@@ -176,7 +187,7 @@ function addToCart(productName, price) {
     if (!existingItem) {
         // Add the product to the cart
         cart.push({ name: productName, price: price });
-        alert(`Product ${productName} added to cart`); // Notify the user
+         // Notify the user
         displayCart(); // Update the cart display
 
         // Show notification tooltip
@@ -208,42 +219,66 @@ function removeFromCart(index) {
 }
 
 // Function to display cart items and calculate total
-function displayCart() {
-    const cartItemsElement = document.getElementById('cartItems'); // Container for cart items
-    const totalElement = document.getElementById('total'); // Element for displaying total price
-    let cartItemsHTML = '';
-    let total = 0;
-
-    // Iterate through the cart array to build the HTML for each item
-    cart.forEach((item, index) => {
-        cartItemsHTML += `
-            <li>
-                ${item.name} - $${item.price.toFixed(2)}
-                <button onclick="removeFromCart(${index})">Remove</button>
-            </li>`;
-        total += item.price; // Accumulate total price
-    });
-
-    cartItemsElement.innerHTML = cartItemsHTML; // Insert the built HTML into the cart
-    totalElement.textContent = `Total: $${total.toFixed(2)}`; // Display the total
-}
-
 // Function to display cart items and calculate total
 function displayCart() {
     const cartItemsElement = document.getElementById('cartItems');
     const totalElement = document.getElementById('total');
+    const cartCountElement = document.getElementById('cart-count'); // Element to show item count
     let cartItemsHTML = '';
     let total = 0;
+
+    // Count the number of items in the cart
+    const itemCount = cart.length;
 
     cart.forEach((item, index) => {
         cartItemsHTML += `<li>${item.name} - $${item.price.toFixed(2)} <button onclick="removeFromCart(${index})">Remove</button></li>`;
         total += item.price;
     });
 
+    // Update cart items display
     cartItemsElement.innerHTML = cartItemsHTML;
+
+    // Update total price display
     totalElement.textContent = `Total: $${total.toFixed(2)}`;
+
+    // Update cart count display
+    cartCountElement.textContent = `(${itemCount})`;
+
+    // Optionally display an order summary or other elements
     displayOrder();
 }
+
+
+// Function to display cart items and calculate total
+// Function to display cart items and calculate total
+function displayCart() {
+    const cartItemsElement = document.getElementById('cartItems');
+    const totalElement = document.getElementById('total');
+    const cartCountElement = document.getElementById('cart-count'); // Element to show item count
+    let cartItemsHTML = '';
+    let total = 0;
+
+    // Count the number of items in the cart
+    const itemCount = cart.length;
+
+    cart.forEach((item, index) => {
+        cartItemsHTML += `<li>${item.name} - $${item.price.toFixed(2)} <button onclick="removeFromCart(${index})">Remove</button></li>`;
+        total += item.price;
+    });
+
+    // Update cart items display
+    cartItemsElement.innerHTML = cartItemsHTML;
+
+    // Update total price display
+    totalElement.textContent = `Total: $${total.toFixed(2)}`;
+
+    // Update cart count display
+    cartCountElement.textContent = `(${itemCount})`;
+
+    // Optionally display an order summary or other elements
+    displayOrder();
+}
+
 
 // Function to simulate checkout
 // function checkout() {
@@ -435,6 +470,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let signupBtn = document.getElementById('signup-btn');
     let closeLogin = document.getElementById('close-login');
     let closeSignup = document.getElementById('close-signup');
+    const emailInput = document.querySelector('input[type="email"]');
+    const passwordInput = document.querySelector('input[type="password"]');
 
     // Show login modal
     loginBtn.onclick = () => {
@@ -450,6 +487,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Close login modal
     closeLogin.onclick = () => {
+          resetLoginForm();
         loginModal.style.display = 'none';
     };
 
@@ -457,6 +495,10 @@ document.addEventListener('DOMContentLoaded', () => {
     closeSignup.onclick = () => {
         signupModal.style.display = 'none';
     };
+    function resetLoginForm() {
+        emailInput.value = '';   
+        passwordInput.value = '';   
+      }
 
     // Close modal if clicked outside the modal content
     window.onclick = (event) => {
@@ -467,3 +509,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 });
+
+window.onscroll = function () {
+    const button = document.getElementById('backToTop');
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        button.style.display = "block";
+    } else {
+        button.style.display = "none"; 
+    }
+};
+
+document.getElementById('backToTop').onclick = function () {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+};
