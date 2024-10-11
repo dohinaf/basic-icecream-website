@@ -46,7 +46,6 @@ if (loginCard) {
 if (signupCard) {
   addHoverEffect(signupCard);
 }
-
 document.querySelector(".login-form").addEventListener("submit", function (e) {
   e.preventDefault(); // Prevent form submission
 
@@ -56,25 +55,28 @@ document.querySelector(".login-form").addEventListener("submit", function (e) {
   ).value;
 
   // Retrieve data from local storage
-  const existingUserData = localStorage.getItem("user");
+  const existingUsersData = localStorage.getItem("users");
 
-  if (existingUserData) {
-    const userData = JSON.parse(existingUserData); // Parse the JSON string back to an object
+  if (existingUsersData) {
+    const usersArray = JSON.parse(existingUsersData); // Parse the JSON string back to an array of objects
+    let userFound = false; // Flag to track if user is found
 
-    // Check if email and password match what's stored in local storage
-    if (email === userData.email && password === userData.password) {
-      alert("Glad you are back for another treat!");
-      // Redirect to index.html
-      window.location.assign("../index.html");
-    }
+    // Loop through users and check if any match the input credentials
+    usersArray.forEach((userData) => {
+      if (email === userData.email && password === userData.password) {
+        userFound = true;
+        alert("Glad you are back for another treat!");
+        // Redirect to index.html
+        window.location.assign("../index.html");
+      }
+    });
 
-    if (email !== userData.email) {
-      alert("Invalid email !!");
-    }
-    if (password !== userData.password) {
-      alert("Invalid password !!");
+    if (!userFound) {
+      // If no matching user is found
+      alert("Invalid email or password!");
     }
   } else {
+    // If no users found in local storage
     alert("No user found. Please sign up first.");
     window.location.assign("../signup/signup.html");
   }
