@@ -64,13 +64,4 @@ p {
     padding: 0 15px 15px;
 }
 
-/* Footer styles */
-footer {
-    text-align: center;
-    padding: 10px;
-    background-color: #FF6F61; /* Ice cream color */
-    color: white;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-}
+/* Footer

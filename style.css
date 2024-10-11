@@ -251,12 +251,12 @@ button:hover {
   color: var(--text-color);
 }
 
-.login-signup-collection{
+.login-signup-collection {
   gap: 1rem;
   margin-bottom: 1.5rem;
 }
 
-.auth-btn{
+.auth-btn {
   background: linear-gradient(to right, #ff4e50, #fc913a);
   color: var(--text-color);
   border: none;
@@ -878,14 +878,14 @@ button:hover {
 }
 
 .card {
-    padding: 2rem; /* Increased padding for bigger cards */
-    display: flex;
-    align-items: flex-start;
-    gap: 5rem; /* More space between image and content */
-    background-color: var(--background-color);
-    border-radius: 1.5rem;
+  padding: 2rem; /* Increased padding for bigger cards */
+  display: flex;
+  align-items: flex-start;
+  gap: 5rem; /* More space between image and content */
+  background-color: var(--background-color);
+  border-radius: 1.5rem;
   /* Stronger shadow for depth */
-    cursor: pointer;
+  cursor: pointer;
 }
 .card:hover {
   box-shadow: 0 0 6px rgba(255, 208, 9, 1);
@@ -1080,7 +1080,7 @@ button:hover {
 }
 
 /* Footer Styles */
-
+/* 
 .footer {
   background-color: var(--background-color);
   text-align: center;
@@ -1136,7 +1136,7 @@ footer .credit {
 
 .footer .credit span {
   color: var(--text-color);
-}
+} */
 
 /* Media Queries */
 @media (max-width: 991px) {
@@ -1247,7 +1247,7 @@ button:hover,
 }
 
 /* ... existing code ... */
-
+/* 
 .social-icons a {
   display: inline-flex;
   justify-content: center;
@@ -1271,12 +1271,13 @@ button:hover,
 }
 
 /* Footer button hover effect */
-.footer .share a:hover,
+/* .footer .share a:hover,
 .footer .links a:hover {
   background-color: var(--background-color);
   color: var(--main-color);
   letter-spacing: 0.2rem;
-}
+} */
+*/
 
 /* ... rest of the existing code ... */
 
@@ -1404,7 +1405,7 @@ input[type="radio"] {
 }
 
 /* Social Icons */
-.social-icons a {
+/* .social-icons a {
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -1417,7 +1418,7 @@ input[type="radio"] {
   margin: 3rem 1.5rem 3rem 0;
   transition: 0.3s ease;
   color: #ffffff;
-}
+} */
 
 .social-icons a:hover {
   color: black;
@@ -1501,12 +1502,12 @@ body {
 }
 
 /* Footer Styling */
-.footer {
+/* .footer {
   text-align: center;
   padding: 0;
   background-color: var(--background-color);
   margin-top: auto;
-}
+} */
 
 /* Navbar Hover Effect */
 .navbar a {
@@ -1717,7 +1718,7 @@ input:checked + .slider:before {
   }
 }
 /* Social Icons */
-.social-icons a {
+/* .social-icons a {
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -1730,7 +1731,7 @@ input:checked + .slider:before {
   margin: 3rem 1.5rem 3rem 0;
   transition: 0.3s ease;
   color: #ffffff;
-}
+} */
 
 .social-icons a:hover {
   color: black;
@@ -1813,13 +1814,13 @@ body {
   transform: translateY(-3px);
 }
 
-/* Footer Styling */
-.footer {
+/*  Styling */
+/* . {
   text-align: center;
   padding: 0;
   background-color: var(--background-color);
   margin-top: auto;
-}
+} */
 
 /* Box Hover Effect */
 .box {
@@ -2044,22 +2045,194 @@ input:checked + .slider:before {
   }
 }
 #backToTop {
-    width: 50px;
-    height: 50px;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    bottom: 100px;
-    right: 30px;
-    display: none; /* Hide the button by default */
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    padding: 10px 15px;
-    cursor: pointer;
-    z-index: 1000; /* Ensure it's above other elements */
+  width: 50px;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 100px;
+  right: 30px;
+  display: none; /* Hide the button by default */
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 10px 15px;
+  cursor: pointer;
+  z-index: 1000; /* Ensure it's above other elements */
 }
 #backToTop:hover {
-    background-color: #0056b3; /* Darken on hover */
+  background-color: #0056b3; /* Darken on hover */
+}
+.footer {
+  background-color: #f8f9fa;
+  color: #333;
+  padding: 30px 0 15px;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-section {
+  flex: 1;
+  margin-bottom: 20px;
+  min-width: 200px;
+  padding: 0 15px;
+}
+
+.footer-section h3 {
+  color: #ff6347;
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.footer-section p,
+.footer-section ul {
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 6px;
+}
+
+.footer-section a {
+  color: #333;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+  color: #ff6347;
+}
+
+.social-icons {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.social-icons a {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  background-color: #ff6347;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 35px;
+  transition: background-color 0.3s ease;
+  color: white;
+}
+
+.social-icons a:hover {
+  background-color: #e74c3c;
+}
+
+.footer-section.newsletter h3 {
+  color: #ff6347;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.footer-section.newsletter p {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.newsletter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 300px;
+}
+
+.newsletter-form input[type="email"] {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  width: 100%;
+}
+
+.newsletter-form button {
+  padding: 10px 15px;
+  background-color: #d15151;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  align-self: flex-start;
+}
+
+.newsletter-form button:hover {
+  background-color: #c27485;
+}
+
+@media (min-width: 768px) {
+  .newsletter-form {
+    flex-direction: row;
+    max-width: 400px;
+  }
+
+  .newsletter-form input[type="email"] {
+    flex-grow: 1;
+  }
+
+  .newsletter-form button {
+    align-self: stretch;
+  }
+}
+.footer-bottom {
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 20px;
+  border-top: 1px solid #ddd;
+}
+
+.footer-bottom-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.footer-bottom p {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.footer-logo {
+  width: 60px;
+  height: auto;
+}
+
+@media (min-width: 768px) {
+  .footer-bottom-content {
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .footer-logo {
+    order: -1; /* This places the logo before the text on larger screens */
+  }
 }
