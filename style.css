@@ -272,6 +272,7 @@ button:hover {
   cursor: pointer;
   font-weight: 500;
   padding: 1rem 1.5rem;
+  border-radius: 50px;
 }
 
 /* Header Styles */
@@ -621,38 +622,54 @@ button:hover {
   padding: 1rem;
   background-color: var(--background-color);
   border-radius: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
 }
 
 .filter-box h3 {
   color: var(--text-color);
+  width: 80%;
   font-size: 1.8rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .filter-box select,
 .filter-box input {
-  width: 100%;
+  width: 90%;
   padding: 0.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   font-size: 1.4rem;
   border: 1px solid var(--text-color);
   background-color: var(--background-color);
   color: var(--text-color);
 }
 
+.filter-box select{
+  border-radius: 50px;
+}
+
 .filter-box button {
-  width: 100%;
-  padding: 0.5rem;
+  width: 30%;
+  padding: 0.9rem;
+  margin-bottom: 0.9rem;
   font-size: 1.4rem;
   background-color: var(--main-color);
   color: var(--text-color);
   border: none;
+  border-radius: 40px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-.filter-box button:hover {
-  background-color: var(--primary-color-dark);
+.filter-box #apply-filter:hover {
+  background-color: #00ff04;
+  color: #000000;
+}
+
+.filter-box #remove-filter:hover {
+  background-color: red;
+  color:#ffffff;
 }
 
 /* filter box styles end */
@@ -1882,7 +1899,7 @@ body {
 :root {
   --background-color: rgb(240, 234, 234);
   --text-color: black;
-  --header-bg: lightgray;
+  --header-bg: rgb(211, 211, 211);
 }
 
 h2 {
