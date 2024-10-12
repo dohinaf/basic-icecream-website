@@ -258,7 +258,7 @@ function displayCart() {
     cart.forEach((item, index) => {
         const quantity=quantities[item.name];
         cartItemsHTML += `<li>${item.name} - (${quantity}) price= $${quantity*item.price.toFixed(2)} <button onclick="removeFromCart(${index})">Remove</button></li>`;
-        total += item.price;
+        total += item.price*quantity;
     });
 
     // Update cart items display
