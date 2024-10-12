@@ -672,6 +672,24 @@ button:hover {
   color:#ffffff;
 }
 
+/* Dark Mode Adjustments for Filter Box */
+[data-theme="dark"] #menu-title{
+  color: rgb(235,85,40)
+}
+[data-theme="dark"] .menu #filter-head{
+  color: rgb(205,174,137);
+}
+[data-theme="dark"] #flavor-filter {
+  color: #f1f1f1; 
+}
+[data-theme="dark"] .filter-box{
+  color: #f1f1f1;  /* Light text color */
+}
+[data-theme="dark"] .filter-box {
+  color: #f1f1f1;  /* Light text on buttons */
+}
+/* dark mode styling ends */
+
 /* filter box styles end */
 
 /* Blogs Styles */
