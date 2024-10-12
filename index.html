@@ -117,6 +117,16 @@
       font-size: small;
     }
 
+    input[type="name"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
     input[type="email"] {
       width: 100%;
       padding: 10px;
@@ -124,7 +134,7 @@
       border: 1px solid #ccc;
       border-radius: 5px;
       font-size: 14px;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
     input[type="password"] {
       width: 100%;
@@ -133,14 +143,14 @@
       border: 1px solid #ccc;
       border-radius: 5px;
       font-size: 14px;
-      margin-bottom: 20px;
+      margin-bottom: 0px;
     }
     
  
 
     .signup-btn {
       width: 100%;
-      padding: 10px;
+      padding: 8px;
       background-color: black;
       color: white;
       border: none;
@@ -150,7 +160,7 @@
     }
 
     .signup-btn:hover {
-      background-color: #333;
+      background-color: #00ff15;
     }
 
     .no-thanks {
@@ -311,9 +321,15 @@
             
         </div>
         <div class="icons login-signup-collection">
+
+<!-- 
             <button style="max-height: 40px;" id="login-btn" class="auth-btn">Login</button>
-            <!-- <p style="padding-right: 10px;">        </p> -->
-            <button style="max-height: 40px;" id="signup-btn" class="auth-btn">SignUp</button>
+            <p style="padding-right: 10px;">        </p>
+            <button style="max-height: 40px;" id="signup-btn" class="auth-btn">SignUp</button> -->
+
+             <button  style="max-height: 40px;" id="login-btn" class="auth-btn"><a href="./login/login.html">Login</a></button>
+             <button style="max-height: 40px;" id="login-btn" class="auth-btn"><a href="./signup/signup.html">signUp</a></button>
+
         </div>
 
     </header>
@@ -330,18 +346,21 @@
     </section>
     <!-- Home Section Ends Here -->
 
-<!-- Pop-up for Discount and Sign up Starts here -->
-<div id="popup" class="popup">
-  <div class="popup-content">
-      <div class="popup-left">
-          <img src="ICECREAM.jpg" alt="Discount Image">
-      </div>
-      <div class="popup-right">
-          <span class="close-btn">&times;</span>
-          <h2>Scoop Up the Savings!</h2>
-          <p>Get 20% off on your first order when you Sign up.</p>
-          <form id="emailForm">
-              <input type="email" id="email" placeholder="Enter your email" required>
+    <!-- Pop-up for Discount and Sign up Starts here -->
+      <div id="popup" class="popup">
+        <div class="popup-content">
+          <div class="popup-left">
+            <img src="ICECREAM.jpg" alt="Discount Image">
+          </div>
+          <div class="popup-right">
+            <span class="close-btn">&times;</span>
+            <h2>Scoop Up the Savings!</h2>
+            <p>Get 20% off on your first order when you Sign up.</p>
+            <form id="emailForm">
+              <input type="name" id="name" placeholder="Enter your Name">
+              <input type="email" id="email" placeholder="Enter your Email" required>
+              <input type="password" id="password" placeholder="Enter your Password" required>
+
               <button type="submit" class="signup-btn">SIGN UP</button>
           </form>
           <a href="#" class="no-thanks">No thanks</a>
@@ -430,6 +449,7 @@
 
         </div>
     </section>
+
     <!-- Login Modal -->
 <div id="login-modal" class="modal login-container">
     <div class="login-card">
@@ -473,6 +493,7 @@
   </div>
 </div>
 
+
 <script>
   document.getElementById('signup-form').addEventListener('submit', function(event) {
       event.preventDefault(); // Prevent default form submission
@@ -492,7 +513,10 @@
             <h1 data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
         data-aos-anchor-placement="top-bottom">here's, what we have in store for you!</h1>
 
+        <input type="text" id="flavor-filter" placeholder="Search Your flavor...">
+        <br>
         <div class="filter-box">
+          
             <h3  id="pro-name">Filter Ice Creams</h3>
             <select id="price-filter">
                 <option value="all">All Prices</option>
@@ -500,7 +524,6 @@
                 <option value="15-20">$15 - $20</option>
                 <option value="over-20">Over $20</option>
             </select>
-            <input type="text" id="flavor-filter" placeholder="Search by flavor...">
             <button id="apply-filter">Apply Filter</button>
             <button id="remove-filter">Remove Filter</button> <!-- New Remove Filter Button -->
         </div>
