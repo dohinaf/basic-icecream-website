@@ -34,6 +34,7 @@ card.addEventListener("mouseleave", function () {
   card.style.transform = "perspective(1000px)";
 });
 
+
 document.querySelector(".signup-form").addEventListener("submit", function (e) {
   e.preventDefault(); // Prevent form submission
 
@@ -47,7 +48,7 @@ document.querySelector(".signup-form").addEventListener("submit", function (e) {
     '.signup-form input[type="password"]'
   ).value;
 
-  // Save data to local storage in JSON format
+  // Validate if all fields are filled
   if (username && email && password) {
     const userData = {
       username: username,
@@ -55,7 +56,14 @@ document.querySelector(".signup-form").addEventListener("submit", function (e) {
       password: password,
     };
 
-    localStorage.setItem("user", JSON.stringify(userData)); // Store user data as a JSON string
+    // Get existing users from local storage, or initialize an empty array if none exists
+    const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
+
+    // Add the new user to the array of existing users
+    existingUsers.push(userData);
+
+    // Save the updated users array back to local storage
+    localStorage.setItem("users", JSON.stringify(existingUsers));
 
     alert("We are happy to have you as a new customer!");
 
@@ -67,3 +75,4 @@ document.querySelector(".signup-form").addEventListener("submit", function (e) {
 
   document.querySelector(".signup-form").reset(); // Clear the form fields
 });
+
