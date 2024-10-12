@@ -435,7 +435,9 @@ height: 40px;
             <h2>Scoop Up the Savings!</h2>
             <p>Get 20% off on your first order when you Sign up.</p>
             <form id="emailForm">
-              <input type="email" id="email" placeholder="Enter your email" required>
+              <input type="name" id="name" placeholder="Enter your Name">
+              <input type="email" id="email" placeholder="Enter your Email" required>
+              <input type="password" id="password" placeholder="Enter your Password" required>
               <button type="submit" class="signup-btn">SIGN UP</button>
             </form>
             <a href="#" class="no-thanks">No thanks</a>
@@ -511,48 +513,6 @@ height: 40px;
 
         </div>
     </section>
-    <!-- Login Modal -->
-<div id="login-modal" class="modal login-container">
-    <div class="login-card">
-      <div class="login-image">
-        <img src="https://static.vecteezy.com/system/resources/thumbnails/044/570/761/small_2x/assortment-of-colorful-ice-cream-scoops-in-waffle-cones-with-fresh-fruits-on-a-transparent-background-png.png" alt="Ice Cream" />
-      </div>
-      
-      <div class="modal-content login-form">
-        <span class="close-btn" id="close-login">&times;</span>
-        <h2>Login to Your Account</h2>
-        <form>
-          <h3>Email :-</h3>
-           <br>
-            <input type="email" placeholder="Email" required>
- 
-            <h3>Password :-</h3>
-             <br>
-            <input type="password" placeholder="Password" required class="inputFields">
-            <button type="submit">Login</button>
-            
-          <p>Don't have an account? <a href="#sign-modal">Sign up</a></p>
- 
-            
- 
-        </form>
-    </div>
-    </div>
-</div>
-
-<!-- Signup Modal -->
-<div id="signup-modal" class="modal">
-    <div class="modal-content">
-        <span class="close-btn" id="close-signup">&times;</span>
-        <h2>Sign Up</h2>
-        <form>
-            <input type="text" placeholder="Full Name" required>
-            <input type="email" placeholder="Email" required>
-            <input type="password" class="pass-btn" placeholder="Password" required>
-            <button type="submit" class="sign-btn">Sign Up</button>
-        </form>
-    </div>
-</div>
 
 
     <!-- About Section Ends Here -->
@@ -563,7 +523,10 @@ height: 40px;
             <h1 data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
         data-aos-anchor-placement="top-bottom">here's, what we have in store for you!</h1>
 
+        <input type="text" id="flavor-filter" placeholder="Search Your flavor...">
+        <br>
         <div class="filter-box">
+          
             <h3  id="pro-name">Filter Ice Creams</h3>
             <select id="price-filter">
                 <option value="all">All Prices</option>
@@ -571,7 +534,6 @@ height: 40px;
                 <option value="15-20">$15 - $20</option>
                 <option value="over-20">Over $20</option>
             </select>
-            <input type="text" id="flavor-filter" placeholder="Search by flavor...">
             <button id="apply-filter">Apply Filter</button>
             <button id="remove-filter">Remove Filter</button> <!-- New Remove Filter Button -->
         </div>
