@@ -76,3 +76,47 @@ document.querySelector(".signup-form").addEventListener("submit", function (e) {
   document.querySelector(".signup-form").reset(); // Clear the form fields
 });
 
+document.getElementById('password').addEventListener('input', function() {
+  const password = this.value;
+  const strengthDiv = document.getElementById('password-strength');
+  const lengthRequirement = document.getElementById('length-requirement');
+  const uppercaseRequirement = document.getElementById('uppercase-requirement');
+  const numberRequirement = document.getElementById('number-requirement');
+  const specialRequirement = document.getElementById('special-requirement');
+  let strength = '';
+  let strengthClass = '';
+
+  // Check each requirement
+  const lengthMet = password.length >= 6;
+  const uppercaseMet = /[A-Z]/.test(password);
+  const numberMet = /[0-9]/.test(password);
+  const specialMet = /[!@#$%^&*]/.test(password);
+
+  // Update requirement styles
+  lengthRequirement.classList.toggle('met', lengthMet);
+  uppercaseRequirement.classList.toggle('met', uppercaseMet);
+  numberRequirement.classList.toggle('met', numberMet);
+  specialRequirement.classList.toggle('met', specialMet);
+
+  // Determine strength
+  if (lengthMet) {
+      if (uppercaseMet && numberMet && specialMet) {
+          strength = 'Strong';
+          strengthClass = 'strong';
+      } else if (uppercaseMet || numberMet || specialMet) {
+          strength = 'Medium';
+          strengthClass = 'medium';
+      } else {
+          strength = 'Weak';
+          strengthClass = 'weak';
+      }
+  } else {
+      strength = 'Too short';
+      strengthClass = 'weak';
+  }
+
+  // Update strength message and input box color
+  strengthDiv.textContent = strength;
+  strengthDiv.className = strengthClass;
+  this.className = strengthClass;
+});

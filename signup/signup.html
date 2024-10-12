@@ -21,8 +21,15 @@
                     <label>Email</label>
                 </div>
                 <div class="input-group">
-                    <input type="password" required>
+                    <input type="password" id="password" required>
                     <label>Password</label>
+                    <div id="password-strength"></div>
+                    <div id="password-requirements">
+                        <p id="length-requirement">At least 6 characters</p>
+                        <p id="uppercase-requirement">At least one uppercase letter</p>
+                        <p id="number-requirement">At least one number</p>
+                        <p id="special-requirement">At least one special character</p>
+                    </div>
                 </div>
                 <button class="signup-btn" type="submit">Sign Up</button>
                 <div class="extra-links">
