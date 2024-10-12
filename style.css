@@ -692,11 +692,6 @@ button:hover {
   background: linear-gradient(to bottom right, #d3ad7f, #fe6769);
 }
 
-
-.filter-box button:hover {
-  background-color: var(--primary-color-dark);
-  color: black;
-
 .filter-box #apply-filter:hover {
   background-color: #00ff04;
   color: #000000;
