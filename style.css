@@ -118,19 +118,7 @@ button:hover {
   z-index: 0;
 }
 
-/*Added css to make the My order button to look same as the rest of the nav buttons*/
-#my-order-btn {
-  border: none;
-  margin: 0px 0px 1px;
-  font-size: 1.6rem;
-  background-color: transparent !important;
-  animation: none !important;
-}
 
-#my-order-btn:hover {
-  letter-spacing: 0rem;
-}
-/*changes end*/
 
 .animated-button:hover::before {
   width: 300%;
@@ -315,15 +303,13 @@ button:hover {
   color: var(--text-color);
 }
 
-/*#menu-btn {
-    display: none;
-}*/
+
 .menu-btn {
   display: none;
   cursor: pointer;
   font-size: 2.5rem;
   color: var(--text-color);
-  margin-left: 1rem;
+  margin-left: 0rem;
 }
 /* Navbar on Small Screens */
 @media (max-width: 768px) {
@@ -332,30 +318,30 @@ button:hover {
       top: 100%;
       left: 0;
       right: 0;
-      background-color:transparent !important;
+      background-color:var(--background-color) !important;
       flex-direction: column;
       align-items: flex-start;
       max-height: 0;
       overflow: hidden;
+      padding-top: 0rem !important;
   }
 
   .header .navbar a {
       padding: 1rem;
       width: 100%;
-      color: #45cb88 !important;
+      color: var(--text-color) !important;
+
       text-align: left;
       margin: 0;
   }
  
-  /* Show Menu Button */
-  .menu-btn {
-      display: block;
-  }
+ 
 
   /* Navbar expanded on click */
   .navbar.active {
-      max-height: 500px; /* Adjust according to your content */
-  }
+    max-height: none; /* Let the height adjust based on content */
+    transition: max-height 0.3s ease; /* Smooth transition when opening */
+}
 }
 .header .search-form {
   position: absolute;
@@ -1189,6 +1175,10 @@ footer .credit {
 @media (max-width: 768px) {
   #menu-btn {
     display: inline-block;
+  }
+  .site-title {
+    margin-left: 1.5rem;
+    font-size: 1.5 rem;
   }
 
   .header .navbar {
