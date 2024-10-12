@@ -57,19 +57,211 @@
         }
     </style>
 
+    
+    <style>
+        /* Styling for the pop-up Discount */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .popup-content {
+      display: flex;
+      background-color: white;
+      border-radius: 10px;
+      width: 500px;
+      height: 350px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .popup-left img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .popup-right {
+      padding-left: 20px;
+      padding-top: 30px;
+      width: 50%;
+      position: relative;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 30px;
+      cursor: pointer;
+    }
+
+    h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    h3{
+      font-weight: 700;
+    }
+
+    p {
+      margin-bottom: 30px;
+      font-size: small;
+    }
+
+    input[type="name"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    input[type="email"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+      margin-bottom: 0px;
+    }
+    
+ 
+
+    .signup-btn {
+      width: 100%;
+      padding: 8px;
+      background-color: black;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .signup-btn:hover {
+      background-color: #00ff15;
+    }
+
+    .no-thanks {
+      display: block;
+      margin-top: 10px;
+      text-align: center;
+      color: #1173f3;
+      text-decoration: none;
+      font-size: small;
+    }
+
+    .terms {
+      margin-top: 10px;
+      font-size: 12px;
+      text-align: center;
+      color: #aaa;
+    }
+
+    .terms a {
+      color: #888;
+      text-decoration: underline;
+    }
+
+    /* Main content styling */
+    .content {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .pass-btn{
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      background-color: var(--background-color);
+      border: 1px solid var(--main-color);
+      border-radius: 5px;
+      color: #000000;
+  
+    }
+    .sign-btn{
+      width: 100%;
+      background-color: #fb285d;
+      border: none;
+      color: white;
+      font-size: 16px;
+      height: 40px;
+    }
+  </style>
+<style>
+  /* Circle styles */
+  .circle {
+    height: 24px;
+    width: 24px;
+    border-radius: 24px;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 99999999;
+    /* Stays on top of all elements */
+  }
+</style>
 </head>
 
 <body>
 
+<!-- Circles -->
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+
+
+    <button id="backToTop" style="font-size: 30px; font-weight: bold;">&#8673;</button>
+
     <!-- Header Starts Here -->
     <header class="header">
 
-        <a href="#" class="logo">    
+        <a href="#" class="logo">
             <img src="https://purepng.com/public/uploads/large/purepng.com-ice-creamice-creamcreamfrozensweet-1411527617895aiuhx.png"
                 alt="Logo">
         </a>
         <!-- ... existing code ... -->
-        <h1 class="site-title">ArcticDelights</h1> 
+        <h1 class="site-title">ArcticDelights</h1>
 
 <nav class="navbar">
 
@@ -86,8 +278,9 @@
 
         <div class="icons">
             <div class = "fas fa-heart" id = "wishlist-btn"></div>
-            <div class="fas fa-search" id="search-btn"></div>
-            <div class="fas fa-shopping-cart" id="cart-btn"></div>
+            <div class="fas fa-search" id="search-btn"></div>                    
+            <div class="fas fa-shopping-cart" id="cart-btn"><span id="cart-count">(0)</span></div>
+          
         </div>
         <div class="theme-switch-wrapper">
             <label class="theme-switch" for="checkbox">
@@ -95,14 +288,14 @@
                 <div class="slider"></div>
             </label>
             <span id="mode-label">Light Mode</span>
-        </div> 
+        </div>
         <div class="search-form">
             <input type="search" id="search-box" placeholder="Search...">
             <label for="search-box" class="fas fa-search"></label>
         </div>
         <div class="wishlist-container">
             <ul id="wishlistItems"></ul>
-            <button onclick="clearWishlist()">Clear Wishlist</button>
+            <button class="clear-from-wishlist-btn" onclick="clearWishlist()">Clear Wishlist</button>
         </div>
         <div class="cart-items-container">
             <div class="cart">
@@ -127,9 +320,16 @@
             </div>
             
         </div>
-        <div class="icons">
-            <button id="login-btn">Login</button>
-            <button id="signup-btn">Sign Up</button>
+        <div class="icons login-signup-collection">
+
+<!-- 
+            <button style="max-height: 40px;" id="login-btn" class="auth-btn">Login</button>
+            <p style="padding-right: 10px;">        </p>
+            <button style="max-height: 40px;" id="signup-btn" class="auth-btn">SignUp</button> -->
+
+             <button  style="max-height: 40px;" id="login-btn" class="auth-btn"><a href="./login/login.html">Login</a></button>
+             <button style="max-height: 40px;" id="login-btn" class="auth-btn"><a href="./signup/signup.html">signUp</a></button>
+
         </div>
 
     </header>
@@ -146,30 +346,83 @@
     </section>
     <!-- Home Section Ends Here -->
 
+    <!-- Pop-up for Discount and Sign up Starts here -->
+      <div id="popup" class="popup">
+        <div class="popup-content">
+          <div class="popup-left">
+            <img src="ICECREAM.jpg" alt="Discount Image">
+          </div>
+          <div class="popup-right">
+            <span class="close-btn">&times;</span>
+            <h2>Scoop Up the Savings!</h2>
+            <p>Get 20% off on your first order when you Sign up.</p>
+            <form id="emailForm">
+              <input type="name" id="name" placeholder="Enter your Name">
+              <input type="email" id="email" placeholder="Enter your Email" required>
+              <input type="password" id="password" placeholder="Enter your Password" required>
+              <button type="submit" class="signup-btn">SIGN UP</button>
+            </form>
+            <a href="#" class="no-thanks">No thanks</a>
+            <p class="terms">By signing up, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>
+          </div>
+        </div>
+      </div>
+    <!--  Pop-up for Discount and Sign up Ends here  -->
+    
+    <!-- Script for pop up discount Starts Here -->
+    <script>
+    // Show the pop-up automatically when the page loads
+    window.onload = function() {
+      document.getElementById('popup').style.display = 'flex';
+    };
+
+    // Close the pop-up when the user clicks the close button
+    document.querySelector('.close-btn').addEventListener('click', function() {
+      document.getElementById('popup').style.display = 'none';
+    });
+
+    // Handle form submission
+    document.getElementById('emailForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      const email = document.getElementById('email').value;
+      if (email) {
+        alert(`Thank you! A 20% discount code has been sent to ${email}`);
+        document.getElementById('popup').style.display = 'none';
+      }
+    });
+
+    // Handle "No thanks" link
+    document.querySelector('.no-thanks').addEventListener('click', function(event) {
+      event.preventDefault();
+      document.getElementById('popup').style.display = 'none';
+    });
+  </script>
+    <!-- Script for pop up discount ends Here -->
 
     <!-- About Section Starts Here -->
     <section class="about" id="about">
-        <h1 class="heading"  data-aos="fade-up"
-        data-aos-anchor-placement="top-bottom"> <span> about</span> us</h1>
+        <h1 class="heading"  data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
+        data-aos-anchor-placement="top-bottom"> <span style="color: orangered;"> about</span> us</h1>
         <div class="row">
             <div class="image">
-                <img src="ice cream.jpg" alt="ice cream" data-aos="fade-up"
+                <img src="ice cream.jpg" alt="ice cream" data-aos="fade-right"  data-aos-duration="1200" data-aos-delay="200"
             data-aos-anchor-placement="top-bottom">
             </div>
-            <div class="content" data-aos="fade-up"
+            <div class="content" style="text-align: left;"
             data-aos-anchor-placement="top-bottom">
-                <h3> What Makes Our Ice Cream Special?</h3>
-                <p>
+                <h3 data-aos="fade-left"  data-aos-duration="1200" data-aos-delay="200"> What Makes Our Ice Cream Special?</h3>
+                <p data-aos="fade-left"  data-aos-duration="1200" data-aos-delay="200">
                     At Arctic Delights, we believe that every scoop of ice cream should be a masterpiece. We handpick the finest, sustainably sourced ingredients to craft flavors that not only cool you down but also take your taste buds on an unforgettable journey. Whether you crave something classic or adventurous, we offer a wide range of flavors designed to surprise and delight.
                 </p>
-                <p>
+                <p data-aos="fade-left"  data-aos-duration="1200" data-aos-delay="200">
                     Customize your perfect treat with our signature toppings, sauces, and add-ons to create a unique dessert experience tailored just for you. At Arctic Delights, we’re not just about ice cream—we’re about crafting moments of joy in every bite!
                 </p>
-                <a href="#" class="btn" id="learnMoreBtn">Learn More</a>
+                
 
                 <!-- Hidden section to reveal on button click -->
                 <div id="moreContent" style="display: none;" data-aos="fade-up"
-            data-aos-anchor-placement="top-bottom">
+                    data-aos-anchor-placement="top-bottom">
                     <p>
                         Our ice creams are made using traditional methods, ensuring each batch is churned to perfection. From locally sourced dairy to organic fruits, nuts, and chocolates, we are committed to sustainability and exceptional taste. We also offer dairy-free and vegan options to cater to every lifestyle and preference.
                     </p>
@@ -177,36 +430,11 @@
                         Whether you're enjoying a scoop in-store or ordering our handcrafted pints to your home, Arctic Delights promises the best quality and an unforgettable experience with every bite.
                     </p>
                 </div>
+                <a href="#" class="btn" id="learnMoreBtn">Learn More</a>
             </div>
 
         </div>
     </section>
-    <!-- Login Modal -->
-<div id="login-modal" class="modal">
-    <div class="modal-content">
-        <span class="close-btn" id="close-login">&times;</span>
-        <h2>Login</h2>
-        <form>
-            <input type="email" placeholder="Email" required>
-            <input type="password" placeholder="Password" required>
-            <button type="submit">Login</button>
-        </form>
-    </div>
-</div>
-
-<!-- Signup Modal -->
-<div id="signup-modal" class="modal">
-    <div class="modal-content">
-        <span class="close-btn" id="close-signup">&times;</span>
-        <h2>Sign Up</h2>
-        <form>
-            <input type="text" placeholder="Full Name" required>
-            <input type="email" placeholder="Email" required>
-            <input type="password" placeholder="Password" required>
-            <button type="submit">Sign Up</button>
-        </form>
-    </div>
-</div>
 
 
     <!-- About Section Ends Here -->
@@ -214,134 +442,245 @@
     <!-- Menu Section Starts Here -->
 
     <section class="menu" id="menu">
-            <h1 data-aos="fade-up"
+            <h1 data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
         data-aos-anchor-placement="top-bottom">here's, what we have in store for you!</h1>
 
+        <input type="text" id="flavor-filter" placeholder="Search Your flavor...">
+        <br>
         <div class="filter-box">
-            <h3>Filter Ice Creams</h3>
+          
+            <h3  id="pro-name">Filter Ice Creams</h3>
             <select id="price-filter">
                 <option value="all">All Prices</option>
                 <option value="under-15">Under $15</option>
                 <option value="15-20">$15 - $20</option>
                 <option value="over-20">Over $20</option>
             </select>
-            <input type="text" id="flavor-filter" placeholder="Search by flavor...">
             <button id="apply-filter">Apply Filter</button>
+            <button id="remove-filter">Remove Filter</button> <!-- New Remove Filter Button -->
         </div>
         <div class="box-container">
 
-            <div class="box"  data-aos="fade-up"
+            <div class="box"  data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200"
             data-aos-anchor-placement="top-bottom">
+            <div class="picture">
                 <img src="https://plus.unsplash.com/premium_photo-1678198786405-28e947bb8a12" alt="">
-                <h3>Nutty Butterscotch</h3>
+                <h3 id="pro-name">Nutty Butterscotch</h3>
+                <div class="flip">A delightful blend of crunchy nuts and rich butterscotch, creating a sweet and savory treat that melts in your mouth!</div>
+            </div>
                 <div class="price"> $15.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Nutty Butterscotch', 15.99)">Add to Cart</button><br>
                 <button  id="inbox" onclick="addToWishlist('Nutty Butterscoth', 15.99)">Add to wishlist</button>
-          </div>
+                <button id="inbox" onclick="window.location.href='nut_butter.html';">Read more</button>
 
-            <div class="box"  data-aos="fade-up"
+
+          </div>
+        
+            <div class="box"  data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
             data-aos-anchor-placement="top-bottom">
+            <div class="picture">
                 <img src="https://images.unsplash.com/photo-1488900128323-21503983a07e" alt="">
-                <h3>Berry Pops</h3>
+                <h3 id="pro-name">Berry Pops</h3>
+
+                <div class="flip">Refreshing frozen treats bursting with the vibrant flavors of mixed berries, perfect for a cool and fruity indulgence!</div>
+            </div>
+
                 <div class="price"> $18.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Berry Pops', 18.99)">Add to Cart</button><br>
                 <button  id="inbox" onclick="addToWishlist('Berry Pops', 18.99)">Add to wishlist</button>
-            </div>
+                <button id="inbox" onclick="window.location.href='berry_pops.html';">Read more</button>
 
-            <div class="box"  data-aos="fade-up"
+
+            </div>
+        
+
+        
+            <div class="box"  data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
             data-aos-anchor-placement="top-bottom">
-                <img src="https://images.unsplash.com/photo-1633933037611-f26e54366832" alt="">
-                <h3>Cherry Sherbet Pops</h3>
+                <div class="picture">
+                    <img src="https://images.unsplash.com/photo-1633933037611-f26e54366832" alt="">
+                  <h3 id="pro-name">Cherry Sherbet Pops</h3>
+                    <div class="flip">Creamy, fruity popsicles crafted with luscious cherry sherbet, delivering a sweet and tangy burst of summer in every bite!</div>
+                </div>
+
                 <div class="price"> $18.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Cherry Sherbet Pops', 18.99)">Add to Cart</button><br>
                 <button  id="inbox" onclick="addToWishlist('Cherry Sherbet Pops', 18.99)">Add to wishlist</button>
-            </div>
+                <button id="inbox" onclick="window.location.href='cherry_pops.html';">Read more</button>
 
-            <div class="box"  data-aos="fade-up"
+
+            </div>
+        
+
+        
+            <div class="box"  data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200"
             data-aos-anchor-placement="top-bottom">
+            <div class="picture">
                 <img src="https://images.unsplash.com/photo-1570197788417-0e82375c9371" alt="">
-                <h3>Dripping Vannila</h3>
+
+                <h3 id="pro-name">Dripping Vanilla</h3>
+
+                <div class="flip">A luscious vanilla treat that oozes creamy goodness, delivering a rich and indulgent flavor experience with every delightful drop!</div>
+            </div>
+       
+
+        
                 <div class="price"> $15.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Dripping Vannila', 15.99)">Add to Cart</button><br>
                 <button  id="inbox" onclick="addToWishlist('Dripping Vannila', 15.99)">Add to wishlist</button>
+                <button id="inbox" onclick="window.location.href='drip_vanilla.html';">Read more</button>
             </div>
 
-            <div class="box"  data-aos="fade-up"
+            <div class="box"  data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200"
             data-aos-anchor-placement="top-bottom">
+            <div class="picture">
                 <img src="https://images.unsplash.com/photo-1532678465554-94846274c297" alt="">
-                <h3>Very Berry Strawberry</h3>
+
+                <h3 id="pro-name">Very Berry Strawberry</h3>
+
+                <div class="flip">A delightful fusion of fresh strawberries and a medley of berries, creating a vibrant and sweet explosion of flavor in every bite!</div>
+            </div>
+        
+
+       
                 <div class="price"> $16.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Very Berry Strawberry', 16.99)">Add to Cart</button><br>
                 <button  id="inbox" onclick="addToWishlist('Very Berry Strawberry', 16.99)">Add to wishlist</button>
+                <button id="inbox" onclick="window.location.href='very_straw.html';">Read more</button>
             </div>
 
-            <div class="box"  data-aos="fade-up"
+            <div class="box"  data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
             data-aos-anchor-placement="top-bottom">
+            <div class="picture">
                 <img src="https://images.unsplash.com/photo-1705103654898-d663145f5f50" alt="">
-                <h3>Rainbow Classic Cone</h3>
+                <h3 id="pro-name">Rainbow Classic Cone</h3>
+
+                <div class="flip">A colorful twist on a timeless favorite, featuring layers of vibrant, fruity flavors swirled into a creamy cone, making every lick a joyful, nostalgic experience!</div>
+            </div>
+        
+ 
+            
                 <div class="price"> $18.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Rainbow Classic Cone', 18.99)">Add to Cart</button><br>
                 <button  id="inbox" onclick="addToWishlist('Rainbow Classic Cone', 18.99)">Add to wishlist</button>
+                <button id="inbox" onclick="window.location.href='rain_classic.html';">Read more</button>
             </div>
 
-            <div class="box"  data-aos="fade-up"
+            <div class="box"  data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
             data-aos-anchor-placement="top-bottom">
+            <div class="picture">
                 <img src="https://images.unsplash.com/photo-1559340160-146586a4f9b6" alt="">
-                <h3>Orange Pops</h3>
+                <h3 id="pro-name">Orange Pops</h3>
+
+                <div class="flip">Refreshing frozen delights bursting with zesty orange flavor, offering a sunny, sweet, and tangy treat that’s perfect for cooling off on a hot day!</div>
+            </div>
+        
+
+            
+
                 <div class="price"> $12.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Orange Pops', 12.99)">Add to Cart</button><br>
                 <button  id="inbox" onclick="addToWishlist('Orange Pops', 12.99)">Add to wishlist</button>
+                <button id="inbox" onclick="window.location.href='orange_pops.html';">Read more</button>
+
             </div>
 
-            <div class="box"  data-aos="fade-up"
+            <div class="box"  data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200"
             data-aos-anchor-placement="top-bottom">
+            <div class="picture">
                 <img src="https://images.unsplash.com/photo-1594305178909-03ab72b8205e" alt="">
-                <h3>Choco-Hazel Pops</h3>
+
+                <h3 id="pro-name">Choco-Hazel Pops</h3>
+
+                <div class="flip">Indulgent frozen treats infused with rich chocolate and crunchy hazelnuts, creating a decadent and nutty flavor experience that melts delightfully in every bite!</div>
+            </div>
+      
+
+            
                 <div class="price"> $18.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Choco-Hazel Pops', 18.99)">Add to Cart</button><br>
                 <button  id="inbox" onclick="addToWishlist('Choco-Hazel Pops', 18.99)">Add to wishlist</button>
+                <button id="inbox" onclick="window.location.href='choco_hazel.html';">Read more</button>
+
             </div>
 
-            <div class="box"  data-aos="fade-up"
+            <div class="box"  data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200"
             data-aos-anchor-placement="top-bottom">
+            <div class="picture">
+                <br>
                 <img src="https://images.unsplash.com/photo-1499638472904-ea5c6178a300" alt="">
-                <h3>Very Very Peachy</h3>
+                <h3 id="pro-name">Very Very Peachy</h3>
+
+                <div class="flip">A refreshing and juicy delight packed with the sweet, sunny flavor of ripe peaches, delivering a taste of summer in every delicious bite!</div>
+            </div>
+
                 <div class="price"> $15.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Very Very Peachy',15.99)">Add to Cart</button><br>
                 <button  id="inbox" onclick="addToWishlist('Very Very Peachy', 15.99)">Add to wishlist</button>
+                <button id="inbox" onclick="window.location.href='very_peachy.html';">Read more</button>
             </div>
+        
 
-            <div class="box"  data-aos="fade-up"
+            
+            <div class="box"  data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
             data-aos-anchor-placement="top-bottom">
+            <div class="picture">
                 <img src="https://images.unsplash.com/photo-1559340160-146586a4f9b6" alt="">
-                <h3>Orange Pops</h3>
-                <div class="price"> $14.99 <span>20.99</span></div>
-                <button  id="inbox" onclick="addToCart('Orange Pops', 14.99)">Add to Cart</button><br>
-                <button  id="inbox" onclick="addToWishlist('Orange Pops', 14.99)">Add to wishlist</button>
-            </div>
 
-            <div class="box"  data-aos="fade-up"
+                <h3 id="pro-name">Orange Pops</h3>
+
+                <div class="flip">Refreshing frozen delights bursting with zesty orange flavor, offering a sunny, sweet, and tangy treat that’s perfect for cooling off on a hot day!</div>
+            </div>
+                <div class="price"> $12.99 <span>20.99</span></div>
+                <button  id="inbox" onclick="addToCart('Orange Pops', 12.99)">Add to Cart</button><br>
+                <button  id="inbox" onclick="addToWishlist('Orange Pops', 12.99)">Add to wishlist</button>
+                <button id="inbox" onclick="window.location.href='orange_pops1.html';">Read more</button>
+            </div>
+            
+
+            
+            <div class="box"  data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
             data-aos-anchor-placement="top-bottom">
+            <div class="picture">
                 <img src="https://images.unsplash.com/photo-1594305178909-03ab72b8205e" alt="">
-                <h3>Choco-Hazel Pops</h3>
-                <div class="price"> $14.99 <span>20.99</span></div>
-                <button  id="inbox" onclick="addToCart('Choco-Hazel Pops', 14.99)">Add to Cart</button><br>
-                <button  id="inbox" onclick="addToWishlist('Choco-Hazel Pops', 14.99)">Add to wishlist</button>
+
+                <h3 id="pro-name">Choco-Hazel Pops</h3>
+
+                <div class="flip">Indulgent frozen treats infused with rich chocolate and crunchy hazelnuts, creating a decadent and nutty flavor experience that melts delightfully in every bite!</div>
             </div>
 
-            <div class="box"  data-aos="fade-up"
+                <div class="price"> $18.99 <span>20.99</span></div>
+                <button  id="inbox" onclick="addToCart('Choco-Hazel Pops', 18.99)">Add to Cart</button><br>
+                <button  id="inbox" onclick="addToWishlist('Choco-Hazel Pops', 18.99)">Add to wishlist</button>
+                <button id="inbox" onclick="window.location.href='choco_hazel.html';">Read more</button>
+            </div>
+       
+
+           
+            <div class="box"  data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200"
             data-aos-anchor-placement="top-bottom">
+            <div class="picture">
                 <img src="https://images.unsplash.com/photo-1499638472904-ea5c6178a300" alt="">
-                <h3>Very Very Peachy</h3>
+
+                <h3 id="pro-name">Very Very Peachy</h3>
                 <div class="price"> $16.99 <span>20.99</span></div>
-                <button  id="inbox" onclick="addToCart('Very Very Peachy', 16.99)">Add to Cart</button><br>
-                <button  id="inbox" onclick="addToWishlist('Very Very Peachy', 16.99)">Add to wishlist</button>
+
+                <div class="flip">A refreshing and juicy delight packed with the sweet, sunny flavor of ripe peaches, delivering a taste of summer in every delicious bite!</div>
+            </div>
+
+                <div class="price"> $15.99 <span>20.99</span></div>
+                <button  id="inbox" onclick="addToCart('Very Very Peachy',15.99)">Add to Cart</button><br>
+                <button  id="inbox" onclick="addToWishlist('Very Very Peachy', 15.99)">Add to wishlist</button>
+                <button id="inbox" onclick="window.location.href='very_peachy2.html';">Read more</button>
+
+
             </div>
 
             <div class="notification-tooltip" id="notification-tooltip">
                 <span class="tooltip-icon">✅</span>
                 <span>Added to Cart!</span>
             </div>
+            
 
         </div>
 
@@ -354,18 +693,18 @@
 
 <!-- Blogs Section Starts Here -->
 <section class="blogs" id="blogs">
-  <h1 class="heading"  data-aos="fade-up"
-  data-aos-anchor-placement="top-bottom">Our <span>Blogs</span></h1>
+  <h1 class="heading"  data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
+  data-aos-anchor-placement="top-bottom">Our <span style="color: orangered;">Blogs</span></h1>
   <div class="blog-container">
 
-    <div class="blog"  data-aos="fade-up-right">
+    <div class="blog"  data-aos="fade-up-right" data-aos-duration="1200" data-aos-delay="200">
       <img  src="https://plus.unsplash.com/premium_photo-1658526992090-e15722e684c0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8aWNlY3JlYW0lMjBzaG9wfGVufDB8fDB8fHww" alt="Blog Post 1" class="blog-image">
       <h3>The Journey of Artic Delights</h3>
       <p>Discover how our ice cream shop began its journey with a passion for creating unique flavors that delight the taste buds. From humble beginnings to a beloved local favorite, read about our story and what makes us special.</p>
       <a href="icecream-details.html" class="btn">Read More</a>
     </div>
 
-    <div class="blog">
+    <div class="blog" data-aos="fade-up-left" data-aos-duration="1200" data-aos-delay="200">
         <img style="border-radius: 15px; width: 300px; display: block"
          src="https://th.bing.com/th/id/R.676adb6d7539038b901d8242cc145fa1?rik=VtRfS5RbwsuVWQ&riu=http%3a%2f%2fimages6.fanpop.com%2fimage%2fphotos%2f34700000%2fIce-Creams-ice-cream-34733250-1200-972.jpg&ehk=%2baCoHwlvOoQkOsJx859JKiu%2fVnB7JSAfddJUpaHxeQo%3d&risl=&pid=ImgRaw&r=0">
         <h3>The Art of Perfect Ice Cream Scoops</h3>
@@ -373,7 +712,7 @@
         <a href="icecream-details.html" class="btn">Read More</a>
       </div>
 
-    <div class="blog">
+    <div class="blog" data-aos="fade-up-right" data-aos-duration="1200" data-aos-delay="200">
         <img style="border-radius: 15px; width: 300px; display: block"
          src="https://th.bing.com/th/id/R.342ee8a18ef0c4c428ff5288e7567400?rik=nrNVZmqpGpWe9g&riu=http%3a%2f%2fwallpapercave.com%2fwp%2fTS014mt.jpg&ehk=xOshdAfsEoqt8T%2bU%2fZtJiZCXCT8PRAv8B6aLJ4FMWZ0%3d&risl=&pid=ImgRaw&r=0">
          <h3>Chilling Adventures with Exotic Flavors</h3>
@@ -381,14 +720,14 @@
   <a href="icecream-details.html" class="btn">Read More</a>
       </div>
 
-    <div class="blog" data-aos="fade-up-left">
+    <div class="blog" data-aos="fade-up-left" data-aos-duration="1200" data-aos-delay="200">
       <img src="https://images.unsplash.com/photo-1591261730540-1ab1db33ac78?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGljZWNyZWFtJTIwc2hvcHxlbnwwfHwwfHx8MA%3D%3D" alt="Blog Post 2" class="blog-image">
       <h3>Crafting the Perfect Scoop</h3>
       <p>Learn about our meticulous process of crafting the perfect ice cream scoop. We source only the finest ingredients and use artisanal methods to ensure every bite is a delicious experience.</p>
       <a href="icecream-details.html" class="btn">Read More</a>
     </div>
 
-    <div class="blog" data-aos="zoom-out-down">
+    <div class="blog" data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200">
       <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8dGVhbSUyMHdvcmtlcnN8ZW58MHx8MHx8fDA%3D" alt="Blog Post 3" class="blog-image">
       <h3>Behind the Scenes at Artic Delights</h3>
       <p>Get a sneak peek behind the scenes at our shop! Meet our passionate team and see how we create our delicious ice cream flavors daily.</p>
@@ -455,107 +794,514 @@
         <input type="text" id="billing-country" placeholder="Country" required>
     </div>
 
-    <button class="payment-button" onclick="confirmPayment()">Confirm Payment</button>
+    <button class="order"><span class="default">Complete Order</span><span class="success">Order Placed<svg viewbox="0 0 12 10"></svg></span>
+      <div class="box"></div>
+    <div class="truck">
+        <div class="back"></div>
+        <div class="front">
+            <div class="window"></div>
+        </div>
+        <div class="light top"></div>
+        <div class="light bottom"></div>
+    </div>
+    <div class="lines"></div>
+</button>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script><script  src="./script.js"></script>
+<style>
+  :root {
+  --primary: #f6f8ff;
+  --primary-light: #7699FF;
+  --dark: #1C212E;
+  --grey-dark: #3F4656;
+  --grey: #6C7486;
+  --grey-light: #CDD9ED;
+  --white: #FFF;
+  --green: #16BF78;
+  --sand: #DCB773;
+  --sand-light: #EDD9A9;
+}
+.order {
+  appearance: none;
+  border: 0;
+  background: var(--dark);
+  position: relative;
+  height: 63px;
+  width: 240px;
+  padding: 0;
+  outline: none;
+  cursor: pointer;
+  border-radius: 32px;
+  /* -webkit-mask-image: -webkit-radial-gradient(white, black); */
+  -webkit-tap-highlight-color: transparent;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+.order span {
+  --o: 1;
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+  top: 19px;
+  line-height: 24px;
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 500;
+  opacity: var(--o);
+  transition: opacity 0.3s ease;
+}
+.order span.default {
+  transition-delay: 0.3s;
+}
+.order span.success {
+  --offset: 16px;
+  --o: 0;
+}
+.order span.success svg {
+  width: 12px;
+  height: 10px;
+  display: inline-block;
+  vertical-align: top;
+  fill: none;
+  margin: 7px 0 0 4px;
+  stroke: var(--green);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 16px;
+  stroke-dashoffset: var(--offset);
+  transition: stroke-dashoffset 0.3s ease;
+}
+.order:active {
+  transform: scale(0.96);
+}
+.order .lines {
+  opacity: 0;
+  position: absolute;
+  height: 3px;
+  background: var(--white);
+  border-radius: 2px;
+  width: 6px;
+  top: 30px;
+  left: 100%;
+  box-shadow: 15px 0 0 var(--white), 30px 0 0 var(--white), 45px 0 0 var(--white), 60px 0 0 var(--white), 75px 0 0 var(--white), 90px 0 0 var(--white), 105px 0 0 var(--white), 120px 0 0 var(--white), 135px 0 0 var(--white), 150px 0 0 var(--white), 165px 0 0 var(--white), 180px 0 0 var(--white), 195px 0 0 var(--white), 210px 0 0 var(--white), 225px 0 0 var(--white), 240px 0 0 var(--white), 255px 0 0 var(--white), 270px 0 0 var(--white), 285px 0 0 var(--white), 300px 0 0 var(--white), 315px 0 0 var(--white), 330px 0 0 var(--white);
+}
+.order .back, .order .box {
+  --start: var(--white);
+  --stop: var(--grey-light);
+  border-radius: 2px;
+  background: linear-gradient(var(--start), var(--stop));
+  position: absolute;
+}
+.order .truck {
+  width: 60px;
+  height: 41px;
+  left: 100%;
+  z-index: 1;
+  top: 11px;
+  position: absolute;
+  transform: translateX(24px);
+}
+.order .truck:before, .order .truck:after {
+  --r: -90deg;
+  content: '';
+  height: 2px;
+  width: 20px;
+  right: 58px;
+  position: absolute;
+  display: block;
+  background: var(--white);
+  border-radius: 1px;
+  transform-origin: 100% 50%;
+  transform: rotate(var(--r));
+}
+.order .truck:before {
+  top: 4px;
+}
+.order .truck:after {
+  --r: 90deg;
+  bottom: 4px;
+}
+.order .truck .back {
+  left: 0;
+  top: 0;
+  width: 60px;
+  height: 41px;
+  z-index: 1;
+}
+.order .truck .front {
+  overflow: hidden;
+  position: absolute;
+  border-radius: 2px 9px 9px 2px;
+  width: 26px;
+  height: 41px;
+  left: 60px;
+}
+.order .truck .front:before, .order .truck .front:after {
+  content: '';
+  position: absolute;
+  display: block;
+}
+.order .truck .front:before {
+  height: 13px;
+  width: 2px;
+  left: 0;
+  top: 14px;
+  background: linear-gradient(var(--grey), var(--grey-dark));
+}
+.order .truck .front:after {
+  border-radius: 2px 9px 9px 2px;
+  background: var(--primary);
+  width: 24px;
+  height: 41px;
+  right: 0;
+}
+.order .truck .front .window {
+  overflow: hidden;
+  border-radius: 2px 8px 8px 2px;
+  background: var(--primary-light);
+  transform: perspective(4px) rotateY(3deg);
+  width: 22px;
+  height: 41px;
+  position: absolute;
+  left: 2px;
+  top: 0;
+  z-index: 1;
+  transform-origin: 0 50%;
+}
+.order .truck .front .window:before, .order .truck .front .window:after {
+  content: '';
+  position: absolute;
+  right: 0;
+}
+.order .truck .front .window:before {
+  top: 0;
+  bottom: 0;
+  width: 14px;
+  background: var(--dark);
+}
+.order .truck .front .window:after {
+  width: 14px;
+  top: 7px;
+  height: 4px;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.14);
+  transform: skewY(14deg);
+  box-shadow: 0 7px 0 rgba(255, 255, 255, 0.14);
+}
+.order .truck .light {
+  width: 3px;
+  height: 8px;
+  left: 83px;
+  transform-origin: 100% 50%;
+  position: absolute;
+  border-radius: 2px;
+  transform: scaleX(0.8);
+  background: #f0dc5f;
+}
+.order .truck .light:before {
+  content: '';
+  height: 4px;
+  width: 7px;
+  opacity: 0;
+  transform: perspective(2px) rotateY(-15deg) scaleX(0.94);
+  position: absolute;
+  transform-origin: 0 50%;
+  left: 3px;
+  top: 50%;
+  margin-top: -2px;
+  background: linear-gradient(90deg, #f0dc5f, rgba(240, 220, 95, 0.7), rgba(240, 220, 95, 0));
+}
+.order .truck .light.top {
+  top: 4px;
+}
+.order .truck .light.bottom {
+  bottom: 4px;
+}
+.order .box {
+  --start: var(--sand-light);
+  --stop: var(--sand);
+  width: 21px;
+  height: 21px;
+  right: 100%;
+  top: 21px;
+}
+.order .box:before, .order .box:after {
+  content: '';
+  top: 10px;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+.order .box:before {
+  height: 3px;
+  margin-top: -1px;
+  background: rgba(0, 0, 0, 0.1);
+}
+.order .box:after {
+  height: 1px;
+  background: rgba(0, 0, 0, 0.15);
+}
+.order.animate .default {
+  --o: 0;
+  transition-delay: 0s;
+}
+.order.animate .success {
+  --offset: 0;
+  --o: 1;
+  transition-delay: 7s;
+}
+.order.animate .success svg {
+  transition-delay: 7.3s;
+}
+.order.animate .truck {
+  animation: truck 10s ease forwards;
+}
+.order.animate .truck:before {
+  animation: door1 2.4s ease forwards 0.3s;
+}
+.order.animate .truck:after {
+  animation: door2 2.4s ease forwards 0.6s;
+}
+.order.animate .truck .light:before, .order.animate .truck .light:after {
+  animation: light 10s ease forwards;
+}
+.order.animate .box {
+  animation: box 10s ease forwards;
+}
+.order.animate .lines {
+  animation: lines 10s ease forwards;
+}
+@keyframes truck {
+  10%, 30% {
+    transform: translateX(-164px);
+  }
+  40% {
+    transform: translateX(-104px);
+  }
+  60% {
+    transform: translateX(-224px);
+  }
+  75%, 100% {
+    transform: translateX(24px);
+  }
+}
+@keyframes lines {
+  0%, 30% {
+    opacity: 0;
+    transform: scaleY(0.7) translateX(0);
+  }
+  35%, 65% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0;
+  }
+  100% {
+    transform: scaleY(0.7) translateX(-400px);
+  }
+}
+@keyframes light {
+  0%, 30% {
+    opacity: 0;
+    transform: perspective(2px) rotateY(-15deg) scaleX(0.88);
+  }
+  40%, 100% {
+    opacity: 1;
+    transform: perspective(2px) rotateY(-15deg) scaleX(0.94);
+  }
+}
+@keyframes door1 {
+  30%, 50% {
+    transform: rotate(32deg);
+  }
+}
+@keyframes door2 {
+  30%, 50% {
+    transform: rotate(-32deg);
+  }
+}
+@keyframes box {
+  8%, 10% {
+    transform: translateX(40px);
+    opacity: 1;
+  }
+  25% {
+    transform: translateX(112px);
+    opacity: 1;
+  }
+  26% {
+    transform: translateX(112px);
+    opacity: 0;
+  }
+  27%, 100% {
+    transform: translateX(0px);
+    opacity: 0;
+  }
+}
+
+</style>
+<script>
+  $('.order').click(function(e) {
+    let button = $(this);
+
+    if(!button.hasClass('animate')) {
+        button.addClass('animate');
+        setTimeout(() => {
+            button.removeClass('animate');
+        }, 10000);
+    }
+
+});
+</script>
 </section>
 <!-- Payment Section Ends Here -->
 
     <br>
 <br>
+
   
+<!--Review section for adding reviews-->
+<div class="visme_d" data-title="Product Research Survey" data-url="n0e30n6n-product-research-survey" data-domain="forms" data-full-page="false" data-min-height="500px" data-form-id="97006"></div><script src="https://static-bundles.visme.co/forms/vismeforms-embed.js"></script>
+<!--Review adding section ended here-->
+<br>
+
+<!--Review Section added-->
+<div class="container">
+  <div class="container__left">
+    <h1 data-aos="zoom-out-down" >Read what our customers love about our ice cream</h1>
+    <p data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200">
+      Over 200 ice cream enthusiasts from different places savor our unique
+      flavors and can't get enough of our delicious offerings.
+    </p>
+    <p data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200">
+      We have made every scoop a memorable experience, bringing smiles and
+      joy with our artisanal ice cream creations.
+    </p>
+    <button data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200">Read our customer stories</button>
+  </div>
+  <div class="container__right">
+    <div class="card" data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200">
+      <img src="https://images.unsplash.com/photo-1482961674540-0b0e8363a005?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fG1hbnxlbnwwfHwwfHx8MA%3D%3D" alt="customer" />
+      <div class="card__content">
+        <span><i class="ri-double-quotes-l"></i></span>
+        <div class="card__details" >
+          <p >
+            " The salted caramel flavor was heavenly! The smooth texture and the rich taste won me over completely."
+          </p>
+          <h4>- Marnus Stephen</h4>
+        </div>
+      </div>
+    </div>
+    <div class="card" data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200">
+      <img src="https://plus.unsplash.com/premium_photo-1689539137236-b68e436248de?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="customer" width="400"/>
+      <div class="card__content">
+        <span><i class="ri-double-quotes-l"></i></span>
+        <div class="card__details">
+          <p>
+            " I tried the mango sorbet, and it was like biting into a fresh mango! I'll definitely be coming back for more."
+          </p>
+          <h4>- Andrew Jettpace</h4>
+        </div>
+      </div>
+    </div>
+    <div class="card" data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200">
+      <img src="https://plus.unsplash.com/premium_photo-1688385848467-781c5394c017?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHdvbWFufGVufDB8fDB8fHww" alt="customer" />
+      <div class="card__content">
+        <span><i class="ri-double-quotes-l"></i></span>
+        <div class="card__details">
+          <p>
+            " Hands down the best ice cream I've ever had! The strawberry cheesecake flavor was out of this world!  "
+          </p>
+          <h4>- Stacy Stone</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Review section ends-->
+
 <!--Review section for adding reviews-->
 <section class="review-section" id="review-section">
   <div class="review-container">
     <div class="review-left">
-      <img data-aos="zoom-out-down" src="https://images.unsplash.com/photo-1505394033641-40c6ad1178d7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8aWNlY3JlYW18ZW58MHx8MHx8fDA%3D" alt="Delicious Ice Cream" class="ice-cream-image">
+      <img data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200" src="https://images.unsplash.com/photo-1505394033641-40c6ad1178d7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8aWNlY3JlYW18ZW58MHx8MHx8fDA%3D" alt="Delicious Ice Cream" class="ice-cream-image">
     </div>
     <div class="review-right">
-      <h2 data-aos="zoom-out-down" >Share Your Ice Cream Experience!</h2>
-      <form>
-        <label for="user-name" data-aos="zoom-out-down">Your Name:</label>
-        <input type="text" id="user-name" name="user-name" data-aos="zoom-out-down" required>
+      <h2 data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200">Share Your Ice Cream Experience!</h2>
+<form id="review-form" onsubmit="storeReview(event)">
+  <label for="user-name" data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200">Your Name:</label>
+  <input type="text" id="user-name" name="user-name" data-aos="zoom-out-down" required>
+  
+  <label for="user-review" data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200">Your Review:</label>
+  <textarea id="user-review" name="user-review" rows="5" required data-aos="zoom-out-down"></textarea>
+  
+  <button type="submit" class="submit-button" data-aos="zoom-out-down">Submit Review</button>
+</form>
+<script>
+  // Function to store multiple reviews as JSON in local storage
+  function storeReview(event) {
+    event.preventDefault(); // Prevent default form submission
+    
+    const userName = document.getElementById('user-name').value.trim();
+    const userReview = document.getElementById('user-review').value.trim();
 
+    // Check if either field is empty
+    if (userName === '' || userReview === '') {
+      alert('Both name and review must be filled out before submitting!');
+      return; // Exit the function if fields are empty
+    }
 
- <div class="chatbot-container">
-        <a href="chatbot.html">
-            <button class="chatbot-button">
-                <img src="chatbot.gif" alt="chatbot" style="width: 50px; height: 50px;">
-                <span class="tooltip-text">
-                    Welcome to Ice-Cream Web! <br>
-                    How can I help You? ^_^ 
-                </span>
-            </button>
-        </a>
-    </div>
-        <label for="user-review" data-aos="zoom-out-down">Your Review:</label>
-        <textarea id="user-review" name="user-review" rows="5" required data-aos="zoom-out-down"></textarea>
+    // Create a JSON object for the new review
+    const newReview = {
+      name: userName,
+      review: userReview
+    };
 
-        <button type="submit" class="submit-button"  data-aos="zoom-out-down">Submit Review</button>
-      </form>
-    </div>
-  </div>
+    // Get existing reviews from local storage or initialize as an empty array
+    let reviews = JSON.parse(localStorage.getItem('reviews')) || [];
+
+    // Add the new review to the beginning of the array
+    reviews.unshift(newReview); // Adds new review to the top
+
+    // Store the updated array back in local storage
+    localStorage.setItem('reviews', JSON.stringify(reviews));
+
+    // Clear the form fields after submission
+    document.getElementById('user-name').value = '';
+    document.getElementById('user-review').value = '';
+
+    alert('Thank you for sharing your review!'); // Show a success message
+  }
+</script>
+
 </section>
+
+<script>
+  //chatbot added here!
+  window.embeddedChatbotConfig = {
+  chatbotId: "oSyGH_33H4whnPVyaVVwa",
+  domain: "www.chatbase.co"
+  }
+  </script>
+  <script
+  src="https://www.chatbase.co/embed.min.js"
+  chatbotId="oSyGH_33H4whnPVyaVVwa"
+  domain="www.chatbase.co"
+  defer>
+  </script>
 <!--Review adding section ended here-->
 <br>
-<!--Review Section added-->
-<div class="container">
-    <div class="container__left">
-      <h1 data-aos="zoom-out-down" >Read what our customers love about our ice cream</h1>
-      <p data-aos="zoom-out-down">
-        Over 200 ice cream enthusiasts from different places savor our unique
-        flavors and can't get enough of our delicious offerings.
-      </p>
-      <p data-aos="zoom-out-down">
-        We have made every scoop a memorable experience, bringing smiles and
-        joy with our artisanal ice cream creations.
-      </p>
-      <button data-aos="zoom-out-down">Read our customer stories</button>
-    </div>
-    <div class="container__right">
-      <div class="card" data-aos="zoom-out-down">
-        <img src="https://images.unsplash.com/photo-1482961674540-0b0e8363a005?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fG1hbnxlbnwwfHwwfHx8MA%3D%3D" alt="customer" />
-        <div class="card__content">
-          <span><i class="ri-double-quotes-l"></i></span>
-          <div class="card__details" >
-            <p >
-              " The salted caramel flavor was heavenly! The smooth texture and the rich taste won me over completely."
-            </p>
-            <h4>- Marnus Stephen</h4>
-          </div>
-        </div>
-      </div>
-      <div class="card" data-aos="zoom-out-down">
-        <img src="https://plus.unsplash.com/premium_photo-1689539137236-b68e436248de?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="customer" width="400"/>
-        <div class="card__content">
-          <span><i class="ri-double-quotes-l"></i></span>
-          <div class="card__details">
-            <p>
-              " I tried the mango sorbet, and it was like biting into a fresh mango! I'll definitely be coming back for more."
-            </p>
-            <h4>- Andrew Jettpace</h4>
-          </div>
-        </div>
-      </div>
-      <div class="card" data-aos="zoom-out-down">
-        <img src="https://plus.unsplash.com/premium_photo-1688385848467-781c5394c017?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHdvbWFufGVufDB8fDB8fHww" alt="customer" />
-        <div class="card__content">
-          <span><i class="ri-double-quotes-l"></i></span>
-          <div class="card__details">
-            <p>
-              " Hands down the best ice cream I've ever had! The strawberry cheesecake flavor was out of this world!  "
-            </p>
-            <h4>- Stacy Stone</h4>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-<!--Review section ends-->
+
 
 <!-- Footer Section Starts Here -->
 
     <section class="footer" id="footer">
-
+<div>
+    <img src="https://hits.sh/arcticdelights.netlify.app.svg?label=Website%20Visitors&extraCount=6520&color=FE6648&labelColor=white" alt="web-views">
+</div>
 <div class="social-icons">
     <a href="#"><i class="fa-brands fa-linkedin"></i></a>
     <a href="#"><i class="fa-brands fa-facebook"></i></a>
@@ -575,7 +1321,7 @@
 </div> -->
 
         <div class="credit">
-            <p> created by <span> Dohina</span> | all rights reserved
+            <p> created by <span> Dohina</span> | <a href="copyright.html"> &copy;Copyright 2024 </a> | all rights reserved
             <p>
         </div>
 
@@ -638,6 +1384,60 @@
     <script>
         AOS.init();
       </script>
+      <script>
+        // Coordinates for the cursor
+        const coords = { x: 0, y: 0 };
+        const circles = document.querySelectorAll(".circle");
+
+        // Colors for the circles
+        const colors = [
+          "#ffb56b", "#fdaf69", "#f89d63", "#f59761", "#ef865e", "#ec805d",
+          "#e36e5c", "#df685c", "#d5585c", "#d1525c", "#c5415d", "#c03b5d",
+          "#b22c5e", "#ac265e", "#9c155f", "#950f5f", "#830060", "#7c0060",
+          "#680060", "#60005f", "#48005f", "#3d005e"
+        ];
+
+        // Assign colors and initial position to each circle
+        circles.forEach(function (circle, index) {
+          circle.x = 0;
+          circle.y = 0;
+          circle.style.backgroundColor = colors[index % colors.length];
+        });
+
+        // Update the coordinates when the mouse moves
+        window.addEventListener("mousemove", function (e) {
+          coords.x = e.clientX;
+          coords.y = e.clientY;
+        });
+
+        // Animation function to move the circles
+        function animateCircles() {
+          let x = coords.x;
+          let y = coords.y;
+
+          circles.forEach(function (circle, index) {
+            // Update the position and scale of each circle
+            circle.style.left = x - 12 + "px";
+            circle.style.top = y - 12 + "px";
+            circle.style.scale = (circles.length - index) / circles.length;
+
+            circle.x = x;
+            circle.y = y;
+
+            // Get the next circle in the sequence
+            const nextCircle = circles[index + 1] || circles[0];
+            x += (nextCircle.x - x) * 0.3;
+            y += (nextCircle.y - y) * 0.3;
+          });
+
+          // Repeat the animation
+          requestAnimationFrame(animateCircles);
+        }
+
+        // Start the animation
+        animateCircles();
+      </script>
+      
 </body>
 
 </html>
