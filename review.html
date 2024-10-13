@@ -20,12 +20,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <style>
         html {
-    scroll-behavior: smooth;
-}
+            scroll-behavior: smooth;
+        }
+
         body {
-           
+
             background: rgb(255, 255, 255);
-           
+
         }
 
         .r-container {
@@ -37,7 +38,7 @@
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
             color: black;
             margin: 0 auto;
-            border: 3px #5c3601 solid ;
+            border: 3px #5c3601 solid;
         }
 
         header {
@@ -138,12 +139,12 @@
             width: 80%;
             background-color: #fdedd3b1;
             border-radius: 2rem;
-            
+
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
             color: black;
             margin: 0 auto;
             margin-top: 30px;
-            border: 3px #5c3601 solid ;
+            border: 3px #5c3601 solid;
         }
 
         #reviews-section h2 {
@@ -171,6 +172,7 @@
             transition: transform 0.6s ease-out, opacity 0.6s ease-out;
 
         }
+
         /* When the sliding effect is triggered */
         .show {
             opacity: 1;
@@ -183,140 +185,162 @@
 
         /* For reviews */
         /* Reviews List Styles */
-ul#reviews-list {
-    
-    list-style-type: none; /* Remove bullet points */
-    padding: 0; /* Remove default padding */
-    margin: 0 auto; /* Center the list */
-    width: 100%;
-    gap: 10px;
-    
-}
+        ul#reviews-list {
 
-li.review-item {
-    background-color: #fff; /* Background for the review */
-    border: 1px solid #ddd; /* Light border around each review */
-    border-radius: 8px; /* Rounded corners */
-    padding: 20px; /* Padding inside each review */
-    margin-bottom: 15px; /* Space between reviews */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-    display: flex;
-    flex-direction: column; /* Flexbox for review image + content */
-    align-items: center; /* Vertically center content */
-    transition: transform 0.3s ease-in-out;
-    border: 2px solid #5c3601;
-    background-color:#f3eede;
-}
+            list-style-type: none;
+            /* Remove bullet points */
+            padding: 0;
+            /* Remove default padding */
+            margin: 0 auto;
+            /* Center the list */
+            width: 100%;
+            gap: 10px;
 
-li.review-item:hover {
-    transform: scale(1.05); /* Slight zoom on hover */
-}
+        }
 
-/* Review Image Styles */
-.review-image {
-    width: 100px; /* Set a fixed width for the image */
-    height: 100px; /* Fixed height */
-    border-radius: 50%; /* Make image circular */
-    object-fit: cover; /* Ensure the image fits the container without distortion */
-    margin-right: 20px; /* Space between the image and text */
-    border: 2px solid #ff6b81; /* Add a border to the image */
-}
+        li.review-item {
+            background-color: #fff;
+            /* Background for the review */
+            border: 1px solid #ddd;
+            /* Light border around each review */
+            border-radius: 8px;
+            /* Rounded corners */
+            padding: 20px;
+            /* Padding inside each review */
+            margin-bottom: 15px;
+            /* Space between reviews */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Add a subtle shadow */
+            display: flex;
+            flex-direction: column;
+            /* Flexbox for review image + content */
+            align-items: center;
+            /* Vertically center content */
+            transition: transform 0.3s ease-in-out;
+            border: 2px solid #5c3601;
+            background-color: #f3eede;
+        }
 
-/* Review Text & Rating */
-li.review-item h3 {
-    margin: 0;
-    font-size: 1.5em;
-    color: #333;
-    font-weight: bold;
-}
+        li.review-item:hover {
+            transform: scale(1.05);
+            /* Slight zoom on hover */
+        }
 
-li.review-item p {
-    margin: 5px 0;
-    color: #555;
-    line-height: 1.4;
-}
+        /* Review Image Styles */
+        .review-image {
+            width: 100px;
+            /* Set a fixed width for the image */
+            height: 100px;
+            /* Fixed height */
+            border-radius: 50%;
+            /* Make image circular */
+            object-fit: cover;
+            /* Ensure the image fits the container without distortion */
+            margin-right: 20px;
+            /* Space between the image and text */
+            border: 2px solid #ff6b81;
+            /* Add a border to the image */
+        }
 
-.review-rating {
-    font-size: 1.2em;
-    color: #ff6b81;
-    font-weight: bold;
-}
+        /* Review Text & Rating */
+        li.review-item h3 {
+            margin: 0;
+            font-size: 1.5em;
+            color: #333;
+            font-weight: bold;
+        }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    li.review-item {
-        flex-direction: column; /* Stack image and content on smaller screens */
-        text-align: center;
-    }
+        li.review-item p {
+            margin: 5px 0;
+            color: #555;
+            line-height: 1.4;
+        }
 
-    .review-image {
-        margin-right: 0;
-        margin-bottom: 10px;
-    }
-}
+        .review-rating {
+            font-size: 1.2em;
+            color: #ff6b81;
+            font-weight: bold;
+        }
 
-/* Styles of sub-menu */
-.sub-menu{
-    display: flex;
-    justify-content: space-between;
-    padding: 15px;
-    margin-bottom: 20px;
-    background-color: #5c3601;
-    width: 100%;
-    margin-top: 0;
-}
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            li.review-item {
+                flex-direction: column;
+                /* Stack image and content on smaller screens */
+                text-align: center;
+            }
 
-.logo img{
-    width: 150px;
-}
-.home-link{
-    margin-top:auto;
-    margin-bottom: 40px;
-}
+            .review-image {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+        }
 
-.sub-menu .home-link {
-    text-decoration: none;
-    font-size: 1.2rem;
-    color: white;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
+        /* Styles of sub-menu */
+        .sub-menu {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
+            margin-bottom: 20px;
+            background-color: #5c3601;
+            width: 100%;
+            margin-top: 0;
+        }
 
-.sub-menu .home-link:hover {
-    color: #ff4a62;
-}
+        .logo img {
+            width: 150px;
+        }
+
+        .home-link {
+            margin-top: auto;
+            margin-bottom: 40px;
+        }
+
+        .sub-menu .home-link {
+            text-decoration: none;
+            font-size: 1.2rem;
+            color: white;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .sub-menu .home-link:hover {
+            color: #ff4a62;
+        }
 
 
-/* Background gradient */
-/* Add the gradient background to the body or a specific container */
-.gradient-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(270deg, #f6f6f6, #ffe66d, #a6954f, #dbd6da, #ffa16b);
-    background-size: 400% 400%;
-    z-index: -10;
-    animation: gradientAnimation 10s ease infinite;
-}
+        /* Background gradient */
+        /* Add the gradient background to the body or a specific container */
+        .gradient-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(270deg, #f6f6f6, #ffe66d, #a6954f, #dbd6da, #ffa16b);
+            background-size: 400% 400%;
+            z-index: -10;
+            animation: gradientAnimation 10s ease infinite;
+        }
 
-/* Keyframes for the gradient animation */
-@keyframes gradientAnimation {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-ul.review-list{
-    overflow: hidden;
-}
+        /* Keyframes for the gradient animation */
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
 
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        ul.review-list {
+            overflow: hidden;
+        }
     </style>
 
 </head>
@@ -400,6 +424,11 @@ ul.review-list{
             customerReviews.classList.add('show');
         });
 
+        document.addEventListener('DOMContentLoaded', function () {
+            const storedReviews = JSON.parse(localStorage.getItem('reviews')) || [];
+            storedReviews.forEach(review => addReviewToPage(review));
+        });
+
         document.getElementById('reviewForm').addEventListener('submit', function (event) {
             event.preventDefault(); // Prevent form submission
 
@@ -419,9 +448,18 @@ ul.review-list{
             // Add the review to the list
             addReviewToPage(review);
 
+            // Save the review to local storage
+            saveReviewToLocalStorage(review);
+
             // Clear form after submission
             document.getElementById('reviewForm').reset();
         });
+
+        function saveReviewToLocalStorage(review) {
+            let reviews = JSON.parse(localStorage.getItem('reviews')) || [];
+            reviews.push(review);
+            localStorage.setItem('reviews', JSON.stringify(reviews));
+        }
 
         function addReviewToPage(review) {
             const reviewsList = document.getElementById('reviews-list');
