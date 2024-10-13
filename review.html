@@ -1,0 +1,466 @@
+<!--Artic delights: Review Page , to display all the reviews and feedbacks-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arctic Delights</title>
+    <link rel="icon"
+        href="https://purepng.com/public/uploads/large/purepng.com-ice-creamice-creamcreamfrozensweet-1411527617895aiuhx.png"
+        type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!--Updated to latest version-->
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        html {
+    scroll-behavior: smooth;
+}
+        body {
+           
+            background: rgb(255, 255, 255);
+           
+        }
+
+        .r-container {
+            width: 80%;
+            background-color: #fdedd3b1;
+            border-radius: 2rem;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            color: black;
+            margin: 0 auto;
+            border: 3px #5c3601 solid ;
+        }
+
+        header {
+            background-color: #fdedd3b1;
+
+        }
+
+        h1 {
+            margin: 0 auto;
+            font-size: 3.5rem;
+        }
+
+        /* Review Form */
+        #review-form {
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            font-size: 2rem;
+
+
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            color: rgba(35, 23, 23, 0.897);
+        }
+
+        input[type="text"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1em;
+            background-color: #ffffff;
+        }
+
+        textarea {
+            height: 100px;
+        }
+
+        button.btn {
+            background-color: #ff6b81;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+
+        button.btn:hover {
+            background-color: #ff4a62;
+        }
+
+        /* Reviews Section */
+        #reviews-section {
+            margin-top: 30px;
+        }
+
+        ul#reviews-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li.review-item {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 15px;
+            margin-bottom: 10px;
+        }
+
+        li.review-item h3 {
+            margin: 0;
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        li.review-item p {
+            margin: 5px 0;
+            color: #555;
+        }
+
+        .review-rating {
+            font-size: 1.1em;
+            color: #ff6b81;
+            font-weight: bold;
+        }
+
+        /* Review container */
+        .customer-review-container {
+            width: 80%;
+            background-color: #fdedd3b1;
+            border-radius: 2rem;
+            
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            color: black;
+            margin: 0 auto;
+            margin-top: 30px;
+            border: 3px #5c3601 solid ;
+        }
+
+        #reviews-section h2 {
+
+            text-align: center;
+            font-size: 3rem;
+        }
+
+        /* Adding transition to the blocks */
+        /* Initial hidden state for sliding effect */
+        .hidden {
+            opacity: 0;
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-100%);
+            /* Slide in from the left */
+            transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+        }
+
+        .slide-in-right {
+            transform: translateX(100%);
+            /* Slide in from the right */
+            transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+
+        }
+        /* When the sliding effect is triggered */
+        .show {
+            opacity: 1;
+            transform: translateX(0);
+            /* Moves back to its normal position */
+        }
+
+
+        /* For the second block sliding from the right */
+
+        /* For reviews */
+        /* Reviews List Styles */
+ul#reviews-list {
+    
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove default padding */
+    margin: 0 auto; /* Center the list */
+    width: 100%;
+    gap: 10px;
+    
+}
+
+li.review-item {
+    background-color: #fff; /* Background for the review */
+    border: 1px solid #ddd; /* Light border around each review */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Padding inside each review */
+    margin-bottom: 15px; /* Space between reviews */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    display: flex;
+    flex-direction: column; /* Flexbox for review image + content */
+    align-items: center; /* Vertically center content */
+    transition: transform 0.3s ease-in-out;
+    border: 2px solid #5c3601;
+    background-color:#f3eede;
+}
+
+li.review-item:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Review Image Styles */
+.review-image {
+    width: 100px; /* Set a fixed width for the image */
+    height: 100px; /* Fixed height */
+    border-radius: 50%; /* Make image circular */
+    object-fit: cover; /* Ensure the image fits the container without distortion */
+    margin-right: 20px; /* Space between the image and text */
+    border: 2px solid #ff6b81; /* Add a border to the image */
+}
+
+/* Review Text & Rating */
+li.review-item h3 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #333;
+    font-weight: bold;
+}
+
+li.review-item p {
+    margin: 5px 0;
+    color: #555;
+    line-height: 1.4;
+}
+
+.review-rating {
+    font-size: 1.2em;
+    color: #ff6b81;
+    font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    li.review-item {
+        flex-direction: column; /* Stack image and content on smaller screens */
+        text-align: center;
+    }
+
+    .review-image {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+}
+
+/* Styles of sub-menu */
+.sub-menu{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #5c3601;
+    width: 100%;
+    margin-top: 0;
+}
+
+.logo img{
+    width: 150px;
+}
+.home-link{
+    margin-top:auto;
+    margin-bottom: 40px;
+}
+
+.sub-menu .home-link {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: white;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.sub-menu .home-link:hover {
+    color: #ff4a62;
+}
+
+
+/* Background gradient */
+/* Add the gradient background to the body or a specific container */
+.gradient-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(270deg, #f6f6f6, #ffe66d, #a6954f, #dbd6da, #ffa16b);
+    background-size: 400% 400%;
+    z-index: -10;
+    animation: gradientAnimation 10s ease infinite;
+}
+
+/* Keyframes for the gradient animation */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+ul.review-list{
+    overflow: hidden;
+}
+
+    </style>
+
+</head>
+
+<body class="gradient-background">
+    <div class="sub-menu">
+        <a href="#" class="logo">
+            <img src="https://purepng.com/public/uploads/large/purepng.com-ice-creamice-creamcreamfrozensweet-1411527617895aiuhx.png"
+                alt="Logo">
+        </a>
+        <a href="index.html" class="home-link">HOME</a>
+    </div>
+
+    <div class="r-container slide-in-left">
+
+
+        <section id="review-form">
+            <header>
+                <h1>🍦 Arctic Reviews 🍦</h1>
+            </header>
+            <h2>Submit Your Review</h2>
+            <form id="reviewForm">
+                <div class="form-group">
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="reviewText">Your Review:</label>
+                    <textarea id="reviewText" name="reviewText" placeholder="Enter your review here"
+                        required></textarea>
+                </div>
+
+                <!-- Add a file input for the image -->
+                <div class="form-group">
+                    <label for="reviewImage">Upload an Image:</label>
+                    <input type="file" id="reviewImage" name="reviewImage" accept="image/*">
+                </div>
+
+                <div class="form-group">
+                    <label for="rating">Rating:</label>
+                    <select id="rating" name="rating" required>
+                        <option value="5">5 - Excellent</option>
+                        <option value="4">4 - Good</option>
+                        <option value="3">3 - Average</option>
+                        <option value="2">2 - Below Average</option>
+                        <option value="1">1 - Poor</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn">Submit Review</button>
+            </form>
+        </section>
+    </div>
+    <div class="customer-review-container slide-in-right hidden">
+        <section id="reviews-section">
+            <h2>Customer Reviews</h2>
+            <ul id="reviews-list"></ul>
+            <li class="review-item">
+                <h3>Emily</h3>
+                <p>The Arctic Delight flavors are simply amazing! The Strawberry Blast is my favorite.</p>
+                <p class="review-rating">Rating: 5/5</p>
+            </li>
+            <li class="review-item">
+                <h3>David</h3>
+                <p>I loved the texture and creaminess of the Vanilla Dream! Will definitely recommend it to others.</p>
+                <p class="review-rating">Rating: 4/5</p>
+            </li>
+        </section>
+    </div>
+    </div>
+    <script>
+        // When the page loads
+        window.addEventListener('load', function () {
+            // Get both the sections
+            const reviewForm = document.querySelector('.r-container');
+            const customerReviews = document.querySelector('.customer-review-container');
+
+            // Add the 'show' class to trigger the sliding animation
+            reviewForm.classList.add('show');
+            customerReviews.classList.add('show');
+        });
+
+        document.getElementById('reviewForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Get form values
+            const name = document.getElementById('name').value;
+            const reviewText = document.getElementById('reviewText').value;
+            const rating = document.getElementById('rating').value;
+            const reviewImage = document.getElementById('reviewImage').files[0];
+            // Create review object
+            const review = {
+                name: name,
+                text: reviewText,
+                rating: rating,
+                image: reviewImage ? URL.createObjectURL(reviewImage) : null
+            };
+
+            // Add the review to the list
+            addReviewToPage(review);
+
+            // Clear form after submission
+            document.getElementById('reviewForm').reset();
+        });
+
+        function addReviewToPage(review) {
+            const reviewsList = document.getElementById('reviews-list');
+
+            // Create the review item elements
+            const reviewItem = document.createElement('li');
+            reviewItem.className = 'review-item';
+
+            const reviewName = document.createElement('h3');
+            reviewName.textContent = review.name;
+
+            const reviewText = document.createElement('p');
+            reviewText.textContent = review.text;
+
+            if (review.image) {
+                const reviewImage = document.createElement('img');
+                reviewImage.src = review.image;
+                reviewImage.alt = 'Review Image';
+                reviewImage.className = 'review-image';
+
+                reviewItem.appendChild(reviewImage);
+
+            }
+
+            const reviewRating = document.createElement('p');
+            reviewRating.className = 'review-rating';
+            reviewRating.textContent = `Rating: ${review.rating}/5`;
+
+            // Append the elements to the review item
+            reviewItem.appendChild(reviewName);
+            reviewItem.appendChild(reviewText);
+            reviewItem.appendChild(reviewRating);
+
+            // Append the review item to the reviews list
+            reviewsList.appendChild(reviewItem);
+        }
+
+    </script>
+
+</body>
+
+</html>
