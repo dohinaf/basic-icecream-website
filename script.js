@@ -174,7 +174,31 @@ function clearWishlist() {
     displayWishlist();
 }
 
-
+let quantities = {
+    'Nutty Butterscotch': 1,
+    'Berry Pops': 1,
+    'Cherry Sherbet Pops': 1,
+    'Dripping Vannila': 1,
+    'Very Berry Strawberry': 1,
+    'Rainbow Classic Cone': 1,
+    'Orange Pops': 1,
+    'Choco Hazel Pops': 1,
+    'Very Very Peachy': 1
+  };
+  
+  // Increase quantity
+  function increaseQuantity(itemId) {
+    quantities[itemId]++;
+    document.getElementById(`itemQuantity-${itemId}`).innerText = quantities[itemId];
+  }
+  
+  // Decrease quantity
+  function decreaseQuantity(itemId) {
+    if (quantities[itemId] > 1) {
+      quantities[itemId]--;
+      document.getElementById(`itemQuantity-${itemId}`).innerText = quantities[itemId];
+    }
+  }
 
 
  
@@ -184,7 +208,7 @@ function clearWishlist() {
 function addToCart(productName, price) {
     const existingItem = cart.find(item => item.name === productName);
     
-    if (!existingItem) {
+    if (existingItem) {
         // Add the product to the cart
         cart.push({ name: productName, price: price });
          // Notify the user
@@ -205,7 +229,9 @@ function addToCart(productName, price) {
             removeFromWishlist(wishlistIndex);
         }
     } else {
-        alert(`${productName} is already in your cart!`); // Alert if the item is already in the cart
+        cart.push({ name: productName, price: price });
+        // Notify the user
+       displayCart(); 
     }
 }
 
@@ -229,12 +255,13 @@ function displayCart() {
 
     // Count the number of items in the cart
     const itemCount = cart.length;
-
     cart.forEach((item, index) => {
         cartItemsHTML += `<li>${item.name} - $${item.price.toFixed(2)} 
             <button onclick="removeFromCart(${index})">Remove</button></li>`;
         total += item.price;
     });
+
+       
 
     // Update cart items display
     cartItemsElement.innerHTML = cartItemsHTML;
@@ -250,20 +277,6 @@ function displayCart() {
 }
 
 
-// Function to simulate checkout
-// function checkout() {
-//     if (cart.length === 0) {
-//         alert('Your cart is empty. Please add some items.');
-//         return;
-//     }
-
-//     //redirect to a payment gateway or show a message
-//     alert('Redirecting to payment gateway...');
-
-//     // After payment, you can clear the cart
-//     cart = [];
-//     displayCart();
-// }
 
 
 function showSection(section) {

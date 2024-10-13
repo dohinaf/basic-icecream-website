@@ -117,6 +117,16 @@
       font-size: small;
     }
 
+    input[type="name"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
     input[type="email"] {
       width: 100%;
       padding: 10px;
@@ -124,7 +134,7 @@
       border: 1px solid #ccc;
       border-radius: 5px;
       font-size: 14px;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
     input[type="password"] {
       width: 100%;
@@ -133,14 +143,14 @@
       border: 1px solid #ccc;
       border-radius: 5px;
       font-size: 14px;
-      margin-bottom: 20px;
+      margin-bottom: 0px;
     }
     
  
 
     .signup-btn {
       width: 100%;
-      padding: 10px;
+      padding: 8px;
       background-color: black;
       color: white;
       border: none;
@@ -150,7 +160,7 @@
     }
 
     .signup-btn:hover {
-      background-color: #333;
+      background-color: #00ff15;
     }
 
     .no-thanks {
@@ -197,6 +207,14 @@
       color: white;
       font-size: 16px;
       height: 40px;
+    }
+    .plus-minus{
+      background-color: #fff8e7;
+      border: 0.5px solid #c69861;
+      color: #d3ad7f;
+      width: fit-content;
+      transition: background-color 0.3s ease, color 0.3s ease,
+      border-color 0.3s ease;
     }
   </style>
 <style>
@@ -311,9 +329,15 @@
             
         </div>
         <div class="icons login-signup-collection">
+
+<!-- 
             <button style="max-height: 40px;" id="login-btn" class="auth-btn">Login</button>
-            <!-- <p style="padding-right: 10px;">        </p> -->
-            <button style="max-height: 40px;" id="signup-btn" class="auth-btn">SignUp</button>
+            <p style="padding-right: 10px;">        </p>
+            <button style="max-height: 40px;" id="signup-btn" class="auth-btn">SignUp</button> -->
+
+             <button  style="max-height: 40px;" id="login-btn" class="auth-btn"><a href="./login/login.html">Login</a></button>
+             <button style="max-height: 40px;" id="login-btn" class="auth-btn"><a href="./signup/signup.html">signUp</a></button>
+
         </div>
 
     </header>
@@ -341,7 +365,9 @@
             <h2>Scoop Up the Savings!</h2>
             <p>Get 20% off on your first order when you Sign up.</p>
             <form id="emailForm">
-              <input type="email" id="email" placeholder="Enter your email" required>
+              <input type="name" id="name" placeholder="Enter your Name">
+              <input type="email" id="email" placeholder="Enter your Email" required>
+              <input type="password" id="password" placeholder="Enter your Password" required>
               <button type="submit" class="signup-btn">SIGN UP</button>
             </form>
             <a href="#" class="no-thanks">No thanks</a>
@@ -417,48 +443,6 @@
 
         </div>
     </section>
-    <!-- Login Modal -->
-<div id="login-modal" class="modal login-container">
-    <div class="login-card">
-      <div class="login-image">
-        <img src="https://static.vecteezy.com/system/resources/thumbnails/044/570/761/small_2x/assortment-of-colorful-ice-cream-scoops-in-waffle-cones-with-fresh-fruits-on-a-transparent-background-png.png" alt="Ice Cream" />
-      </div>
-      
-      <div class="modal-content login-form">
-        <span class="close-btn" id="close-login">&times;</span>
-        <h2>Login to Your Account</h2>
-        <form>
-          <h3>Email :-</h3>
-           <br>
-            <input type="email" placeholder="Email" required>
- 
-            <h3>Password :-</h3>
-             <br>
-            <input type="password" placeholder="Password" required class="inputFields">
-            <button type="submit">Login</button>
-            
-          <p>Don't have an account? <a href="#sign-modal">Sign up</a></p>
- 
-            
- 
-        </form>
-    </div>
-    </div>
-</div>
-
-<!-- Signup Modal -->
-<div id="signup-modal" class="modal">
-    <div class="modal-content">
-        <span class="close-btn" id="close-signup">&times;</span>
-        <h2>Sign Up</h2>
-        <form>
-            <input type="text" placeholder="Full Name" required>
-            <input type="email" placeholder="Email" required>
-            <input type="password" class="pass-btn" placeholder="Password" required>
-            <button type="submit" class="sign-btn">Sign Up</button>
-        </form>
-    </div>
-</div>
 
 
     <!-- About Section Ends Here -->
@@ -467,17 +451,19 @@
 
     <section class="menu" id="menu">
             <h1 data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
-        data-aos-anchor-placement="top-bottom">here's, what we have in store for you!</h1>
+        data-aos-anchor-placement="top-bottom" id="menu-title">here's, what we have in store for you!</h1>
 
+        <input type="text" id="flavor-filter" placeholder="Search Your flavor...">
+        <br>
         <div class="filter-box">
-            <h3  id="pro-name">Filter Ice Creams</h3>
+          
+            <h3 id="filter-head">Filter Ice Creams</h3>
             <select id="price-filter">
                 <option value="all">All Prices</option>
                 <option value="under-15">Under $15</option>
                 <option value="15-20">$15 - $20</option>
                 <option value="over-20">Over $20</option>
             </select>
-            <input type="text" id="flavor-filter" placeholder="Search by flavor...">
             <button id="apply-filter">Apply Filter</button>
             <button id="remove-filter">Remove Filter</button> <!-- New Remove Filter Button -->
         </div>
@@ -492,6 +478,11 @@
             </div>
                 <div class="price"> $15.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Nutty Butterscotch', 15.99)">Add to Cart</button><br>
+                <div class="noofitems">
+                  <button class="plus-minus" onclick="decreaseQuantity('Nutty Butterscotch')">-</button>
+                  <span id="itemQuantity-Nutty Butterscotch">1</span>
+                  <button class="plus-minus" onclick="increaseQuantity('Nutty Butterscotch')">+</button>
+              </div>
                 <button  id="inbox" onclick="addToWishlist('Nutty Butterscoth', 15.99)">Add to wishlist</button>
                 <button id="inbox" onclick="window.location.href='nut_butter.html';">Read more</button>
 
@@ -509,6 +500,11 @@
 
                 <div class="price"> $18.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Berry Pops', 18.99)">Add to Cart</button><br>
+                <div class="noofitems">
+                  <button class="plus-minus" onclick="decreaseQuantity('Berry Pops')">-</button>
+                  <span class ="text" id="itemQuantity-Berry Pops">1</span>
+                  <button class="plus-minus" onclick="increaseQuantity('Berry Pops')">+</button>
+              </div>
                 <button  id="inbox" onclick="addToWishlist('Berry Pops', 18.99)">Add to wishlist</button>
                 <button id="inbox" onclick="window.location.href='berry_pops.html';">Read more</button>
 
@@ -527,6 +523,11 @@
 
                 <div class="price"> $18.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Cherry Sherbet Pops', 18.99)">Add to Cart</button><br>
+                <div class="noofitems">
+                  <button class="plus-minus" onclick="decreaseQuantity('Cherry Sherbet Pops')">-</button>
+                  <span id="itemQuantity-Cherry Sherbet Pops">1</span>
+                  <button class="plus-minus" onclick="increaseQuantity('Cherry Sherbet Pops')">+</button>
+              </div>
                 <button  id="inbox" onclick="addToWishlist('Cherry Sherbet Pops', 18.99)">Add to wishlist</button>
                 <button id="inbox" onclick="window.location.href='cherry_pops.html';">Read more</button>
 
@@ -549,6 +550,11 @@
         
                 <div class="price"> $15.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Dripping Vannila', 15.99)">Add to Cart</button><br>
+                <div class="noofitems">
+                  <button class="plus-minus" onclick="decreaseQuantity('Dripping Vannila')">-</button>
+                  <span id="itemQuantity-Dripping Vannila">1</span>
+                  <button class="plus-minus" onclick="increaseQuantity('Dripping Vannila')">+</button>
+              </div>
                 <button  id="inbox" onclick="addToWishlist('Dripping Vannila', 15.99)">Add to wishlist</button>
                 <button id="inbox" onclick="window.location.href='drip_vanilla.html';">Read more</button>
             </div>
@@ -567,6 +573,11 @@
        
                 <div class="price"> $16.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Very Berry Strawberry', 16.99)">Add to Cart</button><br>
+                <div class="noofitems">
+                  <button class="plus-minus" onclick="decreaseQuantity('Very Berry Strawberry')">-</button>
+                  <span id="itemQuantity-Very Berry Strawberry">1</span>
+                  <button class="plus-minus" onclick="increaseQuantity('Very Berry Strawberry')">+</button>
+              </div>
                 <button  id="inbox" onclick="addToWishlist('Very Berry Strawberry', 16.99)">Add to wishlist</button>
                 <button id="inbox" onclick="window.location.href='very_straw.html';">Read more</button>
             </div>
@@ -584,6 +595,11 @@
             
                 <div class="price"> $18.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Rainbow Classic Cone', 18.99)">Add to Cart</button><br>
+                <div class="noofitems">
+                  <button class="plus-minus" onclick="decreaseQuantity('Rainbow Classic Cone')">-</button>
+                  <span id="itemQuantity-Rainbow Classic Cone">1</span>
+                  <button class="plus-minus" onclick="increaseQuantity('Rainbow Classic Cone')">+</button>
+              </div>
                 <button  id="inbox" onclick="addToWishlist('Rainbow Classic Cone', 18.99)">Add to wishlist</button>
                 <button id="inbox" onclick="window.location.href='rain_classic.html';">Read more</button>
             </div>
@@ -602,6 +618,11 @@
 
                 <div class="price"> $12.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Orange Pops', 12.99)">Add to Cart</button><br>
+                <div class="noofitems">
+                  <button class="plus-minus" onclick="decreaseQuantity('Orange Pops')">-</button>
+                  <span id="itemQuantity-Orange Pops">1</span>
+                  <button class="plus-minus" onclick="increaseQuantity('Orange Pops')">+</button>
+              </div>
                 <button  id="inbox" onclick="addToWishlist('Orange Pops', 12.99)">Add to wishlist</button>
                 <button id="inbox" onclick="window.location.href='orange_pops.html';">Read more</button>
 
@@ -621,6 +642,11 @@
             
                 <div class="price"> $18.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Choco-Hazel Pops', 18.99)">Add to Cart</button><br>
+                <div class="noofitems">
+                  <button class="plus-minus" onclick="decreaseQuantity('Choco-Hazel Pops')">-</button>
+                  <span id="itemQuantity-Choco-Hazel Pops">1</span>
+                  <button class="plus-minus" onclick="increaseQuantity('Choco-Hazel Pops')">+</button>
+              </div>
                 <button  id="inbox" onclick="addToWishlist('Choco-Hazel Pops', 18.99)">Add to wishlist</button>
                 <button id="inbox" onclick="window.location.href='choco_hazel.html';">Read more</button>
 
@@ -638,6 +664,11 @@
 
                 <div class="price"> $15.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Very Very Peachy',15.99)">Add to Cart</button><br>
+                <div class="noofitems">
+                  <button class="plus-minus" onclick="decreaseQuantity('Very Very Peachy')">-</button>
+                  <span id="itemQuantity-Very Very Peachy">1</span>
+                  <button class="plus-minus" onclick="increaseQuantity('Very Very Peachy')">+</button>
+              </div>
                 <button  id="inbox" onclick="addToWishlist('Very Very Peachy', 15.99)">Add to wishlist</button>
                 <button id="inbox" onclick="window.location.href='very_peachy.html';">Read more</button>
             </div>
@@ -655,6 +686,11 @@
             </div>
                 <div class="price"> $12.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Orange Pops', 12.99)">Add to Cart</button><br>
+                <div class="noofitems">
+                  <button class="plus-minus" onclick="decreaseQuantity('Orange Pops')">-</button>
+                  <span id="itemQuantity-Orange Pops">1</span>
+                  <button class="plus-minus" onclick="increaseQuantity('Orange Pops')">+</button>
+              </div>
                 <button  id="inbox" onclick="addToWishlist('Orange Pops', 12.99)">Add to wishlist</button>
                 <button id="inbox" onclick="window.location.href='orange_pops1.html';">Read more</button>
             </div>
@@ -673,6 +709,11 @@
 
                 <div class="price"> $18.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Choco-Hazel Pops', 18.99)">Add to Cart</button><br>
+                <div class="noofitems">
+                  <button class="plus-minus" onclick="decreaseQuantity('Choco-Hazel Pops')">-</button>
+                  <span id="itemQuantity-Choco-Hazel Pops">1</span>
+                  <button class="plus-minus" onclick="increaseQuantity('Choco-Hazel Pops')">+</button>
+              </div>
                 <button  id="inbox" onclick="addToWishlist('Choco-Hazel Pops', 18.99)">Add to wishlist</button>
                 <button id="inbox" onclick="window.location.href='choco_hazel.html';">Read more</button>
             </div>
@@ -692,6 +733,11 @@
 
                 <div class="price"> $15.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Very Very Peachy',15.99)">Add to Cart</button><br>
+                <div class="noofitems">
+                  <button class="plus-minus" onclick="decreaseQuantity('Very Very Peachy')">-</button>
+                  <span id="itemQuantity-Very Very Peachy">1</span>
+                  <button class="plus-minus" onclick="increaseQuantity('Very Very Peachy')">+</button>
+              </div>
                 <button  id="inbox" onclick="addToWishlist('Very Very Peachy', 15.99)">Add to wishlist</button>
                 <button id="inbox" onclick="window.location.href='very_peachy2.html';">Read more</button>
 
