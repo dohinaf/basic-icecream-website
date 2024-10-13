@@ -261,6 +261,7 @@
 <a href="#menu">Menu</a>
 <a href="#review-section">Review</a>
 <a href="#blogs">Blogs</a>
+<a href="#contributors">Contributors</a>
 <a href="contact.html">Contact Us</a>
 <a href="#" id="my-order-btn">My Orders</a>
 </nav>
@@ -1179,6 +1180,108 @@
 </script>
 </section>
 <!-- Payment Section Ends Here -->
+<!-- Thank You Section Starts Here -->
+ <style>
+  .contributors {
+    padding: 50px 20px;
+    background-color: rgb(240, 234, 234);;
+    text-align: center;
+}
+
+.contributors h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.contributors p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.contributors-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.contributors-list a {
+    text-decoration: none;
+    color: #333;
+    text-align: center;
+}
+
+.contributors-list img {
+    width: 100px; /* Adjust size as needed */
+    height: 100px; /* Adjust size as needed */
+    border-radius: 50%; /* Circular shape */
+    transition: transform 0.3s;
+}
+
+.contributors-list img:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+.contributors-list p {
+    margin-top: 8px;
+    font-size: 16px;
+}
+
+ </style>
+<!-- Thank You Section Starts Here -->
+<section class="contributors" id="contributors" data-aos="fade-up">
+  <div class="content">
+      <h2>Special Thanks to Our Contributors</h2>
+      <p>We want to extend our heartfelt gratitude to the amazing team of contributors who made ArcticDelights possible.</p>
+      <div class="contributors-list">
+          <!-- Contributor links will be dynamically inserted here -->
+      </div>
+      <p>Thank you for your hard work and dedication. ArcticDelights wouldn’t be the same without your contributions!</p>
+  </div>
+</section>
+<!-- Thank You Section Ends Here -->
+
+<!-- js for github contributos -->
+ <script>
+
+async function fetchContributors(owner, repo) {
+    const url = `https://api.github.com/repos/${owner}/${repo}/contributors`; // Corrected URL
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`Error: ${response.status}`);
+        }
+        const contributors = await response.json();
+        return contributors;
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+// Usage example
+fetchContributors('dohinaf', 'basic-icecream-website').then(contributors => {
+    const contributorsList = document.querySelector('.contributors-list');
+    contributors.forEach(contributor => {
+        const contributorElement = document.createElement('a');
+        contributorElement.href = contributor.html_url;
+        contributorElement.target = '_blank';
+
+        const img = document.createElement('img');
+        img.src = contributor.avatar_url;
+        img.alt = contributor.login;
+
+        const name = document.createElement('p');
+        name.textContent = contributor.login;
+
+        contributorElement.appendChild(img);
+        contributorElement.appendChild(name);
+        contributorsList.appendChild(contributorElement);
+    });
+});
+</script>
+
+<!-- Thank You Section Ends Here -->
+
 
     <br>
 <br>
