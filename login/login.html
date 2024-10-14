@@ -13,11 +13,16 @@
             <h2>Welcome Back!</h2>
             <form action="#" class="login-form">
                 <div class="input-group">
+                    <i class="fas fa-envelope"></i>
                     <input type="email" required>
                     <label>Email</label>
                 </div>
                 <div class="input-group">
-                    <input type="password" required>
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password" required>
+                    <span class="toggle-password" onclick="togglePasswordVisibility()">
+                        <i class="fas fa-eye" id="eye-icon"></i>
+                    </span>
                     <label>Password</label>
                 </div>
                 <button class="login-btn" type="submit">Login</button>

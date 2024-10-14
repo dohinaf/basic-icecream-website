@@ -13,15 +13,22 @@
             <h2>Create an Account</h2>
             <form action="#" class="signup-form">
                 <div class="input-group">
+                    <i class="fas fa-user"></i>
                     <input type="text" required>
                     <label>Username</label>
                 </div>
                 <div class="input-group">
+                    <i class="fas fa-envelope"></i>
                     <input type="email" required>
                     <label>Email</label>
                 </div>
                 <div class="input-group">
-                    <input type="password" required>
+                    <i class="fas fa-lock"></i>
+                    <input type="password"  id="password" required>
+                    <label>Password</label>
+                    <span class="toggle-password" onclick="togglePasswordVisibility()">
+                        <i class="fas fa-eye" id="eye-icon"></i>
+                    </span>
                     <label>Password</label>
                 </div>
                 <button class="signup-btn" type="submit">Sign Up</button>
