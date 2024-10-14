@@ -79,7 +79,7 @@ button {
   /* font-weight: bold; */
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   /* Use a CSS variable for text color to support both light and dark modes */
-  color: #d3ad7f;
+  color: #000000;
 
   /*background: var(--main-color);*/
   cursor: pointer;
