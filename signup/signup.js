@@ -29,6 +29,25 @@ card.addEventListener("mousemove", function (e) {
   }
 });
 
+// Sweet alert
+function showNotification(message) {
+  Swal.fire({
+    icon: 'success',
+    title: message,
+    showConfirmButton: false,
+    timer: 2000
+  });
+}
+
+function showNotificationError(message){
+  Swal.fire({
+      icon: 'error',
+      title: message,
+      showConfirmButton: false,
+      timer: 2000
+    });
+}
+
 card.addEventListener("mouseleave", function () {
   // Reset the card when the cursor leaves
   card.style.transform = "perspective(1000px)";
@@ -65,12 +84,16 @@ document.querySelector(".signup-form").addEventListener("submit", function (e) {
     // Save the updated users array back to local storage
     localStorage.setItem("users", JSON.stringify(existingUsers));
 
-    alert("We are happy to have you as a new customer!");
+    // alert("We are happy to have you as a new customer!");
+    showNotification('We are happy to have you as a new customer!');
 
     // Redirect to the home page
-    window.location.assign("../index.html"); // Change this to your desired home page
+    setTimeout(() => {
+      window.location.assign("../index.html"); // Change this to your desired home page
+  }, 5000);
   } else {
-    alert("Please fill in all fields.");
+    // alert("Please fill in all fields.");
+    showNotificationError("Please fill in all fields.")
   }
 
   document.querySelector(".signup-form").reset(); // Clear the form fields

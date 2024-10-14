@@ -34,6 +34,24 @@ function addHoverEffect(card) {
     card.style.transform = "perspective(1000px)";
   });
 }
+// Sweet alert
+function showNotification(message) {
+  Swal.fire({
+    icon: 'success',
+    title: message,
+    showConfirmButton: false,
+    timer: 2000
+  });
+}
+
+function showNotificationError(message){
+  Swal.fire({
+      icon: 'error',
+      title: message,
+      showConfirmButton: false,
+      timer: 2000
+    });
+}
 
 // Add hover effect to both login and signup cards
 const loginCard = document.getElementById("login-box");
@@ -65,7 +83,8 @@ document.querySelector(".login-form").addEventListener("submit", function (e) {
     usersArray.forEach((userData) => {
       if (email === userData.email && password === userData.password) {
         userFound = true;
-        alert("Glad you are back for another treat!");
+        // alert("Glad you are back for another treat!");
+        showNotification("Glad you are back for another treat!");
         // Redirect to index.html
         window.location.assign("../index.html");
       }
@@ -73,11 +92,13 @@ document.querySelector(".login-form").addEventListener("submit", function (e) {
 
     if (!userFound) {
       // If no matching user is found
-      alert("Invalid email or password!");
+      // alert("Invalid email or password!");
+      showNotificationError("Invalid email or password!");
     }
   } else {
     // If no users found in local storage
-    alert("No user found. Please sign up first.");
+    // alert("No user found. Please sign up first.");
+    showNotificationError("No user found. Please sign up first.");
     window.location.assign("../signup/signup.html");
   }
 
