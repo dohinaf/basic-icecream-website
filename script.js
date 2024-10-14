@@ -174,7 +174,31 @@ function clearWishlist() {
     displayWishlist();
 }
 
-
+let quantities = {
+    'Nutty Butterscotch': 1,
+    'Berry Pops': 1,
+    'Cherry Sherbet Pops': 1,
+    'Dripping Vannila': 1,
+    'Very Berry Strawberry': 1,
+    'Rainbow Classic Cone': 1,
+    'Orange Pops': 1,
+    'Choco Hazel Pops': 1,
+    'Very Very Peachy': 1
+  };
+  
+  // Increase quantity
+  function increaseQuantity(itemId) {
+    quantities[itemId]++;
+    document.getElementById(`itemQuantity-${itemId}`).innerText = quantities[itemId];
+  }
+  
+  // Decrease quantity
+  function decreaseQuantity(itemId) {
+    if (quantities[itemId] > 1) {
+      quantities[itemId]--;
+      document.getElementById(`itemQuantity-${itemId}`).innerText = quantities[itemId];
+    }
+  }
 
 
  
@@ -184,10 +208,10 @@ function clearWishlist() {
 function addToCart(productName, price) {
     const existingItem = cart.find(item => item.name === productName);
     
-    if (!existingItem) {
+    if (existingItem) {
         // Add the product to the cart
         cart.push({ name: productName, price: price });
-        alert(`Product ${productName} added to cart`); // Notify the user
+         // Notify the user
         displayCart(); // Update the cart display
 
         // Show notification tooltip
@@ -205,7 +229,9 @@ function addToCart(productName, price) {
             removeFromWishlist(wishlistIndex);
         }
     } else {
-        alert(`${productName} is already in your cart!`); // Alert if the item is already in the cart
+        cart.push({ name: productName, price: price });
+        // Notify the user
+       displayCart(); 
     }
 }
 
@@ -219,42 +245,67 @@ function removeFromCart(index) {
 }
 
 // Function to display cart items and calculate total
-function displayCart() {
-    const cartItemsElement = document.getElementById('cartItems'); // Container for cart items
-    const totalElement = document.getElementById('total'); // Element for displaying total price
-    let cartItemsHTML = '';
-    let total = 0;
-
-    // Iterate through the cart array to build the HTML for each item
-    cart.forEach((item, index) => {
-        cartItemsHTML += `
-            <li>
-                ${item.name} - $${item.price.toFixed(2)}
-                <button onclick="removeFromCart(${index})">Remove</button>
-            </li>`;
-        total += item.price; // Accumulate total price
-    });
-
-    cartItemsElement.innerHTML = cartItemsHTML; // Insert the built HTML into the cart
-    totalElement.textContent = `Total: $${total.toFixed(2)}`; // Display the total
-}
-
 // Function to display cart items and calculate total
 function displayCart() {
     const cartItemsElement = document.getElementById('cartItems');
     const totalElement = document.getElementById('total');
+    const cartCountElement = document.getElementById('cart-count'); // Element to show item count
     let cartItemsHTML = '';
     let total = 0;
 
+    // Count the number of items in the cart
+    const itemCount = cart.length;
     cart.forEach((item, index) => {
-        cartItemsHTML += `<li>${item.name} - $${item.price.toFixed(2)} <button onclick="removeFromCart(${index})">Remove</button></li>`;
-        total += item.price;
+        const quantity=quantities[item.name];
+        cartItemsHTML += `<li>${item.name} - (${quantity}) price= $${quantity*item.price.toFixed(2)} <button onclick="removeFromCart(${index})">Remove</button></li>`;
+        total += item.price*quantity;
     });
 
+    // Update cart items display
     cartItemsElement.innerHTML = cartItemsHTML;
+
+    // Update total price display
     totalElement.textContent = `Total: $${total.toFixed(2)}`;
+
+    // Update cart count display
+    cartCountElement.textContent = `(${itemCount})`;
+
+    // Optionally display an order summary or other elements
     displayOrder();
 }
+
+
+// // Function to display cart items and calculate total
+// // Function to display cart items and calculate total
+// function displayCart() {
+//     const cartItemsElement = document.getElementById('cartItems');
+//     const totalElement = document.getElementById('total');
+//     const cartCountElement = document.getElementById('cart-count'); // Element to show item count
+//     let cartItemsHTML = '';
+//     let total = 0;
+
+//     // Count the number of items in the cart
+//     const itemCount = cart.length;
+
+//     cart.forEach((item, index) => {
+//         const quantity=quantities[item.name];
+//         cartItemsHTML += `<li>${item.name} - $${quantity*item.price.toFixed(2)} <button onclick="removeFromCart(${index})">Remove</button></li>`;
+//         total += item.price;
+//     });
+
+//     // Update cart items display
+//     cartItemsElement.innerHTML = cartItemsHTML;
+
+//     // Update total price display
+//     totalElement.textContent = `Total: $${total.toFixed(2)}`;
+
+//     // Update cart count display
+//     cartCountElement.textContent = `(${itemCount})`;
+
+//     // Optionally display an order summary or other elements
+//     displayOrder();
+// }
+
 
 // Function to simulate checkout
 // function checkout() {
@@ -446,6 +497,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let signupBtn = document.getElementById('signup-btn');
     let closeLogin = document.getElementById('close-login');
     let closeSignup = document.getElementById('close-signup');
+    const emailInput = document.querySelector('input[type="email"]');
+    const passwordInput = document.querySelector('input[type="password"]');
 
     // Show login modal
     loginBtn.onclick = () => {
@@ -461,6 +514,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Close login modal
     closeLogin.onclick = () => {
+          resetLoginForm();
         loginModal.style.display = 'none';
     };
 
@@ -468,6 +522,10 @@ document.addEventListener('DOMContentLoaded', () => {
     closeSignup.onclick = () => {
         signupModal.style.display = 'none';
     };
+    function resetLoginForm() {
+        emailInput.value = '';   
+        passwordInput.value = '';   
+      }
 
     // Close modal if clicked outside the modal content
     window.onclick = (event) => {
