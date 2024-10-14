@@ -2144,7 +2144,7 @@ form h3{
     background-color: #0056b3; /* Darken on hover */
 }
 .contributors {
-  padding: 50px 20px;
+  padding: 50px 60px;
   background-color: var(--background-color); /* Use dynamic background */
   text-align: center;
   color: var(--text-color); /* Use dynamic text color */
@@ -2164,10 +2164,11 @@ form h3{
 }
 
 .contributors-list {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* 6 contributors per row */
+  gap: 4px;
   justify-content: center;
-  gap: 20px;
+  align-items: center;
 }
 
 .contributors-list a {
@@ -2177,10 +2178,12 @@ form h3{
 }
 
 .contributors-list img {
-  width: 100px; /* Adjust size as needed */
-  height: 100px; /* Adjust size as needed */
-  border-radius: 50%; /* Circular shape */
-  transition: transform 0.3s;
+ 
+    width: 65px; /* Smaller size for profile images */
+    height: 65px;
+    border-radius: 50%;
+    transition: transform 0.3s;
+
 }
 
 .contributors-list img:hover {
@@ -2189,7 +2192,7 @@ form h3{
 
 .contributors-list p {
   margin-top: 8px;
-  font-size: 16px;
+  font-size: 12px;
   color: var(--text-color); /* Ensure text adapts to light/dark mode */
 }
 
