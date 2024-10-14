@@ -632,14 +632,15 @@
             data-aos-anchor-placement="top-bottom">
             <div class="picture">
                 <img src="https://images.unsplash.com/photo-1570197788417-0e82375c9371" alt="">
+                <h3 id="pro-name">Dripping Vannila</h3>
 
+                <div class="flip">A luscious vanilla treat that oozes creamy goodness, delivering a rich and indulgent flavor experience with every delightful drop!</div>
+            </div>
                 <h3 id="pro-name">Dripping Vanilla</h3>
 
                 <div class="flip">A luscious vanilla treat that oozes creamy goodness, delivering a rich and indulgent flavor experience with every delightful drop!</div>
             </div>
-       
-
-        
+      
                 <div class="price"> $15.99 <span>20.99</span></div>
                 <div class="rating">
                     <span id="stars">★★★★☆</span>
@@ -668,9 +669,6 @@
 
                 <div class="flip">A delightful fusion of fresh strawberries and a medley of berries, creating a vibrant and sweet explosion of flavor in every bite!</div>
             </div>
-        
-
-       
                 <div class="price"> $16.99 <span>20.99</span></div>
                 <div class="rating">
                     <span id="stars">★★★★☆</span>
@@ -698,9 +696,6 @@
 
                 <div class="flip">A colorful twist on a timeless favorite, featuring layers of vibrant, fruity flavors swirled into a creamy cone, making every lick a joyful, nostalgic experience!</div>
             </div>
-        
- 
-            
                 <div class="price"> $18.99 <span>20.99</span></div>
                 <div class="rating">
                     <span id="stars">★★★★☆</span>
@@ -728,9 +723,6 @@
 
                 <div class="flip">Refreshing frozen delights bursting with zesty orange flavor, offering a sunny, sweet, and tangy treat that’s perfect for cooling off on a hot day!</div>
             </div>
-        
-
-            
 
                 <div class="price"> $12.99 <span>20.99</span></div>
                 <div class="rating">
@@ -761,9 +753,7 @@
 
                 <div class="flip">Indulgent frozen treats infused with rich chocolate and crunchy hazelnuts, creating a decadent and nutty flavor experience that melts delightfully in every bite!</div>
             </div>
-      
 
-            
                 <div class="price"> $18.99 <span>20.99</span></div>
                 <div class="rating">
                     <span id="stars">★★★★☆</span>
@@ -878,6 +868,11 @@
                   <button class="plus-minus" onclick="increaseQuantity('Choco-Hazel Pops')">+</button>
               </div>
                 <button  id="inbox" onclick="addToWishlist('Choco-Hazel Pops', 18.99)">Add to wishlist</button>
+            </div>
+
+                <div class="price"> $18.99 <span>20.99</span></div>
+                <button  id="inbox" onclick="addToCart('Choco-Hazel Pops', 18.99)">Add to Cart</button><br>
+                <button  id="inbox" onclick="addToWishlist('Choco-Hazel Pops', 18.99)">Add to wishlist</button>
                 <button id="inbox" onclick="window.location.href='choco_hazel.html';">Read more</button>
             </div>
        
@@ -910,7 +905,6 @@
               </div>
                 <button  id="inbox" onclick="addToWishlist('Very Very Peachy', 15.99)">Add to wishlist</button>
                 <button id="inbox" onclick="window.location.href='very_peachy2.html';">Read more</button>
-
 
             </div>
             <div class="notification-tooltip" id="notification-tooltip">
@@ -1487,6 +1481,38 @@
 
   
 <!--Review section for adding reviews-->
+<section class="review-section" id="review-section">
+    <div class="review-container">
+      <div class="review-left">
+        <img data-aos="zoom-out-down" src="https://images.unsplash.com/photo-1505394033641-40c6ad1178d7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8aWNlY3JlYW18ZW58MHx8MHx8fDA%3D" alt="Delicious Ice Cream" class="ice-cream-image">
+      </div>
+      <div class="review-right">
+        <h2 data-aos="zoom-out-down" >Share Your Ice Cream Experience!</h2>
+        <form>
+          <label for="user-name" data-aos="zoom-out-down">Your Name:</label>
+          <input type="text" id="user-name" name="user-name" data-aos="zoom-out-down" required>
+  
+  
+   <div class="chatbot-container">
+          <a href="chatbot.html">
+              <button class="chatbot-button">
+                  <img src="chatbot.gif" alt="chatbot" style="width: 50px; height: 50px;">
+                  <span class="tooltip-text">
+                      Welcome to Ice-Cream Web! <br>
+                      How can I help You? ^_^ 
+                  </span>
+              </button>
+          </a>
+      </div>
+          <label for="user-review" data-aos="zoom-out-down">Your Review:</label>
+          <textarea id="user-review" name="user-review" rows="5" required data-aos="zoom-out-down"></textarea>
+  
+          <button type="submit" class="submit-button"  data-aos="zoom-out-down">Submit Review</button>
+        </form>
+      </div>
+    </div>
+
+  </section>
 <div class="visme_d" data-title="Product Research Survey" data-url="n0e30n6n-product-research-survey" data-domain="forms" data-full-page="false" data-min-height="500px" data-form-id="97006"></div><script src="https://static-bundles.visme.co/forms/vismeforms-embed.js"></script>
 <!--Review adding section ended here-->
 <br>
@@ -1543,8 +1569,18 @@
       </div>
     </div>
   </div>
+  <div class="chatbot-container">
+    <a href="chatbot.html">
+        <button class="chatbot-button">
+            <img src="chatbot.gif" alt="chatbot" style="width: 50px; height: 50px;">
+            <span class="tooltip-text">
+                Welcome to Ice-Cream Web! <br>
+                How can I help You? ^_^ 
+            </span>
+        </button>
+    </a>
 </div>
-
+</div>
 <!--Review section ends-->
 
 <!--Review section for adding reviews-->
