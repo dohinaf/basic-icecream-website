@@ -125,3 +125,27 @@ a{
 input:focus{
     outline: none;
 }
+
+#password-requirements p {
+    /* margin: 0; */
+    font-size: 0.8em;
+    color: grey;
+}
+
+#password-requirements .met {
+    color: green;
+}
+
+
+
+#password.weak {
+    border-color: red;
+}
+
+#password.medium {
+    border-color: orange;
+}
+
+#password.strong {
+    border-color: green;
+}
