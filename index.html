@@ -393,35 +393,92 @@
       </div>
     <!--  Pop-up for Discount and Sign up Ends here  -->
     
-    <!-- Script for pop up discount Starts Here -->
-    <script>
-    // Show the pop-up automatically when the page loads
-    window.onload = function() {
-      document.getElementById('popup').style.display = 'flex';
-    };
+    <!-- Toast notification container -->
+    <div id="toast" class="toast-notification"></div>
 
-    // Close the pop-up when the user clicks the close button
-    document.querySelector('.close-btn').addEventListener('click', function() {
-      document.getElementById('popup').style.display = 'none';
-    });
-
-    // Handle form submission
-    document.getElementById('emailForm').addEventListener('submit', function(event) {
-      event.preventDefault();
-      
-      const email = document.getElementById('email').value;
-      if (email) {
-        alert(`Thank you! A 20% discount code has been sent to ${email}`);
-        document.getElementById('popup').style.display = 'none';
+    <!-- CSS for toast notification -->
+    <style>
+      .toast-notification {
+        visibility: hidden;
+        min-width: 250px;
+        margin-left: -125px;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        position: fixed;
+        z-index: 1;
+        left: 50%;
+        bottom: 30px;
+        font-size: 17px;
       }
-    });
 
-    // Handle "No thanks" link
-    document.querySelector('.no-thanks').addEventListener('click', function(event) {
-      event.preventDefault();
-      document.getElementById('popup').style.display = 'none';
-    });
-  </script>
+      .toast-notification.show {
+        visibility: visible;
+        -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        animation: fadein 0.5s, fadeout 0.5s 2.5s;
+      }
+
+      @-webkit-keyframes fadein {
+        from {bottom: 0; opacity: 0;} 
+        to {bottom: 30px; opacity: 1;}
+      }
+
+      @keyframes fadein {
+        from {bottom: 0; opacity: 0;}
+        to {bottom: 30px; opacity: 1;}
+      }
+
+      @-webkit-keyframes fadeout {
+        from {bottom: 30px; opacity: 1;} 
+        to {bottom: 0; opacity: 0;}
+      }
+
+      @keyframes fadeout {
+        from {bottom: 30px; opacity: 1;}
+        to {bottom: 0; opacity: 0;}
+      }
+    </style>
+
+    <!-- Script for pop up discount -->
+    <script>
+      // Show the pop-up automatically when the page loads
+      window.onload = function() {
+        document.getElementById('popup').style.display = 'flex';
+      };
+
+      // Close the pop-up when the user clicks the close button
+      document.querySelector('.close-btn').addEventListener('click', function() {
+        document.getElementById('popup').style.display = 'none';
+      });
+
+      // Function to show toast notification
+      function showToast(message) {
+        var toast = document.getElementById("toast");
+        toast.className = "toast-notification show";
+        toast.textContent = message;
+        setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
+      }
+
+      // Handle form submission
+      document.getElementById('emailForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const email = document.getElementById('email').value;
+        if (email) {
+          showToast(`Thank you! A 20% discount code has been sent to ${email}`);
+          document.getElementById('popup').style.display = 'none';
+        }
+      });
+
+      // Handle "No thanks" link
+      document.querySelector('.no-thanks').addEventListener('click', function(event) {
+        event.preventDefault();
+        document.getElementById('popup').style.display = 'none';
+      });
+    </script>
+    
     <!-- Script for pop up discount ends Here -->
 
     <!-- About Section Starts Here -->
@@ -440,7 +497,7 @@
                     At Arctic Delights, we believe that every scoop of ice cream should be a masterpiece. We handpick the finest, sustainably sourced ingredients to craft flavors that not only cool you down but also take your taste buds on an unforgettable journey. Whether you crave something classic or adventurous, we offer a wide range of flavors designed to surprise and delight.
                 </p>
                 <p data-aos="fade-left"  data-aos-duration="1200" data-aos-delay="200">
-                    Customize your perfect treat with our signature toppings, sauces, and add-ons to create a unique dessert experience tailored just for you. At Arctic Delights, we’re not just about ice cream—we’re about crafting moments of joy in every bite!
+                    Customize your perfect treat with our signature toppings, sauces, and add-ons to create a unique dessert experience tailored just for you. At Arctic Delights, we're not just about ice cream—we're about crafting moments of joy in every bite!
                 </p>
                 
 
@@ -626,7 +683,7 @@
                 <img src="https://images.unsplash.com/photo-1559340160-146586a4f9b6" alt="">
                 <h3 id="pro-name">Orange Pops</h3>
 
-                <div class="flip">Refreshing frozen delights bursting with zesty orange flavor, offering a sunny, sweet, and tangy treat that’s perfect for cooling off on a hot day!</div>
+                <div class="flip">Refreshing frozen delights bursting with zesty orange flavor, offering a sunny, sweet, and tangy treat that's perfect for cooling off on a hot day!</div>
             </div>
         
 
@@ -698,7 +755,7 @@
 
                 <h3 id="pro-name">Orange Pops</h3>
 
-                <div class="flip">Refreshing frozen delights bursting with zesty orange flavor, offering a sunny, sweet, and tangy treat that’s perfect for cooling off on a hot day!</div>
+                <div class="flip">Refreshing frozen delights bursting with zesty orange flavor, offering a sunny, sweet, and tangy treat that's perfect for cooling off on a hot day!</div>
             </div>
                 <div class="price"> $12.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Orange Pops', 12.99)">Add to Cart</button><br>
@@ -820,6 +877,7 @@
 
   </div>
 </section>
+<!-- Blogs Section Ends Here -->
 <!-- Blogs Section Ends Here -->
 
 <!-- Payment Section Starts Here -->
