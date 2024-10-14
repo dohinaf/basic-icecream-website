@@ -863,6 +863,7 @@
     </div>
 
     <button class="order"><span class="default">Complete Order</span><span class="success">Order Placed<svg viewbox="0 0 12 10"></svg></span>
+      <button class="go-back"><span class="default">Go Back</span><span class="success">Returning to Home<svg viewbox="0 0 12 10"></svg></span></button>
       <div class="box"></div>
     <div class="truck">
         <div class="back"></div>
@@ -1208,6 +1209,102 @@
     opacity: 0;
   }
 }
+.go-back {
+  appearance: none;
+  border: 0;
+  background: var(--dark); /* Black color */
+  position: relative;
+  height: 63px;
+  width: 240px;
+  padding: 0;
+  outline: none;
+  cursor: pointer;
+  border-radius: 32px;
+  -webkit-tap-highlight-color: transparent;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.go-back span {
+  --o: 1;
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+  top: 19px;
+  line-height: 24px;
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 500;
+  opacity: var(--o);
+  transition: opacity 0.3s ease;
+}
+
+.go-back span.default {
+  transition-delay: 0.3s;
+}
+
+.go-back span.success {
+  --offset: 16px;
+  --o: 0;
+}
+
+.go-back span.success svg {
+  width: 12px;
+  height: 10px;
+  display: inline-block;
+  vertical-align: top;
+  fill: none;
+  margin: 7px 0 0 4px;
+  stroke: var(--green);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 16px;
+  stroke-dashoffset: var(--offset);
+  transition: stroke-dashoffset 0.3s ease;
+}
+
+.go-back:active {
+  transform: scale(0.96);
+}
+
+/* Reusing truck, box, lines, light and other animations from the order button */
+
+
+/* Animation handling similar to .order */
+.go-back.animate .default {
+  --o: 0;
+  transition-delay: 0s;
+}
+.go-back.animate .success {
+  --offset: 0;
+  --o: 1;
+  transition-delay: 7s;
+}
+.go-back.animate .success svg {
+  transition-delay: 7.3s;
+}
+.go-back.animate .truck {
+  animation: truck 10s ease forwards;
+}
+.go-back.animate .truck:before {
+  animation: door1 2.4s ease forwards 0.3s;
+}
+.go-back.animate .truck:after {
+  animation: door2 2.4s ease forwards 0.6s;
+}
+.go-back.animate .truck .light:before, 
+.go-back.animate .truck .light:after {
+  animation: light 10s ease forwards;
+}
+.go-back.animate .box {
+  animation: box 10s ease forwards;
+}
+.go-back.animate .lines {
+  animation: lines 10s ease forwards;
+}
+
 
 </style>
 <script>
@@ -1222,6 +1319,13 @@
     }
 
 });
+
+$('.go-back').click(function() {
+    $(this).addClass('animate'); // Add animation class when clicked
+    setTimeout(function() {
+      window.location.href = 'index.html'; // Redirect to index.html after the animation
+    }, 100); // Adjust the timeout based on the animation duration (10s in this case)
+  });
 </script>
 </section>
 <!-- Payment Section Ends Here -->

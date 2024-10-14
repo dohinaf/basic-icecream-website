@@ -256,10 +256,12 @@ function displayCart() {
     // Count the number of items in the cart
     const itemCount = cart.length;
     cart.forEach((item, index) => {
-        const quantity=quantities[item.name];
-        cartItemsHTML += `<li>${item.name} - (${quantity}) price= $${quantity*item.price.toFixed(2)} <button onclick="removeFromCart(${index})">Remove</button></li>`;
-        total += item.price*quantity;
+        cartItemsHTML += `<li>${item.name} - $${item.price.toFixed(2)} 
+            <button onclick="removeFromCart(${index})">Remove</button></li>`;
+        total += item.price;
     });
+
+       
 
     // Update cart items display
     cartItemsElement.innerHTML = cartItemsHTML;
@@ -275,52 +277,6 @@ function displayCart() {
 }
 
 
-// // Function to display cart items and calculate total
-// // Function to display cart items and calculate total
-// function displayCart() {
-//     const cartItemsElement = document.getElementById('cartItems');
-//     const totalElement = document.getElementById('total');
-//     const cartCountElement = document.getElementById('cart-count'); // Element to show item count
-//     let cartItemsHTML = '';
-//     let total = 0;
-
-//     // Count the number of items in the cart
-//     const itemCount = cart.length;
-
-//     cart.forEach((item, index) => {
-//         const quantity=quantities[item.name];
-//         cartItemsHTML += `<li>${item.name} - $${quantity*item.price.toFixed(2)} <button onclick="removeFromCart(${index})">Remove</button></li>`;
-//         total += item.price;
-//     });
-
-//     // Update cart items display
-//     cartItemsElement.innerHTML = cartItemsHTML;
-
-//     // Update total price display
-//     totalElement.textContent = `Total: $${total.toFixed(2)}`;
-
-//     // Update cart count display
-//     cartCountElement.textContent = `(${itemCount})`;
-
-//     // Optionally display an order summary or other elements
-//     displayOrder();
-// }
-
-
-// Function to simulate checkout
-// function checkout() {
-//     if (cart.length === 0) {
-//         alert('Your cart is empty. Please add some items.');
-//         return;
-//     }
-
-//     //redirect to a payment gateway or show a message
-//     alert('Redirecting to payment gateway...');
-
-//     // After payment, you can clear the cart
-//     cart = [];
-//     displayCart();
-// }
 
 
 function showSection(section) {
@@ -345,8 +301,6 @@ function showSection(section) {
 
 
 function checkout() {
-
-    
     // Hide other sections
     document.querySelector('.home').style.display = 'none';
     document.querySelector('.about').style.display = 'none';
@@ -355,25 +309,27 @@ function checkout() {
 
     // Hide the cart section
     document.querySelector('.cart-items-container').style.display = 'none';
-    
-     // Display the payment section
-     const paymentSection = document.getElementById('payment-section');
-     paymentSection.style.display = 'block';
-    
-    // Update order summary dynamically 
+
+    // Display the payment section
+    const paymentSection = document.getElementById('payment-section');
+    paymentSection.style.display = 'block';
+
+    // Update order summary dynamically
     updateOrderSummary();
 }
+
 
 document.getElementById('checkout-button').addEventListener('click', checkout);
 
 function updateOrderSummary() {
-    // Fetch order items and total from cart 
-    const totalItems = 3; 
-    const totalPrice = 45.99; 
+    const totalItems = cart.length;
+    const totalPrice = cart.reduce((sum, item) => sum + item.price, 0);
 
+    // Update the checkout summary with total items and price
     document.getElementById('order-items').textContent = `Total Items: ${totalItems}`;
-    document.getElementById('order-total').textContent = `Total Price: $${totalPrice}`;
+    document.getElementById('order-total').textContent = `Total Price: $${totalPrice.toFixed(2)}`;
 }
+
 
 // Payment method selection logic
 document.querySelectorAll('input[name="payment-method"]').forEach((input) => {
@@ -423,7 +379,18 @@ function showPaymentDetails() {
 
 
 function confirmPayment() {
+    if (cart.length === 0) {
+        alert("Your cart is empty.");
+        return;
+    }
+
+    // Handle payment confirmation logic (e.g., API call, etc.)
     alert("Payment confirmed! Your order is being processed.");
+
+    // After successful payment, clear the cart and update the display
+    cart = [];
+    displayCart(); // Reset cart display
+    updateOrderSummary(); // Reset order summary
 }
 
 
