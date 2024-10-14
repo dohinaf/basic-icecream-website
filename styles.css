@@ -60,7 +60,7 @@ main {
 .blog-detail img{
     border-radius: 10px;
     margin: 50px;
-    box-shadow: 0 4px 8px #defcf9; 
+    box-shadow: 0 4px 8px #7edfd5; 
     transition: transform 0.3s, box-shadow 0.3s;
 }
 .blog-detail p{

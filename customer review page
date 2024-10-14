@@ -1,6 +1,6 @@
 <style>
 .customers-section {
-  background-color: rgba(156, 86, 102, 0.85);
+  background-color: rgba(149, 67, 87, 0.85);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -16,7 +16,7 @@
 
 .testimonials-container {
   border-radius: 24px 24px 0 0;
-  background-color: #fffef5;
+  background-color: #ede6af;
   display: flex;
   width: 100%;
   max-width: 1512px;
@@ -39,7 +39,7 @@
   border-radius: 24px;
   align-self: stretch;
   position: relative;
-  min-height: 267px;
+  min-height: 255px;
   width: 100%;
   overflow: hidden;
   align-items: start;
@@ -60,6 +60,7 @@
   width: 100%;
   object-fit: cover;
   object-position: center;
+  color: #fffef5;
 }
 
 .menu-logo {
@@ -78,7 +79,7 @@
 }
 
 .menu-icon {
-  background-color: #fffef5;
+  background-color: #e5e2ca;
   border-radius: 50%;
   display: flex;
   min-height: 24px;
@@ -92,6 +93,7 @@
   text-align: center;
   margin-top: 17px;
   font: 300 20px/28px Poppins, sans-serif;
+  text-align: unset;
 }
 
 @media (max-width: 991px) {
@@ -135,7 +137,7 @@
 
 .testimonial-card {
   border-radius: 180px 180px 30px 30px;
-  background-color: rgba(255, 55, 151, 0.15);
+  background-color: rgba(250, 79, 162, 0.15);
   position: relative;
   display: flex;
   margin-top: 5px;
@@ -168,7 +170,7 @@
 }
 
 .testimonial-text {
-  color: #7f3528;
+  color: #ab3924;
   font-size: 24px;
   line-height: 28px;
   text-align: center;

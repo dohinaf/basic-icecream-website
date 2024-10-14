@@ -51,6 +51,7 @@
     border: none;
 
     -webkit-user-select: none;
+    opacity: .5s;
 
 }
 
