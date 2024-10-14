@@ -892,9 +892,21 @@
       <input type="text" id="billing-country" placeholder="Country" required>
   </div>
 
-  <button class="order" style="margin-top: 20px; padding: 10px 20px; font-size: 16px; background-color: var(--primary-light); color: white; border-radius: 32px;">
-      Complete Order
-  </button>
+  <button class="order" style="background-color: #4A4A4A; color: #E0E0E0;"> <!-- Dark grey background with off-white text -->
+    <span class="default" style="color: inherit;">Complete Order</span> <!-- Inherits the button text color -->
+    <span class="success" style="color: inherit;">Order Placed<svg viewbox="0 0 12 10"></svg></span>
+    <div class="box"></div>
+    <div class="truck">
+        <div class="back"></div>
+        <div class="front">
+            <div class="window"></div>
+        </div>
+        <div class="light top"></div>
+        <div class="light bottom"></div>
+    </div>
+    <div class="lines"></div>
+</button>
+
 </section>
 
 <!-- partial -->
