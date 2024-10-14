@@ -327,11 +327,11 @@ button:hover {
   }
 
   .header .navbar a {
-      padding: 1rem;
+      padding: 0.2rem !important;
       width: 100%;
       color: var(--text-color) !important;
-
-      text-align: left;
+      font-size: medium !important;
+      text-align:center;
       margin: 0;
   }
  
