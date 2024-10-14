@@ -86,7 +86,9 @@ document.querySelector(".login-form").addEventListener("submit", function (e) {
         // alert("Glad you are back for another treat!");
         showNotification("Glad you are back for another treat!");
         // Redirect to index.html
-        window.location.assign("../index.html");
+        setTimeout(() => {
+          window.location.assign("../index.html");
+      }, 5000);
       }
     });
 
