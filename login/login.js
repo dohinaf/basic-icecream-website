@@ -99,7 +99,9 @@ document.querySelector(".login-form").addEventListener("submit", function (e) {
     // If no users found in local storage
     // alert("No user found. Please sign up first.");
     showNotificationError("No user found. Please sign up first.");
-    window.location.assign("../signup/signup.html");
+    setTimeout(() => {
+      window.location.assign("../signup/signup.html");
+  }, 5000);
   }
 
   // Clear the form fields

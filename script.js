@@ -236,7 +236,24 @@ function addToCart(productName, price) {
 }
 
 
-
+// Sweet alert
+function showNotification(message) {
+    Swal.fire({
+      icon: 'success',
+      title: message,
+      showConfirmButton: false,
+      timer: 2000
+    });
+  }
+  
+  function showNotificationError(message){
+    Swal.fire({
+        icon: 'error',
+        title: message,
+        showConfirmButton: false,
+        timer: 2000
+      });
+  }
 
 // Function to remove items from the cart
 function removeFromCart(index) {
@@ -423,7 +440,8 @@ function showPaymentDetails() {
 
 
 function confirmPayment() {
-    alert("Payment confirmed! Your order is being processed.");
+    // alert("Payment confirmed! Your order is being processed.");
+    showNotification("Payment confirmed! Your order is being processed.")
 }
 
 
