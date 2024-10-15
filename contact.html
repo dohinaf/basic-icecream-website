@@ -3,10 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Corrected value -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Responsive Ice Cream Website</title>
-    
+
     <!-- Font Awesome CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
@@ -14,13 +14,12 @@
     <link rel="stylesheet" href="preloaderStyle.css">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-
     <style>
-        /* Circle styles optimized for scalability */
+        /* Circle styles */
         .circle {
-            height: 2rem;
-            width: 2rem;
-            border-radius: 50%;
+            height: 24px;
+            width: 24px;
+            border-radius: 50%; /* Using 50% for a perfect circle */
             background-color: black;
             position: fixed;
             top: 0;
@@ -46,14 +45,14 @@
         </div>
     </div>
 
-    <!-- Circle Animation with reduced DOM elements -->
-    <div class="circle"></div>
-    <!-- Repeated DOM elements were reduced to a single `.circle` element to improve performance. -->
+    <!-- Circles -->
+    <div class="circle"></div> <!-- Reduce number of circles if needed -->
+    <!-- Additional circles can be created dynamically via JS if necessary -->
 
     <!-- Header Starts Here -->
     <header class="header">
         <a href="#" class="logo">
-            <img src="https://purepng.com/public/uploads/large/purepng.com-ice-creamice-creamcreamfrozensweet-1411527617895aiuhx.png" alt="Logo">
+            <img src="https://purepng.com/public/uploads/large/purepng.com-ice-creamice-creamcreamfrozensweet-1411527617895aiuhx.png" alt="Ice Cream Logo">
         </a>
         <nav class="navbar">
             <a href="index.html#home">Home</a>
@@ -79,7 +78,7 @@
     <section class="footer" id="footer">
         <div class="share">
             <a href="#" class="fab fa-facebook-f" aria-label="Facebook"></a>
-            <a href="#" class="fab fa-twitter-x" aria-label="Twitter"></a>
+            <a href="#" class="fab fa-twitter" aria-label="Twitter"></a> <!-- Corrected to use proper class -->
             <a href="#" class="fab fa-instagram" aria-label="Instagram"></a>
             <a href="#" class="fab fa-linkedin" aria-label="LinkedIn"></a>
             <a href="#" class="fab fa-pinterest" aria-label="Pinterest"></a>
@@ -90,49 +89,74 @@
     </section>
     <!-- Footer Section Ends Here -->
 
-    <!-- Preloader JS -->
     <script src="preloader.js"></script>
 
-    <!-- Custom JavaScript -->
+    <!-- JavaScript File -->
     <script src="script.js"></script>
-
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Removed gsap animation on non-existing .contact-form class
+            gsap.from(".contact-form", { opacity: 0, y: 50, duration: 1.5, ease: "power2.out" });
 
-            // Hover effect for buttons
+            // Animate buttons on hover for scaling effect
             const buttons = document.querySelectorAll("button");
-            if (buttons.length) {
-                buttons.forEach(button => {
-                    button.addEventListener('mouseover', () => {
-                        gsap.to(button, { scale: 1.1, duration: 0.2 });
-                    });
-                    button.addEventListener('mouseout', () => {
-                        gsap.to(button, { scale: 1, duration: 0.2 });
-                    });
+            buttons.forEach(button => {
+                button.addEventListener('mouseover', () => {
+                    gsap.to(button, { scale: 1.1, duration: 0.2 });
                 });
-            }
+                button.addEventListener('mouseout', () => {
+                    gsap.to(button, { scale: 1, duration: 0.2 });
+                });
+            });
         });
 
-        // Cursor animation with reduced circle elements
+        // Coordinates for the cursor
         const coords = { x: 0, y: 0 };
-        const circle = document.querySelector(".circle");
+        const circles = document.querySelectorAll(".circle");
 
+        // Colors for the circles
+        const colors = [
+            "#ffb56b", "#fdaf69", "#f89d63", "#f59761", "#ef865e", "#ec805d",
+            "#e36e5c", "#df685c", "#d5585c", "#d1525c", "#c5415d", "#c03b5d",
+            "#b22c5e", "#ac265e", "#9c155f", "#950f5f", "#830060", "#7c0060",
+            "#680060", "#60005f", "#48005f", "#3d005e"
+        ];
+
+        // Assign colors and initial position to each circle
+        circles.forEach(function (circle, index) {
+            circle.x = 0;
+            circle.y = 0;
+            circle.style.backgroundColor = colors[index % colors.length];
+        });
+
+        // Update the coordinates when the mouse moves
         window.addEventListener("mousemove", function (e) {
             coords.x = e.clientX;
             coords.y = e.clientY;
         });
 
-        function animateCircle() {
-            const x = coords.x - 12;
-            const y = coords.y - 12;
-            circle.style.left = `${x}px`;
-            circle.style.top = `${y}px`;
+        // Animation function to move the circles
+        function animateCircles() {
+            let x = coords.x;
+            let y = coords.y;
 
-            requestAnimationFrame(animateCircle);
+            circles.forEach(function (circle, index) {
+                circle.style.left = x - 12 + "px"; // Center the circle
+                circle.style.top = y - 12 + "px";
+                circle.style.transform = `scale(${(circles.length - index) / circles.length})`; // Use transform for scaling
+
+                circle.x = x;
+                circle.y = y;
+
+                const nextCircle = circles[index + 1] || circles[0];
+                x += (nextCircle.x - x) * 0.3;
+                y += (nextCircle.y - y) * 0.3;
+            });
+
+            requestAnimationFrame(animateCircles);
         }
 
-        animateCircle();
+        // Start the animation
+        animateCircles();
     </script>
 </body>
 
