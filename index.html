@@ -7,65 +7,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ArcticDelights</title>
-    <link rel="icon" href="https://purepng.com/public/uploads/large/purepng.com-ice-creamice-creamcreamfrozensweet-1411527617895aiuhx.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <!--Updated to latest version--
+    <link rel="stylesheet" href="preloaderStyle.css">
+    <link rel="icon" href="https://purepng.com/public/uploads/large/purepng.com-ice-creamice-creamcreamfrozensweet-1411527617895aiuhx.png" type="image/x-icon"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"> <!--Updated to latest version-->
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-
+    
 
     <style>
         .chatbot-container {
             position: fixed;
-            bottom: 20px;
-            /* Adjust the distance from the bottom */
-            right: 20px;
-            /* Adjust the distance from the right */
-            z-index: 1000;
-            /* Ensure it's above other elements */
+            bottom: 20px; /* Adjust the distance from the bottom */
+            right: 20px; /* Adjust the distance from the right */
+            z-index: 1000; /* Ensure it's above other elements */
         }
-        
+
         .chatbot-button {
-            background-color: #007bff;
-            /* Button color */
+            background-color: #007bff; /* Button color */
             border: none;
-            border-radius: 50%;
-            /* Makes the button circular */
+            border-radius: 50%; /* Makes the button circular */
             padding: 10px;
             cursor: pointer;
-            transition: transform 0.3s;
-            /* Animation for hover */
-            position: relative;
-            /* Required for the tooltip */
+            transition: transform 0.3s; /* Animation for hover */
+            position: relative; /* Required for the tooltip */
         }
-        
+
         .chatbot-button:hover {
-            transform: scale(1.1);
-            /* Scale up on hover */
+            transform: scale(1.1); /* Scale up on hover */
         }
-        
+
         .tooltip-text {
             display: none;
             position: absolute;
-            bottom: 60px;
-            /* Position the tooltip above the button */
+            bottom: 60px; /* Position the tooltip above the button */
             right: 0;
             background: rgba(0, 0, 0, 0.7);
             color: white;
             padding: 5px;
             border-radius: 5px;
             white-space: nowrap;
-            z-index: 1001;
-            /* Ensure tooltip is above other elements */
+            z-index: 1001; /* Ensure tooltip is above other elements */
         }
-        
+
         .chatbot-button:hover .tooltip-text {
-            display: block;
-            /* Show tooltip on hover */
+            display: block; /* Show tooltip on hover */
         }
     </style>
 
@@ -289,28 +278,27 @@
     <!-- Header Starts Here -->
     <header class="header">
 
-        <div class="logo-container">
-            <a href="#" class="logo">
-                <img src="https://purepng.com/public/uploads/large/purepng.com-ice-creamice-creamcreamfrozensweet-1411527617895aiuhx.png" alt="Logo">
-            </a>
-            <h1 class="site-title">ArcticDelights</h1>
-        </div>
+        <a href="#" class="logo">
+            <img src="https://purepng.com/public/uploads/large/purepng.com-ice-creamice-creamcreamfrozensweet-1411527617895aiuhx.png"
+                alt="Logo">
+        </a>
+        <!-- ... existing code ... -->
+        <h1 class="site-title">ArcticDelights</h1>
 
-        <nav class="navbar">
+<nav class="navbar">
 
 
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#menu">Menu</a>
-            <a href="#review-section">Review</a>
-            <a href="#blogs">Blogs</a>
-            <a href="contact.html">Contact Us</a>
-            <a href="#" id="my-order-btn">My Orders</a>
-        </nav>
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#menu">Menu</a>
+<a href="#review-section">Review</a>
+<a href="#blogs">Blogs</a>
+<a href="contact.html">Contact Us</a>
+<a href="#" id="my-order-btn">My Orders</a>
+</nav>
 
 
         <div class="icons">
-
             <div class = "fas fa-heart" id = "wishlist-btn"></div>
             <div class="fas fa-search" id="search-btn"></div>                    
             <div class="fas fa-shopping-cart" id="cart-btn"><span id="cart-count">(0)</span></div>
@@ -352,7 +340,7 @@
                 <button onclick="trackOrder()">Track Order</button>
                 <button onclick="editOrder()">Edit Order</button>
             </div>
-
+            
         </div>
         <div class="icons login-signup-collection">
 
@@ -372,7 +360,8 @@
     <script src="preloader.js"></script>
 
     <!-- Home Section Starts Here -->
-    <section class="home" id="home" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+    <section class="home" id="home"  data-aos="fade-up"
+    data-aos-anchor-placement="top-bottom">
         <div class="content">
             <h3>Taste the sweetness with every bite</h3>
             <p>Amazing ice creams delivered straight to you! Enjoy our fresh and chilled delights, made with love.</p>
@@ -437,7 +426,6 @@
 
     <!-- About Section Starts Here -->
     <section class="about" id="about">
-
         <h1 class="heading"  data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
         data-aos-anchor-placement="top-bottom"> <span style="color: orangered;"> about</span> us</h1>
         <div class="row">
@@ -457,12 +445,10 @@
                 
 
                 <!-- Hidden section to reveal on button click -->
-
                 <div id="moreContent" style="display: none;" data-aos="fade-up"
                     data-aos-anchor-placement="top-bottom">
                     <p>
-                        Our ice creams are made using traditional methods, ensuring each batch is churned to perfection. From locally sourced dairy to organic fruits, nuts, and chocolates, we are committed to sustainability and exceptional taste. We also offer dairy-free and
-                        vegan options to cater to every lifestyle and preference.
+                        Our ice creams are made using traditional methods, ensuring each batch is churned to perfection. From locally sourced dairy to organic fruits, nuts, and chocolates, we are committed to sustainability and exceptional taste. We also offer dairy-free and vegan options to cater to every lifestyle and preference.
                     </p>
                     <p>
                         Whether you're enjoying a scoop in-store or ordering our handcrafted pints to your home, Arctic Delights promises the best quality and an unforgettable experience with every bite.
@@ -473,41 +459,13 @@
 
         </div>
     </section>
-    <!-- Login Modal -->
-    <div id="login-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" id="close-login">&times;</span>
-            <h2>Login</h2>
-            <form>
-                <input type="email" placeholder="Email" required>
-                <input type="password" placeholder="Password" required>
-                <button type="submit">Login</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Signup Modal -->
-    <div id="signup-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" id="close-signup">&times;</span>
-            <h2>Sign Up</h2>
-            <form>
-                <input type="text" placeholder="Full Name" required>
-                <input type="email" placeholder="Email" required>
-                <input type="password" placeholder="Password" required>
-                <button type="submit">Sign Up</button>
-            </form>
-        </div>
-    </div>
-=======
 
 
     <!-- About Section Ends Here -->
-
+   
     <!-- Menu Section Starts Here -->
 
     <section class="menu" id="menu">
-
             <h1 data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
         data-aos-anchor-placement="top-bottom" id="menu-title">here's, what we have in store for you!</h1>
 
@@ -527,7 +485,6 @@
         </div>
         <div class="box-container">
 
-
             <div class="box"  data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200"
             data-aos-anchor-placement="top-bottom">
             <div class="picture">
@@ -536,7 +493,6 @@
                 <div class="flip">A delightful blend of crunchy nuts and rich butterscotch, creating a sweet and savory treat that melts in your mouth!</div>
             </div>
                 <div class="price"> $15.99 <span>20.99</span></div>
-
                 <button  id="inbox" onclick="addToCart('Nutty Butterscotch', 15.99)">Add to Cart</button><br>
                 <div class="noofitems">
                   <button class="plus-minus" onclick="decreaseQuantity('Nutty Butterscotch')">-</button>
@@ -559,7 +515,6 @@
             </div>
 
                 <div class="price"> $18.99 <span>20.99</span></div>
-
                 <button  id="inbox" onclick="addToCart('Berry Pops', 18.99)">Add to Cart</button><br>
                 <div class="noofitems">
                   <button class="plus-minus" onclick="decreaseQuantity('Berry Pops')">-</button>
@@ -573,7 +528,7 @@
             </div>
         
 
-
+        
             <div class="box"  data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
             data-aos-anchor-placement="top-bottom">
                 <div class="picture">
@@ -596,7 +551,6 @@
             </div>
         
 
-
         
             <div class="box"  data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200"
             data-aos-anchor-placement="top-bottom">
@@ -611,7 +565,6 @@
 
         
                 <div class="price"> $15.99 <span>20.99</span></div>
-
                 <button  id="inbox" onclick="addToCart('Dripping Vannila', 15.99)">Add to Cart</button><br>
                 <div class="noofitems">
                   <button class="plus-minus" onclick="decreaseQuantity('Dripping Vannila')">-</button>
@@ -635,7 +588,6 @@
 
        
                 <div class="price"> $16.99 <span>20.99</span></div>
-
                 <button  id="inbox" onclick="addToCart('Very Berry Strawberry', 16.99)">Add to Cart</button><br>
                 <div class="noofitems">
                   <button class="plus-minus" onclick="decreaseQuantity('Very Berry Strawberry')">-</button>
@@ -658,7 +610,6 @@
  
             
                 <div class="price"> $18.99 <span>20.99</span></div>
-
                 <button  id="inbox" onclick="addToCart('Rainbow Classic Cone', 18.99)">Add to Cart</button><br>
                 <div class="noofitems">
                   <button class="plus-minus" onclick="decreaseQuantity('Rainbow Classic Cone')">-</button>
@@ -682,7 +633,6 @@
             
 
                 <div class="price"> $12.99 <span>20.99</span></div>
-
                 <button  id="inbox" onclick="addToCart('Orange Pops', 12.99)">Add to Cart</button><br>
                 <div class="noofitems">
                   <button class="plus-minus" onclick="decreaseQuantity('Orange Pops')">-</button>
@@ -707,7 +657,6 @@
 
             
                 <div class="price"> $18.99 <span>20.99</span></div>
-
                 <button  id="inbox" onclick="addToCart('Choco-Hazel Pops', 18.99)">Add to Cart</button><br>
                 <div class="noofitems">
                   <button class="plus-minus" onclick="decreaseQuantity('Choco-Hazel Pops')">-</button>
@@ -730,7 +679,6 @@
             </div>
 
                 <div class="price"> $15.99 <span>20.99</span></div>
-
                 <button  id="inbox" onclick="addToCart('Very Very Peachy',15.99)">Add to Cart</button><br>
                 <div class="noofitems">
                   <button class="plus-minus" onclick="decreaseQuantity('Very Very Peachy')">-</button>
@@ -742,7 +690,7 @@
             </div>
         
 
-     
+            
             <div class="box"  data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
             data-aos-anchor-placement="top-bottom">
             <div class="picture">
@@ -763,7 +711,8 @@
                 <button id="inbox" onclick="window.location.href='orange_pops1.html';">Read more</button>
             </div>
             
-     
+
+            
             <div class="box"  data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
             data-aos-anchor-placement="top-bottom">
             <div class="picture">
@@ -786,7 +735,6 @@
             </div>
        
 
-
            
             <div class="box"  data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200"
             data-aos-anchor-placement="top-bottom">
@@ -795,7 +743,6 @@
 
                 <h3 id="pro-name">Very Very Peachy</h3>
                 <div class="price"> $16.99 <span>20.99</span></div>
-
 
                 <div class="flip">A refreshing and juicy delight packed with the sweet, sunny flavor of ripe peaches, delivering a taste of summer in every delicious bite!</div>
             </div>
@@ -821,9 +768,11 @@
 
         </div>
 
-
+        
     </section>
 
+    
+    <!-- Menu Section Ends Here -->
 
 
 <!-- Blogs Section Starts Here -->
@@ -869,94 +818,65 @@
       <a href="icecream-details.html" class="btn">Read More</a>
     </div>
 
-            <div class="blog">
-                <img style="border-radius: 15px; width: 300px; display: block" src="https://th.bing.com/th/id/R.676adb6d7539038b901d8242cc145fa1?rik=VtRfS5RbwsuVWQ&riu=http%3a%2f%2fimages6.fanpop.com%2fimage%2fphotos%2f34700000%2fIce-Creams-ice-cream-34733250-1200-972.jpg&ehk=%2baCoHwlvOoQkOsJx859JKiu%2fVnB7JSAfddJUpaHxeQo%3d&risl=&pid=ImgRaw&r=0">
-                <h3>The Art of Perfect Ice Cream Scoops</h3>
-                <p>Learn the craft behind creating the perfect scoop of ice cream. Explore the process from churning to serving, and discover the science that makes each scoop smooth and creamy.</p>
-                <a href="icecream-details.html" class="btn">Read More</a>
-            </div>
+  </div>
+</section>
+<!-- Blogs Section Ends Here -->
 
-            <div class="blog">
-                <img style="border-radius: 15px; width: 300px; display: block" src="https://th.bing.com/th/id/R.342ee8a18ef0c4c428ff5288e7567400?rik=nrNVZmqpGpWe9g&riu=http%3a%2f%2fwallpapercave.com%2fwp%2fTS014mt.jpg&ehk=xOshdAfsEoqt8T%2bU%2fZtJiZCXCT8PRAv8B6aLJ4FMWZ0%3d&risl=&pid=ImgRaw&r=0">
-                <h3>Chilling Adventures with Exotic Flavors</h3>
-                <p>Step into a world of cool treats with our adventurous range of exotic ice cream flavors. From tropical fruits to rare spices, explore how we push the boundaries of ice cream craftsmanship.</p>
-                <a href="icecream-details.html" class="btn">Read More</a>
-            </div>
+<!-- Payment Section Starts Here -->
+<section id="payment-section" class="payment-section" style="display: none;">
+    <h1 class="heading">Payment <span>Details</span></h1>
 
-            <div class="blog" data-aos="fade-up-left">
-                <img src="https://images.unsplash.com/photo-1591261730540-1ab1db33ac78?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGljZWNyZWFtJTIwc2hvcHxlbnwwfHwwfHx8MA%3D%3D" alt="Blog Post 2" class="blog-image">
-                <h3>Crafting the Perfect Scoop</h3>
-                <p>Learn about our meticulous process of crafting the perfect ice cream scoop. We source only the finest ingredients and use artisanal methods to ensure every bite is a delicious experience.</p>
-                <a href="icecream-details.html" class="btn">Read More</a>
-            </div>
+    <div class="order-summary">
+        <h2>Order Summary</h2>
+        <p id="order-items">Total Items: 3</p>
+        <p id="order-total">Total Price: $45.99</p>
+    </div>
 
-            <div class="blog" data-aos="zoom-out-down">
-                <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8dGVhbSUyMHdvcmtlcnN8ZW58MHx8MHx8fDA%3D" alt="Blog Post 3" class="blog-image">
-                <h3>Behind the Scenes at Artic Delights</h3>
-                <p>Get a sneak peek behind the scenes at our shop! Meet our passionate team and see how we create our delicious ice cream flavors daily.</p>
-                <a href="icecream-details.html" class="btn">Read More</a>
-            </div>
+    <div class="payment-methods">
+        <h2>Select Payment Method</h2>
+        <label><input type="radio" name="payment-method" value="credit-card" onchange="showPaymentDetails()"> Credit/Debit Card</label>
+        <label><input type="radio" name="payment-method" value="paypal" onchange="showPaymentDetails()"> PayPal</label>
+        <label><input type="radio" name="payment-method" value="cod" onchange="showPaymentDetails()"> Cash on Delivery</label>
+    </div>
 
+    <div class="payment-details" id="payment-details">
+        <h2>Payment Details</h2>
+        <div id="card-details" style="display: none;">
+            <label for="card-number">Card Number:</label>
+            <input type="text" id="card-number" placeholder="Enter card number" required>
+
+            <label for="card-expiry">Expiry Date:</label>
+            <input type="text" id="card-expiry" placeholder="MM/YY" required>
+
+            <label for="card-cvc">CVC:</label>
+            <input type="text" id="card-cvc" placeholder="CVC" required>
         </div>
-    </section>
-    <!-- Blogs Section Ends Here -->
-
-    <!-- Payment Section Starts Here -->
-    <section id="payment-section" class="payment-section" style="display: none;">
-        <h1 class="heading">Payment <span>Details</span></h1>
-
-        <div class="order-summary">
-            <h2>Order Summary</h2>
-            <p id="order-items">Total Items: 3</p>
-            <p id="order-total">Total Price: $45.99</p>
+        <div id="paypal-details" style="display: none;">
+            <label for="paypal-id">PayPal ID:</label>
+            <input type="text" id="paypal-id" placeholder="Enter your PayPal ID" required>
         </div>
-
-        <div class="payment-methods">
-            <h2>Select Payment Method</h2>
-            <label><input type="radio" name="payment-method" value="credit-card" onchange="showPaymentDetails()"> Credit/Debit Card</label>
-            <label><input type="radio" name="payment-method" value="paypal" onchange="showPaymentDetails()"> PayPal</label>
-            <label><input type="radio" name="payment-method" value="cod" onchange="showPaymentDetails()"> Cash on Delivery</label>
+        <div id="cod-message" style="display: none;">
+            <p>No payment details needed for Cash on Delivery.</p>
         </div>
+    </div>
 
-        <div class="payment-details" id="payment-details">
-            <h2>Payment Details</h2>
-            <div id="card-details" style="display: none;">
-                <label for="card-number">Card Number:</label>
-                <input type="text" id="card-number" placeholder="Enter card number" required>
+    <div class="billing-address">
+        <h2>Billing Address</h2>
+        <label for="billing-name">Name:</label>
+        <input type="text" id="billing-name" placeholder="Full Name" required>
 
-                <label for="card-expiry">Expiry Date:</label>
-                <input type="text" id="card-expiry" placeholder="MM/YY" required>
+        <label for="billing-address">Address:</label>
+        <input type="text" id="billing-address" placeholder="Street Address" required>
 
-                <label for="card-cvc">CVC:</label>
-                <input type="text" id="card-cvc" placeholder="CVC" required>
-            </div>
-            <div id="paypal-details" style="display: none;">
-                <label for="paypal-id">PayPal ID:</label>
-                <input type="text" id="paypal-id" placeholder="Enter your PayPal ID" required>
-            </div>
-            <div id="cod-message" style="display: none;">
-                <p>No payment details needed for Cash on Delivery.</p>
-            </div>
-        </div>
+        <label for="billing-city">City:</label>
+        <input type="text" id="billing-city" placeholder="City" required>
 
-        <div class="billing-address">
-            <h2>Billing Address</h2>
-            <label for="billing-name">Name:</label>
-            <input type="text" id="billing-name" placeholder="Full Name" required>
+        <label for="billing-zip">ZIP Code:</label>
+        <input type="text" id="billing-zip" placeholder="ZIP Code" required>
 
-            <label for="billing-address">Address:</label>
-            <input type="text" id="billing-address" placeholder="Street Address" required>
-
-            <label for="billing-city">City:</label>
-            <input type="text" id="billing-city" placeholder="City" required>
-
-            <label for="billing-zip">ZIP Code:</label>
-            <input type="text" id="billing-zip" placeholder="ZIP Code" required>
-
-            <label for="billing-country">Country:</label>
-            <input type="text" id="billing-country" placeholder="Country" required>
-        </div>
-
+        <label for="billing-country">Country:</label>
+        <input type="text" id="billing-country" placeholder="Country" required>
+    </div>
 
     <button class="order"><span class="default">Complete Order</span><span class="success">Order Placed<svg viewbox="0 0 12 10"></svg></span>
       <div class="box"></div>
@@ -1380,7 +1300,8 @@
           </p>
           <h4>- Stacy Stone</h4>
         </div>
-
+      </div>
+    </div>
   </div>
 </div>
 
@@ -1484,7 +1405,7 @@
 </div> -->
 
         <div class="credit">
-     <p> created by <span> Dohina</span> | <a href="copyright.html"> &copy;Copyright 2024 </a> | all rights reserved
+            <p> created by <span> Dohina</span> | <a href="copyright.html"> &copy;Copyright 2024 </a> | all rights reserved
             <p>
         </div>
 
@@ -1496,95 +1417,56 @@
     <script src="script.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-
-
-
-
-
+    
+          
+    
+       
+    
             // Animate the search form
-            gsap.from(".search-form", {
-                opacity: 0,
-                x: -100,
-                duration: 1,
-                ease: "power2.out"
-            });
-
+            gsap.from(".search-form", { opacity: 0, x: -100, duration: 1, ease: "power2.out" });
+    
             // Animate the cart container
-            gsap.from(".cart-items-container", {
-                opacity: 0,
-                y: 100,
-                duration: 1.5,
-                ease: "power2.out"
-            });
-
+            gsap.from(".cart-items-container", { opacity: 0, y: 100, duration: 1.5, ease: "power2.out" });
+    
             // Animate the 'My Order' container
-            gsap.from(".my-order-container", {
-                opacity: 0,
-                x: 100,
-                duration: 1.5,
-                ease: "power2.out"
-            });
-
+            gsap.from(".my-order-container", { opacity: 0, x: 100, duration: 1.5, ease: "power2.out" });
+    
             // Animate home section content
-            gsap.from(".home .content h3", {
-                opacity: 0,
-                x: -100,
-                duration: 1.5,
-                delay: 0.1,
-                ease: "power2.out"
-            });
-            gsap.from(".home .content p", {
-                opacity: 0,
-                x: -100,
-                duration: 1.5,
-                delay: 0.1,
-                ease: "power2.out"
-            });
-            gsap.from(".home .animated-button", {
-                opacity: 0,
-                x: -100,
-                duration: 1.5,
-                delay: 0.1,
-                ease: "power2.out"
-            });
-
+            gsap.from(".home .content h3", { opacity: 0, x: -100, duration: 1.5, delay :0.1, ease: "power2.out" });
+            gsap.from(".home .content p", { opacity: 0, x: -100, duration: 1.5, delay: 0.1, ease: "power2.out" });
+            gsap.from(".home .animated-button", { opacity: 0, x: -100, duration: 1.5, delay: 0.1, ease: "power2.out" });
+    
             // Animate buttons on hover for scaling effect
             const buttons = document.querySelectorAll("button");
             buttons.forEach(button => {
                 button.addEventListener('mouseover', () => {
-                    gsap.to(button, {
-                        scale: 1.1,
-                        duration: 0.2
-                    });
+                    gsap.to(button, { scale: 1.1, duration: 0.2 });
                 });
                 button.addEventListener('mouseout', () => {
-                    gsap.to(button, {
-                        scale: 1,
-                        duration: 0.2
-                    });
+                    gsap.to(button, { scale: 1, duration: 0.2 });
                 });
             });
-
+    
         });
         document.getElementById('learnMoreBtn').addEventListener('click', function(event) {
-            event.preventDefault(); // Prevent default anchor behavior
-            var moreContent = document.getElementById('moreContent');
-            if (moreContent.style.display === "none") {
-                moreContent.style.display = "block";
-                this.textContent = "Show Less"; // Change button text
-            } else {
-                moreContent.style.display = "none";
-                this.textContent = "Learn More"; // Revert button text
-            }
-        });
+        event.preventDefault(); // Prevent default anchor behavior
+        var moreContent = document.getElementById('moreContent');
+        if (moreContent.style.display === "none") {
+            moreContent.style.display = "block";
+            this.textContent = "Show Less"; // Change button text
+        } else {
+            moreContent.style.display = "none";
+            this.textContent = "Learn More"; // Revert button text
+        }
+    });
+        
     </script>
-
-
+    
+    
     <script src="./darkMode.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
-
       </script>
       <script>
         // Coordinates for the cursor
