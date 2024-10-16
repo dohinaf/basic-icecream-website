@@ -359,7 +359,7 @@ button:hover {
   /* Adjusted to position below header */
   right: 7%;
   background-color: var(--background-color);
-  width: 20rem;
+  width: 25rem;
   /* Adjusted width for better fit */
   height: auto;
   display: none;
@@ -373,6 +373,7 @@ button:hover {
 
 .header .search-form.active {
   display: flex;
+  border-radius: 10px;
   /* Show when active */
 }
 
@@ -383,6 +384,7 @@ button:hover {
   padding: 0.5rem;
   border: none;
   outline: none;
+  border-radius: 7px;
 }
 
 .header .search-form label {
