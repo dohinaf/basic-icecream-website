@@ -803,63 +803,79 @@
 
 
 <!-- Payment Section Starts Here -->
-<section id="payment-section" class="payment-section" style="display: none;">
-    <h1 class="heading">Payment <span>Details</span></h1>
-
-    <div class="order-summary">
-        <h2>Order Summary</h2>
-        <p id="order-items">Total Items: 3</p>
-        <p id="order-total">Total Price: $45.99</p>
+<!-- Payment Section Starts Here -->
+<section id="payment-section" class="payment-section" style="display: none; padding: 20px; color: white; background-color: #333; margin-top: 80px;">
+    <div style="text-align: center;"> <!-- Added a wrapper div for centering -->
+      <h1 class="heading" style="margin: 0;">Payment <span>Details</span></h1> <!-- Margin removed for better centering -->
     </div>
+    
+    <div style="display: flex; justify-content: space-between; gap: 20px;">
+      <!-- Centered Heading -->
+      
 
-    <div class="payment-methods">
-        <h2>Select Payment Method</h2>
-        <label><input type="radio" name="payment-method" value="credit-card" onchange="showPaymentDetails()"> Credit/Debit Card</label>
-        <label><input type="radio" name="payment-method" value="paypal" onchange="showPaymentDetails()"> PayPal</label>
-        <label><input type="radio" name="payment-method" value="cod" onchange="showPaymentDetails()"> Cash on Delivery</label>
-    </div>
+      <!-- Order Summary -->
+      <div class="order-summary" style="padding: 20px; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.2); flex: 1;">
+          <h2 style="color: white;">Order Summary</h2>
+          <p id="order-items">Total Items: 3</p>
+          <p id="order-total">Total Price: $45.99</p>
+      </div>
 
-    <div class="payment-details" id="payment-details">
-        <h2>Payment Details</h2>
-        <div id="card-details" style="display: none;">
-            <label for="card-number">Card Number:</label>
-            <input type="text" id="card-number" placeholder="Enter card number" required>
+      <!-- Payment Methods -->
+      <div class="payment-methods" style="padding: 20px; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.2); flex: 1;">
+          <h2 style="color: white;">Select Payment Method</h2>
+          <label style="display: block; margin-bottom: 10px;">
+              <input type="radio" name="payment-method" value="credit-card" onchange="showPaymentDetails()" checked style="margin-right: 5px;"> Credit/Debit Card
+          </label>
+          <label style="display: block; margin-bottom: 10px;">
+              <input type="radio" name="payment-method" value="paypal" onchange="showPaymentDetails()" style="margin-right: 5px;"> PayPal
+          </label>
+          <label style="display: block;">
+              <input type="radio" name="payment-method" value="cod" onchange="showPaymentDetails()" style="margin-right: 5px;"> Cash on Delivery
+          </label>
+      </div>
 
-            <label for="card-expiry">Expiry Date:</label>
-            <input type="text" id="card-expiry" placeholder="MM/YY" required>
+      <!-- Payment Details Section -->
+      <div class="payment-details" id="payment-details" style="padding: 20px; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.2); flex: 1;">
+          <h2 style="color: white; padding-bottom: 10px;">Payment Details</h2>
+          <div id="card-details" style="display: block;">
+              <label for="card-number" style="color: white;">Card Number:</label>
+              <input type="text" id="card-number" placeholder="Enter card number" required><br>
+              <label for="card-expiry" style="color: white;">Expiry Date:</label>
+              <input type="text" id="card-expiry" placeholder="MM/YY" required><br>
+              <label for="card-cvc" style="color: white;">CVC:</label>
+              <input type="text" id="card-cvc" placeholder="CVC" required>
+          </div>
 
-            <label for="card-cvc">CVC:</label>
-            <input type="text" id="card-cvc" placeholder="CVC" required>
-        </div>
-        <div id="paypal-details" style="display: none;">
-            <label for="paypal-id">PayPal ID:</label>
-            <input type="text" id="paypal-id" placeholder="Enter your PayPal ID" required>
-        </div>
-        <div id="cod-message" style="display: none;">
-            <p>No payment details needed for Cash on Delivery.</p>
-        </div>
-    </div>
+          <div id="paypal-details" style="display: none;">
+              <label for="paypal-id" style="color: white;">PayPal ID:</label>
+              <input type="text" id="paypal-id" placeholder="Enter your PayPal ID" required>
+          </div>
 
-    <div class="billing-address">
-        <h2>Billing Address</h2>
-        <label for="billing-name">Name:</label>
-        <input type="text" id="billing-name" placeholder="Full Name" required>
+          <div id="cod-message" style="display: none;">
+              <p style="color: white;">No payment details needed for Cash on Delivery.</p>
+          </div>
+      </div>
+  </div>
 
-        <label for="billing-address">Address:</label>
-        <input type="text" id="billing-address" placeholder="Street Address" required>
+  <!-- Billing Address Section -->
+  <div class="billing-address" style="padding: 20px; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.2); max-width: 100%; margin-top: 20px;">
+      <h2 style="color: white;">Billing Address</h2>
+      <label for="billing-name" style="color: white;">Name:</label>
+      <input type="text" id="billing-name" placeholder="Full Name" required><br>
+      <label for="billing-address" style="color: white;">Address:</label>
+      <input type="text" id="billing-address" placeholder="Street Address" required><br>
+      <label for="billing-city" style="color: white;">City:</label>
+      <input type="text" id="billing-city" placeholder="City" required><br>
+      <label for="billing-zip" style="color: white;">ZIP Code:</label>
+      <input type="text" id="billing-zip" placeholder="ZIP Code" required><br>
+      <label for="billing-country" style="color: white;">Country:</label>
+      <input type="text" id="billing-country" placeholder="Country" required>
+  </div>
 
-        <label for="billing-city">City:</label>
-        <input type="text" id="billing-city" placeholder="City" required>
-
-        <label for="billing-zip">ZIP Code:</label>
-        <input type="text" id="billing-zip" placeholder="ZIP Code" required>
-
-        <label for="billing-country">Country:</label>
-        <input type="text" id="billing-country" placeholder="Country" required>
-    </div>
-
-    <button class="order"><span class="default">Complete Order</span><span class="success">Order Placed<svg viewbox="0 0 12 10"></svg></span>
-      <div class="box"></div>
+  <button class="order" style="background-color: #4A4A4A; color: #E0E0E0;"> <!-- Dark grey background with off-white text -->
+    <span class="default" style="color: inherit;">Complete Order</span> <!-- Inherits the button text color -->
+    <span class="success" style="color: inherit;">Order Placed<svg viewbox="0 0 12 10"></svg></span>
+    <div class="box"></div>
     <div class="truck">
         <div class="back"></div>
         <div class="front">
@@ -870,6 +886,9 @@
     </div>
     <div class="lines"></div>
 </button>
+
+</section>
+
 <!-- partial -->
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script><script  src="./script.js"></script>
 <style>

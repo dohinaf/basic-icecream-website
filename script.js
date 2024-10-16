@@ -342,7 +342,28 @@ function showSection(section) {
 // document.getElementById('menu-link').addEventListener('click', () => showSection('menu'));
 // document.getElementById('blogs-link').addEventListener('click', () => showSection('blogs'));
 
-
+function showPaymentDetails() {
+    const paymentMethods = document.getElementsByName('payment-method');
+    const cardDetails = document.getElementById('card-details');
+    const paypalDetails = document.getElementById('paypal-details');
+    const codMessage = document.getElementById('cod-message');
+  
+    cardDetails.style.display = 'none';
+    paypalDetails.style.display = 'none';
+    codMessage.style.display = 'none';
+  
+    for (const method of paymentMethods) {
+        if (method.checked) {
+            if (method.value === 'credit-card') {
+                cardDetails.style.display = 'block';
+            } else if (method.value === 'paypal') {
+                paypalDetails.style.display = 'block';
+            } else if (method.value === 'cod') {
+                codMessage.style.display = 'block';
+            }
+        }
+    }
+  }
 
 function checkout() {
 
