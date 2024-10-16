@@ -945,6 +945,9 @@ button:hover {
   font-size: 1.8rem; /* Increased button font size */
   cursor: pointer;
 }
+.custom-btn:hover {
+  color: #fff; /* Change text color on hover: better visibility */
+}
 
 .container__right {
   display: grid;
@@ -1816,9 +1819,11 @@ input:checked + .slider:before {
   border-radius: 50%;
   margin: 3rem 1.5rem 3rem 0;
   transition: 0.3s ease;
+  color: #000000;
+}
+[data-theme="dark"] .social-icons a {
   color: #ffffff;
 }
-
 .social-icons a:hover {
   color: black;
   transform: scale(1.3) translateY(-5px);
