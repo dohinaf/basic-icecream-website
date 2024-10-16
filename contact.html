@@ -6,11 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Responsive Ice Cream Website</title>
+   
 
     <!-- Font Awesome CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <!-- Custom CSS -->
+    <link rel="stylesheet" href="preloaderStyle.css">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <style>
@@ -31,6 +33,19 @@
 </head>
 
 <body>
+     <!-- preloader -->
+  <div id="preloader">
+    <div class="wrapper">
+        <div class="box-wrap">
+            <div class="box one"></div>
+            <div class="box two"></div>
+            <div class="box three"></div>
+            <div class="box four"></div>
+            <div class="box five"></div>
+            <div class="box six"></div>
+        </div>
+    </div>
+</div>
     <!-- Circles -->
     <div class="circle"></div>
     <div class="circle"></div>
@@ -63,7 +78,7 @@
             <a href="index.html#menu">Menu</a>
             <a href="index.html#review">Review</a>
             <a href="index.html#blogs">Blogs</a>
-            <a href="index.html#my-order-btn">My Order</a>
+            <a href="index.html#my-order-btn" class="order">My Order</a>
             <a href="contact.html" class="active">Contact Us</a>
         </nav>
         <div class="icons">
@@ -90,6 +105,7 @@
         </div>
     </section>
     <!-- Footer Section Ends Here -->
+    <script src="preloader.js"></script>
 
     <!-- JavaScript File -->
     <script src="script.js"></script>
