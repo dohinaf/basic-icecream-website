@@ -14,9 +14,12 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- SweetAlert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    
+
+  
 
     <style>
         .chatbot-container {
@@ -395,6 +398,14 @@
     
     <!-- Script for pop up discount Starts Here -->
     <script>
+      function showNotification(message) {
+    Swal.fire({
+      icon: 'success',
+      title: message,
+      showConfirmButton: false,
+      timer: 2000
+    });
+  }
     // Show the pop-up automatically when the page loads
     window.onload = function() {
       document.getElementById('popup').style.display = 'flex';
@@ -411,7 +422,8 @@
       
       const email = document.getElementById('email').value;
       if (email) {
-        alert(`Thank you! A 20% discount code has been sent to ${email}`);
+        showNotification(`Thank you! A 20% discount code has been sent to ${email}`);
+        // alert(`Thank you! A 20% discount code has been sent to ${email}`);
         document.getElementById('popup').style.display = 'none';
       }
     });
@@ -828,7 +840,7 @@
         <input type="text" id="billing-country" placeholder="Country" required>
     </div>
 
-    <button class="order"><span class="default">Complete Order</span><span class="success">Order Placed<svg viewbox="0 0 12 10"></svg></span>
+    <button class="order" onclick="confirmPayment()"><span class="default">Complete Order</span><span class="success">Order Placed<svg viewbox="0 0 12 10"></svg></span>
       <div class="box"></div>
     <div class="truck">
         <div class="back"></div>
@@ -1275,6 +1287,23 @@
   <button type="submit" class="submit-button" data-aos="zoom-out-down">Submit Review</button>
 </form>
 <script>
+  function showNotification(message) {
+    Swal.fire({
+      icon: 'success',
+      title: message,
+      showConfirmButton: false,
+      timer: 2000
+    });
+  }
+  
+ function showNotificationError(message){
+    Swal.fire({
+        icon: 'error',
+        title: message,
+        showConfirmButton: false,
+        timer: 2000
+      });
+ }
   // Function to store multiple reviews as JSON in local storage
   function storeReview(event) {
     event.preventDefault(); // Prevent default form submission
@@ -1284,7 +1313,8 @@
 
     // Check if either field is empty
     if (userName === '' || userReview === '') {
-      alert('Both name and review must be filled out before submitting!');
+      // alert('Both name and review must be filled out before submitting!');
+      showNotificationError('Both name and review must be filled out before submitting!');
       return; // Exit the function if fields are empty
     }
 
@@ -1307,7 +1337,8 @@
     document.getElementById('user-name').value = '';
     document.getElementById('user-review').value = '';
 
-    alert('Thank you for sharing your review!'); // Show a success message
+    // alert('Thank you for sharing your review!'); // Show a success message
+    showNotification('Thank you for sharing your review!');
   }
 </script>
 
@@ -1414,6 +1445,7 @@
     
     <script src="./darkMode.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="./notification.js"></script>
     <script>
         AOS.init();
       </script>
