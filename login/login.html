@@ -4,20 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
+    <link rel="stylesheet" href="../preloaderStyle.css">
     <link rel="stylesheet" href="login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+     <!-- preloader -->
+  <div id="preloader">
+    <div class="wrapper">
+        <div class="box-wrap">
+            <div class="box one"></div>
+            <div class="box two"></div>
+            <div class="box three"></div>
+            <div class="box four"></div>
+            <div class="box five"></div>
+            <div class="box six"></div>
+        </div>
+    </div>
+</div>
     <div class="login-container">
         <div id="login-box" class="login-box">
             <h2>Welcome Back!</h2>
             <form action="#" class="login-form">
                 <div class="input-group">
+                    <i class="fas fa-envelope"></i>
                     <input type="email" required>
                     <label>Email</label>
                 </div>
                 <div class="input-group">
-                    <input type="password" required>
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password" required>
+                    <span class="toggle-password" onclick="togglePasswordVisibility()">
+                        <i class="fas fa-eye" id="eye-icon"></i>
+                    </span>
                     <label>Password</label>
                 </div>
                 <button class="login-btn" type="submit">Login</button>
@@ -28,6 +47,10 @@
             </form>
         </div>
     </div>
+    <script src="../preloader.js"></script>
     <script src="login.js"></script>
+    <div class="gtranslate_wrapper"></div>
+<script>window.gtranslateSettings = {"default_language":"en","detect_browser_language":true,"wrapper_selector":".gtranslate_wrapper"}</script>
+<script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
 </body>
 </html>
