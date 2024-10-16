@@ -76,3 +76,11 @@ document.querySelector(".signup-form").addEventListener("submit", function (e) {
   document.querySelector(".signup-form").reset(); // Clear the form fields
 });
 
+document.querySelector('.signup-form').addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent the default form submission
+
+  // You can add form validation or any other logic here
+
+  // Redirect to profile.html
+  window.location.href = '../profile.html';
+});

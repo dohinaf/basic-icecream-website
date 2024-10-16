@@ -46,41 +46,45 @@ if (loginCard) {
 if (signupCard) {
   addHoverEffect(signupCard);
 }
-document.querySelector(".login-form").addEventListener("submit", function (e) {
-  e.preventDefault(); // Prevent form submission
 
-  const email = document.querySelector('.login-form input[type="email"]').value;
-  const password = document.querySelector(
-    '.login-form input[type="password"]'
-  ).value;
+document.addEventListener('DOMContentLoaded', () => {
+  const loginForm = document.querySelector('.login-form');
 
-  // Retrieve data from local storage
-  const existingUsersData = localStorage.getItem("users");
+  loginForm.addEventListener('submit', function (e) {
+      e.preventDefault(); // Prevent default form submission
 
-  if (existingUsersData) {
-    const usersArray = JSON.parse(existingUsersData); // Parse the JSON string back to an array of objects
-    let userFound = false; // Flag to track if user is found
+      const email = document.querySelector('input[name="email"]').value;
+      const password = document.querySelector('input[name="password"]').value;
 
-    // Loop through users and check if any match the input credentials
-    usersArray.forEach((userData) => {
-      if (email === userData.email && password === userData.password) {
-        userFound = true;
-        alert("Glad you are back for another treat!");
-        // Redirect to index.html
-        window.location.assign("../index.html");
+      // Retrieve data from local storage
+      const existingUsersData = localStorage.getItem("users");
+
+      if (existingUsersData) {
+          const usersArray = JSON.parse(existingUsersData);
+          let userFound = false;
+
+          // Check if user exists
+          for (const userData of usersArray) {
+              if (email === userData.email && password === userData.password) {
+                  userFound = true;
+                  alert("Glad you are back for another treat!");
+                  // Redirect to profile.html after a short delay
+                  setTimeout(() => {
+                      window.location.href = '../profile.html'; // Redirect to the profile page
+                  }, 500); // 500 milliseconds delay
+                  break; // Exit the loop once found
+              }
+          }
+
+          if (!userFound) {
+              alert("Invalid email or password!"); // Show alert only once
+          }
+      } else {
+          alert("No user found. Please sign up first.");
+          window.location.href = "../signup/signup.html"; // Redirect to signup page
       }
-    });
 
-    if (!userFound) {
-      // If no matching user is found
-      alert("Invalid email or password!");
-    }
-  } else {
-    // If no users found in local storage
-    alert("No user found. Please sign up first.");
-    window.location.assign("../signup/signup.html");
-  }
-
-  // Clear the form fields
-  document.querySelector(".login-form").reset();
+      // Clear the form fields after processing
+      loginForm.reset();
+  });
 });
