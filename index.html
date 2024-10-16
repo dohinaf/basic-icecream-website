@@ -364,70 +364,97 @@
   </section>
   <!-- Home Section Ends Here -->
 
-    <!-- Pop-up for Discount and Sign up Starts here -->
-      <div id="popup" class="popup">
-        <div class="popup-content">
-          <div class="popup-left">
-            <img src="ICECREAM.jpg" alt="Discount Image">
-          </div>
-          <div class="popup-right">
-            <span class="close-btn">&times;</span>
-            <h2>Scoop Up the Savings!</h2>
-            <p>Get 20% off on your first order when you Sign up.</p>
-            <form id="emailForm">
-              <input type="name" id="name" placeholder="Enter your Name">
-              <input type="email" id="email" placeholder="Enter your Email" required>
-              <input type="password" id="password" placeholder="Enter your Password" required>
-
-              <button type="submit" class="signup-btn">SIGN UP</button>
-          </form>
-          <a href="#" class="no-thanks">No thanks</a>
-          <p class="terms">By signing up, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>
+  <!-- Pop-up for Discount and Sign up Starts here -->
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <div class="popup-left">
+        <img src="ICECREAM.jpg" alt="Discount Image">
       </div>
+      <div class="popup-right">
+        <span class="close-btn">&times;</span>
+        <h2>Scoop Up the Savings!</h2>
+        <p>Get 20% off on your first order when you Sign up.</p>
+        <form id="emailForm">
+          <input type="name" id="name" placeholder="Enter your Name">
+          <input type="email" id="email" placeholder="Enter your Email" required>
+          <input type="password" id="password" placeholder="Enter your Password" required>
+          <button type="submit" class="signup-btn">SIGN UP</button>
+        </form>
+        <a href="#" class="no-thanks">No thanks</a>
+        <p class="terms">By signing up, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy
+            Policy</a>.</p>
+      </div>
+    </div>
   </div>
-</div>
+  <!--  Pop-up for Discount and Sign up Ends here  -->
 
-<script>
-  // Handle form submission for the pop-up sign-up form
-  document.getElementById('emailForm').addEventListener('submit', function(event) {
-      event.preventDefault(); // Prevent default form submission
-      
-      // Perform any sign-up logic here, such as email validation or server requests
-      
-      // Redirect to profile.html after sign-up
-      window.location.href = 'profile.html'; // Redirect user to the profile page
-  });
-</script>
+  <!-- Script for pop up discount Starts Here -->
+  <script>
+    <!-- Pop-up for Discount and Sign up Starts here -->
+    <div id="popup" class="popup">
+      <div class="popup-content">
+        <div class="popup-left">
+          <img src="ICECREAM.jpg" alt="Discount Image">
+        </div>
+        <div class="popup-right">
+          <span class="close-btn">&times;</span>
+          <h2>Scoop Up the Savings!</h2>
+          <p>Get 20% off on your first order when you Sign up.</p>
+          <form id="emailForm">
+            <input type="name" id="name" placeholder="Enter your Name">
+              <input type="email" id="email" placeholder="Enter your Email" required>
+                <input type="password" id="password" placeholder="Enter your Password" required>
 
-    <!--  Pop-up for Discount and Sign up Ends here  -->
-    
-    <!-- Script for pop up discount Starts Here -->
-    <script>
-    // Show the pop-up automatically when the page loads
-    window.onload = function () {
-      document.getElementById('popup').style.display = 'flex';
+                  <button type="submit" class="signup-btn">SIGN UP</button>
+                </form>
+                <a href="#" class="no-thanks">No thanks</a>
+                <p class="terms">By signing up, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy
+                  Policy</a>.</p>
+              </div>
+            </div>
+        </div>
+
+        <script>
+    // Handle form submission for the pop-up sign-up form
+          document.getElementById('emailForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent default form submission
+
+          // Perform any sign-up logic here, such as email validation or server requests
+
+          // Redirect to profile.html after sign-up
+          window.location.href = 'profile.html'; // Redirect user to the profile page
+    });
+  </script>
+
+  <!--  Pop-up for Discount and Sign up Ends here  -->
+
+  <!-- Script for pop up discount Starts Here -->
+  <script>
+        // Show the pop-up automatically when the page loads
+        window.onload = function () {
+          document.getElementById('popup').style.display = 'flex';
     };
 
-    // Close the pop-up when the user clicks the close button
-    document.querySelector('.close-btn').addEventListener('click', function () {
-      document.getElementById('popup').style.display = 'none';
+        // Close the pop-up when the user clicks the close button
+        document.querySelector('.close-btn').addEventListener('click', function () {
+          document.getElementById('popup').style.display = 'none';
     });
 
-    // Handle form submission
-    document.getElementById('emailForm').addEventListener('submit', function (event) {
-      event.preventDefault();
+        // Handle form submission
+        document.getElementById('emailForm').addEventListener('submit', function (event) {
+          event.preventDefault();
 
-      const email = document.getElementById('email').value;
-      if (email) {
-        alert(`Thank you! A 20% discount code has been sent to ${email}`);
+        const email = document.getElementById('email').value;
+        if (email) {
+          alert(`Thank you! A 20% discount code has been sent to ${email}`);
         document.getElementById('popup').style.display = 'none';
       }
     });
 
-    // Handle "No thanks" link
-    document.querySelector('.no-thanks').addEventListener('click', function (event) {
-      event.preventDefault();
-      document.getElementById('popup').style.display = 'none';
+        // Handle "No thanks" link
+        document.querySelector('.no-thanks').addEventListener('click', function (event) {
+          event.preventDefault();
+        document.getElementById('popup').style.display = 'none';
     });
   </script>
   <!-- Script for pop up discount ends Here -->
@@ -474,60 +501,62 @@
     </div>
   </section>
 
-    <!-- Login Modal -->
-<div id="login-modal" class="modal login-container">
+  <!-- Login Modal -->
+  <div id="login-modal" class="modal login-container">
     <div class="login-card">
       <div class="login-image">
-        <img src="https://static.vecteezy.com/system/resources/thumbnails/044/570/761/small_2x/assortment-of-colorful-ice-cream-scoops-in-waffle-cones-with-fresh-fruits-on-a-transparent-background-png.png" alt="Ice Cream" />
+        <img
+          src="https://static.vecteezy.com/system/resources/thumbnails/044/570/761/small_2x/assortment-of-colorful-ice-cream-scoops-in-waffle-cones-with-fresh-fruits-on-a-transparent-background-png.png"
+          alt="Ice Cream" />
       </div>
-      
+
       <div class="modal-content login-form">
         <span class="close-btn" id="close-login">&times;</span>
         <h2>Login to Your Account</h2>
         <form>
           <h3>Email :-</h3>
-           <br>
-            <input type="email" placeholder="Email" required>
- 
-            <h3>Password :-</h3>
-             <br>
-            <input type="password" placeholder="Password" required class="inputFields">
-            <button type="submit">Login</button>
-            
-          <p>Don't have an account? <a href="#sign-modal">Sign up</a></p>
- 
-            
- 
-        </form>
-    </div>
-    </div>
-</div>
+          <br>
+          <input type="email" placeholder="Email" required>
 
-<!-- Signup Modal -->
-<div id="signup-modal" class="modal">
-  <div class="modal-content">
+          <h3>Password :-</h3>
+          <br>
+          <input type="password" placeholder="Password" required class="inputFields">
+          <button type="submit">Login</button>
+
+          <p>Don't have an account? <a href="#sign-modal">Sign up</a></p>
+
+
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Signup Modal -->
+  <div id="signup-modal" class="modal">
+    <div class="modal-content">
       <span class="close-btn" id="close-signup">&times;</span>
       <h2>Sign Up</h2>
       <form id="signup-form">
-          <input type="text" placeholder="Full Name" required>
-          <input type="email" placeholder="Email" required>
-          <input type="password" class="pass-btn" placeholder="Password" required>
-          <button type="submit" class="sign-btn">Sign Up</button>
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email" required>
+        <input type="password" class="pass-btn" placeholder="Password" required>
+        <button type="submit" class="sign-btn">Sign Up</button>
       </form>
+    </div>
   </div>
-</div>
 
 
-<script>
-  document.getElementById('signup-form').addEventListener('submit', function(event) {
-      event.preventDefault(); // Prevent default form submission
-      
-      // Perform validation or backend signup request here
-      // If signup is successful, redirect to profile.html
-      
-      window.location.href = 'profile.html'; // Redirect to profile page
-  });
-</script>
+  <script>
+        document.getElementById('signup-form').addEventListener('submit', function (event) {
+          event.preventDefault(); // Prevent default form submission
+
+        // Perform validation or backend signup request here
+        // If signup is successful, redirect to profile.html
+
+        window.location.href = 'profile.html'; // Redirect to profile page
+    });
+  </script>
 
   <!-- About Section Ends Here -->
   <!-- Menu Section Starts Here -->
@@ -536,21 +565,44 @@
       Here's what we have in store for you!
     </h1>
 
-        <input type="text" id="flavor-filter" placeholder="Search Your flavor...">
-        <br>
-        <div class="filter-box">
-          
-            <h3  id="pro-name">Filter Ice Creams</h3>
-            <select id="price-filter">
-                <option value="all">All Prices</option>
-                <option value="under-15">Under $15</option>
-                <option value="15-20">$15 - $20</option>
-                <option value="over-20">Over $20</option>
-            </select>
-            <button id="apply-filter">Apply Filter</button>
-            <button id="remove-filter">Remove Filter</button> <!-- New Remove Filter Button -->
-        </div>
-        <div class="box-container">
+    <!-- Search by Text Input -->
+    <input type="text" id="flavor-search" placeholder="Search Your flavor...">
+    <br>
+
+    <!-- Filter Options -->
+    <div class="filter-box">
+      <h3 id="pro-name">Filter Ice Creams</h3>
+
+      <!-- Price Filter -->
+      <select id="price-filter">
+        <option value="all">All Prices</option>
+        <option value="under-15">Under $15</option>
+        <option value="15-20">$15 - $20</option>
+        <option value="over-20">Over $20</option>
+      </select>
+
+      <!-- Flavor Filter Dropdown -->
+      <select id="flavor-filter">
+        <option value="all">All Flavors</option>
+        <option value="Nutty Butterscotch">Nutty Butterscotch</option>
+        <option value="Berry Pops">Berry Pops</option>
+        <option value="Cherry Sherbet Pops">Cherry Sherbet Pops</option>
+        <option value="Dripping Vanilla">Dripping Vanilla</option>
+        <option value="Very Berry Strawberry">Very Berry Strawberry</option>
+        <option value="Rainbow Classic Cone">Rainbow Classic Cone</option>
+        <option value="Orange Pops">Orange Pops</option>
+        <option value="Choco-Hazel Pops">Choco-Hazel Pops</option>
+
+
+      </select>
+
+      <!-- Filter Buttons -->
+      <button id="apply-filter">Apply Filter</button>
+      <button id="remove-filter">Remove Filter</button> <!-- New Remove Filter Button -->
+    </div>
+
+
+    <div class="box-container">
 
       <div class="box" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200"
         data-aos-anchor-placement="top-bottom">
@@ -791,72 +843,131 @@
   </section>
 
 
+  //
   <script>
-    document.getElementById('apply-filter').addEventListener('click', function () {
-      const searchTerm = document.getElementById('flavor-search').value.toLowerCase();
-      const priceFilter = document.getElementById('price-filter').value;
-      const flavorFilter = document.getElementById('flavor-filter').value;
+        //   document.getElementById('apply-filter').addEventListener('click', function() {
+        //     const searchTerm = document.getElementById('flavor-search').value.toLowerCase();
+        //     const priceFilter = document.getElementById('price-filter').value;
+        //     const flavorFilter = document.getElementById('flavor-filter').value;
 
-      const boxes = document.querySelectorAll('.box');
+        //     const boxes = document.querySelectorAll('.box');
 
-      boxes.forEach(box => {
-        const flavorName = box.querySelector('h3').innerText.toLowerCase();
-        const priceText = box.querySelector('.price').innerText;
-        const priceValue = parseFloat(priceText.replace('$', '').split(' ')[0]); 
+        //     boxes.forEach(box => {
+        //       const flavorName = box.querySelector('h3').innerText.toLowerCase();
+        //       const priceText = box.querySelector('.price').innerText;
+        //       const priceValue = parseFloat(priceText.replace('$', '').split(' ')[0]); // Extracting the price value
 
-        let matchesSearch = flavorName.includes(searchTerm);
-        let matchesPrice = false;
+        //       let matchesSearch = flavorName.includes(searchTerm);
+        //       let matchesPrice = false;
 
-        // Price Filter Logic
-        if (priceFilter === 'all') {
-          matchesPrice = true;
-        } else if (priceFilter === 'under-15' && priceValue < 15) {
-          matchesPrice = true;
-        } else if (priceFilter === '15-20' && priceValue >= 15 && priceValue <= 20) {
-          matchesPrice = true;
-        } else if (priceFilter === 'over-20' && priceValue > 20) {
-          matchesPrice = true;
-        }
+        //       // Price Filter Logic
+        //       if (priceFilter === 'all') {
+        //         matchesPrice = true;
+        //       } else if (priceFilter === 'under-15' && priceValue < 15) {
+        //         matchesPrice = true;
+        //       } else if (priceFilter === '15-20' && priceValue >= 15 && priceValue <= 20) {
+        //         matchesPrice = true;
+        //       } else if (priceFilter === 'over-20' && priceValue > 20) {
+        //         matchesPrice = true;
+        //       }
 
-        // Flavor Filter Logic
-        let matchesFlavor = flavorFilter === 'all' || flavorFilter === flavorName;
+        //       // Flavor Filter Logic
+        //       let matchesFlavor = flavorFilter === 'all' || flavorFilter === flavorName;
 
-        if (matchesSearch && matchesPrice && matchesFlavor) {
-          box.style.display = 'block';
-        } else {
-          box.style.display = 'none';
-        }
-      });
-    });
+        //       if (matchesSearch && matchesPrice && matchesFlavor) {
+        //         box.style.display = 'block';
+        //       } else {
+        //         box.style.display = 'none';
+        //       }
+        //     });
+        // });
 
-    // Reset Filters
-    document.getElementById('remove-filter').addEventListener('click', function () {
-      document.getElementById('flavor-search').value = '';
-      document.getElementById('price-filter').value = 'all';
-      document.getElementById('flavor-filter').value = 'all';
 
-      const boxes = document.querySelectorAll('.box');
+        // // Reset Filters
+        // document.getElementById('remove-filter').addEventListener('click', function() {
+        //   document.getElementById('flavor-search').value = '';
+        //   document.getElementById('price-filter').value = 'all';
+        //   document.getElementById('flavor-filter').value = 'all';
+
+        //   const boxes = document.querySelectorAll('.box');
+        //   boxes.forEach(box => box.style.display = 'block'); // Show all boxes
+        // });
+
+
+
+        //   // Reset filter on selecting "All Flavors"
+        //   document.getElementById('flavor-filter').addEventListener('change', function() {
+        //     const flavorFilter = this.value;
+
+        //     if (flavorFilter === 'all') {
+        //       const boxes = document.querySelectorAll('.box');
+        //       boxes.forEach(box => {
+        //         box.style.display = 'block'; // Show all boxes
+        //       });
+        //     }
+        //   });
+        // </script>
+
+  <script>
+          document.getElementById('apply-filter').addEventListener('click', function () {
+            const searchTerm = document.getElementById('flavor-search').value.toLowerCase();
+            const priceFilter = document.getElementById('price-filter').value;
+            const flavorFilter = document.getElementById('flavor-filter').value;
+
+            const boxes = document.querySelectorAll('.box');
+
+            boxes.forEach(box => {
+              const flavorName = box.querySelector('h3').innerText.toLowerCase();
+              const priceText = box.querySelector('.price').innerText;
+              const priceValue = parseFloat(priceText.replace('$', '').split(' ')[0]); // Extracting the price value
+
+              let matchesSearch = flavorName.includes(searchTerm);
+              let matchesPrice = false;
+
+              // Price Filter Logic
+              if (priceFilter === 'all') {
+                matchesPrice = true;
+              } else if (priceFilter === 'under-15' && priceValue < 15) {
+                matchesPrice = true;
+              } else if (priceFilter === '15-20' && priceValue >= 15 && priceValue <= 20) {
+                matchesPrice = true;
+              } else if (priceFilter === 'over-20' && priceValue > 20) {
+                matchesPrice = true;
+              }
+
+              // Flavor Filter Logic
+              let matchesFlavor = flavorFilter === 'all' || flavorFilter === flavorName;
+
+              if (matchesSearch && matchesPrice && matchesFlavor) {
+                box.style.display = 'block';
+              } else {
+                box.style.display = 'none';
+              }
+            });
+          });
+
+        // Reset Filters
+        document.getElementById('remove-filter').addEventListener('click', function() {
+          document.getElementById('flavor-search').value = '';
+        document.getElementById('price-filter').value = 'all';
+        document.getElementById('flavor-filter').value = 'all';
+
+        const boxes = document.querySelectorAll('.box');
       boxes.forEach(box => box.style.display = 'block'); // Show all boxes
     });
 
         // Reset filter on selecting "All Flavors"
-    document.getElementById('flavor-filter').addEventListener('change', function() {
-        const flavorFilter = this.value;
+        document.getElementById('flavor-filter').addEventListener('change', function() {
+      const flavorFilter = this.value;
 
         if (flavorFilter === 'all') {
-            const boxes = document.querySelectorAll('.box');
-            boxes.forEach(box => {
-                box.style.display = 'block';
-            });
-        }
+        const boxes = document.querySelectorAll('.box');
+        boxes.forEach(box => {
+          box.style.display = 'block'; // Show all boxes
+        });
+      }
     });
-
-
   </script>
-
-
-  <!-- Menu Section Ends Here -->
-
 
   <!-- Blogs Section Starts Here -->
   <section class="blogs" id="blogs">
@@ -1401,13 +1512,13 @@
       }
     </style>
     <script>
-      $('.order').click(function (e) {
-        let button = $(this);
+        $('.order').click(function (e) {
+          let button = $(this);
 
         if (!button.hasClass('animate')) {
           button.addClass('animate');
           setTimeout(() => {
-            button.removeClass('animate');
+          button.removeClass('animate');
           }, 10000);
         }
 
@@ -1512,49 +1623,49 @@
           <button type="submit" class="submit-button" data-aos="zoom-out-down">Submit Review</button>
         </form>
         <script>
-          // Function to store multiple reviews as JSON in local storage
-          function storeReview(event) {
-            event.preventDefault(); // Prevent default form submission
+        // Function to store multiple reviews as JSON in local storage
+        function storeReview(event) {
+          event.preventDefault(); // Prevent default form submission
 
-            const userName = document.getElementById('user-name').value.trim();
-            const userReview = document.getElementById('user-review').value.trim();
+        const userName = document.getElementById('user-name').value.trim();
+        const userReview = document.getElementById('user-review').value.trim();
 
-            // Check if either field is empty
-            if (userName === '' || userReview === '') {
-              alert('Both name and review must be filled out before submitting!');
-              return; // Exit the function if fields are empty
+        // Check if either field is empty
+        if (userName === '' || userReview === '') {
+          alert('Both name and review must be filled out before submitting!');
+        return; // Exit the function if fields are empty
             }
 
-            // Create a JSON object for the new review
-            const newReview = {
-              name: userName,
-              review: userReview
+        // Create a JSON object for the new review
+        const newReview = {
+          name: userName,
+        review: userReview
             };
 
-            // Get existing reviews from local storage or initialize as an empty array
-            let reviews = JSON.parse(localStorage.getItem('reviews')) || [];
+        // Get existing reviews from local storage or initialize as an empty array
+        let reviews = JSON.parse(localStorage.getItem('reviews')) || [];
 
-            // Add the new review to the beginning of the array
-            reviews.unshift(newReview); // Adds new review to the top
+        // Add the new review to the beginning of the array
+        reviews.unshift(newReview); // Adds new review to the top
 
-            // Store the updated array back in local storage
-            localStorage.setItem('reviews', JSON.stringify(reviews));
+        // Store the updated array back in local storage
+        localStorage.setItem('reviews', JSON.stringify(reviews));
 
-            // Clear the form fields after submission
-            document.getElementById('user-name').value = '';
-            document.getElementById('user-review').value = '';
+        // Clear the form fields after submission
+        document.getElementById('user-name').value = '';
+        document.getElementById('user-review').value = '';
 
-            alert('Thank you for sharing your review!'); // Show a success message
+        alert('Thank you for sharing your review!'); // Show a success message
           }
         </script>
 
   </section>
 
   <script>
-    //chatbot added here!
-    window.embeddedChatbotConfig = {
-      chatbotId: "oSyGH_33H4whnPVyaVVwa",
-      domain: "www.chatbase.co"
+        //chatbot added here!
+        window.embeddedChatbotConfig = {
+          chatbotId: "oSyGH_33H4whnPVyaVVwa",
+        domain: "www.chatbase.co"
     }
   </script>
   <script src="https://www.chatbase.co/embed.min.js" chatbotId="oSyGH_33H4whnPVyaVVwa" domain="www.chatbase.co" defer>
@@ -1607,40 +1718,40 @@
 
 
 
-      // Animate the search form
-      gsap.from(".search-form", { opacity: 0, x: -100, duration: 1, ease: "power2.out" });
+          // Animate the search form
+          gsap.from(".search-form", { opacity: 0, x: -100, duration: 1, ease: "power2.out" });
 
-      // Animate the cart container
-      gsap.from(".cart-items-container", { opacity: 0, y: 100, duration: 1.5, ease: "power2.out" });
+        // Animate the cart container
+        gsap.from(".cart-items-container", {opacity: 0, y: 100, duration: 1.5, ease: "power2.out" });
 
-      // Animate the 'My Order' container
-      gsap.from(".my-order-container", { opacity: 0, x: 100, duration: 1.5, ease: "power2.out" });
+        // Animate the 'My Order' container
+        gsap.from(".my-order-container", {opacity: 0, x: 100, duration: 1.5, ease: "power2.out" });
 
-      // Animate home section content
-      gsap.from(".home .content h3", { opacity: 0, x: -100, duration: 1.5, delay: 0.1, ease: "power2.out" });
-      gsap.from(".home .content p", { opacity: 0, x: -100, duration: 1.5, delay: 0.1, ease: "power2.out" });
-      gsap.from(".home .animated-button", { opacity: 0, x: -100, duration: 1.5, delay: 0.1, ease: "power2.out" });
+        // Animate home section content
+        gsap.from(".home .content h3", {opacity: 0, x: -100, duration: 1.5, delay: 0.1, ease: "power2.out" });
+        gsap.from(".home .content p", {opacity: 0, x: -100, duration: 1.5, delay: 0.1, ease: "power2.out" });
+        gsap.from(".home .animated-button", {opacity: 0, x: -100, duration: 1.5, delay: 0.1, ease: "power2.out" });
 
-      // Animate buttons on hover for scaling effect
-      const buttons = document.querySelectorAll("button");
+        // Animate buttons on hover for scaling effect
+        const buttons = document.querySelectorAll("button");
       buttons.forEach(button => {
-        button.addEventListener('mouseover', () => {
-          gsap.to(button, { scale: 1.1, duration: 0.2 });
-        });
+          button.addEventListener('mouseover', () => {
+            gsap.to(button, { scale: 1.1, duration: 0.2 });
+          });
         button.addEventListener('mouseout', () => {
           gsap.to(button, { scale: 1, duration: 0.2 });
         });
       });
 
     });
-    document.getElementById('learnMoreBtn').addEventListener('click', function (event) {
-      event.preventDefault(); // Prevent default anchor behavior
-      var moreContent = document.getElementById('moreContent');
-      if (moreContent.style.display === "none") {
-        moreContent.style.display = "block";
+        document.getElementById('learnMoreBtn').addEventListener('click', function (event) {
+          event.preventDefault(); // Prevent default anchor behavior
+        var moreContent = document.getElementById('moreContent');
+        if (moreContent.style.display === "none") {
+          moreContent.style.display = "block";
         this.textContent = "Show Less"; // Change button text
       } else {
-        moreContent.style.display = "none";
+          moreContent.style.display = "none";
         this.textContent = "Learn More"; // Revert button text
       }
     });
@@ -1651,42 +1762,42 @@
   <script src="./darkMode.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init();
+        AOS.init();
   </script>
   <script>
-    // Coordinates for the cursor
-    const coords = { x: 0, y: 0 };
-    const circles = document.querySelectorAll(".circle");
+        // Coordinates for the cursor
+        const coords = {x: 0, y: 0 };
+        const circles = document.querySelectorAll(".circle");
 
-    // Colors for the circles
-    const colors = [
-      "#ffb56b", "#fdaf69", "#f89d63", "#f59761", "#ef865e", "#ec805d",
-      "#e36e5c", "#df685c", "#d5585c", "#d1525c", "#c5415d", "#c03b5d",
-      "#b22c5e", "#ac265e", "#9c155f", "#950f5f", "#830060", "#7c0060",
-      "#680060", "#60005f", "#48005f", "#3d005e"
-    ];
+        // Colors for the circles
+        const colors = [
+        "#ffb56b", "#fdaf69", "#f89d63", "#f59761", "#ef865e", "#ec805d",
+        "#e36e5c", "#df685c", "#d5585c", "#d1525c", "#c5415d", "#c03b5d",
+        "#b22c5e", "#ac265e", "#9c155f", "#950f5f", "#830060", "#7c0060",
+        "#680060", "#60005f", "#48005f", "#3d005e"
+        ];
 
-    // Assign colors and initial position to each circle
-    circles.forEach(function (circle, index) {
-      circle.x = 0;
-      circle.y = 0;
-      circle.style.backgroundColor = colors[index % colors.length];
+        // Assign colors and initial position to each circle
+        circles.forEach(function (circle, index) {
+          circle.x = 0;
+        circle.y = 0;
+        circle.style.backgroundColor = colors[index % colors.length];
     });
 
-    // Update the coordinates when the mouse moves
-    window.addEventListener("mousemove", function (e) {
-      coords.x = e.clientX;
-      coords.y = e.clientY;
+        // Update the coordinates when the mouse moves
+        window.addEventListener("mousemove", function (e) {
+          coords.x = e.clientX;
+        coords.y = e.clientY;
     });
 
-    // Animation function to move the circles
-    function animateCircles() {
-      let x = coords.x;
-      let y = coords.y;
+        // Animation function to move the circles
+        function animateCircles() {
+          let x = coords.x;
+        let y = coords.y;
 
-      circles.forEach(function (circle, index) {
-        // Update the position and scale of each circle
-        circle.style.left = x - 12 + "px";
+        circles.forEach(function (circle, index) {
+          // Update the position and scale of each circle
+          circle.style.left = x - 12 + "px";
         circle.style.top = y - 12 + "px";
         circle.style.scale = (circles.length - index) / circles.length;
 
@@ -1699,12 +1810,12 @@
         y += (nextCircle.y - y) * 0.3;
       });
 
-      // Repeat the animation
-      requestAnimationFrame(animateCircles);
+        // Repeat the animation
+        requestAnimationFrame(animateCircles);
     }
 
-    // Start the animation
-    animateCircles();
+        // Start the animation
+        animateCircles();
   </script>
 
 </body>
