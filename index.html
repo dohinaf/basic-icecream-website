@@ -293,6 +293,7 @@
 <a href="#menu">Menu</a>
 <a href="#review-section">Review</a>
 <a href="#blogs">Blogs</a>
+<a href="#contributors">Contributors</a>
 <a href="contact.html">Contact Us</a>
 <a href="#" id="my-order-btn">My Orders</a>
 </nav>
@@ -1241,6 +1242,64 @@
 </script>
 </section>
 <!-- Payment Section Ends Here -->
+<!-- Thank You Section Starts Here -->
+<style></style>
+<!-- Thank You Section Starts Here -->
+<section class="contributors" id="contributors" data-aos="fade-up">
+  <div class="content">
+    <h1 class="heading"  data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
+    data-aos-anchor-placement="top-bottom" style="color: goldenrod;">Our <span style="color: orangered;">Contributors</span></h1>
+
+      <p>The amazing team who made ArcticDelights possible.</p>
+      <div class="contributors-list">
+          <!-- Contributor links will be dynamically inserted here -->
+      </div>
+     
+  </div>
+</section>
+<!-- Thank You Section Ends Here -->
+
+<!-- js for github contributos -->
+ <script>
+
+async function fetchContributors(owner, repo) {
+    const url = `https://api.github.com/repos/${owner}/${repo}/contributors`; // Corrected URL
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`Error: ${response.status}`);
+        }
+        const contributors = await response.json();
+        return contributors;
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+// Usage example
+fetchContributors('dohinaf', 'basic-icecream-website').then(contributors => {
+    const contributorsList = document.querySelector('.contributors-list');
+    contributors.forEach(contributor => {
+        const contributorElement = document.createElement('a');
+        contributorElement.href = contributor.html_url;
+        contributorElement.target = '_blank';
+
+        const img = document.createElement('img');
+        img.src = contributor.avatar_url;
+        img.alt = contributor.login;
+
+        const name = document.createElement('p');
+        name.textContent = contributor.login;
+
+        contributorElement.appendChild(img);
+        contributorElement.appendChild(name);
+        contributorsList.appendChild(contributorElement);
+    });
+});
+</script>
+
+<!-- Thank You Section Ends Here -->
+
 
     <br>
 <br>
