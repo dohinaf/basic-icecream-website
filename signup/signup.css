@@ -150,3 +150,9 @@ a {
 input:focus {
     outline: none; /* Remove default outline */
 }
+
+.signup-btn img.google-logo {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
