@@ -42,7 +42,7 @@ html ::-webkit-scrollbar-thumb {
   background: linear-gradient(135deg, rgb(198, 6, 153), rgb(232, 167, 218));
   border-radius: 4px;
   border: 1px solid rgb(217, 60, 178);
-  transition: background 0.3s ease-in-out;
+  transition:  0.3s ease-in-out;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -79,7 +79,7 @@ button {
   /* font-weight: bold; */
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   /* Use a CSS variable for text color to support both light and dark modes */
-  color: #000000;
+  color: #0e0d0d;
 
   /*background: var(--main-color);*/
   cursor: pointer;
@@ -90,11 +90,12 @@ button {
 
 .btn:hover {
   transform: scale(1.009);
+  color: red;
 }
 
 button:hover {
   transform: scale(1.009);
-  color: #ac8350;
+  color: #b8813e;
 }
 
 .animated-button {
@@ -188,7 +189,7 @@ button:hover {
   background: linear-gradient(135deg, rgb(198, 6, 153), rgb(232, 167, 218)); /* Same gradient as the cart scrollbar */
   border-radius: 4px; /* Rounded edges */
   border: 1px solid rgb(217, 60, 178); /* Same border color */
-  transition: background 0.3s ease-in-out; /* Smooth transition */
+  transition:  0.3s ease-in-out; /* Smooth transition */
 }
 
 .wishlist-container::-webkit-scrollbar-thumb:hover {

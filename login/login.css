@@ -10,7 +10,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(135deg, #ff8a00, #e52e71);
+    background: linear-gradient(135deg, #e3c503, #ed246e);
 }
 
 .login-container {
@@ -22,7 +22,7 @@ body {
 }
 
 .login-box {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(92, 91, 91, 0.2);
     padding: 40px;
     border-radius: 15px;
     backdrop-filter: blur(10px);
@@ -57,6 +57,7 @@ h2 {
     background: transparent;
     color: white;
     font-size: 16px;
+    font-weight: 400;
 }
 .login-btn{
     margin-top: 30px;
@@ -100,18 +101,18 @@ h2 {
 }
 
 .toggle-password:hover i {
-    color: #ff8a00; /* Change the color on hover */
+    color: #f18d1c; /* Change the color on hover */
     cursor: pointer;
 }
 .login-btn, .signup-btn {
     padding: 10px;
     border: none;
     border-radius: 30px;
-    background-color: #e52e71;
+    background-color: #d5346f;
     color: white;
     font-size: 16px;
     cursor: pointer;
-    transition: background 0.3s;
+    transition:  0.3s ease-in;
 }
 
 .login-btn:hover, .signup-btn:hover {
@@ -132,7 +133,7 @@ h2 {
     background-color: rgba(255, 255, 255, 0.1);
     color: white;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: 0.3s;
 }
 
 .extra-links button:hover {
@@ -155,7 +156,7 @@ input:focus{
 }
 
 .input-group input:focus {
-    border-bottom: 2px solid #ff8a00;
+    border-bottom: 2px solid #fb9d33;
     outline: none;
     box-shadow: 0px 4px 10px rgba(255, 138, 0, 0.2); /* Subtle shadow on focus */
 }

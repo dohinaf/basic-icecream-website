@@ -8,7 +8,7 @@
 .hero-title { color: #6D2714; margin: 0 85px 0 50px; font: 700 96px 'Lobster Two', sans-serif; }
 .subtitle-wrapper { display: flex; margin-top: 11px; width: 100%; align-items: start; gap: 40px 65px; color: #6D2714; flex-wrap: wrap; font: 500 37px 'Inter', sans-serif; }
 .subtitle-content { display: flex; margin-top: 20px; gap: 17px; flex-wrap: wrap; flex-grow: 1; flex-basis: auto; }
-.accent-circle-pink { background-color: #FD9485; border-radius: 50%; align-self: start; display: flex; margin-top: 4px; width: 40px; height: 40px; }
+.accent-circle-pink { background-color: #f77865; border-radius: 50%; align-self: start; display: flex; margin-top: 4px; width: 40px; height: 40px; }
 .subtitle-text { flex-basis: auto; flex-grow: 1; }
 .accent-circle-red { background-color: #D2717A; border-radius: 50%; display: flex; width: 40px; height: 40px; }
 .description-wrapper { display: flex; margin-top: 27px; width: 100%; flex-direction: column; padding: 0 57px; }
@@ -19,7 +19,7 @@
 .cta-button { border-radius: 100px; background-color: #6D2714; color: #FFF; text-align: center; width: 100%; padding: 34px 45px; font: 400 33px 'Inter', sans-serif; }
 .accent-column { display: flex; flex-direction: column; width: 40%; margin-left: 20px; }
 .accent-circles { display: flex; margin-top: 32px; flex-grow: 1; flex-direction: column; }
-.accent-circle-yellow { background-color: #FFC368; border-radius: 50%; display: flex; width: 40px; height: 40px; }
+.accent-circle-yellow { background-color: #da9836; border-radius: 50%; display: flex; width: 40px; height: 40px; }
 .accent-circle-red-bottom { background-color: #D2717A; border-radius: 50%; align-self: end; display: flex; margin-top: 72px; width: 40px; height: 40px; }
 .image-column { display: flex; flex-direction: column; width: 28%; margin-left: 20px; }
 .image-wrapper { display: flex; margin-top: 56px; flex-grow: 1; flex-direction: column; }

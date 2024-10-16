@@ -10,7 +10,7 @@
 .subtitle-content { display: flex; margin-top: 20px; gap: 17px; flex-wrap: wrap; flex-grow: 1; flex-basis: auto; }
 .accent-circle-pink { background-color: #FD9485; border-radius: 50%; align-self: start; display: flex; margin-top: 4px; width: 40px; height: 40px; }
 .subtitle-text { flex-basis: auto; flex-grow: 1; }
-.accent-circle-red { background-color: #D2717A; border-radius: 50%; display: flex; width: 40px; height: 40px; }
+.accent-circle-red { background-color: #f7727f; border-radius: 50%; display: flex; width: 40px; height: 40px; }
 .description-wrapper { display: flex; margin-top: 27px; width: 100%; flex-direction: column; padding: 0 57px; }
 .description-text { color: #51140A; margin-right: 26px; font: 300 20px 'Poppins', sans-serif; }
 .cta-wrapper { align-self: end; margin-top: 52px; width: 758px; max-width: 100%; }
@@ -37,7 +37,7 @@
   .cta-button { margin-top: 40px; padding: 0 20px; }
   .accent-circles, .accent-circle-red-bottom { margin-top: 40px; }
   .accent-circle-orange { margin-left: 10px; }
-  .hero-image { margin-top: 40px; }
+  .hero-image { margin-top: 35px; }
 }
 </style>
 
