@@ -79,7 +79,7 @@ button {
   /* font-weight: bold; */
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   /* Use a CSS variable for text color to support both light and dark modes */
-  color: #d3ad7f;
+  color: #000000;
 
   /*background: var(--main-color);*/
   cursor: pointer;
@@ -631,7 +631,7 @@ button:hover {
 
 /* My Order Styles */
 .my-order-container {
-  position: absolute;
+  position: relative;
   top: calc(100% + 1rem);
   right: 7%;
   width: 400px;
@@ -641,6 +641,7 @@ button:hover {
   box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);
   z-index: 100;
 }
+
 
 .my-order-container.active {
   display: block;
@@ -819,6 +820,24 @@ button:hover {
   background-color: red;
   color:#ffffff;
 }
+
+/* Dark Mode Adjustments for Filter Box */
+[data-theme="dark"] #menu-title{
+  color: rgb(235,85,40)
+}
+[data-theme="dark"] .menu #filter-head{
+  color: rgb(205,174,137);
+}
+[data-theme="dark"] #flavor-filter {
+  color: #f1f1f1; 
+}
+[data-theme="dark"] .filter-box{
+  color: #f1f1f1;  /* Light text color */
+}
+[data-theme="dark"] .filter-box {
+  color: #f1f1f1;  /* Light text on buttons */
+}
+/* dark mode styling ends */
 
 /* filter box styles end */
 
@@ -1221,11 +1240,14 @@ button:hover {
 }
 
 .blog {
+
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   background-color: var(--background-color);
+
   border-radius: 1rem;
   padding: 2rem;
   width: 500px; /* Fixed width for consistency */
@@ -1234,8 +1256,9 @@ button:hover {
 
 .blog-image {
   width: 70%; /* Responsive image */
-  border-radius: 1rem;
+  border-radius: 10rem;
 }
+
 
 .blog h3 {
   font-size: 2rem; /* Blog title size */
@@ -1336,7 +1359,7 @@ footer .credit {
     font-size: 1.5 rem;
   }
 
-  .header .navbar {
+  .navbar {
     position: absolute;
     top: calc(100% + 1rem);
     /* Adjusted top position */
@@ -1362,6 +1385,10 @@ footer .credit {
     padding: 1rem;
     font-size: 2rem;
   }
+
+  
+
+
 
   .header .search-form {
     width: 90%;
@@ -2316,3 +2343,25 @@ form h3{
 #backToTop:hover {
     background-color: #0056b3; /* Darken on hover */
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
