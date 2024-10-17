@@ -88,6 +88,11 @@
         transform: scale(1.1); /* Scale up on hover */
     }
 
+    .corner{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
     .tooltip-text {
         display: none;
         position: absolute;
@@ -121,7 +126,9 @@ justify-content: center;
 align-items: center;
 z-index: 1000;
 }
-
+.home {
+  position: static;
+}
 .popup-content {
 display: flex;
 background-color: white;
@@ -274,63 +281,67 @@ height: 40px;
     @media (max-width: 980px) {
 
       .navbar {
+  display: none;
+  flex-direction: column;
+  background-color: #fff;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  padding: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-height: 300px; /* Set max-height for scroll */
+  overflow-y: auto; /* Enable vertical scroll */
+  border-radius: 0 0 50px 50px;
+}
 
-        display: none;
-        flex-direction: column;
-        background-color: #fff;
-        /* or your desired color */
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        padding: 1rem;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      }
+.header .navbar {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-color);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transform: translateY(-900px); /* Start position above the view */
+  opacity: 0; /* Initially hidden */
+  transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition */
+  max-height: 70vh; /* Set max-height for scroll */
+  overflow-y: auto; /* Enable vertical scroll */
+}
+.corner{
+  flex-direction: column;
+}
 
-      .header .navbar {
-        display: flex;
-        flex-direction: column;
-        background-color: var(--background-color);
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        padding: 2rem;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        transform: translateY(-900px);
-        /* Start position above the view */
-        opacity: 0;
-        /* Initially hidden */
-        transition: transform 0.3s ease, opacity 0.3s ease;
-        /* Smooth transition for transform and opacity */
-      }
+.header .navbar a {
+  padding: 3rem;
+  color: #f9657f;
+}
 
-      .header .navbar a {
-        padding: 3rem;
-      }
+.header .navbar.active {
+  transform: translateY(0); /* Move to original position */
+  opacity: 1; /* Fade in */
+}
 
-      .header .navbar.active {
-        transform: translateY(0);
-        /* Move to original position */
-        opacity: 1;
-        /* Fade in */
-      }
+.hamburger {
+  display: block;
+  font-size: x-large;
+}
 
-      .hamburger {
-        display: block;
-      }
+.navbar.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-      .navbar.active {
-        display: flex;
-        display: flex;
-        align-items: center;
-      }
-
-      .auth-btn {
-        padding: 2rem 4rem;
-        margin: 2rem;
-      }
+.auth-btn {
+  padding: 2rem 4rem;
+  margin: 2rem;
+}
     }
+
 
     /* Progress Bar Styles */
     #progress-bar {
@@ -424,6 +435,7 @@ height: 40px;
 <button id="backToTop" style="font-size: 30px; font-weight: bold;">&#8673;</button>
   <!-- Header Starts Here -->
   <header class="header">
+    <div class="corner">
     <a href="#" class="logo">
       <img
         src="https://purepng.com/public/uploads/large/purepng.com-ice-creamice-creamcreamfrozensweet-1411527617895aiuhx.png"
@@ -431,6 +443,7 @@ height: 40px;
     </a>
 
     <h1 class="site-title">ArcticDelights</h1>
+  </div>
 
 
     <nav class="navbar" id="navbar">
@@ -446,16 +459,17 @@ height: 40px;
         <!-- <p style="padding-right: 10px;">        </p> -->
         <button id="signup-btn" class="auth-btn">Sign Up</button>
       </div>
-      <div class="icons">
-        <div class = "fas fa-heart" id = "wishlist-btn"></div>
-        <div class="fas fa-search" id="search-btn"></div>   
-        <div class="fas fa-shopping-cart" id="cart-btn"><span id="cart-count">(0)</span></div>
-      </div>
     </nav>
 
     <!-- Hamburger icon -->
     <div class="hamburger" id="hamburger">
       <i class="fas fa-bars"></i>
+    </div>
+
+    <div class="icons">
+      <div class = "fas fa-heart" id = "wishlist-btn"></div>
+      <div class="fas fa-search" id="search-btn"></div>   
+      <div class="fas fa-shopping-cart" id="cart-btn"><span id="cart-count">(0)</span></div>
     </div>
     
     <div class="theme-switch-wrapper">
