@@ -19,7 +19,7 @@
     <!--Updated to latest version-->
 
     <link rel="stylesheet" href="preloaderStyle.css">
-    <link rel="icon" href="https://purepng.com/public/uploads/large/purepng.com-ice-creamice-creamcreamfrozensweet-1411527617895aiuhx.png" type="image/x-icon"> 
+    <link rel="icon" href="https://purepng.com/public/uploads/large/purepng.com-ice-creamice-creamcreamfrozensweet-1411527617895aiuhx.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"> <!--Updated to latest version-->
 
 
@@ -241,6 +241,39 @@
   }
 </style>
 
+<style>
+  .social-icons a {
+    text-decoration: none;
+    color: #333; /* Default color for icons */
+    font-size: 26px;
+    transition: color 0.2s ease-in-out; /* Faster and sharper transition */
+}
+
+.social-icons a:hover .fa-linkedin {
+    color: #0A66C2; /* Brighter LinkedIn blue */
+}
+
+.social-icons a:hover .fa-facebook {
+    color: #1877F2; /* Brighter Facebook blue */
+}
+
+.social-icons a:hover .fa-x-twitter {
+    color: #1DA1F2; /* Bright X (Twitter) blue */
+}
+
+.social-icons a:hover .fa-instagram {
+    color: #E4405F; /* Brighter Instagram pink */
+}
+
+.social-icons a:hover .fa-pinterest {
+    color: #E60023; /* Brighter Pinterest red */
+}
+
+
+</style>
+</head>
+
+
 <body>
    <!-- preloader -->
    <div id="preloader">
@@ -288,8 +321,12 @@
             <img src="https://purepng.com/public/uploads/large/purepng.com-ice-creamice-creamcreamfrozensweet-1411527617895aiuhx.png"
                 alt="Logo">
         </a>
-        <!-- ... existing code ... -->
-        <h1 class="site-title">ArcticDelights</h1>
+        <!-- Toggle Button (Hamburger) -->
+<div class="menu-btn" id="menu-btn">
+  <span class="fas fa-bars"></span>
+</div>
+        <h1 class="site-title">ArcticDelights</h1> 
+
 
 <nav class="navbar">
 
@@ -298,15 +335,16 @@
 <a href="#about">About</a>
 <a href="#menu">Menu</a>
 <a href="#review-section">Review</a>
-<a href="#blogs">Blogs</a>
+<a href="blog.html">Blogs</a>
 <a href="contact.html">Contact Us</a>
 <a href="#" id="my-order-btn">My Orders</a>
 </nav>
 
 
+
         <div class="icons">
             <div class = "fas fa-heart" id = "wishlist-btn"></div>
-            <div class="fas fa-search" id="search-btn"></div>                    
+            <div class="fas fa-search" id="search-btn"></div>
             <div class="fas fa-shopping-cart" id="cart-btn"><span id="cart-count">(0)</span></div>
           
         </div>
@@ -365,6 +403,15 @@
     <script src="preloader.js"></script>
 
     <!-- Home Section Starts Here -->
+
+    <br><br><br><br><br><br><section class="home" id="home"  data-aos="fade-up"
+    data-aos-anchor-placement="top-bottom">
+        <div class="content">
+            <h3>Taste the sweetness with every bite</h3>
+            <p>Amazing ice creams delivered straight to you! Enjoy our fresh and chilled delights, made with love.</p>
+            <button class="animated-button"><a href="#menu"><span>Get yours now!</span></a></button>
+        </div>
+
     <section
       class="home"
       id="home"
@@ -381,6 +428,7 @@
           <a href="#menu"><span>Get yours now!</span></a>
         </button>
       </div>
+
     </section>
     <!-- Home Section Ends Here -->
     <!-- Pop-up for Discount and Sign up Starts here -->
@@ -408,6 +456,29 @@
     
     <!-- Script for pop up discount Starts Here -->
     <script>
+     // Get the toggle button, the navbar (menu), and all the navbar links
+const toggleBtn = document.querySelector('#menu-btn');
+const navbar = document.querySelector('.navbar');
+const navbarLinks = document.querySelectorAll('.navbar a');
+
+// Function to toggle the navbar
+toggleBtn.addEventListener('click', () => {
+    navbar.classList.toggle('active');
+});
+
+// Function to close the navbar when a link inside it is clicked
+navbarLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        navbar.classList.remove('active');
+    });
+});
+// Function to close the navbar when clicking outside it
+document.addEventListener('click', function (event) {
+    if (!navbar.contains(event.target) && !toggleBtn.contains(event.target)) {
+        navbar.classList.remove('active');
+    }
+});
+
     // Show the pop-up automatically when the page loads
     window.onload = function() {
       document.getElementById('popup').style.display = 'flex';
@@ -939,6 +1010,7 @@
       </div>
     </section>
 
+
     <!-- Menu Section Ends Here -->
 
     <!-- Blogs Section Starts Here -->
@@ -1013,6 +1085,7 @@
   </div>
 </section>
 <!-- Blogs Section Ends Here -->
+
 
 <!-- Payment Section Starts Here -->
 <section id="payment-section" class="payment-section" style="display: none;">
@@ -1704,6 +1777,38 @@
     <!-- JavaScript File -->
     <script src="script.js"></script>
     <script>
+
+        document.addEventListener('DOMContentLoaded', () => {
+    
+          
+    
+    
+            // Animate the search form
+            gsap.from(".search-form", { opacity: 0, x: -100, duration: 1, ease: "power2.out" });
+    
+            // Animate the cart container
+            gsap.from(".cart-items-container", { opacity: 0, y: 100, duration: 1.5, ease: "power2.out" });
+    
+            // Animate the 'My Order' container
+            gsap.from(".my-order-container", { opacity: 0, x: 100, duration: 1.5, ease: "power2.out" });
+    
+            // Animate home section content
+            gsap.from(".home .content h3", { opacity: 0, x: -100, duration: 1.5, delay :0.1, ease: "power2.out" });
+            gsap.from(".home .content p", { opacity: 0, x: -100, duration: 1.5, delay: 0.1, ease: "power2.out" });
+            gsap.from(".home .animated-button", { opacity: 0, x: -100, duration: 1.5, delay: 0.1, ease: "power2.out" });
+    
+            // Animate buttons on hover for scaling effect
+            const buttons = document.querySelectorAll("button");
+            buttons.forEach(button => {
+                button.addEventListener('mouseover', () => {
+                    gsap.to(button, { scale: 1.1, duration: 0.2 });
+                });
+                button.addEventListener('mouseout', () => {
+                    gsap.to(button, { scale: 1, duration: 0.2 });
+                });
+            });
+    
+
       document.addEventListener("DOMContentLoaded", () => {
         // Animate the search form
         gsap.from(".search-form", {
@@ -1743,6 +1848,7 @@
           duration: 1.5,
           delay: 0.1,
           ease: "power2.out",
+
         });
         gsap.from(".home .animated-button", {
           opacity: 0,
@@ -1876,6 +1982,8 @@ animateRating("overall-rating", 0.0, 4.1, 2000); // Animates from 0.0 to 4.1 in 
         // Start the animation
         animateCircles();
       </script>
-      
+      <div class="gtranslate_wrapper"></div>
+      <script>window.gtranslateSettings = {"default_language":"en","detect_browser_language":true,"wrapper_selector":".gtranslate_wrapper"}</script>
+      <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
 </body>
 </html>
