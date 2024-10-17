@@ -552,3 +552,20 @@ document.getElementById('backToTop').onclick = function () {
         behavior: 'smooth'
     });
 };
+function addHoverEffect(button) {
+    button.addEventListener('mouseenter', function() {
+        button.style.color = 'pink'; // Change color on hover
+        button.style.transform = 'scale(1.2)'; // Zoom effect
+        button.style.transition = 'color 0.3s ease, transform 0.3s ease'; // Smooth transition
+    });
+
+    button.addEventListener('mouseleave', function() {
+        button.style.color = '#333'; // Revert color
+        button.style.transform = 'scale(1)'; // Reset zoom
+    });
+}
+
+// Add hover effect to all buttons
+addHoverEffect(document.getElementById('wishlist-btn'));
+addHoverEffect(document.getElementById('search-btn'));
+addHoverEffect(document.getElementById('cart-btn'));
