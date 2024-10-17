@@ -1,4 +1,7 @@
 /* Basic Reset */
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
 body, h1, h2, p {
     margin: 0;
     padding: 0;
@@ -7,7 +10,7 @@ body, h1, h2, p {
 
 /* Body styles */
 body {
-    background-color: #f9f9f9;
+    background: radial-gradient(328px at 2.9% 15%, rgb(191, 224, 251) 0%, rgb(232, 233, 251) 25.8%, rgb(252, 239, 250) 50.8%, rgb(234, 251, 251) 77.6%, rgb(240, 251, 244) 100.7%);
     color: #333;
     line-height: 1.6;
 }
@@ -34,16 +37,46 @@ main {
 
 /* Blog detail article styles */
 .blog-detail {
-    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    /* background: rgb(0, 0, 0); */
+    background: linear-gradient(109.6deg, rgb(0, 0, 0) 11.2%, rgb(11, 132, 145) 91.1%);
     border-radius: 15px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
+.blog-detail p:hover{
+    color: red;
+    /* transform: scale(1.1); */
+
+    cursor: pointer;
+    transition: 0.2s;
+}
+.blog-detail img{
+    border-radius: 10px;
+    margin: 50px;
+    box-shadow: 0 4px 8px #defcf9; 
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.blog-detail p{
+    font-size: larger;
+    font-family: "Lato";
+    font-style: italic;
+}
+
 .blog-detail:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+.blog-detail img:hover {
+    transform: translateY(-5px);
+    box-shadow: -1px -1px 3px 4px #fcf4d9;
+ 
 }
 
 /* Image styles */
@@ -62,6 +95,7 @@ h2 {
 /* Paragraph styles */
 p {
     padding: 0 15px 15px;
+    color: white;
 }
 
 /* Footer

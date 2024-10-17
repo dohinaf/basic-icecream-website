@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE-edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ArcticDelights</title>
+
     <link
       rel="icon"
       href="https://purepng.com/public/uploads/large/purepng.com-ice-creamice-creamcreamfrozensweet-1411527617895aiuhx.png"
@@ -14,6 +15,11 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
     <!--Updated to latest version-->
+
+    <link rel="stylesheet" href="preloaderStyle.css">
+    <link rel="icon" href="https://purepng.com/public/uploads/large/purepng.com-ice-creamice-creamcreamfrozensweet-1411527617895aiuhx.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"> <!--Updated to latest version-->
+
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css" />
@@ -242,6 +248,14 @@
       font-size: 16px;
       height: 40px;
     }
+    .plus-minus{
+      background-color: #fff8e7;
+      border: 0.5px solid #c69861;
+      color: #d3ad7f;
+      width: fit-content;
+      transition: background-color 0.3s ease, color 0.3s ease,
+      border-color 0.3s ease;
+    }
   </style>
 <style>
   /* Circle styles */
@@ -258,9 +272,52 @@
     /* Stays on top of all elements */
   }
 </style>
+<style>
+  .social-icons a {
+    text-decoration: none;
+    color: #333; /* Default color for icons */
+    font-size: 26px;
+    transition: color 0.2s ease-in-out; /* Faster and sharper transition */
+}
+
+.social-icons a:hover .fa-linkedin {
+    color: #0A66C2; /* Brighter LinkedIn blue */
+}
+
+.social-icons a:hover .fa-facebook {
+    color: #1877F2; /* Brighter Facebook blue */
+}
+
+.social-icons a:hover .fa-x-twitter {
+    color: #1DA1F2; /* Bright X (Twitter) blue */
+}
+
+.social-icons a:hover .fa-instagram {
+    color: #E4405F; /* Brighter Instagram pink */
+}
+
+.social-icons a:hover .fa-pinterest {
+    color: #E60023; /* Brighter Pinterest red */
+}
+
+
+</style>
 </head>
 
 <body>
+   <!-- preloader -->
+   <div id="preloader">
+    <div class="wrapper">
+        <div class="box-wrap">
+            <div class="box one"></div>
+            <div class="box two"></div>
+            <div class="box three"></div>
+            <div class="box four"></div>
+            <div class="box five"></div>
+            <div class="box six"></div>
+        </div>
+    </div>
+</div>
 
 <!-- Circles -->
 <div class="circle"></div>
@@ -471,7 +528,7 @@
 <a href="#about">About</a>
 <a href="#menu">Menu</a>
 <a href="#review-section">Review</a>
-<a href="#blogs">Blogs</a>
+<a href="blog.html">Blogs</a>
 <a href="contact.html">Contact Us</a>
 <a href="#" id="my-order-btn">My Orders</a>
 </nav>
@@ -479,7 +536,7 @@
 
         <div class="icons">
             <div class = "fas fa-heart" id = "wishlist-btn"></div>
-            <div class="fas fa-search" id="search-btn"></div>                    
+            <div class="fas fa-search" id="search-btn"></div>
             <div class="fas fa-shopping-cart" id="cart-btn"><span id="cart-count">(0)</span></div>
           
         </div>
@@ -548,8 +605,11 @@
       </div>
     </header>
     <!-- Header Ends Here -->
+     <!-- preloader styling js -->
+    <script src="preloader.js"></script>
 
     <!-- Home Section Starts Here -->
+
     <section
       class="home"
       id="home"
@@ -565,6 +625,15 @@
           <a href="#menu"><span>Get yours now!</span></a>
         </button>
       </div>
+
+    <br><br><br><br><br><br><section class="home" id="home"  data-aos="fade-up"
+    data-aos-anchor-placement="top-bottom">
+        <div class="content">
+            <h3>Taste the sweetness with every bite</h3>
+            <p>Amazing ice creams delivered straight to you! Enjoy our fresh and chilled delights, made with love.</p>
+            <button class="animated-button"><a href="#menu"><span>Get yours now!</span></a></button>
+        </div>
+
     </section>
     <!-- Home Section Ends Here -->
 
@@ -853,13 +922,13 @@
               a sweet and savory treat that melts in your mouth!
 
             <h1 data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
-        data-aos-anchor-placement="top-bottom">here's, what we have in store for you!</h1>
+        data-aos-anchor-placement="top-bottom" id="menu-title">here's, what we have in store for you!</h1>
 
         <input type="text" id="flavor-filter" placeholder="Search Your flavor...">
         <br>
         <div class="filter-box">
           
-            <h3  id="pro-name">Filter Ice Creams</h3>
+            <h3 id="filter-head">Filter Ice Creams</h3>
             <select id="price-filter">
                 <option value="all">All Prices</option>
                 <option value="under-15">Under $15</option>
@@ -879,7 +948,19 @@
                 <div class="flip">A delightful blend of crunchy nuts and rich butterscotch, creating a sweet and savory treat that melts in your mouth!</div>
 
             </div>
+
           </div>
+
+                <div class="price"> $15.99 <span>20.99</span></div>
+                <button  id="inbox" onclick="addToCart('Nutty Butterscotch', 15.99)">Add to Cart</button><br>
+                <div class="noofitems">
+                  <button class="plus-minus" onclick="decreaseQuantity('Nutty Butterscotch')">-</button>
+                  <span id="itemQuantity-Nutty Butterscotch">1</span>
+                  <button class="plus-minus" onclick="increaseQuantity('Nutty Butterscotch')">+</button>
+              </div>
+                <button  id="inbox" onclick="addToWishlist('Nutty Butterscoth', 15.99)">Add to wishlist</button>
+                <button id="inbox" onclick="window.location.href='nut_butter.html';">Read more</button>
+
 
           <div class="price">$15.99 <span>20.99</span></div>
           <button id="inbox" onclick="addToCart('Nutty Butterscotch', 15.99)">
@@ -907,6 +988,11 @@
 
                 <div class="price"> $18.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Berry Pops', 18.99)">Add to Cart</button><br>
+                <div class="noofitems">
+                  <button class="plus-minus" onclick="decreaseQuantity('Berry Pops')">-</button>
+                  <span class ="text" id="itemQuantity-Berry Pops">1</span>
+                  <button class="plus-minus" onclick="increaseQuantity('Berry Pops')">+</button>
+              </div>
                 <button  id="inbox" onclick="addToWishlist('Berry Pops', 18.99)">Add to wishlist</button>
                 <button id="inbox" onclick="window.location.href='berry_pops.html';">Read more</button>
 
@@ -925,6 +1011,11 @@
 
                 <div class="price"> $18.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Cherry Sherbet Pops', 18.99)">Add to Cart</button><br>
+                <div class="noofitems">
+                  <button class="plus-minus" onclick="decreaseQuantity('Cherry Sherbet Pops')">-</button>
+                  <span id="itemQuantity-Cherry Sherbet Pops">1</span>
+                  <button class="plus-minus" onclick="increaseQuantity('Cherry Sherbet Pops')">+</button>
+              </div>
                 <button  id="inbox" onclick="addToWishlist('Cherry Sherbet Pops', 18.99)">Add to wishlist</button>
                 <button id="inbox" onclick="window.location.href='cherry_pops.html';">Read more</button>
 
@@ -958,6 +1049,7 @@
                 <h3 id="pro-name">Dripping Vanilla</h3>
 
 
+
           <div class="price">$18.99 <span>20.99</span></div>
           <button id="inbox" onclick="addToCart('Berry Pops', 18.99)">
             Add to Cart</button
@@ -982,6 +1074,18 @@
             <div class="flip">
               Creamy, fruity popsicles crafted with luscious cherry sherbet,
               delivering a sweet and tangy burst of summer in every bite!
+
+        
+                <div class="price"> $15.99 <span>20.99</span></div>
+                <button  id="inbox" onclick="addToCart('Dripping Vannila', 15.99)">Add to Cart</button><br>
+                <div class="noofitems">
+                  <button class="plus-minus" onclick="decreaseQuantity('Dripping Vannila')">-</button>
+                  <span id="itemQuantity-Dripping Vannila">1</span>
+                  <button class="plus-minus" onclick="increaseQuantity('Dripping Vannila')">+</button>
+              </div>
+                <button  id="inbox" onclick="addToWishlist('Dripping Vannila', 15.99)">Add to wishlist</button>
+                <button id="inbox" onclick="window.location.href='drip_vanilla.html';">Read more</button>
+
             </div>
           </div>
 
@@ -1011,6 +1115,7 @@
             </div>
         
 
+
         <div
           class="box"
           data-aos="fade-up"
@@ -1023,6 +1128,19 @@
 
             <h3 id="pro-name">Dripping Vanilla</h3>
 
+       
+                <div class="price"> $16.99 <span>20.99</span></div>
+                <button  id="inbox" onclick="addToCart('Very Berry Strawberry', 16.99)">Add to Cart</button><br>
+                <div class="noofitems">
+                  <button class="plus-minus" onclick="decreaseQuantity('Very Berry Strawberry')">-</button>
+                  <span id="itemQuantity-Very Berry Strawberry">1</span>
+                  <button class="plus-minus" onclick="increaseQuantity('Very Berry Strawberry')">+</button>
+              </div>
+                <button  id="inbox" onclick="addToWishlist('Very Berry Strawberry', 16.99)">Add to wishlist</button>
+                <button id="inbox" onclick="window.location.href='very_straw.html';">Read more</button>
+            </div>
+
+
             <div class="box"  data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
             data-aos-anchor-placement="top-bottom">
             <div class="picture">
@@ -1033,6 +1151,22 @@
             <div class="flip">
               A luscious vanilla treat that oozes creamy goodness, delivering a
               rich and indulgent flavor experience with every delightful drop!
+
+                <div class="flip">A colorful twist on a timeless favorite, featuring layers of vibrant, fruity flavors swirled into a creamy cone, making every lick a joyful, nostalgic experience!</div>
+            </div>
+        
+ 
+            
+                <div class="price"> $18.99 <span>20.99</span></div>
+                <button  id="inbox" onclick="addToCart('Rainbow Classic Cone', 18.99)">Add to Cart</button><br>
+                <div class="noofitems">
+                  <button class="plus-minus" onclick="decreaseQuantity('Rainbow Classic Cone')">-</button>
+                  <span id="itemQuantity-Rainbow Classic Cone">1</span>
+                  <button class="plus-minus" onclick="increaseQuantity('Rainbow Classic Cone')">+</button>
+              </div>
+                <button  id="inbox" onclick="addToWishlist('Rainbow Classic Cone', 18.99)">Add to wishlist</button>
+                <button id="inbox" onclick="window.location.href='rain_classic.html';">Read more</button>
+
             </div>
           </div>
 
@@ -1062,6 +1196,7 @@
         
 
 
+
         <div
           class="box"
           data-aos="fade-up"
@@ -1070,6 +1205,16 @@
             <img
               src="https://images.unsplash.com/photo-1532678465554-94846274c297"
               alt="" />
+      <div class="price"> $12.99 <span>20.99</span></div>
+                <button  id="inbox" onclick="addToCart('Orange Pops', 12.99)">Add to Cart</button><br>
+                <div class="noofitems">
+                  <button class="plus-minus" onclick="decreaseQuantity('Orange Pops')">-</button>
+                  <span id="itemQuantity-Orange Pops">1</span>
+                  <button class="plus-minus" onclick="increaseQuantity('Orange Pops')">+</button>
+              </div>
+                <button  id="inbox" onclick="addToWishlist('Orange Pops', 12.99)">Add to wishlist</button>
+                <button id="inbox" onclick="window.location.href='orange_pops.html';">Read more</button>
+
 
             <h3 id="pro-name">Very Berry Strawberry</h3>
 
@@ -1120,6 +1265,7 @@
             </div>
           </div>
 
+
           <div class="price">$18.99 <span>20.99</span></div>
           <button id="inbox" onclick="addToCart('Rainbow Classic Cone', 18.99)">
             Add to Cart</button
@@ -1135,6 +1281,18 @@
             Read more
           </button>
         </div>
+
+            
+                <div class="price"> $18.99 <span>20.99</span></div>
+                <button  id="inbox" onclick="addToCart('Choco-Hazel Pops', 18.99)">Add to Cart</button><br>
+                <div class="noofitems">
+                  <button class="plus-minus" onclick="decreaseQuantity('Choco-Hazel Pops')">-</button>
+                  <span id="itemQuantity-Choco-Hazel Pops">1</span>
+                  <button class="plus-minus" onclick="increaseQuantity('Choco-Hazel Pops')">+</button>
+              </div>
+                <button  id="inbox" onclick="addToWishlist('Choco-Hazel Pops', 18.99)">Add to wishlist</button>
+                <button id="inbox" onclick="window.location.href='choco_hazel.html';">Read more</button>
+
 
         <div
           class="box"
@@ -1177,6 +1335,7 @@
             </div>
 
 
+
         <div
           class="box"
           data-aos="fade-up"
@@ -1192,6 +1351,17 @@
               Indulgent frozen treats infused with rich chocolate and crunchy
               hazelnuts, creating a decadent and nutty flavor experience that
               melts delightfully in every bite!
+
+                <div class="price"> $15.99 <span>20.99</span></div>
+                <button  id="inbox" onclick="addToCart('Very Very Peachy',15.99)">Add to Cart</button><br>
+                <div class="noofitems">
+                  <button class="plus-minus" onclick="decreaseQuantity('Very Very Peachy')">-</button>
+                  <span id="itemQuantity-Very Very Peachy">1</span>
+                  <button class="plus-minus" onclick="increaseQuantity('Very Very Peachy')">+</button>
+              </div>
+                <button  id="inbox" onclick="addToWishlist('Very Very Peachy', 15.99)">Add to wishlist</button>
+                <button id="inbox" onclick="window.location.href='very_peachy.html';">Read more</button>
+
             </div>
 
           </div>
@@ -1238,6 +1408,11 @@
 
                 <div class="price"> $12.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Orange Pops', 12.99)">Add to Cart</button><br>
+                <div class="noofitems">
+                  <button class="plus-minus" onclick="decreaseQuantity('Orange Pops')">-</button>
+                  <span id="itemQuantity-Orange Pops">1</span>
+                  <button class="plus-minus" onclick="increaseQuantity('Orange Pops')">+</button>
+              </div>
                 <button  id="inbox" onclick="addToWishlist('Orange Pops', 12.99)">Add to wishlist</button>
                 <button id="inbox" onclick="window.location.href='orange_pops1.html';">Read more</button>
             </div>
@@ -1250,6 +1425,7 @@
                 <img src="https://images.unsplash.com/photo-1594305178909-03ab72b8205e" alt="">
 
                 <h3 id="pro-name">Choco-Hazel Pops</h3>
+
 
 
           <div class="price">$15.99 <span>20.99</span></div>
@@ -1279,6 +1455,17 @@
               Refreshing frozen delights bursting with zesty orange flavor,
               offering a sunny, sweet, and tangy treat that’s perfect for
               cooling off on a hot day!
+
+                <div class="price"> $18.99 <span>20.99</span></div>
+                <button  id="inbox" onclick="addToCart('Choco-Hazel Pops', 18.99)">Add to Cart</button><br>
+                <div class="noofitems">
+                  <button class="plus-minus" onclick="decreaseQuantity('Choco-Hazel Pops')">-</button>
+                  <span id="itemQuantity-Choco-Hazel Pops">1</span>
+                  <button class="plus-minus" onclick="increaseQuantity('Choco-Hazel Pops')">+</button>
+              </div>
+                <button  id="inbox" onclick="addToWishlist('Choco-Hazel Pops', 18.99)">Add to wishlist</button>
+                <button id="inbox" onclick="window.location.href='choco_hazel.html';">Read more</button>
+
             </div>
 
           </div>
@@ -1308,6 +1495,7 @@
                 <div class="price"> $16.99 <span>20.99</span></div>
 
 
+
         <div
           class="box"
           data-aos="fade-up"
@@ -1316,6 +1504,17 @@
             <img
               src="https://images.unsplash.com/photo-1594305178909-03ab72b8205e"
               alt="" />
+
+                <div class="price"> $15.99 <span>20.99</span></div>
+                <button  id="inbox" onclick="addToCart('Very Very Peachy',15.99)">Add to Cart</button><br>
+                <div class="noofitems">
+                  <button class="plus-minus" onclick="decreaseQuantity('Very Very Peachy')">-</button>
+                  <span id="itemQuantity-Very Very Peachy">1</span>
+                  <button class="plus-minus" onclick="increaseQuantity('Very Very Peachy')">+</button>
+              </div>
+                <button  id="inbox" onclick="addToWishlist('Very Very Peachy', 15.99)">Add to wishlist</button>
+                <button id="inbox" onclick="window.location.href='very_peachy2.html';">Read more</button>
+
 
             <h3 id="pro-name">Choco-Hazel Pops</h3>
 
@@ -1377,6 +1576,7 @@
         </div>
       </div>
     </section>
+
 
     <!-- Menu Section Ends Here -->
 
@@ -1494,7 +1694,7 @@
     <!-- Payment Section Starts Here -->
     <section id="payment-section" class="payment-section" style="display: none">
       <h1 class="heading">Payment <span>Details</span></h1>
-=======
+
     <div class="blog" data-aos="fade-up-left" data-aos-duration="1200" data-aos-delay="200">
       <img src="https://images.unsplash.com/photo-1591261730540-1ab1db33ac78?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGljZWNyZWFtJTIwc2hvcHxlbnwwfHwwfHx8MA%3D%3D" alt="Blog Post 2" class="blog-image">
       <h3>Crafting the Perfect Scoop</h3>
@@ -2333,6 +2533,7 @@
     <!-- JavaScript File -->
     <script src="script.js"></script>
     <script>
+
       document.addEventListener("DOMContentLoaded", () => {
         // Animate the search form
         gsap.from(".search-form", {
@@ -2379,6 +2580,38 @@
           duration: 1.5,
           delay: 0.1,
           ease: "power2.out",
+
+        document.addEventListener('DOMContentLoaded', () => {
+    
+          
+    
+    
+            // Animate the search form
+            gsap.from(".search-form", { opacity: 0, x: -100, duration: 1, ease: "power2.out" });
+    
+            // Animate the cart container
+            gsap.from(".cart-items-container", { opacity: 0, y: 100, duration: 1.5, ease: "power2.out" });
+    
+            // Animate the 'My Order' container
+            gsap.from(".my-order-container", { opacity: 0, x: 100, duration: 1.5, ease: "power2.out" });
+    
+            // Animate home section content
+            gsap.from(".home .content h3", { opacity: 0, x: -100, duration: 1.5, delay :0.1, ease: "power2.out" });
+            gsap.from(".home .content p", { opacity: 0, x: -100, duration: 1.5, delay: 0.1, ease: "power2.out" });
+            gsap.from(".home .animated-button", { opacity: 0, x: -100, duration: 1.5, delay: 0.1, ease: "power2.out" });
+    
+            // Animate buttons on hover for scaling effect
+            const buttons = document.querySelectorAll("button");
+            buttons.forEach(button => {
+                button.addEventListener('mouseover', () => {
+                    gsap.to(button, { scale: 1.1, duration: 0.2 });
+                });
+                button.addEventListener('mouseout', () => {
+                    gsap.to(button, { scale: 1, duration: 0.2 });
+                });
+            });
+    
+
         });
 
         // Animate buttons on hover for scaling effect
@@ -2508,7 +2741,9 @@
         // Start the animation
         animateCircles();
       </script>
-      
+      <div class="gtranslate_wrapper"></div>
+      <script>window.gtranslateSettings = {"default_language":"en","detect_browser_language":true,"wrapper_selector":".gtranslate_wrapper"}</script>
+      <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
 </body>
 
 

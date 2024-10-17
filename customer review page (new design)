@@ -1,0 +1,248 @@
+<style>
+.customers-section {
+  background-color: rgba(156, 86, 102, 0.85);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  align-items: center;
+  padding: 63px 80px 0;
+}
+
+@media (max-width: 991px) {
+  .customers-section {
+    padding: 0 20px;
+  }
+}
+
+.testimonials-container {
+  border-radius: 24px 24px 0 0;
+  background-color: #fffef5;
+  display: flex;
+  width: 100%;
+  max-width: 1512px;
+  flex-direction: column;
+  overflow: hidden;
+  align-items: center;
+  padding: 6px 6px 90px;
+  border: 6px solid rgba(69, 30, 33, 0.15);
+}
+
+@media (max-width: 991px) {
+  .testimonials-container {
+    max-width: 100%;
+  }
+}
+
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  border-radius: 24px;
+  align-self: stretch;
+  position: relative;
+  min-height: 267px;
+  width: 100%;
+  overflow: hidden;
+  align-items: start;
+  padding: 40px 48px 203px;
+}
+
+@media (max-width: 991px) {
+  .hero-section {
+    max-width: 100%;
+    padding: 0 20px 100px;
+  }
+}
+
+.hero-background {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.menu-logo {
+  position: relative;
+  display: flex;
+  margin-bottom: -41px;
+  align-items: start;
+  gap: 5px;
+  justify-content: start;
+}
+
+@media (max-width: 991px) {
+  .menu-logo {
+    margin-bottom: 10px;
+  }
+}
+
+.menu-icon {
+  background-color: #fffef5;
+  border-radius: 50%;
+  display: flex;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
+  border: 1px solid rgba(255, 61, 154, 0.15);
+}
+
+.hero-description {
+  color: #000;
+  text-align: center;
+  margin-top: 17px;
+  font: 300 20px/28px Poppins, sans-serif;
+}
+
+@media (max-width: 991px) {
+  .hero-description {
+    max-width: 100%;
+  }
+}
+
+.testimonials-grid {
+  width: 1118px;
+  max-width: 100%;
+  margin: 36px 0 0 12px;
+}
+
+.testimonials-row {
+  gap: 20px;
+  display: flex;
+}
+
+@media (max-width: 991px) {
+  .testimonials-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+}
+
+.testimonial-column {
+  display: flex;
+  flex-direction: column;
+  line-height: normal;
+  width: 33%;
+  margin-left: 0;
+}
+
+@media (max-width: 991px) {
+  .testimonial-column {
+    width: 100%;
+  }
+}
+
+.testimonial-card {
+  border-radius: 180px 180px 30px 30px;
+  background-color: rgba(255, 55, 151, 0.15);
+  position: relative;
+  display: flex;
+  margin-top: 5px;
+  min-height: 556px;
+  flex-grow: 1;
+  flex-direction: column;
+  align-items: center;
+  font-family: Fira Sans, sans-serif;
+  font-weight: 600;
+  justify-content: start;
+  width: 100%;
+  padding: 46px 16px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 991px) {
+  .testimonial-card {
+    margin-top: 40px;
+  }
+}
+
+.testimonial-image {
+  aspect-ratio: 0.95;
+  object-fit: contain;
+  object-position: center;
+  width: 224px;
+  border-radius: 90px 90px 0 0;
+  z-index: 0;
+  max-width: 100%;
+}
+
+.testimonial-text {
+  color: #7f3528;
+  font-size: 24px;
+  line-height: 28px;
+  text-align: center;
+  z-index: 0;
+  margin-top: 13px;
+}
+
+.testimonial-author {
+  color: #000;
+  font-size: 20px;
+  line-height: 32px;
+  text-align: right;
+  position: absolute;
+  z-index: 0;
+  width: 208px;
+  right: 41px;
+  bottom: 23px;
+  height: 34px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+</style>
+
+<section class="customers-section">
+  <div class="testimonials-container">
+    <header class="hero-section">
+      <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/dcdfe6d11c91ad974c16594cb5b72e91547b3a8c4ea1cee8b223d8e7b8b91010?placeholderIfAbsent=true&apiKey=fa22c26009ce45f18ff293ca0a4356fa" alt="Ice cream background" class="hero-background" />
+      <nav class="menu-logo">
+        <div class="menu-icon" aria-hidden="true"></div>
+      </nav>
+      <p class="hero-description">
+        Over 200 ice cream enthusiasts from different places savor our unique flavors and can't get enough of our delicious offerings. We have made every scoop a memorable experience, bringing smiles and joy with our artisanal ice cream creations.
+      </p>
+    </header>
+    <div class="testimonials-grid">
+      <div class="testimonials-row">
+        <article class="testimonial-column">
+          <div class="testimonial-card">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/753953d167de271f362f7cb8505c97ff2ed93a110594518b01501269a8205343?placeholderIfAbsent=true&apiKey=fa22c26009ce45f18ff293ca0a4356fa" alt="Marnus Stephen" class="testimonial-image" />
+            <p class="testimonial-text">
+              " The salted caramel flavor was heavenly! The smooth texture and the rich taste won me over completely."
+            </p>
+            <p class="testimonial-author">- Marnus Stephen</p>
+          </div>
+        </article>
+        <article class="testimonial-column">
+          <div class="testimonial-card">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/58d37e77c196c2468063fc0e7c8ecc934bc4382f44ab36f4f909aedcbdc78d90?placeholderIfAbsent=true&apiKey=fa22c26009ce45f18ff293ca0a4356fa" alt="Stacy Stone" class="testimonial-image" />
+            <p class="testimonial-text">
+              " Hands down the best ice cream I've ever had! The strawberry cheesecake flavor was out of this world! "
+            </p>
+            <p class="testimonial-author">- Stacy Stone</p>
+          </div>
+        </article>
+        <article class="testimonial-column">
+          <div class="testimonial-card">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/aa4008a935dbfbc98ddd203d040cbba5e24998f1b8ce7afe37169b03988b5a58?placeholderIfAbsent=true&apiKey=fa22c26009ce45f18ff293ca0a4356fa" alt="Andrew Jettpace" class="testimonial-image" />
+            <p class="testimonial-text">
+              " I tried the mango sorbet, and it was like biting into a fresh mango! I'll definitely be coming back for more."
+            </p>
+            <p class="testimonial-author">- Andrew Jettpace</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
