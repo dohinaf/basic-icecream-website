@@ -368,8 +368,8 @@ document.getElementById('checkout-button').addEventListener('click', checkout);
 
 function updateOrderSummary() {
     // Fetch order items and total from cart 
-    const totalItems = 3; 
-    const totalPrice = 45.99; 
+    const totalItems = cart.length; // Get the total number of items in the cart
+    const totalPrice = `${cart.reduce((sum, item) => sum + item.price, 0).toFixed(2)}`; // Calculate total price dynamically and format it    
 
     document.getElementById('order-items').textContent = `Total Items: ${totalItems}`;
     document.getElementById('order-total').textContent = `Total Price: $${totalPrice}`;
