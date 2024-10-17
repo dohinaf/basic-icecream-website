@@ -518,8 +518,12 @@
             <img src="https://purepng.com/public/uploads/large/purepng.com-ice-creamice-creamcreamfrozensweet-1411527617895aiuhx.png"
                 alt="Logo">
         </a>
-        <!-- ... existing code ... -->
-        <h1 class="site-title">ArcticDelights</h1>
+        <!-- Toggle Button (Hamburger) -->
+<div class="menu-btn" id="menu-btn">
+  <span class="fas fa-bars"></span>
+</div>
+        <h1 class="site-title">ArcticDelights</h1> 
+
 
 <nav class="navbar">
 
@@ -532,6 +536,7 @@
 <a href="contact.html">Contact Us</a>
 <a href="#" id="my-order-btn">My Orders</a>
 </nav>
+
 
 
         <div class="icons">
@@ -688,6 +693,7 @@
 
     <!-- Script for pop up discount Starts Here -->
     <script>
+
       // Show the pop-up automatically when the page loads
       window.onload = function () {
         document.getElementById("popup").style.display = "flex";
@@ -699,6 +705,40 @@
         .addEventListener("click", function () {
           document.getElementById("popup").style.display = "none";
         });
+
+     // Get the toggle button, the navbar (menu), and all the navbar links
+const toggleBtn = document.querySelector('#menu-btn');
+const navbar = document.querySelector('.navbar');
+const navbarLinks = document.querySelectorAll('.navbar a');
+
+// Function to toggle the navbar
+toggleBtn.addEventListener('click', () => {
+    navbar.classList.toggle('active');
+});
+
+// Function to close the navbar when a link inside it is clicked
+navbarLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        navbar.classList.remove('active');
+    });
+});
+// Function to close the navbar when clicking outside it
+document.addEventListener('click', function (event) {
+    if (!navbar.contains(event.target) && !toggleBtn.contains(event.target)) {
+        navbar.classList.remove('active');
+    }
+});
+
+    // Show the pop-up automatically when the page loads
+    window.onload = function() {
+      document.getElementById('popup').style.display = 'flex';
+    };
+
+    // Close the pop-up when the user clicks the close button
+    document.querySelector('.close-btn').addEventListener('click', function() {
+      document.getElementById('popup').style.display = 'none';
+    });
+
 
       // Handle form submission
       document
