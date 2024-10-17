@@ -1,0 +1,249 @@
+<!--Artic delights-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArcticDelights</title>
+    <link rel="stylesheet" href="preloaderStyle.css">
+    <link rel="icon" href="https://purepng.com/public/uploads/large/purepng.com-ice-creamice-creamcreamfrozensweet-1411527617895aiuhx.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"> <!--Updated to latest version-->
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    
+
+    <style>
+        .chatbot-container {
+            position: fixed;
+            bottom: 20px; /* Adjust the distance from the bottom */
+            right: 20px; /* Adjust the distance from the right */
+            z-index: 1000; /* Ensure it's above other elements */
+        }
+
+        .chatbot-button {
+            background-color: #007bff; /* Button color */
+            border: none;
+            border-radius: 50%; /* Makes the button circular */
+            padding: 10px;
+            cursor: pointer;
+            transition: transform 0.3s; /* Animation for hover */
+            position: relative; /* Required for the tooltip */
+        }
+
+        .chatbot-button:hover {
+            transform: scale(1.1); /* Scale up on hover */
+        }
+
+        .tooltip-text {
+            display: none;
+            position: absolute;
+            bottom: 60px; /* Position the tooltip above the button */
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+            white-space: nowrap;
+            z-index: 1001; /* Ensure tooltip is above other elements */
+        }
+
+        .chatbot-button:hover .tooltip-text {
+            display: block; /* Show tooltip on hover */
+        }
+
+        .offer-section{
+            display: flex;
+            flex-direction:column;
+            gap: 40px;
+            align-items: center;
+        }
+        .footer{
+            border-width: 20px;
+            margin-top: 50px;
+        }
+
+        h6{
+            font-size: 20px;
+        }
+    </style>
+
+        <!-- Header Starts Here -->
+        <header class="header">
+
+            <a href="#" class="logo">
+                <img src="https://purepng.com/public/uploads/large/purepng.com-ice-creamice-creamcreamfrozensweet-1411527617895aiuhx.png"
+                    alt="Logo">
+            </a>
+            <!-- ... existing code ... -->
+            <h1 class="site-title">ArcticDelights</h1>
+    
+    <nav class="navbar">
+    
+    
+    <a href="index.html#home">Home</a>
+    <a href="#index.htmlabout">About</a>
+    <a href="#index.htmlmenu">Menu</a>
+    <a href="offers.html">Offers</a>
+    <a href="#review-section">Review</a>
+    <a href="blog.html">Blogs</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="#" id="my-order-btn">My Orders</a>
+    </nav>
+    
+    
+            <div class="icons">
+                <div class = "fas fa-heart" id = "wishlist-btn"></div>
+                <div class="fas fa-search" id="search-btn"></div>
+                <div class="fas fa-shopping-cart" id="cart-btn"><span id="cart-count">(0)</span></div>
+              
+            </div>
+            <div class="theme-switch-wrapper">
+                <label class="theme-switch" for="checkbox">
+                    <input type="checkbox" id="checkbox">
+                    <div class="slider"></div>
+                </label>
+                <span id="mode-label">Light Mode</span>
+            </div>
+            <div class="search-form">
+                <input type="search" id="search-box" placeholder="Search...">
+                <label for="search-box" class="fas fa-search"></label>
+            </div>
+            <div class="wishlist-container">
+                <ul id="wishlistItems"></ul>
+                <button class="clear-from-wishlist-btn" onclick="clearWishlist()">Clear Wishlist</button>
+            </div>
+            <div class="cart-items-container">
+                <div class="cart">
+                    <ul id="cartItems">
+                        <!-- Cart items will be displayed here -->
+                    </ul>
+                    <h3>
+                        <div id="total">Total:$0.00
+                        </div>
+                    </h3>
+                    <button id="checkout-button" onclick="checkout()">Checkout</button>
+                </div>
+            </div>
+            <div class="my-order-container">
+                <h2>My Order</h2>
+                <div id="order-details">
+                    <!-- Order details will be displayed here -->
+                </div>
+                <div class="order-actions">
+                    <button onclick="trackOrder()">Track Order</button>
+                    <button onclick="editOrder()">Edit Order</button>
+                </div>
+                
+            </div>
+            <div class="icons login-signup-collection">
+    
+    <!-- 
+                <button style="max-height: 40px;" id="login-btn" class="auth-btn">Login</button>
+                <p style="padding-right: 10px;">        </p>
+                <button style="max-height: 40px;" id="signup-btn" class="auth-btn">SignUp</button> -->
+    
+                 <button  style="max-height: 40px;" id="login-btn" class="auth-btn"><a href="./login/login.html">Login</a></button>
+                 <button style="max-height: 40px;" id="login-btn" class="auth-btn"><a href="./signup/signup.html">signUp</a></button>
+    
+            </div>
+    
+        </header>
+        <!-- Header Ends Here -->
+       
+<br><br><br><br><br><br><br>  
+
+<div class="offer-section">
+<img src="OFFER1.png" height="570" width="890"></img>
+<img src="OFFER2.png" height="570" width="890"></img>
+<img src="OFFER3.png" height="570" width="890"></img>
+<h6>MORE UPCOMING...</h6>
+</div>
+
+<br><br><br><br><br>
+
+    <!-- JavaScript File -->
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    
+          
+    
+    
+            // Animate the search form
+            gsap.from(".search-form", { opacity: 0, x: -100, duration: 1, ease: "power2.out" });
+    
+            // Animate the cart container
+            gsap.from(".cart-items-container", { opacity: 0, y: 100, duration: 1.5, ease: "power2.out" });
+    
+            // Animate the 'My Order' container
+            gsap.from(".my-order-container", { opacity: 0, x: 100, duration: 1.5, ease: "power2.out" });
+    
+            // Animate home section content
+            gsap.from(".home .content h3", { opacity: 0, x: -100, duration: 1.5, delay :0.1, ease: "power2.out" });
+            gsap.from(".home .content p", { opacity: 0, x: -100, duration: 1.5, delay: 0.1, ease: "power2.out" });
+            gsap.from(".home .animated-button", { opacity: 0, x: -100, duration: 1.5, delay: 0.1, ease: "power2.out" });
+    
+            // Animate buttons on hover for scaling effect
+            const buttons = document.querySelectorAll("button");
+            buttons.forEach(button => {
+                button.addEventListener('mouseover', () => {
+                    gsap.to(button, { scale: 1.1, duration: 0.2 });
+                });
+                button.addEventListener('mouseout', () => {
+                    gsap.to(button, { scale: 1, duration: 0.2 });
+                });
+            });
+    
+        });
+        document.getElementById('learnMoreBtn').addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent default anchor behavior
+        var moreContent = document.getElementById('moreContent');
+        if (moreContent.style.display === "none") {
+            moreContent.style.display = "block";
+            this.textContent = "Show Less"; // Change button text
+        } else {
+            moreContent.style.display = "none";
+            this.textContent = "Learn More"; // Revert button text
+        }
+    });
+        
+    </script>
+
+    <!-- Footer Section Starts Here -->
+
+    <section class="footer" id="footer">
+        <div>
+            <img src="https://hits.sh/arcticdelights.netlify.app.svg?label=Website%20Visitors&extraCount=6520&color=FE6648&labelColor=white" alt="web-views">
+        </div>
+        <div class="social-icons">
+            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a> <!-- Updated X icon -->
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-pinterest"></i></a>
+        </div>
+        </div>
+        
+                <!--  
+        <div class="links">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Menu</a>
+        <a href="#">Review</a>
+        <a href="#">Blogs</a>
+        </div> -->
+        
+                <div class="credit">
+                    <p> Created by <span> Dohina</span> | <a href="copyright.html"> &copy;Copyright 2024 </a> | All Rights Reserved
+                    <p>
+                </div>
+        
+            </section>
+        
+            <!-- Footer Section Ends Here -->
