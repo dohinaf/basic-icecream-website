@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart</title>
+  <link rel="stylesheet" href="cart.css">
+  
+</head>
+
+<body>
+  <div class="shopping-cart">
+    <div class="title">Shopping Bag</div>
+
+    <!-- Container for dynamic products -->
+    <div id="cart-items-container">Your cart is empty.</div>
+
+    <!-- Total price section -->
+    <div class="total-price">
+      <span>Total: $<span id="total-price">0.00</span></span>
+
+    </div>
+    <div>
+                
+    </div>
+  </div>
+  <script>
+    // Function to retrieve cart items from localStorage
+const getCartItems = () => {
+  const cartItemsString = localStorage.getItem('cart');
+  return cartItemsString ? JSON.parse(cartItemsString) : [];
+};
+
+// Function to update the cart items in localStorage
+const updateCartInLocalStorage = (cartItems) => {
+  localStorage.setItem('cart', JSON.stringify(cartItems));
+};
+
+// Function to display cart items
+const displayCartItems = () => {
+  const cartItems = getCartItems();
+  const cartContainer = document.getElementById('cart-items-container');
+  cartContainer.innerHTML = ''; // Clear existing items
+  let total = 0;
+
+  if (cartItems.length === 0) {
+    cartContainer.innerHTML = '<p>Your cart is empty.</p>'; // Show message if cart is empty
+  } else {
+    cartContainer.innerHTML = `
+  <table class="cart-table">
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Product Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      ${cartItems.map((item,index) => {
+        const quantity = item.quantity || 1; // Default to 1 if quantity is undefined
+        const itemTotal = item.price * quantity;
+        return `
+          <tr class="cart-row">
+            <td><img src="${item.image}" alt="${item.name}" class="item-image" /></td>
+            <td>${item.name}</td>
+            <td>$${item.price}</td>
+            <td>
+              <button onclick="changeQuantity('${item.name}', -1)">-</button>
+              <span id="${item.name}-quantity">${quantity}</span>
+              <button onclick="changeQuantity('${item.name}', 1)">+</button>
+            </td>
+            <td>$${itemTotal.toFixed(2)}</td>
+            <td><button onclick="removeFromCart(${index})" class="removebtn"}>Remove</button></td>
+          </tr>
+        `;
+      }).join('')}
+    </tbody>
+  </table>
+`;
+
+// Calculate total price
+total = cartItems.reduce((sum, item) => sum + item.price * (item.quantity || 1), 0);
+
+  }
+
+  document.getElementById('total-price').innerText = total.toFixed(2);
+};
+
+
+const changeQuantity = (itemName, change) => {
+  let cartItems = getCartItems();
+  const item = cartItems.find(item => item.name === itemName);
+
+  if (item) {
+    item.quantity = (item.quantity || 0) + change; 
+    
+    if (item.quantity < 1) {
+      cartItems = cartItems.filter(cartItem => cartItem.name !== itemName); // Remove item
+    }
+
+    updateCartInLocalStorage(cartItems); // Update local storage
+    displayCartItems(); // Re-render the cart items
+  }
+};
+
+// Call displayCartItems when the page loads to show existing cart items
+document.addEventListener('DOMContentLoaded', () => {
+  displayCartItems();
+});
+
+
+
+
+  </script>
+</body>
+</html>
