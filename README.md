@@ -41,12 +41,12 @@ Welcome to **Arctic Delights**! A visually stunning, beginner-friendly ice cream
       <th>Event Description</th>
    </tr>
    <tr>
-      <td><img src="./gssoc24.png" width="200" height="auto" loading="lazy" alt="GSSoC 24"/></td>
+      <td><img src="/images/gssoc24.png" width="200" height="auto" loading="lazy" alt="GSSoC 24"/></td>
       <td>GirlScript Summer of Code 2024</td>
       <td>GirlScript Summer of Code is a three-month-long Open Source Program conducted every summer by GirlScript Foundation. It is an initiative to bring more beginners to Open-Source Software Development.</td>
    </tr>
     <tr>
-      <td><img src="./hacktoberfest.png" width="200" height="auto" loading="lazy" alt="Hacktoberfest 2024"/></td>
+      <td><img src="/images/hacktoberfest.png" width="200" height="auto" loading="lazy" alt="Hacktoberfest 2024"/></td>
       <td>Hacktoberfest 2024</td>
       <td>Hacktoberfest is a month-long celebration of open source software run by DigitalOcean, GitHub, and Twilio. It encourages contributions to open source projects and promotes a global community of developers.</td>
    </tr>
@@ -131,9 +131,9 @@ For guidelines refer [Contribution](Contributors.md) !!
 </div>
 
 ## Website Preview
-<img src='./home.png'>
-<img src='./menu.png'>
-<img src='./blogs.png'>
+<img src='/images/home.png'>
+<img src='/images/menu.png'>
+<img src='/images/blogs.png'>
 
 ## Code of Conduct
 We are committed to fostering a welcoming and inclusive environment for everyone. All contributors and participants are expected to uphold the following values:
