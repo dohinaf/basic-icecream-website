@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artic Delights Blog</title>
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        .heading {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+        }
+        .heading span {
+            color: orangered;
+        }
+        .blog-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .blog {
+            width: calc(33.33% - 20px);
+            margin-bottom: 40px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .blog:hover {
+            transform: translateY(-10px) rotate(1deg);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .blog h3 {
+            padding: 15px;
+            margin: 0;
+            font-size: 1.2em;
+            color: #2c3e50;
+        }
+        .blog p {
+            padding: 0 15px 15px;
+            margin: 0;
+            color: #34495e;
+        }
+        .btn {
+            display: inline-block;
+            background-color: orangered;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 15px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #ff6347;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+
+        <a href="index.html" class="logo">
+            <img src="https://purepng.com/public/uploads/large/purepng.com-ice-creamice-creamcreamfrozensweet-1411527617895aiuhx.png"
+                alt="Logo">
+        </a>
+        <!-- ... existing code ... -->
+        <h1 class="site-title">ArcticDelights</h1>
+
+<nav class="navbar">
+
+
+<a href="index.html">Home</a>
+<a href="index.html">About</a>
+<a href="index.html">Menu</a>
+<a href="offers.html">Offers</a>
+<a href="index.html">Review</a>
+<a href="blog.html">Blogs</a>
+<a href="contact.html">Contact Us</a>
+<a href="#" id="my-order-btn">My Orders</a>
+</nav>
+
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox">
+                <div class="slider"></div>
+            </label>
+            <span id="mode-label">Light Mode</span>
+        </div>
+        <div class="search-form">
+            <input type="search" id="search-box" placeholder="Search...">
+            <label for="search-box" class="fas fa-search"></label>
+        </div>
+        <div class="wishlist-container">
+            <ul id="wishlistItems"></ul>
+            <button class="clear-from-wishlist-btn" onclick="clearWishlist()">Clear Wishlist</button>
+        </div>
+        <div class="cart-items-container">
+            <div class="cart">
+                <ul id="cartItems">
+                    <!-- Cart items will be displayed here -->
+                </ul>
+                <h3>
+                    <div id="total">Total:$0.00
+                    </div>
+                </h3>
+                <button id="checkout-button" onclick="checkout()">Checkout</button>
+            </div>
+        </div>
+        <div class="my-order-container">
+            <h2>My Order</h2>
+            <div id="order-details">
+                <!-- Order details will be displayed here -->
+            </div>
+            <div class="order-actions">
+                <button onclick="trackOrder()">Track Order</button>
+                <button onclick="editOrder()">Edit Order</button>
+            </div>
+            
+        </div>
+        <div class="icons login-signup-collection">
+
+<!-- 
+            <button style="max-height: 40px;" id="login-btn" class="auth-btn">Login</button>
+            <p style="padding-right: 10px;">        </p>
+            <button style="max-height: 40px;" id="signup-btn" class="auth-btn">SignUp</button> -->
+
+             <button  style="max-height: 40px;" id="login-btn" class="auth-btn"><a href="./login/login.html">Login</a></button>
+             <button style="max-height: 40px;" id="login-btn" class="auth-btn"><a href="./signup/signup.html">signUp</a></button>
+
+        </div>
+
+    </header>
+    <section class="blogs" id="blogs">
+        <h1 class="heading">Our <span>Blogs</span></h1>
+        <div class="blog-container">
+            <div class="blog">
+                <img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Blog Post 1" class="blog-image">
+                <h3>The Journey of Artic Delights</h3>
+                <p>Discover how our ice cream shop began its journey with a passion for creating unique flavors that delight the taste buds.</p>
+                <a href="icecream-details.html" class="btn">Read More</a>
+            </div>
+
+            <div class="blog">
+                <img src="https://images.unsplash.com/photo-1516559828984-fb3b99548b21?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Blog Post 2" class="blog-image">
+                <h3>The Art of Perfect Ice Cream Scoops</h3>
+                <p>Learn the craft behind creating the perfect scoop of ice cream. Explore the process from churning to serving.</p>
+                <a href="icecream-details.html" class="btn">Read More</a>
+            </div>
+
+            <div class="blog">
+                <img src="https://images.unsplash.com/photo-1534706936160-d5ee67737249?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Blog Post 3" class="blog-image">
+                <h3>Chilling Adventures with Exotic Flavors</h3>
+                <p>Step into a world of cool treats with our adventurous range of exotic ice cream flavors. From tropical fruits to rare spices.</p>
+                <a href="icecream-details.html" class="btn">Read More</a>
+            </div>
+
+            <div class="blog">
+                <img src="https://images.unsplash.com/photo-1505394033641-40c6ad1178d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Blog Post 4" class="blog-image">
+                <h3>Crafting the Perfect Scoop</h3>
+                <p>Learn about our meticulous process of crafting the perfect ice cream scoop. We source only the finest ingredients.</p>
+                <a href="icecream-details.html" class="btn">Read More</a>
+            </div>
+
+            <div class="blog">
+                <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Blog Post 5" class="blog-image">
+                <h3>Behind the Scenes at Artic Delights</h3>
+                <p>Get a sneak peek behind the scenes at our shop! Meet our passionate team and see how we create our delicious ice cream flavors daily.</p>
+                <a href="icecream-details.html" class="btn">Read More</a>
+            </div>
+
+            <div class="blog">
+                <img src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Blog Post 6" class="blog-image">
+                <h3>Ice Cream Through the Ages</h3>
+                <p>Dive into the fascinating history of ice cream, from its ancient origins to modern-day innovations.</p>
+                <a href="icecream-details.html" class="btn">Read More</a>
+            </div>
+
+            <div class="blog">
+                <img src="https://images.unsplash.com/photo-1516559828984-fb3b99548b21?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Blog Post 7" class="blog-image">
+                <h3>Vegan Ice Cream Revolution</h3>
+                <p>Explore our range of delicious vegan ice creams that are changing the game for dairy-free desserts.</p>
+                <a href="icecream-details.html" class="btn">Read More</a>
+            </div>
+
+            <div class="blog">
+                <img src="https://images.unsplash.com/photo-1488900128323-21503983a07e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Blog Post 8" class="blog-image">
+                <h3>Ice Cream Pairings: A Gourmet Guide</h3>
+                <p>Discover unexpected and delightful flavor combinations that will elevate your ice cream experience.</p>
+                <a href="icecream-details.html" class="btn">Read More</a>
+            </div>
+
+            <div class="blog">
+                <img src="https://images.unsplash.com/photo-1505394033641-40c6ad1178d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Blog Post 9" class="blog-image">
+                <h3>The Science of Ice Cream</h3>
+                <p>Uncover the fascinating science behind what makes ice cream so creamy, smooth, and delicious.</p>
+                <a href="icecream-details.html" class="btn">Read More</a>
+            </div>
+
+            <div class="blog">
+                <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Blog Post 10" class="blog-image">
+                <h3>Ice Cream Around the World</h3>
+                <p>Take a global tour of ice cream traditions and unique flavors from different cultures.</p>
+                <a href="icecream-details.html" class="btn">Read More</a>
+            </div>
+
+            <div class="blog">
+                <img src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Blog Post 11" class="blog-image">
+                <h3>Seasonal Scoops: Our Limited Edition Flavors</h3>
+                <p>Get a taste of our special seasonal offerings and the inspiration behind these unique creations.</p>
+                <a href="icecream-details.html" class="btn">Read More</a>
+            </div>
+
+            <div class="blog">
+                <img src="https://images.unsplash.com/photo-1516559828984-fb3b99548b21?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Blog Post 12" class="blog-image">
+                <h3>From Farm to Cone: Our Ingredient Story</h3>
+                <p>Learn about our commitment to sourcing the finest ingredients and supporting local farmers.</p>
+                <a href="icecream-details.html" class="btn">Read More</a>
+            </div>
+
+            <div class="blog">
+                <img src="https://images.unsplash.com/photo-1488900128323-21503983a07e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Blog Post 13" class="blog-image">
+                <h3>Ice Cream Social: Hosting the Perfect Party</h3>
+                <p>Tips and tricks for throwing an unforgettable ice cream-themed gathering for friends and family.</p>
+                <a href="icecream-details.html" class="btn">Read More</a>
+            </div>
+        </div>
+    </section>
+    <script>
+        //chatbot added here!
+        window.embeddedChatbotConfig = {
+        chatbotId: "oSyGH_33H4whnPVyaVVwa",
+        domain: "www.chatbase.co"
+        }
+        </script>
+        <script
+        src="https://www.chatbase.co/embed.min.js"
+        chatbotId="oSyGH_33H4whnPVyaVVwa"
+        domain="www.chatbase.co"
+        defer>
+        </script>
+        <script src="./darkMode.js"></script>
+</body>
+</html>
