@@ -907,12 +907,10 @@ button:hover {
 .container {
   max-width: 1200px;
   margin: auto;
-  padding: 3rem;
-  display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 7rem; /* Increased gap for more spacing */
   background-color: var(--background-color); /* Kept the dark background */
-  border-radius: 1rem;
+  border-radius: 4rem;
   margin-bottom: 5rem; /* Added margin between footer */
 }
 
