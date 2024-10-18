@@ -50,6 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
         searchForm.classList.remove('active');
         cartItem.classList.remove('active');
     };
+
     function filterItems() {
         const selectedPrice = priceFilter.value;
         const searchFlavor = flavorFilter.value.toLowerCase();
