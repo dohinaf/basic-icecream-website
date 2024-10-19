@@ -60,130 +60,156 @@
 
     
     <style>
-        /* Styling for the pop-up Discount */
+    /* Styling for the pop-up Discount */
+    /* General popup styling */
+    :root {
+      --background-color: white; /* Default background color for light mode */
+      --popup-background-color: rgba(255, 255, 255, 1); /* Popup background for light mode */
+      --text-color: black; /* Default text color for light mode */
+      --border-color: #0d0b0b; /* Border color for light mode */
+      --button-background: black; /* Button background for light mode */
+      --button-hover: #66dddd; /* Button hover color for light mode */
+      --link-color: #1a364b; /* Link color for light mode */
+      --link-hover: #ff6347; /* Link hover color for light mode */
+    }
+    
+    [data-theme="dark"] {
+      --background-color: #121212; /* Background color for dark mode */
+      --popup-background-color: #1e1e1e; /* Popup background for dark mode */
+      --text-color: white; /* Text color for dark mode */
+      --border-color: #ffffff; /* Border color for dark mode */
+      --button-background: #333; /* Button background for dark mode */
+      --button-hover: #7cecad; /* Button hover color for dark mode */
+      --link-color: #bb86fc; /* Link color for dark mode */
+      --link-hover: #ff79c6; /* Link hover color for dark mode */
+    }
+    
     .popup {
-      display: none;
+      display: flex;
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(0, 0, 0, 0.8);
       justify-content: center;
       align-items: center;
       z-index: 1000;
     }
-
+    
     .popup-content {
       display: flex;
-      background-color: white;
-      border-radius: 10px;
-      width: 500px;
-      height: 350px;
+      background-color: var(--popup-background-color); /* Use variable */
+      border-radius: 12px;
+      width: 60%;
+      max-width: 800px;
+      height: auto;
+      padding: 20px;
       overflow: hidden;
       position: relative;
     }
-
+    
+    .popup-left {
+      flex: 1;
+      padding-right: 20px;
+    }
+    
     .popup-left img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-    }
-
-    .popup-right {
-      padding-left: 20px;
-      padding-top: 30px;
-      width: 50%;
-      position: relative;
-    }
-
-    .close-btn {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      font-size: 30px;
-      cursor: pointer;
-    }
-
-    h2 {
-      font-size: 24px;
-      margin-bottom: 10px;
-    }
-    h3{
-      font-weight: 700;
-    }
-
-    p {
-      margin-bottom: 30px;
-      font-size: small;
-    }
-
-    input[type="name"] {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 14px;
-      margin-bottom: 10px;
-    }
-
-    input[type="email"] {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 14px;
-      margin-bottom: 10px;
-    }
-    input[type="password"] {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 14px;
-      margin-bottom: 0px;
+      border-radius: 8px;
     }
     
- 
-
-    .signup-btn {
+    .popup-right {
+      flex: 1;
+      padding-left: 30px;
+      padding-top: 30px;
+      position: relative;
+    }
+    
+    .close-btn {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      font-size: 30px;
+      cursor: pointer;
+      color: var(--text-color); /* Use variable */
+    }
+    
+    h2 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      font-weight: bold;
+      color: var(--text-color); /* Use variable */
+    }
+    
+    p {
+      font-size: 1.4em;
+      margin-bottom: 20px;
+      color: var(--text-color); /* Use variable */
+    }
+    
+    input[type="name"],
+    input[type="email"],
+    input[type="password"] {
       width: 100%;
-      padding: 8px;
-      background-color: black;
-      color: white;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid var(--border-color); /* Use variable */
+      border-radius: 5px;
+      font-size: 1.1em;
+      color: var(--text-color); /* Use variable */
+      background-color: var(--background-color); /* Input background */
+    }
+    
+    .signup-btn {
+      display: block;               /* Ensure the button is a block element */
+      width: 100%;                 /* Full width within the parent */
+      max-width: 300px;           /* Max width of the button */
+      padding: 12px;              /* Padding for the button */
+      background-color: var(--button-background);
+      color: var(--text-color);
       border: none;
       border-radius: 5px;
       cursor: pointer;
-      font-size: 16px;
+      font-size: 1.2em;           /* Button text size */
+      margin: 20px auto;          /* Center the button with margin auto */
     }
-
+    
+    
     .signup-btn:hover {
-      background-color: #00ff15;
+      background-color: var(--button-hover); /* Use variable */
     }
-
+    
     .no-thanks {
       display: block;
-      margin-top: 10px;
       text-align: center;
-      color: #1173f3;
-      text-decoration: none;
-      font-size: small;
+      margin-top: 10px;
+      font-size: 1em;
+      color: var(--text-color); /* Use variable */
     }
-
+    
     .terms {
-      margin-top: 10px;
-      font-size: 12px;
+      margin-top: 15px;
+      font-size: 1.3em;
       text-align: center;
-      color: #aaa;
+      color: var(--text-color); /* Use variable */
     }
-
+    
     .terms a {
-      color: #888;
+      color: var(--link-color); /* Use variable */
+      font-weight: bold;
       text-decoration: underline;
+      font-size: 1.1em;
+      cursor: pointer;
     }
+    
+    .terms a:hover {
+      color: var(--link-hover); /* Use variable */
+      text-decoration: none;
+    }
+    
 
     /* Main content styling */
     .content {
@@ -242,23 +268,23 @@
 }
 
 .social-icons a:hover .fa-linkedin {
-    color: #0A66C2; /* Brighter LinkedIn blue */
+    color: #0077B5; /* Brighter LinkedIn blue */
 }
 
 .social-icons a:hover .fa-facebook {
-    color: #1877F2; /* Brighter Facebook blue */
+    color: #0082fb; /* Brighter Facebook blue */
 }
 
 .social-icons a:hover .fa-x-twitter {
-    color: #1DA1F2; /* Bright X (Twitter) blue */
+    color:#000000; /* Bright X (Twitter) blue */
 }
 
 .social-icons a:hover .fa-instagram {
-    color: #E4405F; /* Brighter Instagram pink */
+    color: #E1306C; /* Brighter Instagram pink */
 }
 
 .social-icons a:hover .fa-pinterest {
-    color: #E60023; /* Brighter Pinterest red */
+    color:#E60023; /* Brighter Pinterest red */
 }
 
 
