@@ -300,8 +300,9 @@ button:hover {
   border-radius: 50px;
 }
 
-/* Header Styles */
-/* .header {
+
+ Header Styles *
+ .header {
   background-color: var(--background-color);
   display: flex;
   align-items: center;
@@ -316,6 +317,10 @@ button:hover {
 }
 .header .logo img {
   height: 6rem;
+  transition: transform 0.3s ease;
+}
+.header .logo img:hover{
+  transform: scale(1.2);
 }
 .header .navbar {
   display: flex;
