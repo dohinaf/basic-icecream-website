@@ -403,6 +403,14 @@ button:hover {
     height: 6rem;
   }
   
+  
+  .header .logo img:hover {
+    transition: 0.2s ease-in;
+    transform: scale(1.09);
+  }
+  
+
+
   .header .navbar {
     display: flex;
     align-items: center;
