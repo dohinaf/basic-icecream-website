@@ -419,13 +419,27 @@
               <input type="name" id="name" placeholder="Enter your Name">
               <input type="email" id="email" placeholder="Enter your Email" required>
               <input type="password" id="password" placeholder="Enter your Password" required>
+
               <button type="submit" class="signup-btn">SIGN UP</button>
-            </form>
-            <a href="#" class="no-thanks">No thanks</a>
-            <p class="terms">By signing up, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>
-          </div>
-        </div>
+          </form>
+          <a href="#" class="no-thanks">No thanks</a>
+          <p class="terms">By signing up, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>
       </div>
+  </div>
+</div>
+
+<script>
+  // Handle form submission for the pop-up sign-up form
+  document.getElementById('emailForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent default form submission
+      
+      // Perform any sign-up logic here, such as email validation or server requests
+      
+      // Redirect to profile.html after sign-up
+      window.location.href = 'profile.html'; // Redirect user to the profile page
+  });
+</script>
+
     <!--  Pop-up for Discount and Sign up Ends here  -->
     
     <!-- Script for pop up discount Starts Here -->
@@ -512,6 +526,60 @@ document.addEventListener('click', function (event) {
   </section>
   
 
+    <!-- Login Modal -->
+<div id="login-modal" class="modal login-container">
+    <div class="login-card">
+      <div class="login-image">
+        <img src="https://static.vecteezy.com/system/resources/thumbnails/044/570/761/small_2x/assortment-of-colorful-ice-cream-scoops-in-waffle-cones-with-fresh-fruits-on-a-transparent-background-png.png" alt="Ice Cream" />
+      </div>
+      
+      <div class="modal-content login-form">
+        <span class="close-btn" id="close-login">&times;</span>
+        <h2>Login to Your Account</h2>
+        <form>
+          <h3>Email :-</h3>
+           <br>
+            <input type="email" placeholder="Email" required>
+ 
+            <h3>Password :-</h3>
+             <br>
+            <input type="password" placeholder="Password" required class="inputFields">
+            <button type="submit">Login</button>
+            
+          <p>Don't have an account? <a href="#sign-modal">Sign up</a></p>
+ 
+            
+ 
+        </form>
+    </div>
+    </div>
+</div>
+
+<!-- Signup Modal -->
+<div id="signup-modal" class="modal">
+  <div class="modal-content">
+      <span class="close-btn" id="close-signup">&times;</span>
+      <h2>Sign Up</h2>
+      <form id="signup-form">
+          <input type="text" placeholder="Full Name" required>
+          <input type="email" placeholder="Email" required>
+          <input type="password" class="pass-btn" placeholder="Password" required>
+          <button type="submit" class="sign-btn">Sign Up</button>
+      </form>
+  </div>
+</div>
+
+
+<script>
+  document.getElementById('signup-form').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent default form submission
+      
+      // Perform validation or backend signup request here
+      // If signup is successful, redirect to profile.html
+      
+      window.location.href = 'profile.html'; // Redirect to profile page
+  });
+</script>
 
     <!-- About Section Ends Here -->
    
