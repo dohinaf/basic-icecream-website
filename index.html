@@ -330,6 +330,7 @@
 <a href="blog.html">Blogs</a>
 <a href="contact.html">Contact Us</a>
 <a href="#" id="my-order-btn">My Orders</a>
+<a href="#faqs" >FAQs</a>
 </nav>
 
 
@@ -1449,6 +1450,88 @@ document.addEventListener('click', function (event) {
   </script>
 <!--Review adding section ended here-->
 <br>
+
+<!-- FAQs section -->
+<section class="faq-section" id="faqs">
+  <h1>FAQs</h1>
+  <div class="faq">
+    <button class="accordion">
+        What makes Arctic Delights’ ice cream special?
+    </button>
+    <div class="panel">
+      <p>
+        At Arctic Delights, we believe that every scoop should be a masterpiece.
+         We handpick the finest, sustainably sourced ingredients to craft flavors 
+         that not only cool you down but also deliver an unforgettable taste experience. 
+         Each bite is designed to surprise and delight your taste buds.
+      </p>
+    </div>
+  </div>
+
+  <div class="faq">
+    <button class="accordion">
+        What types of flavors do you offer?
+    </button>
+    <div class="panel">
+      <p>
+        We offer a wide range of flavors, from classic favorites to adventurous 
+        new tastes. Whether you prefer something traditional like 
+        vanilla or chocolate, or you're looking for bold, innovative flavors, 
+        there's something for everyone at Arctic Delights.
+    </div>
+  </div>
+  <div class="faq">
+    <button class="accordion">Can I customize my ice cream order?</button>
+    <div class="panel">
+      <p>
+        Yes! You can create your perfect treat by adding our signature toppings, sauces, and other add-ons. 
+        This allows you to craft a unique dessert experience tailored to your preferences.
+      </p>
+    </div>
+  </div>
+  <div class="faq">
+    <button class="accordion">
+        Are your ingredients sustainably sourced?
+    </button>
+    <div class="panel">
+      <p>
+        Absolutely. We take pride in handpicking only the finest,
+         sustainably sourced ingredients to ensure that our ice cream is both
+          delicious and ethically produced.
+      </p>
+    </div>
+  </div>
+  <div class="faq">
+    <button class="accordion">What is the overall experience you aim to provide?</button>
+    <div class="panel">
+      <p>
+        At Arctic Delights, we’re not just about serving ice cream—we’re about
+         crafting moments of joy with every bite. Whether you're enjoying a classic
+          scoop or customizing your treat, our goal is to make every experience special and memorable.
+
+
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQs Script -->
+ <script>
+  var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function () {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    }
+  });
+}
+ </script>
 
 
 <!-- Footer Section Starts Here -->
