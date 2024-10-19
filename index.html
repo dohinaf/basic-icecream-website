@@ -1296,6 +1296,7 @@ document.addEventListener('click', function (event) {
   }
 }
 
+
 </style>
 <script>
   $('.order').click(function(e) {
@@ -1386,13 +1387,34 @@ document.addEventListener('click', function (event) {
     </div>
     <div class="review-right">
       <h2 data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200">Share Your Ice Cream Experience!</h2>
-<form id="review-form" onsubmit="storeReview(event)">
-  <label for="user-name" data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200">Your Name:</label>
-  <input type="text" id="user-name" name="user-name" data-aos="zoom-out-down" required>
-  
-  <label for="user-review" data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200">Your Review:</label>
-  <textarea id="user-review" name="user-review" rows="5" required data-aos="zoom-out-down"></textarea>
-  
+      <form id="review-form" onsubmit="storeReview(event)">
+        <label for="user-name" data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200" class="label-text">Your Name:</label>
+        <input type="text" id="user-name" name="user-name" data-aos="zoom-out-down" required class="input-text">
+        
+        <label for="user-review" data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200" class="label-text">Your Review:</label>
+        <textarea id="user-review" name="user-review" rows="5" required data-aos="zoom-out-down" class="input-text"></textarea>
+
+        <button type="submit">Submit Review</button>
+      </form>
+    </div>
+  </div>
+
+  <style>
+    /* Default light mode */
+    .label-text, .input-text {
+      color: black;
+    }
+
+    /* Dark mode */
+    @media (prefers-color-scheme: dark) {
+      .label-text, .input-text {
+        color: white;
+      }
+    }
+  </style>
+</section>
+
+
   <button type="submit" class="submit-button" data-aos="zoom-out-down">Submit Review</button>
 </form>
 <script>
