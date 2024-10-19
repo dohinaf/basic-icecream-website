@@ -1208,8 +1208,6 @@ button:hover {
   }
 }
 
-/*review adding section contributed*/
-
 .review-section {
   max-width: 1200px;
   margin: auto;
@@ -1217,32 +1215,39 @@ button:hover {
   background-color: var(--background-color);
   border-radius: 1rem;
   margin-bottom: 5rem;
+  box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.1); /* Subtle shadow for section depth */
+   border:4px solid white;
 }
-
 
 .review-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 2rem;
+  align-items: flex-start; /* Align flex items at the top */
+ 
 }
 
 .review-left {
   flex: 1;
+  min-width: 300px; /* Ensures good layout on small screens */
 }
 
 .ice-cream-image {
   width: 100%;
-  /* Make the image responsive */
   border-radius: 10px;
-  /* Rounded edges */
-  box-shadow: 8px 8px 40px rgba(0, 0, 0, 0.3);
-  /* Shadow for depth */
+  box-shadow: 8px 8px 40px rgba(0, 0, 0, 0.2); /* Reduced shadow for a lighter effect */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Add smooth transitions */
+  border:6px solid white;
 }
 
-
+.ice-cream-image:hover {
+  transform: scale(1.05); /* Slight zoom effect on hover */
+  box-shadow: 10px 10px 50px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
+}
 
 .review-right {
   flex: 1;
+  min-width: 300px; /* Ensures good layout on small screens */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1250,65 +1255,62 @@ button:hover {
 
 .review-right h2 {
   font-size: 2.5rem;
-  /* Adjusted font size */
   margin-bottom: 2rem;
-  /* Increased margin for more spacing */
-  color: #ffbe0b;
-  /* Brighter color */
+  color: #515255;
+  text-transform: uppercase; /* Makes the heading stand out */
+  letter-spacing: 1px; /* Adds space between letters for better readability */
 }
 
 .review-right label {
   font-size: 1.6rem;
-  /* Increased font size */
   margin-top: 2rem;
-  /* Increased margin for spacing */
-  color: #ffbe0b;
-  /* Brighter color */
+  color: #515255;
+  font-weight: bold; /* Makes label text more prominent */
 }
 
 .review-right input,
 .review-right textarea {
   width: 100%;
   padding: 1.5rem;
-  /* Increased padding */
   margin-top: 1rem;
-  /* Increased margin */
   border-radius: 8px;
-  /* More rounded corners */
-  border: 2px solid #ffbe0b;
-  /* Brighter border */
+  border: 2.5px solid #fbfbfb;
   font-size: 1.4rem;
-  /* Increased font size */
   color: var(--text-color);
   background-color: var(--background-color);
   margin-bottom: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions for focus state */
+}
+
+.review-right input:focus,
+.review-right textarea:focus {
+  border-color: #515255;
+  box-shadow: 0px 0px 8px rgba(252, 145, 58, 0.5); /* Highlight border on focus */
+  outline: none; /* Remove default outline */
 }
 
 .submit-button {
   margin-top: 1.5rem;
-  /* Increased margin for spacing */
   padding: 1rem 2.5rem;
-  /* Increased button padding */
+  padding-left: 20%;
   font-size: 1.6rem;
-  /* Increased font size */
   color: #fff;
-  /* White text */
-  background: linear-gradient(to right,
-      #ff4e50,
-      #fc913a);
-  /* Gradient background */
+  background: linear-gradient(to right, #ff4e50, #fc913a);
   border: none;
-  /* No border */
-  border-radius: 5px;
-  /* Rounded edges */
-  cursor: pointer;
+  border-radius: 8px;
+  cursor: pointer; /* Changes the cursor to a pointer on hover */
+  transition: background 0.3s ease, transform 0.3s ease; /* Add smooth transitions */
+  width: 100%;
 }
 
 .submit-button:hover {
-  background: #ffbe0b;
-  color: #0c5f0f;
-  /* Change color on hover */
+  background: white;
+  color: #515255;
+  transform: scale(1.02); /* Slightly enlarges button on hover */
 }
+
+
+
 
 /*Blogs styles contributed*/
 .blogs {
