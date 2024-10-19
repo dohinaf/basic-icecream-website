@@ -2466,3 +2466,72 @@ form h3 {
   background-color: #0056b3;
   /* Darken on hover */
 }
+
+
+
+/* FAQs Section Styles */
+.faq-section{
+  margin:20%;
+  margin-top:10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+ 
+}
+
+.faq-section h1{
+  font-size: 35px;
+  color: #ea9481;
+}
+
+.faq{
+  margin-bottom: 10px;
+}
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  outline: none;
+  border: none;
+  font-size: 20px;
+  font-weight: 600;
+  transition: 0.4s;
+}
+
+
+
+.active, .accordion:hover {
+  background-color: #ccc;
+}
+
+.accordion:after {
+  content: '\002B';
+  color: #777;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.panel {
+  padding: 0px 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+.panel p{
+  font-size: 15px;
+}
+
+.panel p{
+  padding-top: 5px;
+}
