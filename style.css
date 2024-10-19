@@ -101,8 +101,7 @@ button:hover {
   position: relative;
   padding: 10px 20px;
   font-size: 16px;
-  color: var(--text-color);
-  background-color: #d4af37;
+  background-color: #FFDAF2;
   border: none;
   border-radius: 5px;
   outline: none;
@@ -110,6 +109,13 @@ button:hover {
   overflow: hidden;
   transition: color 0.8s;
   z-index: 1;
+}
+.animated-button span{
+  justify-content: center;
+  text-align: center;
+  color: #000;
+  font-size: 2rem;
+  font-weight: 500;
 }
 
 .animated-button::before {
@@ -290,14 +296,29 @@ button:hover {
 }
 
 .auth-btn {
-  background: linear-gradient(to right, #ff4e50, #fc913a);
-  color: var(--text-color);
+  background: linear-gradient(to right, #edb4d9, #FF81D4);
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-weight: 500;
   padding: 1rem 1.5rem;
   border-radius: 50px;
+  font-size: 1.5rem;
+  justify-content: center;
+  text-align: center;
+}
+.auth-btn a{
+  color: #fff;
+}
+.icons {
+  display: flex;
+  color: #000;
+  gap: 1rem;
+}
+#cart-count{
+  position: relative;
+  font-size: 1.5rem;
+  font-weight: 300;
 }
 
 /* Header Styles */
@@ -865,6 +886,9 @@ button:hover {
 [data-theme="dark"] #flavor-filter {
   color: #f1f1f1;
 }
+[data-theme="dark"] .icons {
+  color: #f1f1f1;
+}
 
 [data-theme="dark"] .filter-box {
   color: #f1f1f1;
@@ -1046,7 +1070,7 @@ button:hover {
 }
 
 #inbox {
-  background-color: #fff8e7;
+  background-color: #8D493A;
   border: 0.5px solid #c69861;
   color: #d3ad7f;
   width: fit-content;
@@ -1059,12 +1083,10 @@ button:hover {
 }
 
 #inbox:hover {
-  /* background-color: #d3ad7f; Darkens background on hover */
-  color: #ca7c1d;
-  /* Lightens text color on hover */
-  border-color: #b89b57;
-  /* Subtle change in border color */
-  background-color: beige;
+  transform: scale(1.1);
+}
+.noofitems{
+  background-color: transparent;
 }
 
 /*review section style contributed*/
