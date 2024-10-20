@@ -6,16 +6,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Responsive Ice Cream Website</title>
-   
 
     <!-- Font Awesome CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="preloaderStyle.css">
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+
     <style>
+        /* Gradient Background */
+        body {
+            background: linear-gradient(135deg, #f9f9f9, #f0f0f0);
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+        }
+
         /* Circle styles */
         .circle {
             height: 24px;
@@ -29,23 +39,68 @@
             z-index: 99999999;
             /* Stays on top of all elements */
         }
+
+        /* Header Styles */
+        .header {
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar a {
+            padding: 15px 20px;
+            transition: color 0.3s, background-color 0.3s;
+        }
+
+        .navbar a:hover {
+            background-color: #ffe1a8;
+            color: #333;
+        }
+
+        .icons div {
+            transition: color 0.3s;
+        }
+
+        .icons div:hover {
+            color: #f39c12;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .footer a {
+            color: #f39c12;
+        }
+
+        .footer a:hover {
+            color: #e67e22;
+        }
+
+        /* Contact Form Styles */
+        .visme_d {
+            margin: 20px 0;
+        }
     </style>
 </head>
 
 <body>
-     <!-- preloader -->
-  <div id="preloader">
-    <div class="wrapper">
-        <div class="box-wrap">
-            <div class="box one"></div>
-            <div class="box two"></div>
-            <div class="box three"></div>
-            <div class="box four"></div>
-            <div class="box five"></div>
-            <div class="box six"></div>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="wrapper">
+            <div class="box-wrap">
+                <div class="box one"></div>
+                <div class="box two"></div>
+                <div class="box three"></div>
+                <div class="box four"></div>
+                <div class="box five"></div>
+                <div class="box six"></div>
+            </div>
         </div>
     </div>
-</div>
     <!-- Circles -->
     <div class="circle"></div>
     <div class="circle"></div>
@@ -90,7 +145,8 @@
     </header>
     <!-- Header Ends Here -->
 
-    <div class="visme_d" data-title="Contact Form" data-url="4d6yepek-contact-form" data-domain="forms" data-full-page="false" data-min-height="500px" data-form-id="96782"></div><script src="https://static-bundles.visme.co/forms/vismeforms-embed.js"></script>
+    <div class="visme_d" data-title="Contact Form" data-url="4d6yepek-contact-form" data-domain="forms" data-full-page="false" data-min-height="500px" data-form-id="96782"></div>
+    <script src="https://static-bundles.visme.co/forms/vismeforms-embed.js"></script>
 
     <!-- Footer Section Starts Here -->
     <section class="footer" id="footer">
@@ -106,10 +162,10 @@
         </div>
     </section>
     <!-- Footer Section Ends Here -->
-    <script src="preloader.js"></script>
+    <script src="preloader.js" defer></script>
 
     <!-- JavaScript File -->
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             gsap.from(".contact-form", { opacity: 0, y: 50, duration: 1.5, ease: "power2.out" });
@@ -180,8 +236,16 @@
         animateCircles();
     </script>
     <div class="gtranslate_wrapper"></div>
-    <script>window.gtranslateSettings = {"default_language":"en","detect_browser_language":true,"wrapper_selector":".gtranslate_wrapper"}</script>
+    <script>
+        window.gtranslateSettings = {
+            "default_language": "en",
+            "detect_browser_language": true,
+            "wrapper_selector": ".gtranslate_wrapper"
+        }
+    </script>
     <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
 </body>
 
 </html>
+
+//
