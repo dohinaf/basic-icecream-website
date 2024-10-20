@@ -162,7 +162,7 @@ function displayWishlist() {
             <li>
                 ${item.name} - $${item.price.toFixed(2)}
                 <button class="add-to-cart-btn" onclick="addToCart('${item.name}', ${item.price})">Add to Cart</button>
-                <button class="remove-from-wishlist-btn" onclick="removeFromWishlist(${index})">Remove</button>
+                <button class="remove-from-wishlist-btn" id="remove_btn" onclick="removeFromWishlist(${index})">Remove</button>
             </li>`;
     });
 
@@ -257,7 +257,7 @@ function displayCart() {
     const itemCount = cart.length;
     cart.forEach((item, index) => {
         const quantity=quantities[item.name];
-        cartItemsHTML += `<li>${item.name} - (${quantity}) price= $${quantity*item.price.toFixed(2)} <button onclick="removeFromCart(${index})">Remove</button></li>`;
+        cartItemsHTML += `<li>${item.name} - (${quantity}) price= $${quantity*item.price.toFixed(2)} <button id="remove_btn" onclick="removeFromCart(${index})">Remove</button></li>`;
         total += item.price*quantity;
     });
 
