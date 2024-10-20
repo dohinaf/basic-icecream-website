@@ -15,6 +15,17 @@
             padding: 20px;
             background-color: #f0f0f0;
         }
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 5px;
+            background: rgb(244, 143, 160);
+            border-radius: 4px; /* You can change this color */
+            width: 0;
+            transition: width 0.1s ease-in-out;
+            z-index: 9999; /* Make sure it's above other content */
+        }
         .heading {
             text-align: center;
             font-size: 2.5em;
@@ -74,6 +85,7 @@
     </style>
 </head>
 <body>
+    <div id="scrollProgressBar" class="progress-bar"></div>
     <header class="header">
 
         <a href="index.html" class="logo">
@@ -248,8 +260,14 @@
         chatbotId: "oSyGH_33H4whnPVyaVVwa",
         domain: "www.chatbase.co"
         }
-        </script>
-        <script
+        window.addEventListener('scroll', () => {
+        const scrollProgressBar = document.getElementById('scrollProgressBar');
+        const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progressHeight = (window.scrollY / totalHeight) * 100;
+        scrollProgressBar.style.width = progressHeight + '%';
+    });
+    </script>
+    <script
         src="https://www.chatbase.co/embed.min.js"
         chatbotId="oSyGH_33H4whnPVyaVVwa"
         domain="www.chatbase.co"
