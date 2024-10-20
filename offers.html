@@ -19,6 +19,17 @@
     
 
     <style>
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 5px;
+            background: rgb(244, 143, 160);
+            border-radius: 4px; /* You can change this color */
+            width: 0;
+            transition: width 0.1s ease-in-out;
+            z-index: 9999; /* Make sure it's above other content */
+        }
         .chatbot-container {
             position: fixed;
             bottom: 20px; /* Adjust the distance from the bottom */
@@ -71,9 +82,11 @@
         h6{
             font-size: 20px;
         }
+
     </style>
 
         <!-- Header Starts Here -->
+        <div id="scrollProgressBar" class="progress-bar"></div>
         <header class="header">
 
             <a href="#" class="logo">
@@ -82,10 +95,7 @@
             </a>
             <!-- ... existing code ... -->
             <h1 class="site-title">ArcticDelights</h1>
-    
     <nav class="navbar">
-    
-    
     <a href="index.html#home">Home</a>
     <a href="#index.htmlabout">About</a>
     <a href="#index.htmlmenu">Menu</a>
@@ -201,6 +211,12 @@
             });
     
         });
+        window.addEventListener('scroll', () => {
+            const scrollProgressBar = document.getElementById('scrollProgressBar');
+            const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progressHeight = (window.scrollY / totalHeight) * 100;
+            scrollProgressBar.style.width = progressHeight + '%';
+        });
         document.getElementById('learnMoreBtn').addEventListener('click', function(event) {
         event.preventDefault(); // Prevent default anchor behavior
         var moreContent = document.getElementById('moreContent');
@@ -212,6 +228,7 @@
             this.textContent = "Learn More"; // Revert button text
         }
     });
+
         
     </script>
 
