@@ -76,18 +76,11 @@ document.querySelector(".signup-form").addEventListener("submit", function (e) {
   document.querySelector(".signup-form").reset(); // Clear the form fields
 });
 
-// password toggle feature
-function togglePasswordVisibility() {
-  const passwordInput = document.getElementById("password");
-  const eyeIcon = document.getElementById("eye-icon");
-  
-  if (passwordInput.type === "password") {
-      passwordInput.type = "text";
-      eyeIcon.classList.remove("fa-eye");
-      eyeIcon.classList.add("fa-eye-slash");
-  } else {
-      passwordInput.type = "password";
-      eyeIcon.classList.remove("fa-eye-slash");
-      eyeIcon.classList.add("fa-eye");
-  }
-}
+document.querySelector('.signup-form').addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent the default form submission
+
+  // You can add form validation or any other logic here
+
+  // Redirect to profile.html
+  window.location.href = '../profile.html';
+});
