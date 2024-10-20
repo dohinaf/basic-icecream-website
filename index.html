@@ -312,8 +312,12 @@
             <img src="https://purepng.com/public/uploads/large/purepng.com-ice-creamice-creamcreamfrozensweet-1411527617895aiuhx.png"
                 alt="Logo">
         </a>
-        <!-- ... existing code ... -->
-        <h1 class="site-title">ArcticDelights</h1>
+        <!-- Toggle Button (Hamburger) -->
+<div class="menu-btn" id="menu-btn">
+  <span class="fas fa-bars"></span>
+</div>
+        <h1 class="site-title">ArcticDelights</h1> 
+
 
 <nav class="navbar">
 
@@ -321,11 +325,13 @@
 <a href="#home">Home</a>
 <a href="#about">About</a>
 <a href="#menu">Menu</a>
+<a href="offers.html">Offers</a>
 <a href="#review-section">Review</a>
 <a href="blog.html">Blogs</a>
 <a href="contact.html">Contact Us</a>
 <a href="#" id="my-order-btn">My Orders</a>
 </nav>
+
 
 
         <div class="icons">
@@ -414,17 +420,54 @@
               <input type="name" id="name" placeholder="Enter your Name">
               <input type="email" id="email" placeholder="Enter your Email" required>
               <input type="password" id="password" placeholder="Enter your Password" required>
+
               <button type="submit" class="signup-btn">SIGN UP</button>
-            </form>
-            <a href="#" class="no-thanks">No thanks</a>
-            <p class="terms">By signing up, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>
-          </div>
-        </div>
+          </form>
+          <a href="#" class="no-thanks">No thanks</a>
+          <p class="terms">By signing up, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>
       </div>
+  </div>
+</div>
+
+<script>
+  // Handle form submission for the pop-up sign-up form
+  document.getElementById('emailForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent default form submission
+      
+      // Perform any sign-up logic here, such as email validation or server requests
+      
+      // Redirect to profile.html after sign-up
+      window.location.href = 'profile.html'; // Redirect user to the profile page
+  });
+</script>
+
     <!--  Pop-up for Discount and Sign up Ends here  -->
     
     <!-- Script for pop up discount Starts Here -->
     <script>
+     // Get the toggle button, the navbar (menu), and all the navbar links
+const toggleBtn = document.querySelector('#menu-btn');
+const navbar = document.querySelector('.navbar');
+const navbarLinks = document.querySelectorAll('.navbar a');
+
+// Function to toggle the navbar
+toggleBtn.addEventListener('click', () => {
+    navbar.classList.toggle('active');
+});
+
+// Function to close the navbar when a link inside it is clicked
+navbarLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        navbar.classList.remove('active');
+    });
+});
+// Function to close the navbar when clicking outside it
+document.addEventListener('click', function (event) {
+    if (!navbar.contains(event.target) && !toggleBtn.contains(event.target)) {
+        navbar.classList.remove('active');
+    }
+});
+
     // Show the pop-up automatically when the page loads
     window.onload = function() {
       document.getElementById('popup').style.display = 'flex';
@@ -456,40 +499,88 @@
 
     <!-- About Section Starts Here -->
     <section class="about" id="about">
-        <h1 class="heading"  data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
-        data-aos-anchor-placement="top-bottom"> <span style="color: orangered;"> about</span> us</h1>
-        <div class="row">
-            <div class="image">
-                <img src="ice cream.jpg" alt="ice cream" data-aos="fade-right"  data-aos-duration="1200" data-aos-delay="200"
-            data-aos-anchor-placement="top-bottom">
-            </div>
-            <div class="content" style="text-align: left;"
-            data-aos-anchor-placement="top-bottom">
-                <h3 data-aos="fade-left"  data-aos-duration="1200" data-aos-delay="200"> What Makes Our Ice Cream Special?</h3>
-                <p data-aos="fade-left"  data-aos-duration="1200" data-aos-delay="200">
-                    At Arctic Delights, we believe that every scoop of ice cream should be a masterpiece. We handpick the finest, sustainably sourced ingredients to craft flavors that not only cool you down but also take your taste buds on an unforgettable journey. Whether you crave something classic or adventurous, we offer a wide range of flavors designed to surprise and delight.
-                </p>
-                <p data-aos="fade-left"  data-aos-duration="1200" data-aos-delay="200">
-                    Customize your perfect treat with our signature toppings, sauces, and add-ons to create a unique dessert experience tailored just for you. At Arctic Delights, we’re not just about ice cream—we’re about crafting moments of joy in every bite!
-                </p>
-                
+      <h1 class="heading" 
+      style="text-align: center; font-size: 3em; line-height: 1.2;" 
+      data-aos="fade-up" 
+      data-aos-duration="1200" 
+      data-aos-delay="200" 
+      data-aos-anchor-placement="top-bottom">
+      <span style="color: orangered;">about</span> us
+  </h1>  
+      <div class="row" style="display: flex; align-items: center; justify-content: flex-end;">
+          <div class="image" style="margin-right: 30px;">
+              <img src="ice cream.jpg" alt="ice cream" style="width: 500px; height: auto;" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200" data-aos-anchor-placement="top-bottom">
+          </div>
+          <div class="content" style="text-align: right;" data-aos-anchor-placement="top-bottom">
+              <h3 data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">What Makes Our Ice Cream Special?</h3>
+              <p data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
+                  At Arctic Delights, we believe that every scoop of ice cream should be a masterpiece. We handpick the finest, sustainably sourced ingredients to craft flavors that not only cool you down but also take your taste buds on an unforgettable journey. Whether you crave something classic or adventurous, we offer a wide range of flavors designed to surprise and delight.
+              </p>
+              <p data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
+                  Customize your perfect treat with our signature toppings, sauces, and add-ons to create a unique dessert experience tailored just for you. At Arctic Delights, we’re not just about ice cream—we’re about crafting moments of joy in every bite!
+              </p>
+              <a href="about_us_page.html" class="button" style="display: inline-block; padding: 15px 30px; font-size: 18px; color: #FFFFFF; background-color: #002855; border: 2px solid #FF00FF; border-radius: 10px; text-decoration: none; margin-top: 20px;">
+                Learn More <i class="fas fa-arrow-right"></i>
+            </a>            
+          </div>
+      </div>
+  </section>
+  
 
-                <!-- Hidden section to reveal on button click -->
-                <div id="moreContent" style="display: none;" data-aos="fade-up"
-                    data-aos-anchor-placement="top-bottom">
-                    <p>
-                        Our ice creams are made using traditional methods, ensuring each batch is churned to perfection. From locally sourced dairy to organic fruits, nuts, and chocolates, we are committed to sustainability and exceptional taste. We also offer dairy-free and vegan options to cater to every lifestyle and preference.
-                    </p>
-                    <p>
-                        Whether you're enjoying a scoop in-store or ordering our handcrafted pints to your home, Arctic Delights promises the best quality and an unforgettable experience with every bite.
-                    </p>
-                </div>
-                <a href="#" class="btn" id="learnMoreBtn">Learn More</a>
-            </div>
+    <!-- Login Modal -->
+<div id="login-modal" class="modal login-container">
+    <div class="login-card">
+      <div class="login-image">
+        <img src="https://static.vecteezy.com/system/resources/thumbnails/044/570/761/small_2x/assortment-of-colorful-ice-cream-scoops-in-waffle-cones-with-fresh-fruits-on-a-transparent-background-png.png" alt="Ice Cream" />
+      </div>
+      
+      <div class="modal-content login-form">
+        <span class="close-btn" id="close-login">&times;</span>
+        <h2>Login to Your Account</h2>
+        <form>
+          <h3>Email :-</h3>
+           <br>
+            <input type="email" placeholder="Email" required>
+ 
+            <h3>Password :-</h3>
+             <br>
+            <input type="password" placeholder="Password" required class="inputFields">
+            <button type="submit">Login</button>
+            
+          <p>Don't have an account? <a href="#sign-modal">Sign up</a></p>
+ 
+            
+ 
+        </form>
+    </div>
+    </div>
+</div>
 
-        </div>
-    </section>
+<!-- Signup Modal -->
+<div id="signup-modal" class="modal">
+  <div class="modal-content">
+      <span class="close-btn" id="close-signup">&times;</span>
+      <h2>Sign Up</h2>
+      <form id="signup-form">
+          <input type="text" placeholder="Full Name" required>
+          <input type="email" placeholder="Email" required>
+          <input type="password" class="pass-btn" placeholder="Password" required>
+          <button type="submit" class="sign-btn">Sign Up</button>
+      </form>
+  </div>
+</div>
 
+
+<script>
+  document.getElementById('signup-form').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent default form submission
+      
+      // Perform validation or backend signup request here
+      // If signup is successful, redirect to profile.html
+      
+      window.location.href = 'profile.html'; // Redirect to profile page
+  });
+</script>
 
     <!-- About Section Ends Here -->
    
@@ -1243,7 +1334,7 @@
       We have made every scoop a memorable experience, bringing smiles and
       joy with our artisanal ice cream creations.
     </p>
-    <button data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200">Read our customer stories</button>
+    <button data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200" class="custom-btn">Read our customer stories</button>
   </div>
   <div class="container__right">
     <div class="card" data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200">

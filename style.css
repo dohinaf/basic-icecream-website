@@ -126,20 +126,7 @@ button:hover {
   z-index: 0;
 }
 
-/*Added css to make the My order button to look same as the rest of the nav buttons*/
-#my-order-btn {
-  border: none;
-  margin: 0px 0px 1px;
-  font-size: 1.6rem;
-  background-color: transparent !important;
-  animation: none !important;
-}
 
-#my-order-btn:hover {
-  letter-spacing: 0rem;
-}
-
-/*changes end*/
 
 .animated-button:hover::before {
   width: 300%;
@@ -314,7 +301,7 @@ button:hover {
 }
 
 /* Header Styles */
-.header {
+/* .header {
   background-color: var(--background-color);
   display: flex;
   align-items: center;
@@ -327,14 +314,13 @@ button:hover {
   right: 0;
   z-index: 1000;
 }
-
 .header .logo img {
   height: 6rem;
 }
-
 .header .navbar {
   display: flex;
   align-items: center;
+  transition: max-height 0.3s ease;
 }
 
 .header .navbar a {
@@ -344,8 +330,7 @@ button:hover {
 }
 
 .header .navbar a:hover {
-  color: rgba(234, 108, 154, 1);
-  transform: scale(1.3);
+  color: rgb(51, 168, 235) !important;
 }
 
 .header .icons {
@@ -364,10 +349,142 @@ button:hover {
   color: var(--text-color);
 }
 
-/*#menu-btn {
-    display: none;
-}*/
 
+.menu-btn {
+  display: none;
+  cursor: pointer;
+  font-size: 2.5rem;
+  color: var(--text-color);
+  margin-left: 0rem;
+}
+/* Navbar on Small Screens */
+/* @media (max-width: 768px) {
+  .header .navbar {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color:var(--background-color) !important;
+      flex-direction: column;
+      align-items: flex-start;
+      max-height: 0;
+      overflow: hidden;
+      padding-top: 0rem !important;
+  }
+
+  .header .navbar a {
+      padding: 0.2rem !important;
+      width: 100%;
+      color: var(--text-color) !important;
+      font-size: medium !important;
+      text-align:center;
+      margin: 0;
+  }
+ 
+ 
+
+  /* Navbar expanded on click */
+  
+  .header {
+    background-color: var(--background-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem !important;
+    border-bottom: var(--border);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+  
+  .header .logo img {
+    height: 6rem;
+  }
+  
+  .header .navbar {
+    display: flex;
+    align-items: center;
+    transition: max-height 0.3s ease;
+  }
+  
+  .header .navbar a {
+    margin: 0 1rem;
+    font-size: 1.6rem;
+    color: var(--text-color);
+    white-space: nowrap; /* Prevent text from breaking into two lines */
+  }
+  
+  .header .navbar a:hover {
+    color: rgb(51, 168, 235) !important;
+  }
+  
+  .header .icons {
+    display: flex;
+    align-items: center;
+  }
+  
+  .header .icons div {
+    background-color: var(--background-color);
+    cursor: pointer;
+    font-size: 2.5rem;
+    margin-left: 2rem;
+  }
+  
+  .header .icons div:hover {
+    color: var(--text-color);
+  }
+  
+  .menu-btn {
+    display: none;
+    cursor: pointer;
+    font-size: 2.5rem;
+    color: var(--text-color);
+    margin-left: 0rem;
+  }
+  
+  /* Navbar on Small Screens */
+  @media (max-width: 768px) {
+   
+    .header .menu-btn {
+      display: block; /* Show the hamburger menu on small screens */
+    }
+  
+    .header .navbar {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: var(--background-color) !important;
+      flex-direction: column;
+      align-items: flex-start;
+      max-height: 0;
+      overflow: hidden;
+      padding-top: 0rem !important;
+    }
+  
+    .header .navbar a {
+      padding: 0.2rem !important; /* Increase padding for better spacing */
+      width: 100%;
+      color: var(--text-color) !important;
+      font-size: medium !important;
+      text-align: center;
+      margin: 0;
+    }
+  
+    /* Navbar expanded on click */
+    .navbar.active {
+      max-height: none; /* Let the height adjust based on content */
+      transition: max-height 0.3s ease;
+    }
+  
+    /* Prevent text overlap by allowing wrapping */
+    .header .navbar a {
+      white-space: normal; /* Allow text to break if needed */
+    }
+  }
+  
 .header .search-form {
   position: absolute;
   top: calc(100% + 1rem);
@@ -1001,6 +1118,9 @@ button:hover {
   /* Increased button font size */
   cursor: pointer;
 }
+.custom-btn:hover {
+  color: #fff; /* Change text color on hover: better visibility */
+}
 
 .container__right {
   display: grid;
@@ -1335,6 +1455,10 @@ footer .credit {
 @media (max-width: 768px) {
   #menu-btn {
     display: inline-block;
+  }
+  .site-title {
+    margin-left: 1.5rem;
+    font-size: 1.5 rem;
   }
 
   .navbar {
@@ -1920,9 +2044,11 @@ input:checked+.slider:before {
   border-radius: 50%;
   margin: 3rem 1.5rem 3rem 0;
   transition: 0.3s ease;
+  color: #000000;
+}
+[data-theme="dark"] .social-icons a {
   color: #ffffff;
 }
-
 .social-icons a:hover {
   color: black;
   transform: scale(1.3) translateY(-5px);
