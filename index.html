@@ -1377,63 +1377,649 @@ document.addEventListener('click', function (event) {
 </div>
 
 <!--Review section ends-->
+<style>
+  body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+  }
 
-<!--Review section for adding reviews-->
-<section class="review-section" id="review-section">
-  <div class="review-container">
-    <div class="review-left">
-      <img data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200" src="https://images.unsplash.com/photo-1505394033641-40c6ad1178d7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8aWNlY3JlYW18ZW58MHx8MHx8fDA%3D" alt="Delicious Ice Cream" class="ice-cream-image">
-    </div>
-    <div class="review-right">
-      <h2 data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200">Share Your Ice Cream Experience!</h2>
-<form id="review-form" onsubmit="storeReview(event)">
-  <label for="user-name" data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200">Your Name:</label>
-  <input type="text" id="user-name" name="user-name" data-aos="zoom-out-down" required>
-  
-  <label for="user-review" data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200">Your Review:</label>
-  <textarea id="user-review" name="user-review" rows="5" required data-aos="zoom-out-down"></textarea>
-  
-  <button type="submit" class="submit-button" data-aos="zoom-out-down">Submit Review</button>
-</form>
-<script>
-  // Function to store multiple reviews as JSON in local storage
-  function storeReview(event) {
-    event.preventDefault(); // Prevent default form submission
-    
-    const userName = document.getElementById('user-name').value.trim();
-    const userReview = document.getElementById('user-review').value.trim();
+  .feedback-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 800px;
+      gap: 30px;
+  }
 
-    // Check if either field is empty
-    if (userName === '' || userReview === '') {
-      alert('Both name and review must be filled out before submitting!');
-      return; // Exit the function if fields are empty
+  .feedback-image img {
+      width: 350px;
+      height: auto;
+      border-radius: 15px;
+      object-fit: cover;
+  }
+
+  .feedback-form {
+      width: 400px;
+  }
+
+  .feedback-form h2 {
+      font-size: 24px;
+      color: #ff6fa7;
+  }
+
+  .feedback-form label {
+      font-size: 16px;
+      color: #333;
+      display: block;
+      margin-bottom: 8px;
+  }
+
+  .feedback-form input, .feedback-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 2px solid #ffb8d2;
+      border-radius: 5px;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.3s;
+  }
+
+  .feedback-form input:hover, .feedback-form textarea:hover {
+      border-color: #ff6fa7;
+  }
+
+  .feedback-form .submit-btn {
+      background-color: #ff6fa7;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.3s, background-color 0.3s;
+  }
+
+  .feedback-form .submit-btn:hover {
+      background-color: #ff99b8;
+      transform: scale(1.05);
+  }
+
+  /* Rating System */
+  .rating {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+  }
+
+  .rating input {
+      display: none;
+  }
+
+  .rating label {
+      font-size: 30px;
+      color: #ffb8d2;
+      cursor: pointer;
+      transition: color 0.3s, transform 0.3s;
+  }
+
+  .rating input:checked ~ label,
+  .rating label:hover,
+  .rating label:hover ~ label {
+      color: #ff6fa7;
+  }
+
+  .rating input:checked + label:hover,
+  .rating input:checked ~ label:hover {
+      transform: scale(1.2);
+  }
+
+</style>
+</head>
+<body>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
 
-    // Create a JSON object for the new review
-    const newReview = {
-      name: userName,
-      review: userReview
-    };
+    .feedback-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 800px;
+      gap: 30px;
+    }
 
-    // Get existing reviews from local storage or initialize as an empty array
-    let reviews = JSON.parse(localStorage.getItem('reviews')) || [];
+    .feedback-image img {
+      width: 350px;
+      height: auto;
+      border-radius: 15px;
+      object-fit: cover;
+    }
 
-    // Add the new review to the beginning of the array
-    reviews.unshift(newReview); // Adds new review to the top
+    .feedback-form {
+      width: 400px;
+    }
 
-    // Store the updated array back in local storage
-    localStorage.setItem('reviews', JSON.stringify(reviews));
+    .feedback-form h2 {
+      font-size: 24px;
+      color: #ff6fa7;
+    }
 
-    // Clear the form fields after submission
-    document.getElementById('user-name').value = '';
-    document.getElementById('user-review').value = '';
+    .feedback-form label {
+      font-size: 16px;
+      color: #333;
+      display: block;
+      margin-bottom: 8px;
+    }
 
-    alert('Thank you for sharing your review!'); // Show a success message
+    .feedback-form input, .feedback-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 2px solid #ffb8d2;
+      border-radius: 5px;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .feedback-form input:hover, .feedback-form textarea:hover {
+      border-color: #ff6fa7;
+    }
+
+    .feedback-form .submit-btn {
+      background-color: #ff6fa7;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.3s, background-color 0.3s;
+    }
+
+    .feedback-form .submit-btn:hover {
+      background-color: #ff99b8;
+      transform: scale(1.05);
+    }
+
+    /* Rating System */
+    .rating {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .rating input {
+      display: none;
+    }
+
+    .rating label {
+      font-size: 30px;
+      color: #ffb8d2;
+      cursor: pointer;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    .rating input:checked ~ label,
+    .rating label:hover,
+    .rating label:hover ~ label {
+      color: #ff6fa7;
+    }
+
+    .rating input:checked + label:hover,
+    .rating input:checked ~ label:hover {
+      transform: scale(1.2);
+    }
+
+    /* Pop-up message styling */
+    .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      display: none;
+      z-index: 1000;
+    }
+
+    .popup h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #ff6fa7;
+    }
+
+    .popup button {
+      background-color: #ff6fa7;
+      color: white;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .popup button:hover {
+      background-color: #ff99b8;
+    }
+
+    /* Background overlay */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+      display: none;
+    }
+  </style>
+</head>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
   }
+
+  .feedback-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 800px;
+    gap: 30px;
+  }
+
+  .feedback-image img {
+    width: 350px;
+    height: auto;
+    border-radius: 15px;
+    object-fit: cover;
+  }
+
+  .feedback-form {
+    width: 400px;
+  }
+
+  .feedback-form h2 {
+    font-size: 24px;
+    color: #ff6fa7;
+  }
+
+  .feedback-form label {
+    font-size: 16px;
+    color: #333;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .feedback-form input, .feedback-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #ffb8d2;
+    border-radius: 5px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+
+  .feedback-form input:hover, .feedback-form textarea:hover {
+    border-color: #ff6fa7;
+  }
+
+  .feedback-form .submit-btn {
+    background-color: #ff6fa7;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+  }
+
+  .feedback-form .submit-btn:hover {
+    background-color: #ff99b8;
+    transform: scale(1.05);
+  }
+
+  /* Rating System */
+  .rating {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .rating input {
+    display: none;
+  }
+
+  .rating label {
+    font-size: 30px;
+    color: #ffb8d2;
+    cursor: pointer;
+    transition: color 0.3s, transform 0.3s;
+  }
+
+  .rating input:checked ~ label,
+  .rating label:hover,
+  .rating label:hover ~ label {
+    color: #ff6fa7;
+  }
+
+  .rating input:checked + label:hover,
+  .rating input:checked ~ label:hover {
+    transform: scale(1.2);
+  }
+
+  /* Pop-up message styling */
+  .popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: none;
+    z-index: 1000;
+  }
+
+  .popup h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #ff6fa7;
+  }
+
+  .popup button {
+    background-color: #ff6fa7;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .popup button:hover {
+    background-color: #ff99b8;
+  }
+
+  /* Background overlay */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
+  }
+</style>
+</head>
+<body>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .feedback-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 800px;
+      gap: 30px;
+    }
+
+    .feedback-image img {
+      width: 350px;
+      height: auto;
+      border-radius: 15px;
+      object-fit: cover;
+    }
+
+    .feedback-form {
+      width: 400px;
+    }
+
+    .feedback-form h2 {
+      font-size: 24px;
+      color: #ff6fa7;
+    }
+
+    .feedback-form label {
+      font-size: 16px;
+      color: #333;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .feedback-form input, .feedback-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 2px solid #ffb8d2;
+      border-radius: 5px;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .feedback-form input:hover, .feedback-form textarea:hover {
+      border-color: #ff6fa7;
+    }
+
+    .feedback-form .submit-btn {
+      background-color: #ff6fa7;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.3s, background-color 0.3s;
+    }
+
+    .feedback-form .submit-btn:hover {
+      background-color: #ff99b8;
+      transform: scale(1.05);
+    }
+
+    /* Rating System */
+    .rating {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .rating input {
+      display: none;
+    }
+
+    .rating label {
+      font-size: 30px;
+      color: #ffb8d2;
+      cursor: pointer;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    .rating input:checked ~ label,
+    .rating label:hover,
+    .rating label:hover ~ label {
+      color: #ff6fa7;
+    }
+
+    .rating input:checked + label:hover,
+    .rating input:checked ~ label:hover {
+      transform: scale(1.2);
+    }
+
+    /* Pop-up message styling */
+    .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      display: none;
+      z-index: 1000;
+    }
+
+    .popup h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #ff6fa7;
+    }
+
+    .popup button {
+      background-color: #ff6fa7;
+      color: white;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .popup button:hover {
+      background-color: #ff99b8;
+    }
+
+    /* Background overlay */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<div class="feedback-container">
+  <div class="feedback-image">
+    <img src="https://images.unsplash.com/photo-1505394033641-40c6ad1178d7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8aWNlY3JlYW18ZW58MHx8MHx8fDA%3D" alt="Ice Cream Image">
+  </div>
+  <div class="feedback-form">
+    <h2>Share Your Ice Cream Experience!</h2>
+    <form id="review-form">
+      <label for="name">Your Name:</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name" required>
+      
+      <label for="review">Your Review:</label>
+      <textarea id="review" name="review" placeholder="Write your review" required></textarea>
+
+      <label>Rate Your Experience:</label>
+      <div class="rating">
+        <input type="radio" id="star5" name="rating" value="5" required><label for="star5" title="5 stars">★</label>
+        <input type="radio" id="star4" name="rating" value="4"><label for="star4" title="4 stars">★</label>
+        <input type="radio" id="star3" name="rating" value="3"><label for="star3" title="3 stars">★</label>
+        <input type="radio" id="star2" name="rating" value="2"><label for="star2" title="2 stars">★</label>
+        <input type="radio" id="star1" name="rating" value="1"><label for="star1" title="1 star">★</label>
+      </div>
+      
+      <button type="submit" class="submit-btn">Submit Review</button>
+    </form>
+  </div>
+</div>
+
+<!-- Pop-up message and overlay -->
+<div class="overlay"></div>
+<div class="popup" id="popup-message">
+  <h3>Thank you for your review!</h3>
+  <p>We appreciate your feedback.</p>
+  <button id="close-popup">Close</button>
+</div>
+<div class="overlay" id="overlay"></div>
+<div class="popup" id="popup-message">
+  <h3>Thank you for your review!</h3>
+  <p>We appreciate your feedback.</p>
+  <button id="close-popup">Close</button>
+</div>
+
+<script>
+  // Hide popup and overlay initially
+  document.getElementById('popup-message').style.display = 'none';
+  document.getElementById('overlay').style.display = 'none';
+
+  // Function to show popup and overlay
+  function showPopup() {
+    document.getElementById('popup-message').style.display = 'block';
+    document.getElementById('overlay').style.display = 'block';
+  }
+
+  // Function to close popup and overlay
+  function closePopup() {
+    document.getElementById('popup-message').style.display = 'none';
+    document.getElementById('overlay').style.display = 'none';
+  }
+
+  // Add event listener to close the popup when the "Close" button is clicked
+  document.getElementById('close-popup').addEventListener('click', closePopup);
+
+  // Form submission event listener
+  document.getElementById('review-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    // Show popup after form submission
+    showPopup();
+    
+    // Optional: Clear the form after submission
+    document.getElementById('review-form').reset();
+  });
 </script>
-
-</section>
-
 <script>
   //chatbot added here!
   window.embeddedChatbotConfig = {
