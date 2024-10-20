@@ -1,0 +1,31 @@
+/* General body styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f8ff; /* Light blue background */
+    cursor: url('/workspaces/basic-icecream-website/custom_cursor/images/default-cursor.png'), auto; /* Default cursor */
+}
+
+/* Header styles */
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Main content styles */
+main {
+    text-align: center;
+}
+
+/* Link styles */
+a {
+    color: #ff4500; /* Orange color for links */
+    text-decoration: none;
+    font-size: 18px;
+}
+
+/* Change cursor on hover */
+a:hover {
+    cursor: url('/workspaces/basic-icecream-website/custom_cursor/images/hover-cursor.png'), pointer; /* Custom hover cursor */
+}
