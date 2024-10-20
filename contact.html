@@ -5,18 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Responsive Ice Cream Website</title>
-   
-
-    <!-- Font Awesome CSS -->
+    <title>Contact Us - ArcticDelights</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="preloaderStyle.css">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <style>
-        /* Circle styles */
         .circle {
             height: 24px;
             width: 24px;
@@ -27,72 +21,87 @@
             left: 0;
             pointer-events: none;
             z-index: 99999999;
-            /* Stays on top of all elements */
+        }
+        .logo, .site-title {
+            cursor: pointer;
         }
     </style>
 </head>
 
 <body>
-     <!-- preloader -->
-  <div id="preloader">
-    <div class="wrapper">
-        <div class="box-wrap">
-            <div class="box one"></div>
-            <div class="box two"></div>
-            <div class="box three"></div>
-            <div class="box four"></div>
-            <div class="box five"></div>
-            <div class="box six"></div>
+    <div id="preloader">
+        <div class="wrapper">
+            <div class="box-wrap">
+                <div class="box one"></div>
+                <div class="box two"></div>
+                <div class="box three"></div>
+                <div class="box four"></div>
+                <div class="box five"></div>
+                <div class="box six"></div>
+            </div>
         </div>
     </div>
-</div>
-    <!-- Circles -->
+
     <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <!-- Header Starts Here -->
+
     <header class="header">
-        <a href="#" class="logo">
-            <img src="https://purepng.com/public/uploads/large/purepng.com-ice-creamice-creamcreamfrozensweet-1411527617895aiuhx.png" alt="Logo">
-        </a>
-        <nav class="navbar">
-            <a href="index.html#home">Home</a>
-            <a href="index.html#about">About</a>
-            <a href="index.html#menu">Menu</a>
-            <a href="offers.html">Offers</a>
-            <a href="index.html#review">Review</a>
-            <a href="index.html#blogs">Blogs</a>
-            <a href="index.html#my-order-btn" class="order">My Order</a>
-            <a href="contact.html" class="active">Contact Us</a>
+<div class="logo-name">
+    <a href="index.html" class="logo">
+        <img src="https://purepng.com/public/uploads/large/purepng.com-ice-creamice-creamcreamfrozensweet-1411527617895aiuhx.png" alt="Logo">
+    </a>
+    <h1 class="site-title">ArcticDelights</h1> <!-- Kept from 'feature-name' branch -->
+</div>
+<nav class="navbar" style="gap: 20px;"> <!-- Inline CSS 'gap: 20px;' from 'feature-name' -->
+    <a href="index.html#home">Home</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#menu">Menu</a>
+    <a href="offers.html">Offers</a> <!-- Kept from 'main' -->
+    <a href="index.html#review">Review</a>
+    <a href="index.html#blogs">Blogs</a>
+    <a href="index.html#my-order-btn" class="order">My Order</a> <!-- Fixed order link from 'main' -->
+    <a href="contact.html" class="active">Contact Us</a>
+</nav>
+
         </nav>
-        <div class="icons">
-            <div class="fas fa-heart" id="wishlist-btn"></div>
-            <div class="fas fa-search" id="search-btn"></div>
-            <div class="fas fa-shopping-cart" id="cart-btn"></div>
+
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox">
+                <div class="slider"></div>
+            </label>
+            <span id="mode-label">Light Mode</span>
         </div>
+        <a href="./login/login.html" class="auth-btn" style="background-color: palevioletred; padding: 10px 20px;">Login</a>
+        <a href="./signup/signup.html" class="auth-btn" style="background-color: palevioletred; padding: 10px 20px;">Sign Up</a>
     </header>
-    <!-- Header Ends Here -->
 
-    <div class="visme_d" data-title="Contact Form" data-url="4d6yepek-contact-form" data-domain="forms" data-full-page="false" data-min-height="500px" data-form-id="96782"></div><script src="https://static-bundles.visme.co/forms/vismeforms-embed.js"></script>
+    <section id="column">
+        <div class="column-left">
+            <section id="contact" class="contact-form">
+                <h2>HOW CAN WE HELP YOU?<br>Send us your questions, comments, and requests by filling out the form below.</h2>
+                <form action="submit-form.php" method="POST" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <div class="box-3">
+                        <div class="btn btn-three">
+                          <span>SUBMIT</span>
+                        </div>
+                      </div>
+                </form>
+            </section>
+        </div>
+    </section>
 
-    <!-- Footer Section Starts Here -->
     <section class="footer" id="footer">
         <div class="share">
             <a href="#" class="fab fa-facebook-f"></a>
@@ -105,83 +114,55 @@
             <p>created by <span>Dohina</span> | all rights reserved</p>
         </div>
     </section>
-    <!-- Footer Section Ends Here -->
-    <script src="preloader.js"></script>
 
-    <!-- JavaScript File -->
+    <script src="preloader.js"></script>
     <script src="script.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             gsap.from(".contact-form", { opacity: 0, y: 50, duration: 1.5, ease: "power2.out" });
 
-            // Animate buttons on hover for scaling effect
             const buttons = document.querySelectorAll("button");
             buttons.forEach(button => {
-                button.addEventListener('mouseover', () => {
-                    gsap.to(button, { scale: 1.1, duration: 0.2 });
-                });
-                button.addEventListener('mouseout', () => {
-                    gsap.to(button, { scale: 1, duration: 0.2 });
-                });
+                button.addEventListener('mouseover', () => gsap.to(button, { scale: 1.1, duration: 0.2 }));
+                button.addEventListener('mouseout', () => gsap.to(button, { scale: 1, duration: 0.2 }));
             });
         });
-    </script>
-    <script>
-        // Coordinates for the cursor
+
         const coords = { x: 0, y: 0 };
         const circles = document.querySelectorAll(".circle");
+        const colors = ["#ffb56b", "#fdaf69", "#f89d63", "#f59761", "#ef865e", "#ec805d", "#e36e5c", "#df685c", "#d5585c", "#d1525c", "#c5415d", "#c03b5d", "#b22c5e", "#ac265e", "#9c155f", "#950f5f", "#830060", "#7c0060", "#680060", "#60005f", "#48005f", "#3d005e"];
 
-        // Colors for the circles
-        const colors = [
-            "#ffb56b", "#fdaf69", "#f89d63", "#f59761", "#ef865e", "#ec805d",
-            "#e36e5c", "#df685c", "#d5585c", "#d1525c", "#c5415d", "#c03b5d",
-            "#b22c5e", "#ac265e", "#9c155f", "#950f5f", "#830060", "#7c0060",
-            "#680060", "#60005f", "#48005f", "#3d005e"
-        ];
-
-        // Assign colors and initial position to each circle
-        circles.forEach(function (circle, index) {
+        circles.forEach((circle, index) => {
             circle.x = 0;
             circle.y = 0;
             circle.style.backgroundColor = colors[index % colors.length];
         });
 
-        // Update the coordinates when the mouse moves
-        window.addEventListener("mousemove", function (e) {
+        window.addEventListener("mousemove", (e) => {
             coords.x = e.clientX;
             coords.y = e.clientY;
         });
 
-        // Animation function to move the circles
         function animateCircles() {
-            let x = coords.x;
-            let y = coords.y;
+            let x = coords.x, y = coords.y;
 
-            circles.forEach(function (circle, index) {
-                // Update the position and scale of each circle
-                circle.style.left = x - 12 + "px";
-                circle.style.top = y - 12 + "px";
+            circles.forEach((circle, index) => {
+                circle.style.left = `${x - 12}px`;
+                circle.style.top = `${y - 12}px`;
                 circle.style.scale = (circles.length - index) / circles.length;
 
-                circle.x = x;
-                circle.y = y;
-
-                // Get the next circle in the sequence
                 const nextCircle = circles[index + 1] || circles[0];
                 x += (nextCircle.x - x) * 0.3;
                 y += (nextCircle.y - y) * 0.3;
             });
 
-            // Repeat the animation
             requestAnimationFrame(animateCircles);
         }
 
-        // Start the animation
         animateCircles();
     </script>
     <div class="gtranslate_wrapper"></div>
     <script>window.gtranslateSettings = {"default_language":"en","detect_browser_language":true,"wrapper_selector":".gtranslate_wrapper"}</script>
     <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
 </body>
-
 </html>
