@@ -1253,7 +1253,7 @@ button:hover {
   /* Adjusted font size */
   margin-bottom: 2rem;
   /* Increased margin for more spacing */
-  color: #ffbe0b;
+  color: #010101;
   /* Brighter color */
 }
 
@@ -1262,7 +1262,7 @@ button:hover {
   /* Increased font size */
   margin-top: 2rem;
   /* Increased margin for spacing */
-  color: #ffbe0b;
+  color: #010101;
   /* Brighter color */
 }
 
@@ -1275,7 +1275,7 @@ button:hover {
   /* Increased margin */
   border-radius: 8px;
   /* More rounded corners */
-  border: 2px solid #ffbe0b;
+  border: 2px solid var(--main-color);
   /* Brighter border */
   font-size: 1.4rem;
   /* Increased font size */
