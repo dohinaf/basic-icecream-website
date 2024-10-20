@@ -281,6 +281,15 @@
 </div>
 
 <!-- Circles -->
+<!-- <div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>  
 <div class="circle"></div>
 <div class="circle"></div>
 <div class="circle"></div>
@@ -291,16 +300,7 @@
 <div class="circle"></div>
 <div class="circle"></div>
 <div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
+<div class="circle"></div> -->
 
 
     <button id="backToTop" style="font-size: 30px; font-weight: bold;">&#8673;</button>
@@ -610,90 +610,73 @@ document.addEventListener('click', function (event) {
             data-aos-anchor-placement="top-bottom">
             <div class="picture">
                 <img src="https://plus.unsplash.com/premium_photo-1678198786405-28e947bb8a12" alt="">
-                <h3 id="pro-name">Nutty Butterscotch</h3>
+                
                 <div class="flip">A delightful blend of crunchy nuts and rich butterscotch, creating a sweet and savory treat that melts in your mouth!</div>
             </div>
-                <div class="price"> $15.99 <span>20.99</span></div>
-                <button  id="inbox" onclick="addToCart('Nutty Butterscotch', 15.99)">Add to Cart</button><br>
-                <div class="noofitems">
-                  <button class="plus-minus" onclick="decreaseQuantity('Nutty Butterscotch')">-</button>
-                  <span id="itemQuantity-Nutty Butterscotch">1</span>
-                  <button class="plus-minus" onclick="increaseQuantity('Nutty Butterscotch')">+</button>
-              </div>
-                <button  id="inbox" onclick="addToWishlist('Nutty Butterscoth', 15.99)">Add to wishlist</button>
-                <button id="inbox" onclick="window.location.href='nut_butter.html';">Read more</button>
-
-
+            <div class="price-and-heading">
+              <h3 id="pro-name">Nutty Butterscotch</h3>
+              <div class="price"> $15.99 <span>20.99</span></div>
+            </div>
+            <a class="read-more-btn"  onclick="window.location.href='nut_butter.html';">Read more</a>
+            <div class="card-btn-group">
+                <a class="card-btn" onclick="addToCart('Nutty Butterscotch', 15.99)">Add to Cart</a><br>
+                <a class="card-btn" onclick="addToWishlist('Nutty Butterscotch', 15.99)">Add to WishList</a><br>
+            </div>
           </div>
         
             <div class="box"  data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
             data-aos-anchor-placement="top-bottom">
             <div class="picture">
                 <img src="https://images.unsplash.com/photo-1488900128323-21503983a07e" alt="">
-                <h3 id="pro-name">Berry Pops</h3>
-
                 <div class="flip">Refreshing frozen treats bursting with the vibrant flavors of mixed berries, perfect for a cool and fruity indulgence!</div>
             </div>
-
-                <div class="price"> $18.99 <span>20.99</span></div>
-                <button  id="inbox" onclick="addToCart('Berry Pops', 18.99)">Add to Cart</button><br>
-                <div class="noofitems">
-                  <button class="plus-minus" onclick="decreaseQuantity('Berry Pops')">-</button>
-                  <span class ="text" id="itemQuantity-Berry Pops">1</span>
-                  <button class="plus-minus" onclick="increaseQuantity('Berry Pops')">+</button>
+                <div class="price-and-heading">
+                  <h3 id="pro-name">Berry Pops</h3>
+                  <div class="price"> $18.99 <span>20.99</span></div>
+                </div>
+                <a class="read-more-btn"  onclick="window.location.href='berry_pops.html';">Read more</a>
+                <div class="card-btn-group">
+                  <a class="card-btn" onclick="addToCart('Berry Pops', 18.99)">Add to Cart</a><br>
+                  <a class="card-btn" onclick="addToWishlist('Berry Pops', 18.99)">Add to WishList</a><br>
               </div>
-                <button  id="inbox" onclick="addToWishlist('Berry Pops', 18.99)">Add to wishlist</button>
-                <button id="inbox" onclick="window.location.href='berry_pops.html';">Read more</button>
-
-
             </div>
-        
 
-        
             <div class="box"  data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
             data-aos-anchor-placement="top-bottom">
                 <div class="picture">
                     <img src="https://images.unsplash.com/photo-1633933037611-f26e54366832" alt="">
-                  <h3 id="pro-name">Cherry Sherbet Pops</h3>
+                  <!-- <h3 id="pro-name">Cherry Sherbet Pops</h3> -->
                     <div class="flip">Creamy, fruity popsicles crafted with luscious cherry sherbet, delivering a sweet and tangy burst of summer in every bite!</div>
                 </div>
-
-                <div class="price"> $18.99 <span>20.99</span></div>
-                <button  id="inbox" onclick="addToCart('Cherry Sherbet Pops', 18.99)">Add to Cart</button><br>
-                <div class="noofitems">
-                  <button class="plus-minus" onclick="decreaseQuantity('Cherry Sherbet Pops')">-</button>
-                  <span id="itemQuantity-Cherry Sherbet Pops">1</span>
-                  <button class="plus-minus" onclick="increaseQuantity('Cherry Sherbet Pops')">+</button>
+                <div class="price-and-heading">
+                  <h3 id="pro-name">Cherry Sherbet Pops</h3>
+                  <div class="price"> $18.99 <span>20.99</span></div>
+                </div>
+                <a class="read-more-btn"  onclick="window.location.href='cherry_pops.html';">Read more</a>
+                <div class="card-btn-group">
+                  <a class="card-btn" onclick="addToCart('Cherry Sherbet Pops', 18.99)">Add to Cart</a><br>
+                  <a class="card-btn" onclick="addToWishlist('Cherry Sherbet Pops', 18.99)">Add to WishList</a><br>
               </div>
-                <button  id="inbox" onclick="addToWishlist('Cherry Sherbet Pops', 18.99)">Add to wishlist</button>
-                <button id="inbox" onclick="window.location.href='cherry_pops.html';">Read more</button>
-
-
             </div>
-        
 
-        
             <div class="box"  data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200"
             data-aos-anchor-placement="top-bottom">
-            <div class="picture">
-                <img src="https://images.unsplash.com/photo-1570197788417-0e82375c9371" alt="">
+              <div class="picture">
+                  <img src="https://images.unsplash.com/photo-1570197788417-0e82375c9371" alt="">
 
-                <h3 id="pro-name">Dripping Vanilla</h3>
+                  
 
-                <div class="flip">A luscious vanilla treat that oozes creamy goodness, delivering a rich and indulgent flavor experience with every delightful drop!</div>
-            </div>
-       
-
-        
-                <div class="price"> $15.99 <span>20.99</span></div>
-                <button  id="inbox" onclick="addToCart('Dripping Vannila', 15.99)">Add to Cart</button><br>
-                <div class="noofitems">
-                  <button class="plus-minus" onclick="decreaseQuantity('Dripping Vannila')">-</button>
-                  <span id="itemQuantity-Dripping Vannila">1</span>
-                  <button class="plus-minus" onclick="increaseQuantity('Dripping Vannila')">+</button>
+                  <div class="flip">A luscious vanilla treat that oozes creamy goodness, delivering a rich and indulgent flavor experience with every delightful drop!</div>
               </div>
-                <button  id="inbox" onclick="addToWishlist('Dripping Vannila', 15.99)">Add to wishlist</button>
-                <button id="inbox" onclick="window.location.href='drip_vanilla.html';">Read more</button>
+              <div class="price-and-heading">
+                <h3 id="pro-name">Dripping Vanilla</h3>
+                <div class="price"> $15.99 <span>20.99</span></div>
+              </div>
+              <a class="read-more-btn"  onclick="window.location.href='drip_vanilla.html';">Read more</a>
+              <div class="card-btn-group">
+                <a class="card-btn" onclick="addToCart('Dripping Vannila', 15.99)">Add to Cart</a><br>
+                <a class="card-btn" onclick="addToWishlist('Dripping Vannila', 15.99)">Add to WishList</a><br>
+              </div>
             </div>
 
             <div class="box"  data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200"
@@ -701,92 +684,73 @@ document.addEventListener('click', function (event) {
             <div class="picture">
                 <img src="https://images.unsplash.com/photo-1532678465554-94846274c297" alt="">
 
-                <h3 id="pro-name">Very Berry Strawberry</h3>
 
                 <div class="flip">A delightful fusion of fresh strawberries and a medley of berries, creating a vibrant and sweet explosion of flavor in every bite!</div>
             </div>
-        
-
-       
+              <div class="price-and-heading">
+                <h3 id="pro-name">Very Berry Strawberry</h3>
                 <div class="price"> $16.99 <span>20.99</span></div>
-                <button  id="inbox" onclick="addToCart('Very Berry Strawberry', 16.99)">Add to Cart</button><br>
-                <div class="noofitems">
-                  <button class="plus-minus" onclick="decreaseQuantity('Very Berry Strawberry')">-</button>
-                  <span id="itemQuantity-Very Berry Strawberry">1</span>
-                  <button class="plus-minus" onclick="increaseQuantity('Very Berry Strawberry')">+</button>
               </div>
-                <button  id="inbox" onclick="addToWishlist('Very Berry Strawberry', 16.99)">Add to wishlist</button>
-                <button id="inbox" onclick="window.location.href='very_straw.html';">Read more</button>
+              <a class="read-more-btn"  onclick="window.location.href='very_straw.html';">Read more</a>
+              <div class="card-btn-group">
+                <a class="card-btn" onclick="addToCart('Very Berry Strawberry', 16.99)">Add to Cart</a><br>
+                <a class="card-btn" onclick="addToWishlist('Very Berry Strawberry', 16.99)">Add to WishList</a><br>
+              </div>
             </div>
 
             <div class="box"  data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
             data-aos-anchor-placement="top-bottom">
             <div class="picture">
                 <img src="https://images.unsplash.com/photo-1705103654898-d663145f5f50" alt="">
-                <h3 id="pro-name">Rainbow Classic Cone</h3>
 
                 <div class="flip">A colorful twist on a timeless favorite, featuring layers of vibrant, fruity flavors swirled into a creamy cone, making every lick a joyful, nostalgic experience!</div>
             </div>
-        
- 
-            
+              <div class="price-and-heading">
+                <h3 id="pro-name">Rainbow Classic Cone</h3>
                 <div class="price"> $18.99 <span>20.99</span></div>
-                <button  id="inbox" onclick="addToCart('Rainbow Classic Cone', 18.99)">Add to Cart</button><br>
-                <div class="noofitems">
-                  <button class="plus-minus" onclick="decreaseQuantity('Rainbow Classic Cone')">-</button>
-                  <span id="itemQuantity-Rainbow Classic Cone">1</span>
-                  <button class="plus-minus" onclick="increaseQuantity('Rainbow Classic Cone')">+</button>
               </div>
-                <button  id="inbox" onclick="addToWishlist('Rainbow Classic Cone', 18.99)">Add to wishlist</button>
-                <button id="inbox" onclick="window.location.href='rain_classic.html';">Read more</button>
+              <a class="read-more-btn"  onclick="window.location.href='rain_classic.html';">Read more</a>
+              <div class="card-btn-group">
+                <a class="card-btn" onclick="addToCart('Rainbow Classic Cone', 18.9999)">Add to Cart</a><br>
+                <a class="card-btn" onclick="addToWishlist('Rainbow Classic Cone', 18.99)">Add to WishList</a><br>
+              </div>
             </div>
 
             <div class="box"  data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
             data-aos-anchor-placement="top-bottom">
             <div class="picture">
                 <img src="https://images.unsplash.com/photo-1559340160-146586a4f9b6" alt="">
-                <h3 id="pro-name">Orange Pops</h3>
 
                 <div class="flip">Refreshing frozen delights bursting with zesty orange flavor, offering a sunny, sweet, and tangy treat that’s perfect for cooling off on a hot day!</div>
             </div>
-        
-
-            
-
+              <div class="price-and-heading">
+                <h3 id="pro-name">Orange Pops</h3>
                 <div class="price"> $12.99 <span>20.99</span></div>
-                <button  id="inbox" onclick="addToCart('Orange Pops', 12.99)">Add to Cart</button><br>
-                <div class="noofitems">
-                  <button class="plus-minus" onclick="decreaseQuantity('Orange Pops')">-</button>
-                  <span id="itemQuantity-Orange Pops">1</span>
-                  <button class="plus-minus" onclick="increaseQuantity('Orange Pops')">+</button>
               </div>
-                <button  id="inbox" onclick="addToWishlist('Orange Pops', 12.99)">Add to wishlist</button>
-                <button id="inbox" onclick="window.location.href='orange_pops.html';">Read more</button>
-
+              <a class="read-more-btn"  onclick="window.location.href='orange_pops.html';">Read more</a>
+              <div class="card-btn-group">
+                <a class="card-btn" onclick="addToCart('Orange Pops', 12.99)">Add to Cart</a><br>
+                <a class="card-btn" onclick="addToWishlist('Orange Pops', 12.99)">Add to WishList</a><br>
+              </div>
             </div>
-
             <div class="box"  data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200"
             data-aos-anchor-placement="top-bottom">
             <div class="picture">
                 <img src="https://images.unsplash.com/photo-1594305178909-03ab72b8205e" alt="">
 
-                <h3 id="pro-name">Choco-Hazel Pops</h3>
+                
 
                 <div class="flip">Indulgent frozen treats infused with rich chocolate and crunchy hazelnuts, creating a decadent and nutty flavor experience that melts delightfully in every bite!</div>
             </div>
-      
-
-            
-                <div class="price"> $18.99 <span>20.99</span></div>
-                <button  id="inbox" onclick="addToCart('Choco-Hazel Pops', 18.99)">Add to Cart</button><br>
-                <div class="noofitems">
-                  <button class="plus-minus" onclick="decreaseQuantity('Choco-Hazel Pops')">-</button>
-                  <span id="itemQuantity-Choco-Hazel Pops">1</span>
-                  <button class="plus-minus" onclick="increaseQuantity('Choco-Hazel Pops')">+</button>
+              <div class="price-and-heading">
+                <h3 id="pro-name">Choco-Hazel Pops</h3>
+                <<div class="price"> $18.99 <span>20.99</span></div>
               </div>
-                <button  id="inbox" onclick="addToWishlist('Choco-Hazel Pops', 18.99)">Add to wishlist</button>
-                <button id="inbox" onclick="window.location.href='choco_hazel.html';">Read more</button>
-
+              <a class="read-more-btn"  onclick="window.location.href='choco_hazel.html';">Read more</a>
+              <div class="card-btn-group">
+                <a class="card-btn" onclick="addToCart('Choco-Hazel Pops', 18.99)">Add to Cart</a><br>
+                <a class="card-btn" onclick="addToWishlist('Choco-Hazel Pops', 18.99)">Add to WishList</a><br>
+              </div>
             </div>
 
             <div class="box"  data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200"
@@ -798,87 +762,66 @@ document.addEventListener('click', function (event) {
 
                 <div class="flip">A refreshing and juicy delight packed with the sweet, sunny flavor of ripe peaches, delivering a taste of summer in every delicious bite!</div>
             </div>
-
+              <div class="price-and-heading">
+                <h3 id="pro-name">Very Very Peachy</h3>
                 <div class="price"> $15.99 <span>20.99</span></div>
-                <button  id="inbox" onclick="addToCart('Very Very Peachy',15.99)">Add to Cart</button><br>
-                <div class="noofitems">
-                  <button class="plus-minus" onclick="decreaseQuantity('Very Very Peachy')">-</button>
-                  <span id="itemQuantity-Very Very Peachy">1</span>
-                  <button class="plus-minus" onclick="increaseQuantity('Very Very Peachy')">+</button>
               </div>
-                <button  id="inbox" onclick="addToWishlist('Very Very Peachy', 15.99)">Add to wishlist</button>
-                <button id="inbox" onclick="window.location.href='very_peachy.html';">Read more</button>
+              <a class="read-more-btn"  onclick="window.location.href='very_peachy.html';">Read more</a>
+              <div class="card-btn-group">
+                <a class="card-btn" onclick="addToCart('Very Very Peachy', 15.99)">Add to Cart</a><br>
+                <a class="card-btn" onclick="addToWishlist('Very Very Peachy', 15.99)">Add to WishList</a><br>
+              </div>
             </div>
         
-
-            
             <div class="box"  data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
             data-aos-anchor-placement="top-bottom">
             <div class="picture">
                 <img src="https://images.unsplash.com/photo-1559340160-146586a4f9b6" alt="">
-
-                <h3 id="pro-name">Orange Pops</h3>
-
                 <div class="flip">Refreshing frozen delights bursting with zesty orange flavor, offering a sunny, sweet, and tangy treat that’s perfect for cooling off on a hot day!</div>
             </div>
+              <div class="price-and-heading">
+                <h3 id="pro-name">Orange Pops</h3>
                 <div class="price"> $12.99 <span>20.99</span></div>
-                <button  id="inbox" onclick="addToCart('Orange Pops', 12.99)">Add to Cart</button><br>
-                <div class="noofitems">
-                  <button class="plus-minus" onclick="decreaseQuantity('Orange Pops')">-</button>
-                  <span id="itemQuantity-Orange Pops">1</span>
-                  <button class="plus-minus" onclick="increaseQuantity('Orange Pops')">+</button>
               </div>
-                <button  id="inbox" onclick="addToWishlist('Orange Pops', 12.99)">Add to wishlist</button>
-                <button id="inbox" onclick="window.location.href='orange_pops1.html';">Read more</button>
+              <a class="read-more-btn"  onclick="window.location.href='orange_pops1.html';">Read more</a>
+              <div class="card-btn-group">
+                <a class="card-btn" onclick="addToCart('Orange Pops', 12.99)">Add to Cart</a><br>
+                <a class="card-btn" onclick="addToWishlist('Orange Pops', 12.99)">Add to WishList</a><br>
+              </div>
             </div>
-            
-
             
             <div class="box"  data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
             data-aos-anchor-placement="top-bottom">
             <div class="picture">
                 <img src="https://images.unsplash.com/photo-1594305178909-03ab72b8205e" alt="">
-
-                <h3 id="pro-name">Choco-Hazel Pops</h3>
-
                 <div class="flip">Indulgent frozen treats infused with rich chocolate and crunchy hazelnuts, creating a decadent and nutty flavor experience that melts delightfully in every bite!</div>
             </div>
-
+              <div class="price-and-heading">
+                <h3 id="pro-name">Choco-Hazel Pops</h3>
                 <div class="price"> $18.99 <span>20.99</span></div>
-                <button  id="inbox" onclick="addToCart('Choco-Hazel Pops', 18.99)">Add to Cart</button><br>
-                <div class="noofitems">
-                  <button class="plus-minus" onclick="decreaseQuantity('Choco-Hazel Pops')">-</button>
-                  <span id="itemQuantity-Choco-Hazel Pops">1</span>
-                  <button class="plus-minus" onclick="increaseQuantity('Choco-Hazel Pops')">+</button>
               </div>
-                <button  id="inbox" onclick="addToWishlist('Choco-Hazel Pops', 18.99)">Add to wishlist</button>
-                <button id="inbox" onclick="window.location.href='choco_hazel.html';">Read more</button>
+              <a class="read-more-btn"  onclick="window.location.href='choco_hazel.html';">Read more</a>
+              <div class="card-btn-group">
+                <a class="card-btn" onclick="addToCart('Choco-Hazel Pops', 18.99)">Add to Cart</a><br>
+                <a class="card-btn" onclick="addToWishlist('Choco-Hazel Pops', 18.99)">Add to WishList</a><br>
+              </div>
             </div>
-       
 
-           
             <div class="box"  data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200"
             data-aos-anchor-placement="top-bottom">
             <div class="picture">
                 <img src="https://images.unsplash.com/photo-1499638472904-ea5c6178a300" alt="">
-
-                <h3 id="pro-name">Very Very Peachy</h3>
-                <div class="price"> $16.99 <span>20.99</span></div>
-
                 <div class="flip">A refreshing and juicy delight packed with the sweet, sunny flavor of ripe peaches, delivering a taste of summer in every delicious bite!</div>
             </div>
-
+              <div class="price-and-heading">
+                <h3 id="pro-name">Very Very Peachy</h3>
                 <div class="price"> $15.99 <span>20.99</span></div>
-                <button  id="inbox" onclick="addToCart('Very Very Peachy',15.99)">Add to Cart</button><br>
-                <div class="noofitems">
-                  <button class="plus-minus" onclick="decreaseQuantity('Very Very Peachy')">-</button>
-                  <span id="itemQuantity-Very Very Peachy">1</span>
-                  <button class="plus-minus" onclick="increaseQuantity('Very Very Peachy')">+</button>
               </div>
-                <button  id="inbox" onclick="addToWishlist('Very Very Peachy', 15.99)">Add to wishlist</button>
-                <button id="inbox" onclick="window.location.href='very_peachy2.html';">Read more</button>
-
-
+              <a class="read-more-btn"  onclick="window.location.href='very_peachy2.html';">Read more</a>
+              <div class="card-btn-group">
+                <a class="card-btn" onclick="addToCart('Very Very Peachy', 15.99)">Add to Cart</a><br>
+                <a class="card-btn" onclick="addToWishlist('Very Very Peachy', 15.99)">Add to WishList</a><br>
+              </div>
             </div>
 
             <div class="notification-tooltip" id="notification-tooltip">
