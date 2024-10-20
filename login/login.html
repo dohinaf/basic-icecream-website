@@ -17,13 +17,18 @@
                     <label>Email</label>
                 </div>
                 <div class="input-group">
-                    <input type="password" name="password" required>
+                    <input type="password" id="password" name="password" required>
                     <label>Password</label>
+                    <i class="fas fa-eye" id="eye-icon" onclick="togglePasswordVisibility()"></i>
                 </div>
                 <button class="login-btn" type="submit">Login</button>
                 <div class="extra-links">
-                    <button class="home-btn"><i class="fas fa-home"></i> <a href="../index.html">Home</a></button>
-                    <button class="signup-btn"><i class="fas fa-user-plus"></i><a href="../signup/signup.html">Signup</a></button>
+                    <button class="home-btn">
+                        <i class="fas fa-home"></i> <a href="../index.html">Home</a>
+                    </button>
+                    <button class="signup-btn">
+                        <i class="fas fa-user-plus"></i> <a href="../signup/signup.html">Signup</a>
+                    </button>
                 </div>
             </form>
         </div>
