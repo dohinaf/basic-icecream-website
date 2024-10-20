@@ -384,107 +384,112 @@ button:hover {
  
 
   /* Navbar expanded on click */
-  
-  .header {
-    background-color: var(--background-color);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem !important;
-    border-bottom: var(--border);
-    position: fixed;
-    top: 0;
+
+.header {
+  background-color: var(--background-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem !important;
+  border-bottom: var(--border);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.header .logo img {
+  height: 6rem;
+}
+
+.header .navbar {
+  display: flex;
+  align-items: center;
+  transition: max-height 0.3s ease;
+}
+
+.header .navbar a {
+  margin: 0 1rem;
+  font-size: 1.6rem;
+  color: var(--text-color);
+  white-space: nowrap;
+  /* Prevent text from breaking into two lines */
+}
+
+.header .navbar a:hover {
+  color: rgb(51, 168, 235) !important;
+}
+
+.header .icons {
+  display: flex;
+  align-items: center;
+}
+
+.header .icons div {
+  background-color: var(--background-color);
+  cursor: pointer;
+  font-size: 2.5rem;
+  margin-left: 2rem;
+}
+
+.header .icons div:hover {
+  color: var(--text-color);
+}
+
+.menu-btn {
+  display: none;
+  cursor: pointer;
+  font-size: 2.5rem;
+  color: var(--text-color);
+  margin-left: 0rem;
+}
+
+/* Navbar on Small Screens */
+@media (max-width: 768px) {
+
+  .header .menu-btn {
+    display: block;
+    /* Show the hamburger menu on small screens */
+  }
+
+  .header .navbar {
+    position: absolute;
+    top: 100%;
     left: 0;
     right: 0;
-    z-index: 1000;
+    background-color: var(--background-color) !important;
+    flex-direction: column;
+    align-items: flex-start;
+    max-height: 0;
+    overflow: hidden;
+    padding-top: 0rem !important;
   }
-  
-  .header .logo img {
-    height: 6rem;
+
+  .header .navbar a {
+    padding: 0.2rem !important;
+    /* Increase padding for better spacing */
+    width: 100%;
+    color: var(--text-color) !important;
+    font-size: medium !important;
+    text-align: center;
+    margin: 0;
   }
-  
-  .header .navbar {
-    display: flex;
-    align-items: center;
+
+  /* Navbar expanded on click */
+  .navbar.active {
+    max-height: none;
+    /* Let the height adjust based on content */
     transition: max-height 0.3s ease;
   }
-  
+
+  /* Prevent text overlap by allowing wrapping */
   .header .navbar a {
-    margin: 0 1rem;
-    font-size: 1.6rem;
-    color: var(--text-color);
-    white-space: nowrap; /* Prevent text from breaking into two lines */
+    white-space: normal;
+    /* Allow text to break if needed */
   }
-  
-  .header .navbar a:hover {
-    color: rgb(51, 168, 235) !important;
-  }
-  
-  .header .icons {
-    display: flex;
-    align-items: center;
-  }
-  
-  .header .icons div {
-    background-color: var(--background-color);
-    cursor: pointer;
-    font-size: 2.5rem;
-    margin-left: 2rem;
-  }
-  
-  .header .icons div:hover {
-    color: var(--text-color);
-  }
-  
-  .menu-btn {
-    display: none;
-    cursor: pointer;
-    font-size: 2.5rem;
-    color: var(--text-color);
-    margin-left: 0rem;
-  }
-  
-  /* Navbar on Small Screens */
-  @media (max-width: 768px) {
-   
-    .header .menu-btn {
-      display: block; /* Show the hamburger menu on small screens */
-    }
-  
-    .header .navbar {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      background-color: var(--background-color) !important;
-      flex-direction: column;
-      align-items: flex-start;
-      max-height: 0;
-      overflow: hidden;
-      padding-top: 0rem !important;
-    }
-  
-    .header .navbar a {
-      padding: 0.2rem !important; /* Increase padding for better spacing */
-      width: 100%;
-      color: var(--text-color) !important;
-      font-size: medium !important;
-      text-align: center;
-      margin: 0;
-    }
-  
-    /* Navbar expanded on click */
-    .navbar.active {
-      max-height: none; /* Let the height adjust based on content */
-      transition: max-height 0.3s ease;
-    }
-  
-    /* Prevent text overlap by allowing wrapping */
-    .header .navbar a {
-      white-space: normal; /* Allow text to break if needed */
-    }
-  }
-  
+}
+
 .header .search-form {
   position: absolute;
   top: calc(100% + 1rem);
@@ -955,16 +960,15 @@ button:hover {
 
 .menu .box-container .box {
   margin: 2rem;
+  width: 296px;
   padding: 0.7rem;
-  border-radius: 8px;
+  border-radius: 20px;
   border-width: 1.1rem;
   border-color: var(--text-color);
-  background-color: #d2a679;
-  /* border: 1px solid brown; */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+  background-color: #ffe6ff;
+  border: 1px solid #bb79bb;
+  box-shadow: 0 4px 10px #0000002b;
   text-align: center;
-  border: var(--text-color);
-  align-items: center;
 }
 
 .menu .box-container .box h3 {
@@ -990,10 +994,54 @@ button:hover {
   color: var(--text-color);
 }
 
+.menu .box-container .box .price-and-heading {
+  display: flex;
+  align-items: center;
+  margin: 15px auto;
+  justify-content: space-around;
+}
+
+.menu .box-container .box .card-btn-group {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px auto auto auto;
+  gap: 5px;
+}
+
+.menu .box-container .box .card-btn-group .card-btn {
+  width: 100%;
+  background: #f1b8ff;
+  border: 1px solid #bc7fcc;
+  padding: 10px 0;
+  font-size: 16px;
+  user-select: none;
+  cursor: pointer;
+  color: #552361;
+  border-radius: 10px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+
+.menu .box-container .box .card-btn-group .card-btn:hover{
+  background: #ca5aca;
+  color: #ffffff;
+}
+
+.menu .box-container .box .read-more-btn{
+  text-decoration: underline;
+  font-size: 15px;
+  font-family: Cambria;
+  cursor: pointer;
+  display: block;
+  margin-bottom: 40px;
+}
+
 .menu img {
-  width: 220px;
+  width: 100%;
+  object-fit: cover;
   height: 220px;
-  border-radius: 1rem;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
   transition: transform 0.5s ease-in-out;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -1007,7 +1055,7 @@ button:hover {
 
 /* CSS for flip element */
 .menu .flip {
-  width: 220px;
+  width: 100%;
   height: 220px;
   border-radius: 1rem;
   transition: transform 0.5s ease-in-out;
@@ -1056,6 +1104,7 @@ button:hover {
 
 #pro-name {
   color: #4e1a22;
+  padding: 0;
 }
 
 #inbox:hover {
@@ -1118,8 +1167,10 @@ button:hover {
   /* Increased button font size */
   cursor: pointer;
 }
+
 .custom-btn:hover {
-  color: #fff; /* Change text color on hover: better visibility */
+  color: #fff;
+  /* Change text color on hover: better visibility */
 }
 
 .container__right {
@@ -1456,6 +1507,7 @@ footer .credit {
   #menu-btn {
     display: inline-block;
   }
+
   .site-title {
     margin-left: 1.5rem;
     font-size: 1.5 rem;
@@ -2046,9 +2098,11 @@ input:checked+.slider:before {
   transition: 0.3s ease;
   color: #000000;
 }
+
 [data-theme="dark"] .social-icons a {
   color: #ffffff;
 }
+
 .social-icons a:hover {
   color: black;
   transform: scale(1.3) translateY(-5px);
