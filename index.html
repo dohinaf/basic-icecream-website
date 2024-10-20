@@ -1296,6 +1296,40 @@ document.addEventListener('click', function (event) {
   }
 }
 
+.star-rating {
+      display: flex;
+      justify-content: flex-end;
+      flex-direction: row-reverse;
+      margin-top: -2.5rem;
+
+    }
+
+    .star-rating input {
+      display: none;
+      /* Hide radio inputs */
+    }
+
+    .star-rating label {
+      font-size: 4.5rem;
+      /* Increased size for better visibility */
+      color: #c1bfbf;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    /* Color the stars based on the selected rating */
+    .star-rating input:checked~label {
+      color: #ffbe0b;
+      /* Color for selected stars */
+    }
+
+    /* Color on hover */
+    .star-rating label:hover,
+    .star-rating label:hover~label {
+      color: #ffbe0b;
+      /* Color on hover */
+    }
+
 </style>
 <script>
   $('.order').click(function(e) {
@@ -1387,6 +1421,19 @@ document.addEventListener('click', function (event) {
     <div class="review-right">
       <h2 data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200">Share Your Ice Cream Experience!</h2>
 <form id="review-form" onsubmit="storeReview(event)">
+  <label for="rating" data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200">Your Rating: </label>
+  <div class="star-rating" id="rating" aria-label="Rating" role="radiogroup" data-aos="zoom-out-down" required>
+    <input type="radio" id="star5" name="rating" value="5" />
+    <label for="star5" title="5 stars">★</label>
+    <input type="radio" id="star4" name="rating" value="4" />
+    <label for="star4" title="4 stars">★</label>
+    <input type="radio" id="star3" name="rating" value="3" />
+    <label for="star3" title="3 stars">★</label>
+    <input type="radio" id="star2" name="rating" value="2" />
+    <label for="star2" title="2 stars">★</label>
+    <input type="radio" id="star1" name="rating" value="1" />
+    <label for="star1" title="1 star">★</label>
+  </div>
   <label for="user-name" data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200">Your Name:</label>
   <input type="text" id="user-name" name="user-name" data-aos="zoom-out-down" required>
   
@@ -1396,40 +1443,47 @@ document.addEventListener('click', function (event) {
   <button type="submit" class="submit-button" data-aos="zoom-out-down">Submit Review</button>
 </form>
 <script>
-  // Function to store multiple reviews as JSON in local storage
   function storeReview(event) {
-    event.preventDefault(); // Prevent default form submission
-    
-    const userName = document.getElementById('user-name').value.trim();
-    const userReview = document.getElementById('user-review').value.trim();
+  event.preventDefault(); // Prevent default form submission
+  
+  const userName = document.getElementById('user-name').value.trim();
+  const userReview = document.getElementById('user-review').value.trim();
+  const starElement = document.querySelector('input[name="rating"]:checked');
 
-    // Check if either field is empty
-    if (userName === '' || userReview === '') {
-      alert('Both name and review must be filled out before submitting!');
-      return; // Exit the function if fields are empty
-    }
-
-    // Create a JSON object for the new review
-    const newReview = {
-      name: userName,
-      review: userReview
-    };
-
-    // Get existing reviews from local storage or initialize as an empty array
-    let reviews = JSON.parse(localStorage.getItem('reviews')) || [];
-
-    // Add the new review to the beginning of the array
-    reviews.unshift(newReview); // Adds new review to the top
-
-    // Store the updated array back in local storage
-    localStorage.setItem('reviews', JSON.stringify(reviews));
-
-    // Clear the form fields after submission
-    document.getElementById('user-name').value = '';
-    document.getElementById('user-review').value = '';
-
-    alert('Thank you for sharing your review!'); // Show a success message
+  // Check if either field is empty or no rating is selected
+  if (userName === '' || userReview === '' || !starElement) {
+    alert('Name, review, and rating must be filled out before submitting!');
+    return; // Exit the function if fields are empty
   }
+
+  const stars = starElement.value;
+
+  // Create a JSON object for the new review
+  const newReview = {
+    name: userName,
+    review: userReview,
+    star: stars
+  };
+
+  // Get existing reviews from local storage or initialize as an empty array
+  let reviews = JSON.parse(localStorage.getItem('reviews')) || [];
+
+  // Add the new review to the beginning of the array
+  reviews.unshift(newReview); // Adds new review to the top
+
+  // Store the updated array back in local storage
+  localStorage.setItem('reviews', JSON.stringify(reviews));
+
+  // Clear the form fields after submission
+  document.getElementById('user-name').value = '';
+  document.getElementById('user-review').value = '';
+
+  // Uncheck all radio buttons for rating
+  const radioButtons = document.querySelectorAll('input[name="rating"]');
+  radioButtons.forEach(radio => radio.checked = false);
+
+  alert('Thank you for sharing your review!'); // Show a success message
+}
 </script>
 
 </section>
