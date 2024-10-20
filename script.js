@@ -209,40 +209,62 @@ function addToCart(productName, price) {
     const existingItem = cart.find(item => item.name === productName);
     
     if (existingItem) {
-        // Add the product to the cart
-        cart.push({ name: productName, price: price });
-         // Notify the user
-        displayCart(); // Update the cart display
-
-        // Show notification tooltip
-        const notification = document.getElementById('notification-tooltip');
-        notification.classList.add('show');
-
-        // Hide notification after 2 seconds
-        setTimeout(() => {
-            notification.classList.remove('show');
-        }, 2000);
-        
-        // Optionally remove item from wishlist if necessary
-        const wishlistIndex = wishlist.findIndex(item => item.name === productName);
-        if (wishlistIndex !== -1) {
-            removeFromWishlist(wishlistIndex);
-        }
+        // Update quantity if the item already exists
+        existingItem.quantity = (existingItem.quantity || 0) + 1; // Default quantity to 0 if undefined
     } else {
-        cart.push({ name: productName, price: price });
-        // Notify the user
-       displayCart(); 
+        // Add the product to the cart with an initial quantity of 1
+        cart.push({ name: productName, price: price, quantity: 1 });
+    }
+
+    // Notify the user
+    displayCart(); // Update the cart display
+
+    // Show notification tooltip
+    const notification = document.getElementById('notification-tooltip');
+    notification.classList.add('show');
+
+    // Hide notification after 2 seconds
+    setTimeout(() => {
+        notification.classList.remove('show');
+    }, 2000);
+    
+    // Optionally remove item from wishlist if necessary
+    const wishlistIndex = wishlist.findIndex(item => item.name === productName);
+    if (wishlistIndex !== -1) {
+        removeFromWishlist(wishlistIndex);
     }
 }
 
 
 
 
+
 // Function to remove items from the cart
 function removeFromCart(index) {
-    cart.splice(index, 1); // Remove item from cart array
-    displayCart(); // Update the cart display
+    // Check if the index is valid
+    if (index < 0 || index >= cart.length) {
+        console.error("Invalid index:", index);
+        return; // Exit if the index is invalid
+    }
+
+    // Remove item from cart array
+    cart.splice(index, 1);
+    
+    // Notify the user (optional)
+    const notification = document.getElementById('notification-tooltip');
+    notification.textContent = "Item removed from cart"; // Set the notification message
+    notification.classList.add('show');
+
+    // Hide notification after 2 seconds
+    setTimeout(() => {
+        notification.classList.remove('show');
+    }, 2000);
+    
+    // Update the cart display
+    displayCart();
 }
+
+
 
 // Function to display cart items and calculate total
 // Function to display cart items and calculate total
@@ -253,12 +275,12 @@ function displayCart() {
     let cartItemsHTML = '';
     let total = 0;
 
-    // Count the number of items in the cart
-    const itemCount = cart.length;
+    // Iterate over the cart and create HTML for the cart display
     cart.forEach((item, index) => {
-        const quantity=quantities[item.name];
-        cartItemsHTML += `<li>${item.name} - (${quantity}) price= $${quantity*item.price.toFixed(2)} <button onclick="removeFromCart(${index})">Remove</button></li>`;
-        total += item.price*quantity;
+        const quantity = item.quantity || 1; // Default quantity to 1 if not set
+        const itemTotal = quantity * item.price; // Calculate total price for this item
+        cartItemsHTML += `<li>${item.name} - (${quantity}) price= $${itemTotal.toFixed(2)} <button onclick="removeFromCart(${index})">Remove</button></li>`;
+        total += itemTotal; // Add to the total
     });
 
     // Update cart items display
@@ -268,60 +290,12 @@ function displayCart() {
     totalElement.textContent = `Total: $${total.toFixed(2)}`;
 
     // Update cart count display
-    cartCountElement.textContent = `(${itemCount})`;
+    const totalItemsCount = cart.reduce((sum, item) => sum + (item.quantity || 1), 0); // Count total items
+    cartCountElement.textContent = `(${totalItemsCount})`;
 
     // Optionally display an order summary or other elements
     displayOrder();
 }
-
-
-// // Function to display cart items and calculate total
-// // Function to display cart items and calculate total
-// function displayCart() {
-//     const cartItemsElement = document.getElementById('cartItems');
-//     const totalElement = document.getElementById('total');
-//     const cartCountElement = document.getElementById('cart-count'); // Element to show item count
-//     let cartItemsHTML = '';
-//     let total = 0;
-
-//     // Count the number of items in the cart
-//     const itemCount = cart.length;
-
-//     cart.forEach((item, index) => {
-//         const quantity=quantities[item.name];
-//         cartItemsHTML += `<li>${item.name} - $${quantity*item.price.toFixed(2)} <button onclick="removeFromCart(${index})">Remove</button></li>`;
-//         total += item.price;
-//     });
-
-//     // Update cart items display
-//     cartItemsElement.innerHTML = cartItemsHTML;
-
-//     // Update total price display
-//     totalElement.textContent = `Total: $${total.toFixed(2)}`;
-
-//     // Update cart count display
-//     cartCountElement.textContent = `(${itemCount})`;
-
-//     // Optionally display an order summary or other elements
-//     displayOrder();
-// }
-
-
-// Function to simulate checkout
-// function checkout() {
-//     if (cart.length === 0) {
-//         alert('Your cart is empty. Please add some items.');
-//         return;
-//     }
-
-//     //redirect to a payment gateway or show a message
-//     alert('Redirecting to payment gateway...');
-
-//     // After payment, you can clear the cart
-//     cart = [];
-//     displayCart();
-// }
-
 
 function showSection(section) {
     // Hide all sections
@@ -342,11 +316,30 @@ function showSection(section) {
 // document.getElementById('menu-link').addEventListener('click', () => showSection('menu'));
 // document.getElementById('blogs-link').addEventListener('click', () => showSection('blogs'));
 
-
+function showPaymentDetails() {
+    const paymentMethods = document.getElementsByName('payment-method');
+    const cardDetails = document.getElementById('card-details');
+    const paypalDetails = document.getElementById('paypal-details');
+    const codMessage = document.getElementById('cod-message');
+  
+    cardDetails.style.display = 'none';
+    paypalDetails.style.display = 'none';
+    codMessage.style.display = 'none';
+  
+    for (const method of paymentMethods) {
+        if (method.checked) {
+            if (method.value === 'credit-card') {
+                cardDetails.style.display = 'block';
+            } else if (method.value === 'paypal') {
+                paypalDetails.style.display = 'block';
+            } else if (method.value === 'cod') {
+                codMessage.style.display = 'block';
+            }
+        }
+    }
+  }
 
 function checkout() {
-
-    
     // Hide other sections
     document.querySelector('.home').style.display = 'none';
     document.querySelector('.about').style.display = 'none';
@@ -354,11 +347,11 @@ function checkout() {
     document.querySelector('.blogs').style.display = 'none';
 
     // Hide the cart section
-    document.querySelector('.cart-items-container').style.display = 'none';
+    // document.querySelector('.cart-items-container').style.display = 'none';
     
-     // Display the payment section
-     const paymentSection = document.getElementById('payment-section');
-     paymentSection.style.display = 'block';
+    // Display the payment section
+    const paymentSection = document.getElementById('payment-section');
+    paymentSection.style.display = 'block';
     
     // Update order summary dynamically 
     updateOrderSummary();
@@ -367,9 +360,8 @@ function checkout() {
 document.getElementById('checkout-button').addEventListener('click', checkout);
 
 function updateOrderSummary() {
-    // Fetch order items and total from cart 
-    const totalItems = 3; 
-    const totalPrice = 45.99; 
+    const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0); // Handle undefined quantities
+    const totalPrice = cart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0).toFixed(2);
 
     document.getElementById('order-items').textContent = `Total Items: ${totalItems}`;
     document.getElementById('order-total').textContent = `Total Price: $${totalPrice}`;
