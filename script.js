@@ -297,57 +297,6 @@ function displayCart() {
     displayOrder();
 }
 
-
-
-
-// // Function to display cart items and calculate total
-// // Function to display cart items and calculate total
-// function displayCart() {
-//     const cartItemsElement = document.getElementById('cartItems');
-//     const totalElement = document.getElementById('total');
-//     const cartCountElement = document.getElementById('cart-count'); // Element to show item count
-//     let cartItemsHTML = '';
-//     let total = 0;
-
-//     // Count the number of items in the cart
-//     const itemCount = cart.length;
-
-//     cart.forEach((item, index) => {
-//         const quantity=quantities[item.name];
-//         cartItemsHTML += `<li>${item.name} - $${quantity*item.price.toFixed(2)} <button onclick="removeFromCart(${index})">Remove</button></li>`;
-//         total += item.price;
-//     });
-
-//     // Update cart items display
-//     cartItemsElement.innerHTML = cartItemsHTML;
-
-//     // Update total price display
-//     totalElement.textContent = `Total: $${total.toFixed(2)}`;
-
-//     // Update cart count display
-//     cartCountElement.textContent = `(${itemCount})`;
-
-//     // Optionally display an order summary or other elements
-//     displayOrder();
-// }
-
-
-// Function to simulate checkout
-// function checkout() {
-//     if (cart.length === 0) {
-//         alert('Your cart is empty. Please add some items.');
-//         return;
-//     }
-
-//     //redirect to a payment gateway or show a message
-//     alert('Redirecting to payment gateway...');
-
-//     // After payment, you can clear the cart
-//     cart = [];
-//     displayCart();
-// }
-
-
 function showSection(section) {
     // Hide all sections
     document.querySelector('.home').style.display = 'none';
