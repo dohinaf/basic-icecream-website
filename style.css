@@ -144,6 +144,15 @@ button:hover {
   color: var(--text-color);
 }
 
+.nav-link {
+  font-weight: normal;
+  transition: font-weight 0.3s ease;
+}
+
+.nav-link.active {
+  font-weight: bold;
+}
+
 /*wishlist styles */
 
 .wishlist-container {
@@ -487,25 +496,19 @@ button:hover {
   
 .header .search-form {
   position: absolute;
-  top: calc(100% + 1rem);
-  /* Adjusted to position below header */
+  top: calc(100% + 1rem); /* Adjusted to position below header */
   right: 7%;
   background-color: var(--background-color);
-  width: 20rem;
-  /* Adjusted width for better fit */
+  width: 20rem; /* Adjusted width for better fit */
   height: auto;
-  display: none;
-  /* Initially hidden */
+  display: none; /* Initially hidden */
   padding: 1rem;
-  box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);
-  /* Added box shadow */
-  z-index: 100;
-  /* Ensure it's above other content */
+  box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1); /* Added box shadow */
+  z-index: 100; /* Ensure it's above other content */
 }
 
 .header .search-form.active {
-  display: flex;
-  /* Show when active */
+  display: flex; /* Show when active */
 }
 
 .header .search-form input {
@@ -521,8 +524,7 @@ button:hover {
   cursor: pointer;
   font-size: 2.2rem;
   color: var(--text-color);
-  margin-left: 1rem;
-  /* Adjusted margin */
+  margin-left: 1rem; /* Adjusted margin */
 }
 
 .header .search-form label:hover {
