@@ -4,45 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signup Page</title>
-    <link rel="stylesheet" href="../preloaderStyle.css">
     <link rel="stylesheet" href="signup.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-     <!-- preloader -->
-  <div id="preloader">
-    <div class="wrapper">
-        <div class="box-wrap">
-            <div class="box one"></div>
-            <div class="box two"></div>
-            <div class="box three"></div>
-            <div class="box four"></div>
-            <div class="box five"></div>
-            <div class="box six"></div>
-        </div>
-    </div>
-</div>
     <div class="signup-container">
         <div id="signup-box" class="signup-box">
             <h2>Create an Account</h2>
-            <form action="#" class="signup-form">
+            <form action="../profile.html" method="GET" class="signup-form">
                 <div class="input-group">
-                    <i class="fas fa-user"></i>
-                    <input type="text" required>
+                    <input type="text" name="username" required>
                     <label>Username</label>
                 </div>
                 <div class="input-group">
-                    <i class="fas fa-envelope"></i>
-                    <input type="email" required>
+                    <input type="email" name="email" required>
                     <label>Email</label>
                 </div>
                 <div class="input-group">
-                    <i class="fas fa-lock"></i>
-                    <input type="password"  id="password" required>
-                    <label>Password</label>
-                    <span class="toggle-password" onclick="togglePasswordVisibility()">
-                        <i class="fas fa-eye" id="eye-icon"></i>
-                    </span>
+                    <input type="password" name="password" required>
                     <label>Password</label>
                 </div>
                 <button class="signup-btn" type="submit">Sign Up</button>
@@ -53,10 +32,7 @@
             </form>
         </div>
     </div>
-    <script src="../preloader.js"></script>
     <script src="signup.js"></script>
-    <div class="gtranslate_wrapper"></div>
-<script>window.gtranslateSettings = {"default_language":"en","detect_browser_language":true,"wrapper_selector":".gtranslate_wrapper"}</script>
-<script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
 </body>
 </html>
+
