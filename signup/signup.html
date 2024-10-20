@@ -11,28 +11,31 @@
     <div class="signup-container">
         <div id="signup-box" class="signup-box">
             <h2>Create an Account</h2>
-            <form action="../profile.html" method="GET" class="signup-form">
+            <form class="signup-form" id="signupForm">
                 <div class="input-group">
-                    <input type="text" name="username" required>
+                    <input type="text" id="username" name="username" required>
                     <label>Username</label>
                 </div>
                 <div class="input-group">
-                    <input type="email" name="email" required>
+                    <input type="email" id="email" name="email" required>
                     <label>Email</label>
                 </div>
                 <div class="input-group">
-                    <input type="password" name="password" required>
+                    <input type="password" id="password" name="password" required>
                     <label>Password</label>
                 </div>
                 <button class="signup-btn" type="submit">Sign Up</button>
                 <div class="extra-links">
-                    <button class="home-btn"><i class="fas fa-home"></i><a href="../index.html">Home</a></button>
-                    <button class="login-btn"><i class="fas fa-sign-in-alt"></i><a href="../login/login.html">Login</a></button>
+                    <button class="home-btn">
+                        <i class="fas fa-home"></i><a href="../index.html">Home</a>
+                    </button>
+                    <button class="login-btn">
+                        <i class="fas fa-sign-in-alt"></i><a href="../login/login.html">Login</a>
+                    </button>
                 </div>
             </form>
         </div>
-    </div>
+    </div> 
     <script src="signup.js"></script>
 </body>
 </html>
-

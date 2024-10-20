@@ -2466,3 +2466,19 @@ form h3 {
   background-color: #0056b3;
   /* Darken on hover */
 }
+
+.image-container {
+  overflow: hidden; /* Prevents the image from overflowing */
+  display: inline-block;
+  position: relative;
+}
+
+.image-container img {
+  transition: transform 0.5s ease-in-out; /* Smooth transition */
+  width: 100%; /* Ensures image fits the container */
+  height: auto;
+}
+
+.image-container img:hover {
+  transform: scale(1.1); /* Zoom effect */
+}

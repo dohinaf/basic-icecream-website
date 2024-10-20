@@ -263,6 +263,58 @@
 
 
 </style>
+<script>
+  const handleSignUp = (event) => {
+    document.getElementById('emailForm').addEventListener('submit', function (event) {
+  event.preventDefault(); // Prevents form submission for validation
+
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const password = document.getElementById('password').value.trim();
+
+  // Name Validation
+  if (name === '') {
+    alert('Name cannot be empty.');
+    return;
+  }
+
+  // Email Validation (using a basic regex pattern)
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailPattern.test(email)) {
+    alert('Invalid email format.');
+    return;
+  }
+
+  // Password Validation
+  const passwordMinLength = 8;
+  const passwordMaxLength = 16;
+  const hasUpperCase = /[A-Z]/.test(password);
+  const hasLowerCase = /[a-z]/.test(password);
+  const hasSpecialChar = /[$_]/.test(password);
+
+  if (password.length < passwordMinLength || password.length > passwordMaxLength) {
+    alert(`Password must be between ${passwordMinLength} and ${passwordMaxLength} characters.`);
+    return;
+  }
+  if (!hasUpperCase) {
+    alert('Password must contain at least one uppercase letter.');
+    return;
+  }
+  if (!hasLowerCase) {
+    alert('Password must contain at least one lowercase letter.');
+    return;
+  }
+  if (!hasSpecialChar) {
+    alert('Password must contain at least one special character ($ or _).');
+    return;
+  }
+
+  // If all validations pass
+  alert('Form submitted successfully!');
+  event.target.submit(); // Submit the form after successful validation
+});
+  }
+</script>
 </head>
 
 <body>
@@ -421,25 +473,13 @@
               <input type="email" id="email" placeholder="Enter your Email" required>
               <input type="password" id="password" placeholder="Enter your Password" required>
 
-              <button type="submit" class="signup-btn">SIGN UP</button>
+              <button type="submit" class="signup-btn" onclick="handleSignUp(event)">SIGN UP</button>
           </form>
           <a href="#" class="no-thanks">No thanks</a>
           <p class="terms">By signing up, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>
       </div>
   </div>
 </div>
-
-<script>
-  // Handle form submission for the pop-up sign-up form
-  document.getElementById('emailForm').addEventListener('submit', function(event) {
-      event.preventDefault(); // Prevent default form submission
-      
-      // Perform any sign-up logic here, such as email validation or server requests
-      
-      // Redirect to profile.html after sign-up
-      window.location.href = 'profile.html'; // Redirect user to the profile page
-  });
-</script>
 
     <!--  Pop-up for Discount and Sign up Ends here  -->
     
@@ -479,15 +519,6 @@ document.addEventListener('click', function (event) {
     });
 
     // Handle form submission
-    document.getElementById('emailForm').addEventListener('submit', function(event) {
-      event.preventDefault();
-      
-      const email = document.getElementById('email').value;
-      if (email) {
-        alert(`Thank you! A 20% discount code has been sent to ${email}`);
-        document.getElementById('popup').style.display = 'none';
-      }
-    });
 
     // Handle "No thanks" link
     document.querySelector('.no-thanks').addEventListener('click', function(event) {
@@ -508,7 +539,7 @@ document.addEventListener('click', function (event) {
       <span style="color: orangered;">about</span> us
   </h1>  
       <div class="row" style="display: flex; align-items: center; justify-content: flex-end;">
-          <div class="image" style="margin-right: 30px;">
+          <div class="image"  class="image-container" style="margin-right: 30px;">
               <img src="ice cream.jpg" alt="ice cream" style="width: 500px; height: auto;" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200" data-aos-anchor-placement="top-bottom">
           </div>
           <div class="content" style="text-align: right;" data-aos-anchor-placement="top-bottom">
@@ -1382,7 +1413,7 @@ document.addEventListener('click', function (event) {
 <section class="review-section" id="review-section">
   <div class="review-container">
     <div class="review-left">
-      <img data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200" src="https://images.unsplash.com/photo-1505394033641-40c6ad1178d7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8aWNlY3JlYW18ZW58MHx8MHx8fDA%3D" alt="Delicious Ice Cream" class="ice-cream-image">
+      <img data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200" src="https://images.unsplash.com/photo-1505394033641-40c6ad1178d7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8aWNlY3JlYW18ZW58MHx8MHx8fDA%3D" alt="Delicious Ice Cream" class="ice-cream-image image-container">
     </div>
     <div class="review-right">
       <h2 data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200">Share Your Ice Cream Experience!</h2>

@@ -1,3 +1,4 @@
+// Smooth card hover effect
 const card = document.getElementById("signup-box");
 
 card.addEventListener("mousemove", function (e) {
@@ -5,19 +6,15 @@ card.addEventListener("mousemove", function (e) {
   const mouseX = e.clientX - cardRect.left;
   const mouseY = e.clientY - cardRect.top;
 
-  // Determine which side the mouse is closest to
   const topSide = mouseY;
   const bottomSide = cardRect.height - mouseY;
   const leftSide = mouseX;
   const rightSide = cardRect.width - mouseX;
 
-  // Find the minimum distance to any side
   const minDistance = Math.min(topSide, bottomSide, leftSide, rightSide);
 
-  // Reset transform first
   card.style.transform = "perspective(1000px)";
 
-  // Add transformation based on side
   if (minDistance === topSide) {
     card.style.transform += " translateY(-10px) rotateX(-5deg)";
   } else if (minDistance === bottomSide) {
@@ -30,57 +27,58 @@ card.addEventListener("mousemove", function (e) {
 });
 
 card.addEventListener("mouseleave", function () {
-  // Reset the card when the cursor leaves
   card.style.transform = "perspective(1000px)";
 });
 
+// Form validation
+const handleSignUpForm = (event) => {
+  event.preventDefault();
 
-document.querySelector(".signup-form").addEventListener("submit", function (e) {
-  e.preventDefault(); // Prevent form submission
+  const username = document.getElementById('username').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const password = document.getElementById('password').value;
 
-  const username = document.querySelector(
-    '.signup-form input[type="text"]'
-  ).value;
-  const email = document.querySelector(
-    '.signup-form input[type="email"]'
-  ).value;
-  const password = document.querySelector(
-    '.signup-form input[type="password"]'
-  ).value;
-
-  // Validate if all fields are filled
-  if (username && email && password) {
-    const userData = {
-      username: username,
-      email: email,
-      password: password,
-    };
-
-    // Get existing users from local storage, or initialize an empty array if none exists
-    const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
-
-    // Add the new user to the array of existing users
-    existingUsers.push(userData);
-
-    // Save the updated users array back to local storage
-    localStorage.setItem("users", JSON.stringify(existingUsers));
-
-    alert("We are happy to have you as a new customer!");
-
-    // Redirect to the home page
-    window.location.assign("../index.html"); // Change this to your desired home page
-  } else {
-    alert("Please fill in all fields.");
+  // Username validation
+  if (username.length < 3) {
+    alert('Username must be at least 3 characters long.');
+    return;
   }
 
-  document.querySelector(".signup-form").reset(); // Clear the form fields
-});
+  // Email validation using regex
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailPattern.test(email)) {
+    alert('Please enter a valid email address.');
+    return;
+  }
 
-document.querySelector('.signup-form').addEventListener('submit', function(event) {
-  event.preventDefault(); // Prevent the default form submission
+  // Password validation criteria
+  const passwordMinLength = 8;
+  const passwordMaxLength = 16;
+  const hasUpperCase = /[A-Z]/.test(password);
+  const hasLowerCase = /[a-z]/.test(password);
+  const hasSpecialChar = /[$_]/.test(password);
 
-  // You can add form validation or any other logic here
+  if (password.length < passwordMinLength || password.length > passwordMaxLength) {
+    alert(`Password must be between ${passwordMinLength} and ${passwordMaxLength} characters.`);
+    return;
+  }
+  if (!hasUpperCase) {
+    alert('Password must contain at least one uppercase letter.');
+    return;
+  }
+  if (!hasLowerCase) {
+    alert('Password must contain at least one lowercase letter.');
+    return;
+  }
+  if (!hasSpecialChar) {
+    alert('Password must contain at least one special character ($ or _).');
+    return;
+  }
 
-  // Redirect to profile.html
-  window.location.href = '../profile.html';
-});
+  alert('Form submitted successfully!');
+  document.getElementById('signupForm').reset();  // Clear the form fields
+  window.location.assign("../profile.html");  // Redirect to profile page
+};
+
+// Attach form submit event listener
+document.getElementById('signupForm').addEventListener('submit', handleSignUpForm);
