@@ -144,6 +144,15 @@ button:hover {
   color: var(--text-color);
 }
 
+.nav-link {
+  font-weight: normal;
+  transition: font-weight 0.3s ease;
+}
+
+.nav-link.active {
+  font-weight: bold;
+}
+
 /*wishlist styles */
 
 .wishlist-container {
