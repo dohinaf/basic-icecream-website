@@ -159,3 +159,10 @@ input:focus{
     outline: none;
     box-shadow: 0px 4px 10px rgba(255, 138, 0, 0.2); /* Subtle shadow on focus */
 }
+
+.login-btn img.google-logo {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
