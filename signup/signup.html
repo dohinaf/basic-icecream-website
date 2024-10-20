@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signup Page</title>
-    <link rel="stylesheet" href="../preloaderStyle.css">
     <link rel="stylesheet" href="signup.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -24,18 +23,17 @@
             </div>
         </div>
     </div>
+
     <div class="signup-container">
         <div id="signup-box" class="signup-box">
             <h2>Create an Account</h2>
-            <form action="#" class="signup-form">
+            <form action="../profile.html" method="GET" class="signup-form">
                 <div class="input-group">
-                    <i class="fas fa-user"></i>
-                    <input type="text" required>
+                    <input type="text" name="username" required>
                     <label>Username</label>
                 </div>
                 <div class="input-group">
-                    <i class="fas fa-envelope"></i>
-                    <input type="email" required>
+                    <input type="email" name="email" required>
                     <label>Email</label>
                 </div>
                 <div class="input-group">
@@ -59,7 +57,6 @@
             </form>
         </div>
     </div>
-    <script src="../preloader.js"></script>
     <script src="signup.js"></script>
     <script src="../google_signin.js"></script>
 
@@ -67,5 +64,4 @@
     <script>window.gtranslateSettings = { "default_language": "en", "detect_browser_language": true, "wrapper_selector": ".gtranslate_wrapper" }</script>
     <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
 </body>
-
 </html>
