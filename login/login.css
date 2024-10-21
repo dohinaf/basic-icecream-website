@@ -1,161 +1,160 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f0f0;
 }
 
-body {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(135deg, #ff8a00, #e52e71);
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 650px;
+  width: 100%;
+  gap: 20px;
 }
 
 .login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    gap: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
 .login-box {
-    background: rgba(255, 255, 255, 0.2);
-    padding: 40px;
-    border-radius: 15px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    transform: perspective(1000px); /* Adding perspective for 3D effect */
-    width: 350px;
-    height: 450px;
+  width: 53%;
+  padding: 20px;
+  position: relative;
 }
 
-h2 {
-    color: white;
-    margin-bottom: 20px;
+.welcome{
+  text-align: center;
 }
 
-.login-form, .signup-form {
-    display: flex;
-    flex-direction: column;
+.ice-cream-image {
+  position: absolute;
+  width: 250px;
+  height: 368px;
+  border-radius: 0px 10px 10px 0px;
+  left: 800px;
+}
+
+.login-box h2 {
+  color: #FF69B4;
+  margin-bottom: 30px;
+  font-size: 28px;
+}
+
+.login-btn{
+  width: 370px;
+}
+.login-form {
+  display: flex;
+  flex-direction: column;
 }
 
 .input-group {
-    position: relative;
-    margin-bottom: 20px;
+  position: relative;
+  margin-bottom: 20px;
 }
 
 .input-group input {
-    width: 100%;
-    padding: 10px 50px 10px 40px; /* Left padding increased for the icon */
-    border: none;
-    border-bottom: 2px solid white;
-    background: transparent;
-    color: white;
-    font-size: 16px;
-}
-.login-btn{
-    margin-top: 30px;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 25px;
+  background-color: #F0F0F0;
+  font-size: 16px;
+  transition: all 0.3s ease;
 }
 
 .input-group label {
-    position: absolute;
-    top: 50%;
-    left: 40px; /* Adjusted label positioning to avoid overlap with icon */
-    transform: translateY(-50%);
-    color: white;
-    pointer-events: none;
-    transition: 0.3s;
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999;
+  pointer-events: none;
+  transition: all 0.3s ease;
 }
 
-.input-group input:focus ~ label,
-.input-group input:valid ~ label {
-    top: -9px; /* When input is focused, label moves up */
-    left: -9px;
-    font-size: 12px;
-    color: #ff8a00; /* Highlighted color */
-}
-.input-group i {
-    position: absolute;
-    left: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 16px;
-    color: white; /* Adjusted icon color */
+.input-group input:focus + label,
+.input-group input:valid + label {
+  top: -10px;
+  left: 10px;
+  font-size: 12px;
+  color: #FF69B4;
+  background-color: white;
+  padding: 0 5px;
 }
 
-
-
-.toggle-password {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-    color: white;
+.login-btn {
+  padding: 12px;
+  background-color: #FF69B4;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
 }
 
-.toggle-password:hover i {
-    color: #ff8a00; /* Change the color on hover */
-    cursor: pointer;
-}
-.login-btn, .signup-btn {
-    padding: 10px;
-    border: none;
-    border-radius: 30px;
-    background-color: #e52e71;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.login-btn:hover, .signup-btn:hover {
-    background-color: #ff8a00;
+.login-btn:hover {
+  background-color: #FF1493;
+  transform: scale(1.05);
 }
 
 .extra-links {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    margin-top: 120px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
 }
 
-.extra-links button {
+.home-btn, .signup-btn {
+  background: none;
+  border: none;
+  color: #FF69B4;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.home-btn:hover, .signup-btn:hover {
+  color: #FF1493;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
     padding: 10px;
-    border: none;
-    border-radius: 30px;
-    background-color: rgba(255, 255, 255, 0.1);
-    color: white;
-    cursor: pointer;
-    transition: background 0.3s;
+  }
+
+  .login-box {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .ice-cream-image {
+    width: 200px;
+    height: auto;
+  }
 }
 
-.extra-links button:hover {
-    background-color: rgba(255, 255, 255, 0.3);
-}
+@media (max-width: 480px) {
+  .login-container {
+    flex-direction: column;
+  }
 
-.extra-links .home-btn i,
-.extra-links .signup-btn i,
-.extra-links .login-btn i {
-    margin-right: 8px;
-}
-
-a{
-    text-decoration: none;
-    color: white;
-}
-
-input:focus{
-    outline: none;
-}
-
-.input-group input:focus {
-    border-bottom: 2px solid #ff8a00;
-    outline: none;
-    box-shadow: 0px 4px 10px rgba(255, 138, 0, 0.2); /* Subtle shadow on focus */
+  .ice-cream-image {
+    width: 150px;
+    height: auto;
+  }
 }
