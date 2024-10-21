@@ -71,6 +71,18 @@
             background-color: #ff6347;
             transform: scale(1.05);
         }
+        .search-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        #blog-search {
+            width: 300px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            color:white;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
@@ -149,6 +161,9 @@
     </header>
     <section class="blogs" id="blogs">
         <h1 class="heading">Our <span>Blogs</span></h1>
+        <div class="search-container">
+            <input type="text" id="blog-search" placeholder="Search blogs...">
+        </div>
         <div class="blog-container">
             <div class="blog">
                 <img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Blog Post 1" class="blog-image">
@@ -242,6 +257,28 @@
             </div>
         </div>
     </section>
+    <script>
+        // ... existing scripts ...
+
+        // Blog search functionality
+        const blogSearch = document.getElementById('blog-search');
+        const blogPosts = document.querySelectorAll('.blog');
+
+        blogSearch.addEventListener('input', function() {
+            const searchQuery = this.value.toLowerCase();
+
+            blogPosts.forEach(post => {
+                const title = post.querySelector('h3').textContent.toLowerCase();
+                const content = post.querySelector('p').textContent.toLowerCase();
+
+                if (title.includes(searchQuery) || content.includes(searchQuery)) {
+                    post.style.display = 'block';
+                } else {
+                    post.style.display = 'none';
+                }
+            });
+        });
+    </script>
     <script>
         //chatbot added here!
         window.embeddedChatbotConfig = {
