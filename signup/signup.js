@@ -34,7 +34,6 @@ card.addEventListener("mouseleave", function () {
   card.style.transform = "perspective(1000px)";
 });
 
-
 document.querySelector(".signup-form").addEventListener("submit", function (e) {
   e.preventDefault(); // Prevent form submission
 
@@ -83,6 +82,7 @@ document.getElementById('password').addEventListener('input', function() {
   const uppercaseRequirement = document.getElementById('uppercase-requirement');
   const numberRequirement = document.getElementById('number-requirement');
   const specialRequirement = document.getElementById('special-requirement');
+  const signupButton = document.querySelector('.signup-btn');
   let strength = '';
   let strengthClass = '';
 
@@ -119,4 +119,7 @@ document.getElementById('password').addEventListener('input', function() {
   strengthDiv.textContent = strength;
   strengthDiv.className = strengthClass;
   this.className = strengthClass;
+
+  // Enable/disable signup button
+  signupButton.disabled = strength !== 'Strong';
 });
