@@ -81,6 +81,6 @@ document.querySelector('.signup-form').addEventListener('submit', function(event
 
   // You can add form validation or any other logic here
 
-  // Redirect to profile.html
-  window.location.href = '../profile.html';
+  // Redirect to index.html
+  window.location.href = '../index.html';
 });

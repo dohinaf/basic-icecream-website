@@ -49,6 +49,8 @@ if (signupCard) {
 
 document.addEventListener('DOMContentLoaded', () => {
   const loginForm = document.querySelector('.login-form');
+  const loginButton = document.getElementById('login-btn');
+  const logoutButton = document.getElementById('logout-btn');
 
   loginForm.addEventListener('submit', function (e) {
       e.preventDefault(); // Prevent default form submission
@@ -68,9 +70,13 @@ document.addEventListener('DOMContentLoaded', () => {
               if (email === userData.email && password === userData.password) {
                   userFound = true;
                   alert("Glad you are back for another treat!");
-                  // Redirect to profile.html after a short delay
+          // Show logout button and hide login button
+                  logoutButton.style.display = 'block';
+                  loginButton.style.display = 'none';
+
+                  // Redirect to ../index.html after a short delay
                   setTimeout(() => {
-                      window.location.href = '../profile.html'; // Redirect to the profile page
+                      window.location.href = '../index.html'; // Redirect to the index page
                   }, 500); // 500 milliseconds delay
                   break; // Exit the loop once found
               }
@@ -89,14 +95,11 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-
-
-
-// password toggle feature
+// Password toggle feature
 function togglePasswordVisibility() {
   const passwordInput = document.getElementById("password");
   const eyeIcon = document.getElementById("eye-icon");
-  
+
   if (passwordInput.type === "password") {
       passwordInput.type = "text";
       eyeIcon.classList.remove("fa-eye");
