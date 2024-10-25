@@ -1418,7 +1418,7 @@ button:hover {
 
 .footer .links a {
   padding: 0.7rem 2rem;
-  color: var(--text-color);
+  color: black;
   border: var(--border);
   font-size: 2rem;
 }
