@@ -943,78 +943,104 @@ button:hover {
   background-color: var(--background-color);
 }
 
+
+
+/* Container for the card layout */
+
 .menu .box-container {
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
-  height: auto;
-  width: auto;
   justify-content: space-around;
   align-items: center;
+  gap: 20px; 
+  perspective: 1000px; 
 }
 
+
 .menu .box-container .box {
-  margin: 2rem;
-  padding: 0.7rem;
-  border-radius: 8px;
-  border-width: 1.1rem;
-  border-color: var(--text-color);
-  background-color: #d2a679;
-  /* border: 1px solid brown; */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
-  text-align: center;
-  border: var(--text-color);
-  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background-color: #f8f3eb;
+  border-radius: 12px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.4s ease;
+  width: 280px; 
+  height: 450px; 
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
 }
+
+
+.menu .box-container .box:hover {
+  transform: translateY(-12px); 
+  box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2); 
+}
+
 
 .menu .box-container .box h3 {
   padding-top: 10px;
-  color: var(--text-color);
-  font-size: 1.9rem;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  color: var(--text-color);
+  color: #4e1a22;
+  font-size: 1.8rem;
+  font-family: 'Cambria', serif;
+  text-align: center;
 }
+
 
 .menu .box-container .box .price {
-  color: var(--text-color);
+  color: #4e1a22;
   font-size: 1.6rem;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  color: var(--text-color);
+  font-family: 'Cambria', serif;
+  text-align: center;
+  margin-top: 10px;
 }
 
+
 .menu .box-container .box .price span {
-  color: var(--text-color);
+  color: #d3ad7f; 
   font-size: 1.2rem;
   text-decoration: line-through;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  color: var(--text-color);
+  font-family: 'Cambria', serif;
 }
 
 .menu img {
-  width: 220px;
-  height: 220px;
-  border-radius: 1rem;
+  width: 100%;
+  height: 220px; 
+  object-fit: cover; 
+  border-radius: 10px;
   transition: transform 0.5s ease-in-out;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
 }
 
+
+.menu img:hover {
+  transform: scale(1.05) rotateY(10deg); 
+}
+
+.menu .box-container .box .picture {
+  position: relative;
+  width: 100%;
+  height: 220px; 
+  overflow: hidden; 
+  border-radius: 10px;
+} 
 .menu .picture {
   position: relative;
   /* Added to position the .flip div correctly */
+
   perspective: 1000px;
 }
 
 /* CSS for flip element */
 .menu .flip {
-  width: 220px;
+  width: 100%;
   height: 220px;
-  border-radius: 1rem;
+  border-radius: 10px;
   transition: transform 0.5s ease-in-out;
   background: linear-gradient(135deg, #d5006d, #9c0b2d);
   color: #ffffff;
   font-size: 1.6rem;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-family: 'Cambria', serif;
   font-weight: bold;
   display: flex;
   align-items: center;
@@ -1024,41 +1050,54 @@ button:hover {
   left: 0;
   backface-visibility: hidden;
   transform: rotateY(180deg);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-  border: 2px solid #ffffff;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-  padding: 10px;
 }
 
 .picture:hover img {
   transform: rotateY(180deg);
-  /* Rotate the image on hover */
+
 }
 
 .picture:hover .flip {
   transform: rotateY(0);
-  /* Show the .flip text on hover */
+
 }
 
-.box:hover {
-  transform: scale(1.05);
-  transition-duration: 0.6s;
+.menu .box-container .box .button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  width: 100%;
 }
+
 
 #inbox {
   background-color: #fff8e7;
-  border: 0.5px solid #c69861;
-  color: #d3ad7f;
-  width: fit-content;
-  transition: background-color 0.3s ease, color 0.3s ease,
-    border-color 0.3s ease;
+  border: 1px solid #c69861;
+  color: #4e1a22;
+  width: 90%; 
+  padding: 10px;
+  /* margin: 5px 0;  */
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  text-align: center;
+  font-size: 1.4rem;
+  font-family: 'Cambria', serif;
+  border-radius: 6px;
+  display: block;
+  box-sizing: border-box;
+}
+
+/* Hover effect for buttons */
+#inbox:hover {
+
+  color: #ca7c1d;
+  border-color: #b89b57;
+  background-color: #faebd7;
 }
 
 #pro-name {
   color: #4e1a22;
-}
+  text-align: center; /* Center the product name */
 
-#inbox:hover {
   /* background-color: #d3ad7f; Darkens background on hover */
   color: #ca7c1d;
   /* Lightens text color on hover */
