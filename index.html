@@ -595,12 +595,22 @@ document.addEventListener('click', function (event) {
         <div class="filter-box">
           
             <h3 id="filter-head">Filter Ice Creams</h3>
-            <select id="price-filter">
-                <option value="all">All Prices</option>
-                <option value="under-15">Under $15</option>
-                <option value="15-20">$15 - $20</option>
-                <option value="over-20">Over $20</option>
+            <!-- Price filter dropdown -->
+            <select id="price-filter" style="height: 50px; padding: 4px; font-size: 14px; border-radius: 4px; border: 1px solid #ccc;">
+            <option value="all">All Prices</option>
+            <option value="under-15">Under $15</option>
+            <option value="15-20">$15 - $20</option>
+            <option value="over-20">Over $20</option>
             </select>
+
+            <!-- Allergy filter form -->
+            <form id="allergy-form" style="display: flex; align-items: center; gap: 12px; margin-bottom: 15px;">
+              <label for="allergy-input" style="font-size: 14px; font-weight: 500; color: #333; margin-right: 8px;">
+                Allergy (if any)
+            </label>
+            <input type="text" id="allergy-input" placeholder="e.g., no nuts, no dairy" style="padding: 4px 10px; font-size: 14px; width: 140px; border: 1px solid #ccc; border-radius: 4px;" />
+        </form>
+
             <button id="apply-filter">Apply Filter</button>
             <button id="remove-filter">Remove Filter</button> <!-- New Remove Filter Button -->
         </div>
@@ -892,6 +902,60 @@ document.addEventListener('click', function (event) {
         
     </section>
 
+    <!-- JavaScript Functionality -->
+<script>
+  // Sample product data
+  const products = [
+      { name: 'Nutty Butterscotch', price: 15.99, allergies: ['nuts'], elementId: 'itemQuantity-Nutty Butterscotch' },
+      // Add more product objects here
+  ];
+
+  document.getElementById('allergy-form').addEventListener('submit', function (event) {
+      event.preventDefault();
+      const allergyInfo = document.getElementById('allergy-input').value.trim().toLowerCase();
+      if (allergyInfo) {
+          filterProducts({ allergies: allergyInfo });
+      } else {
+          alert("Please enter specific allergy information.");
+      }
+  });
+
+  document.getElementById('apply-filter').addEventListener('click', () => {
+      const priceFilter = document.getElementById('price-filter').value;
+      const flavorFilter = document.getElementById('flavor-filter').value.trim().toLowerCase();
+      filterProducts({ price: priceFilter, flavor: flavorFilter });
+  });
+
+  document.getElementById('remove-filter').addEventListener('click', resetFilters);
+
+  function filterProducts({ allergies = '', price = 'all', flavor = '' }) {
+      products.forEach(product => {
+          const element = document.getElementById(product.elementId).closest('.box');
+          let show = true;
+
+          if (allergies && product.allergies.some(allergy => allergies.includes(allergy))) {
+              show = false;
+          }
+          if (price === 'under-15' && product.price >= 15) show = false;
+          if (price === '15-20' && (product.price < 15 || product.price > 20)) show = false;
+          if (price === 'over-20' && product.price <= 20) show = false;
+          if (flavor && !product.name.toLowerCase().includes(flavor)) show = false;
+
+          element.style.display = show ? 'block' : 'none';
+      });
+  }
+
+  function resetFilters() {
+      document.getElementById('flavor-filter').value = '';
+      document.getElementById('price-filter').value = 'all';
+      document.getElementById('allergy-input').value = '';
+      products.forEach(product => {
+          const element = document.getElementById(product.elementId).closest('.box');
+          element.style.display = 'block';
+      });
+  }
+</script>
+
 
 <!-- Payment Section Starts Here -->
 <section id="payment-section" class="payment-section" style="display: none;">
@@ -963,6 +1027,7 @@ document.addEventListener('click', function (event) {
 </button>
 <!-- partial -->
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script><script  src="./script.js"></script>
+  <script src="./filter.js"></script>
 <style>
   :root {
   --primary: #f6f8ff;
