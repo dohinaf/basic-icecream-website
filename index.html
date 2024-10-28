@@ -7,8 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ArcticDelights</title>
-    <link rel="stylesheet" href="preloaderStyle.css">
-    <link rel="icon" href="https://purepng.com/public/uploads/large/purepng.com-ice-creamice-creamcreamfrozensweet-1411527617895aiuhx.png" type="image/x-icon">
+    <link rel="icon" href="https://purepng.com/public/uploads/large/purepng.com-ice-creamice-creamcreamfrozensweet-1411527617895aiuhx.png" type="image/x-icon"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"> <!--Updated to latest version-->
 
     <!-- Custom CSS -->
@@ -109,23 +108,10 @@
       font-size: 24px;
       margin-bottom: 10px;
     }
-    h3{
-      font-weight: 700;
-    }
 
     p {
       margin-bottom: 30px;
       font-size: small;
-    }
-
-    input[type="name"] {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 14px;
-      margin-bottom: 10px;
     }
 
     input[type="email"] {
@@ -135,23 +121,12 @@
       border: 1px solid #ccc;
       border-radius: 5px;
       font-size: 14px;
-      margin-bottom: 10px;
-    }
-    input[type="password"] {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 14px;
-      margin-bottom: 0px;
-    }
-    
- 
+      border: 1px solid var(--main-color);
+      background-color: var(--background-color);    }
 
     .signup-btn {
       width: 100%;
-      padding: 8px;
+      padding: 10px;
       background-color: black;
       color: white;
       border: none;
@@ -161,7 +136,7 @@
     }
 
     .signup-btn:hover {
-      background-color: #00ff15;
+      background-color: #333;
     }
 
     .no-thanks {
@@ -209,14 +184,6 @@
       font-size: 16px;
       height: 40px;
     }
-    .plus-minus{
-      background-color: #fff8e7;
-      border: 0.5px solid #c69861;
-      color: #d3ad7f;
-      width: fit-content;
-      transition: background-color 0.3s ease, color 0.3s ease,
-      border-color 0.3s ease;
-    }
   </style>
 <style>
   /* Circle styles */
@@ -233,52 +200,9 @@
     /* Stays on top of all elements */
   }
 </style>
-<style>
-  .social-icons a {
-    text-decoration: none;
-    color: #333; /* Default color for icons */
-    font-size: 26px;
-    transition: color 0.2s ease-in-out; /* Faster and sharper transition */
-}
-
-.social-icons a:hover .fa-linkedin {
-    color: #0A66C2; /* Brighter LinkedIn blue */
-}
-
-.social-icons a:hover .fa-facebook {
-    color: #1877F2; /* Brighter Facebook blue */
-}
-
-.social-icons a:hover .fa-x-twitter {
-    color: #1DA1F2; /* Bright X (Twitter) blue */
-}
-
-.social-icons a:hover .fa-instagram {
-    color: #E4405F; /* Brighter Instagram pink */
-}
-
-.social-icons a:hover .fa-pinterest {
-    color: #E60023; /* Brighter Pinterest red */
-}
-
-
-</style>
 </head>
 
 <body>
-   <!-- preloader -->
-   <div id="preloader">
-    <div class="wrapper">
-        <div class="box-wrap">
-            <div class="box one"></div>
-            <div class="box two"></div>
-            <div class="box three"></div>
-            <div class="box four"></div>
-            <div class="box five"></div>
-            <div class="box six"></div>
-        </div>
-    </div>
-</div>
 
 <!-- Circles -->
 <div class="circle"></div>
@@ -303,7 +227,7 @@
 <div class="circle"></div>
 
 
-    <button id="backToTop" style="font-size: 30px; font-weight: bold;">&#8673;</button>
+    <button id="backToTop">&#8679;</button>
 
     <!-- Header Starts Here -->
     <header class="header">
@@ -312,12 +236,8 @@
             <img src="https://purepng.com/public/uploads/large/purepng.com-ice-creamice-creamcreamfrozensweet-1411527617895aiuhx.png"
                 alt="Logo">
         </a>
-        <!-- Toggle Button (Hamburger) -->
-<div class="menu-btn" id="menu-btn">
-  <span class="fas fa-bars"></span>
-</div>
-        <h1 class="site-title">ArcticDelights</h1> 
-
+        <!-- ... existing code ... -->
+        <h1 class="site-title">ArcticDelights</h1>
 
 <nav class="navbar">
 
@@ -325,20 +245,17 @@
 <a href="#home">Home</a>
 <a href="#about">About</a>
 <a href="#menu">Menu</a>
-<a href="offers.html">Offers</a>
 <a href="#review-section">Review</a>
-<a href="blog.html">Blogs</a>
+<a href="#blogs">Blogs</a>
 <a href="contact.html">Contact Us</a>
 <a href="#" id="my-order-btn">My Orders</a>
 </nav>
 
 
-
         <div class="icons">
             <div class = "fas fa-heart" id = "wishlist-btn"></div>
             <div class="fas fa-search" id="search-btn"></div>
-            <div class="fas fa-shopping-cart" id="cart-btn"><span id="cart-count">(0)</span></div>
-          
+            <div class="fas fa-shopping-cart" id="cart-btn"></div>
         </div>
         <div class="theme-switch-wrapper">
             <label class="theme-switch" for="checkbox">
@@ -379,24 +296,16 @@
             
         </div>
         <div class="icons login-signup-collection">
-
-<!-- 
-            <button style="max-height: 40px;" id="login-btn" class="auth-btn">Login</button>
-            <p style="padding-right: 10px;">        </p>
-            <button style="max-height: 40px;" id="signup-btn" class="auth-btn">SignUp</button> -->
-
-             <button  style="max-height: 40px;" id="login-btn" class="auth-btn"><a href="./login/login.html">Login</a></button>
-             <button style="max-height: 40px;" id="login-btn" class="auth-btn"><a href="./signup/signup.html">signUp</a></button>
-
+            <button id="login-btn" class="auth-btn">Login</button>
+            <!-- <p style="padding-right: 10px;">        </p> -->
+            <button id="signup-btn" class="auth-btn">Sign Up</button>
         </div>
 
     </header>
     <!-- Header Ends Here -->
-     <!-- preloader styling js -->
-    <script src="preloader.js"></script>
 
     <!-- Home Section Starts Here -->
-    <br><br><br><br><br><br><section class="home" id="home"  data-aos="fade-up"
+    <section class="home" id="home"  data-aos="fade-up"
     data-aos-anchor-placement="top-bottom">
         <div class="content">
             <h3>Taste the sweetness with every bite</h3>
@@ -417,57 +326,18 @@
             <h2>Scoop Up the Savings!</h2>
             <p>Get 20% off on your first order when you Sign up.</p>
             <form id="emailForm">
-              <input type="name" id="name" placeholder="Enter your Name">
-              <input type="email" id="email" placeholder="Enter your Email" required>
-              <input type="password" id="password" placeholder="Enter your Password" required>
-
+              <input type="email" id="email" placeholder="Enter your email" required>
               <button type="submit" class="signup-btn">SIGN UP</button>
-          </form>
-          <a href="#" class="no-thanks">No thanks</a>
-          <p class="terms">By signing up, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>
+            </form>
+            <a href="#" class="no-thanks">No thanks</a>
+            <p class="terms">By signing up, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>
+          </div>
+        </div>
       </div>
-  </div>
-</div>
-
-<script>
-  // Handle form submission for the pop-up sign-up form
-  document.getElementById('emailForm').addEventListener('submit', function(event) {
-      event.preventDefault(); // Prevent default form submission
-      
-      // Perform any sign-up logic here, such as email validation or server requests
-      
-      // Redirect to profile.html after sign-up
-      window.location.href = 'profile.html'; // Redirect user to the profile page
-  });
-</script>
-
     <!--  Pop-up for Discount and Sign up Ends here  -->
     
     <!-- Script for pop up discount Starts Here -->
     <script>
-     // Get the toggle button, the navbar (menu), and all the navbar links
-const toggleBtn = document.querySelector('#menu-btn');
-const navbar = document.querySelector('.navbar');
-const navbarLinks = document.querySelectorAll('.navbar a');
-
-// Function to toggle the navbar
-toggleBtn.addEventListener('click', () => {
-    navbar.classList.toggle('active');
-});
-
-// Function to close the navbar when a link inside it is clicked
-navbarLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        navbar.classList.remove('active');
-    });
-});
-// Function to close the navbar when clicking outside it
-document.addEventListener('click', function (event) {
-    if (!navbar.contains(event.target) && !toggleBtn.contains(event.target)) {
-        navbar.classList.remove('active');
-    }
-});
-
     // Show the pop-up automatically when the page loads
     window.onload = function() {
       document.getElementById('popup').style.display = 'flex';
@@ -499,114 +369,89 @@ document.addEventListener('click', function (event) {
 
     <!-- About Section Starts Here -->
     <section class="about" id="about">
-      <h1 class="heading" 
-      style="text-align: center; font-size: 3em; line-height: 1.2;" 
-      data-aos="fade-up" 
-      data-aos-duration="1200" 
-      data-aos-delay="200" 
-      data-aos-anchor-placement="top-bottom">
-      <span style="color: orangered;">about</span> us
-  </h1>  
-      <div class="row" style="display: flex; align-items: center; justify-content: flex-end;">
-          <div class="image" style="margin-right: 30px;">
-              <img src="ice cream.jpg" alt="ice cream" style="width: 500px; height: auto;" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200" data-aos-anchor-placement="top-bottom">
-          </div>
-          <div class="content" style="text-align: right;" data-aos-anchor-placement="top-bottom">
-              <h3 data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">What Makes Our Ice Cream Special?</h3>
-              <p data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
-                  At Arctic Delights, we believe that every scoop of ice cream should be a masterpiece. We handpick the finest, sustainably sourced ingredients to craft flavors that not only cool you down but also take your taste buds on an unforgettable journey. Whether you crave something classic or adventurous, we offer a wide range of flavors designed to surprise and delight.
-              </p>
-              <p data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
-                  Customize your perfect treat with our signature toppings, sauces, and add-ons to create a unique dessert experience tailored just for you. At Arctic Delights, we’re not just about ice cream—we’re about crafting moments of joy in every bite!
-              </p>
-              <a href="about_us_page.html" class="button" style="display: inline-block; padding: 15px 30px; font-size: 18px; color: #FFFFFF; background-color: #002855; border: 2px solid #FF00FF; border-radius: 10px; text-decoration: none; margin-top: 20px;">
-                Learn More <i class="fas fa-arrow-right"></i>
-            </a>            
-          </div>
-      </div>
-  </section>
-  
+        <h1 class="heading"  data-aos="fade-up"
+        data-aos-anchor-placement="top-bottom"> <span> about</span> us</h1>
+        <div class="row">
+            <div class="image">
+                <img src="ice cream.jpg" alt="ice cream" data-aos="fade-up"
+            data-aos-anchor-placement="top-bottom">
+            </div>
+            <div class="content" data-aos="fade-up"
+            data-aos-anchor-placement="top-bottom">
+                <h3> What Makes Our Ice Cream Special?</h3>
+                <p>
+                    At Arctic Delights, we believe that every scoop of ice cream should be a masterpiece. We handpick the finest, sustainably sourced ingredients to craft flavors that not only cool you down but also take your taste buds on an unforgettable journey. Whether you crave something classic or adventurous, we offer a wide range of flavors designed to surprise and delight.
+                </p>
+                <p>
+                    Customize your perfect treat with our signature toppings, sauces, and add-ons to create a unique dessert experience tailored just for you. At Arctic Delights, we’re not just about ice cream—we’re about crafting moments of joy in every bite!
+                </p>
+                <a href="#" class="btn" id="learnMoreBtn">Learn More</a>
 
+                <!-- Hidden section to reveal on button click -->
+                <div id="moreContent" style="display: none;" data-aos="fade-up"
+            data-aos-anchor-placement="top-bottom">
+                    <p>
+                        Our ice creams are made using traditional methods, ensuring each batch is churned to perfection. From locally sourced dairy to organic fruits, nuts, and chocolates, we are committed to sustainability and exceptional taste. We also offer dairy-free and vegan options to cater to every lifestyle and preference.
+                    </p>
+                    <p>
+                        Whether you're enjoying a scoop in-store or ordering our handcrafted pints to your home, Arctic Delights promises the best quality and an unforgettable experience with every bite.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
     <!-- Login Modal -->
-<div id="login-modal" class="modal login-container">
-    <div class="login-card">
-      <div class="login-image">
-        <img src="https://static.vecteezy.com/system/resources/thumbnails/044/570/761/small_2x/assortment-of-colorful-ice-cream-scoops-in-waffle-cones-with-fresh-fruits-on-a-transparent-background-png.png" alt="Ice Cream" />
-      </div>
-      
-      <div class="modal-content login-form">
+<div id="login-modal" class="modal">
+    <div class="modal-content">
         <span class="close-btn" id="close-login">&times;</span>
-        <h2>Login to Your Account</h2>
+        <h2>Login</h2>
         <form>
-          <h3>Email :-</h3>
-           <br>
             <input type="email" placeholder="Email" required>
- 
-            <h3>Password :-</h3>
-             <br>
-            <input type="password" placeholder="Password" required class="inputFields">
-            <button type="submit">Login</button>
-            
-          <p>Don't have an account? <a href="#sign-modal">Sign up</a></p>
- 
-            
- 
+            <input type="password" class="pass-btn" placeholder="Password" required>
+            <button type="submit" class="sign-btn">Login</button>
         </form>
-    </div>
     </div>
 </div>
 
 <!-- Signup Modal -->
 <div id="signup-modal" class="modal">
-  <div class="modal-content">
-      <span class="close-btn" id="close-signup">&times;</span>
-      <h2>Sign Up</h2>
-      <form id="signup-form">
-          <input type="text" placeholder="Full Name" required>
-          <input type="email" placeholder="Email" required>
-          <input type="password" class="pass-btn" placeholder="Password" required>
-          <button type="submit" class="sign-btn">Sign Up</button>
-      </form>
-  </div>
+    <div class="modal-content">
+        <span class="close-btn" id="close-signup">&times;</span>
+        <h2>Sign Up</h2>
+        <form>
+            <input type="text" placeholder="Full Name" required>
+            <input type="email" placeholder="Email" required>
+            <input type="password" class="pass-btn" placeholder="Password" required>
+            <button type="submit" class="sign-btn">Sign Up</button>
+        </form>
+    </div>
 </div>
 
-
-<script>
-  document.getElementById('signup-form').addEventListener('submit', function(event) {
-      event.preventDefault(); // Prevent default form submission
-      
-      // Perform validation or backend signup request here
-      // If signup is successful, redirect to profile.html
-      
-      window.location.href = 'profile.html'; // Redirect to profile page
-  });
-</script>
 
     <!-- About Section Ends Here -->
    
     <!-- Menu Section Starts Here -->
 
     <section class="menu" id="menu">
-            <h1 data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
-        data-aos-anchor-placement="top-bottom" id="menu-title">here's, what we have in store for you!</h1>
+            <h1 data-aos="fade-up"
+        data-aos-anchor-placement="top-bottom">here's, what we have in store for you!</h1>
 
-        <input type="text" id="flavor-filter" placeholder="Search Your flavor...">
-        <br>
         <div class="filter-box">
-          
-            <h3 id="filter-head">Filter Ice Creams</h3>
+            <h3  id="pro-name">Filter Ice Creams</h3>
             <select id="price-filter">
                 <option value="all">All Prices</option>
                 <option value="under-15">Under $15</option>
                 <option value="15-20">$15 - $20</option>
                 <option value="over-20">Over $20</option>
             </select>
+            <input type="text" id="flavor-filter" placeholder="Search by flavor...">
             <button id="apply-filter">Apply Filter</button>
             <button id="remove-filter">Remove Filter</button> <!-- New Remove Filter Button -->
         </div>
         <div class="box-container">
 
-            <div class="box"  data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200"
+            <div class="box"  data-aos="fade-up"
             data-aos-anchor-placement="top-bottom">
             <div class="picture">
                 <img src="https://plus.unsplash.com/premium_photo-1678198786405-28e947bb8a12" alt="">
@@ -615,18 +460,13 @@ document.addEventListener('click', function (event) {
             </div>
                 <div class="price"> $15.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Nutty Butterscotch', 15.99)">Add to Cart</button><br>
-                <div class="noofitems">
-                  <button class="plus-minus" onclick="decreaseQuantity('Nutty Butterscotch')">-</button>
-                  <span id="itemQuantity-Nutty Butterscotch">1</span>
-                  <button class="plus-minus" onclick="increaseQuantity('Nutty Butterscotch')">+</button>
-              </div>
                 <button  id="inbox" onclick="addToWishlist('Nutty Butterscoth', 15.99)">Add to wishlist</button>
                 <button id="inbox" onclick="window.location.href='nut_butter.html';">Read more</button>
 
 
           </div>
         
-            <div class="box"  data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
+            <div class="box"  data-aos="fade-up"
             data-aos-anchor-placement="top-bottom">
             <div class="picture">
                 <img src="https://images.unsplash.com/photo-1488900128323-21503983a07e" alt="">
@@ -637,11 +477,6 @@ document.addEventListener('click', function (event) {
 
                 <div class="price"> $18.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Berry Pops', 18.99)">Add to Cart</button><br>
-                <div class="noofitems">
-                  <button class="plus-minus" onclick="decreaseQuantity('Berry Pops')">-</button>
-                  <span class ="text" id="itemQuantity-Berry Pops">1</span>
-                  <button class="plus-minus" onclick="increaseQuantity('Berry Pops')">+</button>
-              </div>
                 <button  id="inbox" onclick="addToWishlist('Berry Pops', 18.99)">Add to wishlist</button>
                 <button id="inbox" onclick="window.location.href='berry_pops.html';">Read more</button>
 
@@ -650,7 +485,7 @@ document.addEventListener('click', function (event) {
         
 
         
-            <div class="box"  data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
+            <div class="box"  data-aos="fade-up"
             data-aos-anchor-placement="top-bottom">
                 <div class="picture">
                     <img src="https://images.unsplash.com/photo-1633933037611-f26e54366832" alt="">
@@ -660,11 +495,6 @@ document.addEventListener('click', function (event) {
 
                 <div class="price"> $18.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Cherry Sherbet Pops', 18.99)">Add to Cart</button><br>
-                <div class="noofitems">
-                  <button class="plus-minus" onclick="decreaseQuantity('Cherry Sherbet Pops')">-</button>
-                  <span id="itemQuantity-Cherry Sherbet Pops">1</span>
-                  <button class="plus-minus" onclick="increaseQuantity('Cherry Sherbet Pops')">+</button>
-              </div>
                 <button  id="inbox" onclick="addToWishlist('Cherry Sherbet Pops', 18.99)">Add to wishlist</button>
                 <button id="inbox" onclick="window.location.href='cherry_pops.html';">Read more</button>
 
@@ -673,7 +503,7 @@ document.addEventListener('click', function (event) {
         
 
         
-            <div class="box"  data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200"
+            <div class="box"  data-aos="fade-up"
             data-aos-anchor-placement="top-bottom">
             <div class="picture">
                 <img src="https://images.unsplash.com/photo-1570197788417-0e82375c9371" alt="">
@@ -687,16 +517,11 @@ document.addEventListener('click', function (event) {
         
                 <div class="price"> $15.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Dripping Vannila', 15.99)">Add to Cart</button><br>
-                <div class="noofitems">
-                  <button class="plus-minus" onclick="decreaseQuantity('Dripping Vannila')">-</button>
-                  <span id="itemQuantity-Dripping Vannila">1</span>
-                  <button class="plus-minus" onclick="increaseQuantity('Dripping Vannila')">+</button>
-              </div>
                 <button  id="inbox" onclick="addToWishlist('Dripping Vannila', 15.99)">Add to wishlist</button>
                 <button id="inbox" onclick="window.location.href='drip_vanilla.html';">Read more</button>
             </div>
 
-            <div class="box"  data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200"
+            <div class="box"  data-aos="fade-up"
             data-aos-anchor-placement="top-bottom">
             <div class="picture">
                 <img src="https://images.unsplash.com/photo-1532678465554-94846274c297" alt="">
@@ -710,16 +535,11 @@ document.addEventListener('click', function (event) {
        
                 <div class="price"> $16.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Very Berry Strawberry', 16.99)">Add to Cart</button><br>
-                <div class="noofitems">
-                  <button class="plus-minus" onclick="decreaseQuantity('Very Berry Strawberry')">-</button>
-                  <span id="itemQuantity-Very Berry Strawberry">1</span>
-                  <button class="plus-minus" onclick="increaseQuantity('Very Berry Strawberry')">+</button>
-              </div>
                 <button  id="inbox" onclick="addToWishlist('Very Berry Strawberry', 16.99)">Add to wishlist</button>
                 <button id="inbox" onclick="window.location.href='very_straw.html';">Read more</button>
             </div>
 
-            <div class="box"  data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
+            <div class="box"  data-aos="fade-up"
             data-aos-anchor-placement="top-bottom">
             <div class="picture">
                 <img src="https://images.unsplash.com/photo-1705103654898-d663145f5f50" alt="">
@@ -732,16 +552,11 @@ document.addEventListener('click', function (event) {
             
                 <div class="price"> $18.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Rainbow Classic Cone', 18.99)">Add to Cart</button><br>
-                <div class="noofitems">
-                  <button class="plus-minus" onclick="decreaseQuantity('Rainbow Classic Cone')">-</button>
-                  <span id="itemQuantity-Rainbow Classic Cone">1</span>
-                  <button class="plus-minus" onclick="increaseQuantity('Rainbow Classic Cone')">+</button>
-              </div>
                 <button  id="inbox" onclick="addToWishlist('Rainbow Classic Cone', 18.99)">Add to wishlist</button>
                 <button id="inbox" onclick="window.location.href='rain_classic.html';">Read more</button>
             </div>
 
-            <div class="box"  data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
+            <div class="box"  data-aos="fade-up"
             data-aos-anchor-placement="top-bottom">
             <div class="picture">
                 <img src="https://images.unsplash.com/photo-1559340160-146586a4f9b6" alt="">
@@ -755,17 +570,12 @@ document.addEventListener('click', function (event) {
 
                 <div class="price"> $12.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Orange Pops', 12.99)">Add to Cart</button><br>
-                <div class="noofitems">
-                  <button class="plus-minus" onclick="decreaseQuantity('Orange Pops')">-</button>
-                  <span id="itemQuantity-Orange Pops">1</span>
-                  <button class="plus-minus" onclick="increaseQuantity('Orange Pops')">+</button>
-              </div>
                 <button  id="inbox" onclick="addToWishlist('Orange Pops', 12.99)">Add to wishlist</button>
                 <button id="inbox" onclick="window.location.href='orange_pops.html';">Read more</button>
 
             </div>
 
-            <div class="box"  data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200"
+            <div class="box"  data-aos="fade-up"
             data-aos-anchor-placement="top-bottom">
             <div class="picture">
                 <img src="https://images.unsplash.com/photo-1594305178909-03ab72b8205e" alt="">
@@ -779,17 +589,12 @@ document.addEventListener('click', function (event) {
             
                 <div class="price"> $18.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Choco-Hazel Pops', 18.99)">Add to Cart</button><br>
-                <div class="noofitems">
-                  <button class="plus-minus" onclick="decreaseQuantity('Choco-Hazel Pops')">-</button>
-                  <span id="itemQuantity-Choco-Hazel Pops">1</span>
-                  <button class="plus-minus" onclick="increaseQuantity('Choco-Hazel Pops')">+</button>
-              </div>
                 <button  id="inbox" onclick="addToWishlist('Choco-Hazel Pops', 18.99)">Add to wishlist</button>
                 <button id="inbox" onclick="window.location.href='choco_hazel.html';">Read more</button>
 
             </div>
 
-            <div class="box"  data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200"
+            <div class="box"  data-aos="fade-up"
             data-aos-anchor-placement="top-bottom">
             <div class="picture">
                 <br>
@@ -801,18 +606,13 @@ document.addEventListener('click', function (event) {
 
                 <div class="price"> $15.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Very Very Peachy',15.99)">Add to Cart</button><br>
-                <div class="noofitems">
-                  <button class="plus-minus" onclick="decreaseQuantity('Very Very Peachy')">-</button>
-                  <span id="itemQuantity-Very Very Peachy">1</span>
-                  <button class="plus-minus" onclick="increaseQuantity('Very Very Peachy')">+</button>
-              </div>
                 <button  id="inbox" onclick="addToWishlist('Very Very Peachy', 15.99)">Add to wishlist</button>
                 <button id="inbox" onclick="window.location.href='very_peachy.html';">Read more</button>
             </div>
         
 
             
-            <div class="box"  data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
+            <div class="box"  data-aos="fade-up"
             data-aos-anchor-placement="top-bottom">
             <div class="picture">
                 <img src="https://images.unsplash.com/photo-1559340160-146586a4f9b6" alt="">
@@ -823,18 +623,13 @@ document.addEventListener('click', function (event) {
             </div>
                 <div class="price"> $12.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Orange Pops', 12.99)">Add to Cart</button><br>
-                <div class="noofitems">
-                  <button class="plus-minus" onclick="decreaseQuantity('Orange Pops')">-</button>
-                  <span id="itemQuantity-Orange Pops">1</span>
-                  <button class="plus-minus" onclick="increaseQuantity('Orange Pops')">+</button>
-              </div>
                 <button  id="inbox" onclick="addToWishlist('Orange Pops', 12.99)">Add to wishlist</button>
                 <button id="inbox" onclick="window.location.href='orange_pops1.html';">Read more</button>
             </div>
             
 
             
-            <div class="box"  data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
+            <div class="box"  data-aos="fade-up"
             data-aos-anchor-placement="top-bottom">
             <div class="picture">
                 <img src="https://images.unsplash.com/photo-1594305178909-03ab72b8205e" alt="">
@@ -846,18 +641,13 @@ document.addEventListener('click', function (event) {
 
                 <div class="price"> $18.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Choco-Hazel Pops', 18.99)">Add to Cart</button><br>
-                <div class="noofitems">
-                  <button class="plus-minus" onclick="decreaseQuantity('Choco-Hazel Pops')">-</button>
-                  <span id="itemQuantity-Choco-Hazel Pops">1</span>
-                  <button class="plus-minus" onclick="increaseQuantity('Choco-Hazel Pops')">+</button>
-              </div>
                 <button  id="inbox" onclick="addToWishlist('Choco-Hazel Pops', 18.99)">Add to wishlist</button>
                 <button id="inbox" onclick="window.location.href='choco_hazel.html';">Read more</button>
             </div>
        
 
            
-            <div class="box"  data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200"
+            <div class="box"  data-aos="fade-up"
             data-aos-anchor-placement="top-bottom">
             <div class="picture">
                 <img src="https://images.unsplash.com/photo-1499638472904-ea5c6178a300" alt="">
@@ -870,11 +660,6 @@ document.addEventListener('click', function (event) {
 
                 <div class="price"> $15.99 <span>20.99</span></div>
                 <button  id="inbox" onclick="addToCart('Very Very Peachy',15.99)">Add to Cart</button><br>
-                <div class="noofitems">
-                  <button class="plus-minus" onclick="decreaseQuantity('Very Very Peachy')">-</button>
-                  <span id="itemQuantity-Very Very Peachy">1</span>
-                  <button class="plus-minus" onclick="increaseQuantity('Very Very Peachy')">+</button>
-              </div>
                 <button  id="inbox" onclick="addToWishlist('Very Very Peachy', 15.99)">Add to wishlist</button>
                 <button id="inbox" onclick="window.location.href='very_peachy2.html';">Read more</button>
 
@@ -892,6 +677,56 @@ document.addEventListener('click', function (event) {
         
     </section>
 
+    
+    <!-- Menu Section Ends Here -->
+
+
+<!-- Blogs Section Starts Here -->
+<section class="blogs" id="blogs">
+  <h1 class="heading"  data-aos="fade-up"
+  data-aos-anchor-placement="top-bottom">Our <span>Blogs</span></h1>
+  <div class="blog-container">
+
+    <div class="blog"  data-aos="fade-up-right">
+      <img  src="https://plus.unsplash.com/premium_photo-1658526992090-e15722e684c0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8aWNlY3JlYW0lMjBzaG9wfGVufDB8fDB8fHww" alt="Blog Post 1" class="blog-image">
+      <h3>The Journey of Artic Delights</h3>
+      <p>Discover how our ice cream shop began its journey with a passion for creating unique flavors that delight the taste buds. From humble beginnings to a beloved local favorite, read about our story and what makes us special.</p>
+      <a href="icecream-details.html" class="btn">Read More</a>
+    </div>
+
+    <div class="blog">
+        <img style="border-radius: 15px; width: 300px; display: block"
+         src="https://th.bing.com/th/id/R.676adb6d7539038b901d8242cc145fa1?rik=VtRfS5RbwsuVWQ&riu=http%3a%2f%2fimages6.fanpop.com%2fimage%2fphotos%2f34700000%2fIce-Creams-ice-cream-34733250-1200-972.jpg&ehk=%2baCoHwlvOoQkOsJx859JKiu%2fVnB7JSAfddJUpaHxeQo%3d&risl=&pid=ImgRaw&r=0">
+        <h3>The Art of Perfect Ice Cream Scoops</h3>
+        <p>Learn the craft behind creating the perfect scoop of ice cream. Explore the process from churning to serving, and discover the science that makes each scoop smooth and creamy.</p>
+        <a href="icecream-details.html" class="btn">Read More</a>
+      </div>
+
+    <div class="blog">
+        <img style="border-radius: 15px; width: 300px; display: block"
+         src="https://th.bing.com/th/id/R.342ee8a18ef0c4c428ff5288e7567400?rik=nrNVZmqpGpWe9g&riu=http%3a%2f%2fwallpapercave.com%2fwp%2fTS014mt.jpg&ehk=xOshdAfsEoqt8T%2bU%2fZtJiZCXCT8PRAv8B6aLJ4FMWZ0%3d&risl=&pid=ImgRaw&r=0">
+         <h3>Chilling Adventures with Exotic Flavors</h3>
+  <p>Step into a world of cool treats with our adventurous range of exotic ice cream flavors. From tropical fruits to rare spices, explore how we push the boundaries of ice cream craftsmanship.</p>
+  <a href="icecream-details.html" class="btn">Read More</a>
+      </div>
+
+    <div class="blog" data-aos="fade-up-left">
+      <img src="https://images.unsplash.com/photo-1591261730540-1ab1db33ac78?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGljZWNyZWFtJTIwc2hvcHxlbnwwfHwwfHx8MA%3D%3D" alt="Blog Post 2" class="blog-image">
+      <h3>Crafting the Perfect Scoop</h3>
+      <p>Learn about our meticulous process of crafting the perfect ice cream scoop. We source only the finest ingredients and use artisanal methods to ensure every bite is a delicious experience.</p>
+      <a href="icecream-details.html" class="btn">Read More</a>
+    </div>
+
+    <div class="blog" data-aos="zoom-out-down">
+      <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8dGVhbSUyMHdvcmtlcnN8ZW58MHx8MHx8fDA%3D" alt="Blog Post 3" class="blog-image">
+      <h3>Behind the Scenes at Artic Delights</h3>
+      <p>Get a sneak peek behind the scenes at our shop! Meet our passionate team and see how we create our delicious ice cream flavors daily.</p>
+      <a href="icecream-details.html" class="btn">Read More</a>
+    </div>
+
+  </div>
+</section>
+<!-- Blogs Section Ends Here -->
 
 <!-- Payment Section Starts Here -->
 <section id="payment-section" class="payment-section" style="display: none;">
@@ -987,7 +822,7 @@ document.addEventListener('click', function (event) {
   outline: none;
   cursor: pointer;
   border-radius: 32px;
-  /* -webkit-mask-image: -webkit-radial-gradient(white, black); */
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
   -webkit-tap-highlight-color: transparent;
   overflow: hidden;
   transition: transform 0.3s ease;
@@ -1315,29 +1150,23 @@ document.addEventListener('click', function (event) {
 
     <br>
 <br>
-
-  
-<!--Review section for adding reviews-->
-<div class="visme_d" data-title="Product Research Survey" data-url="n0e30n6n-product-research-survey" data-domain="forms" data-full-page="false" data-min-height="500px" data-form-id="97006"></div><script src="https://static-bundles.visme.co/forms/vismeforms-embed.js"></script>
-<!--Review adding section ended here-->
-<br>
-
+ 
 <!--Review Section added-->
 <div class="container">
   <div class="container__left">
     <h1 data-aos="zoom-out-down" >Read what our customers love about our ice cream</h1>
-    <p data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200">
+    <p data-aos="zoom-out-down">
       Over 200 ice cream enthusiasts from different places savor our unique
       flavors and can't get enough of our delicious offerings.
     </p>
-    <p data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200">
+    <p data-aos="zoom-out-down">
       We have made every scoop a memorable experience, bringing smiles and
       joy with our artisanal ice cream creations.
     </p>
-    <button data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200" class="custom-btn">Read our customer stories</button>
+    <button data-aos="zoom-out-down">Read our customer stories</button>
   </div>
   <div class="container__right">
-    <div class="card" data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200">
+    <div class="card" data-aos="zoom-out-down">
       <img src="https://images.unsplash.com/photo-1482961674540-0b0e8363a005?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fG1hbnxlbnwwfHwwfHx8MA%3D%3D" alt="customer" />
       <div class="card__content">
         <span><i class="ri-double-quotes-l"></i></span>
@@ -1349,7 +1178,7 @@ document.addEventListener('click', function (event) {
         </div>
       </div>
     </div>
-    <div class="card" data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200">
+    <div class="card" data-aos="zoom-out-down">
       <img src="https://plus.unsplash.com/premium_photo-1689539137236-b68e436248de?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="customer" width="400"/>
       <div class="card__content">
         <span><i class="ri-double-quotes-l"></i></span>
@@ -1361,7 +1190,7 @@ document.addEventListener('click', function (event) {
         </div>
       </div>
     </div>
-    <div class="card" data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200">
+    <div class="card" data-aos="zoom-out-down">
       <img src="https://plus.unsplash.com/premium_photo-1688385848467-781c5394c017?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHdvbWFufGVufDB8fDB8fHww" alt="customer" />
       <div class="card__content">
         <span><i class="ri-double-quotes-l"></i></span>
@@ -1382,73 +1211,184 @@ document.addEventListener('click', function (event) {
 <section class="review-section" id="review-section">
   <div class="review-container">
     <div class="review-left">
-      <img data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200" src="https://images.unsplash.com/photo-1505394033641-40c6ad1178d7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8aWNlY3JlYW18ZW58MHx8MHx8fDA%3D" alt="Delicious Ice Cream" class="ice-cream-image">
+      <img data-aos="zoom-out-down" src="https://images.unsplash.com/photo-1505394033641-40c6ad1178d7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8aWNlY3JlYW18ZW58MHx8MHx8fDA%3D" alt="Delicious Ice Cream" class="ice-cream-image">
     </div>
     <div class="review-right">
-      <h2 data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200">Share Your Ice Cream Experience!</h2>
-<form id="review-form" onsubmit="storeReview(event)">
-  <label for="user-name" data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200">Your Name:</label>
-  <input type="text" id="user-name" name="user-name" data-aos="zoom-out-down" required>
-  
-  <label for="user-review" data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200">Your Review:</label>
-  <textarea id="user-review" name="user-review" rows="5" required data-aos="zoom-out-down"></textarea>
-  
-  <button type="submit" class="submit-button" data-aos="zoom-out-down">Submit Review</button>
-</form>
-<script>
-  // Function to store multiple reviews as JSON in local storage
-  function storeReview(event) {
-    event.preventDefault(); // Prevent default form submission
-    
-    const userName = document.getElementById('user-name').value.trim();
-    const userReview = document.getElementById('user-review').value.trim();
+      <h2 data-aos="zoom-out-down" >Share Your Ice Cream Experience!</h2>
+      <form>
+        <label for="user-name" data-aos="zoom-out-down">Your Name:</label>
+        <input type="text" id="user-name" name="user-name" data-aos="zoom-out-down" required>
 
-    // Check if either field is empty
-    if (userName === '' || userReview === '') {
-      alert('Both name and review must be filled out before submitting!');
-      return; // Exit the function if fields are empty
-    }
 
-    // Create a JSON object for the new review
-    const newReview = {
-      name: userName,
-      review: userReview
-    };
+ <div class="chatbot-container">
+        <a href="chatbot.html">
+            <button class="chatbot-button">
+                <img src="chatbot.gif" alt="chatbot" style="width: 50px; height: 50px;">
+                <span class="tooltip-text">
+                    Welcome to Ice-Cream Web! <br>
+                    How can I help You? ^_^ 
+                </span>
+            </button>
+        </a>
+    </div>
+        <label for="user-review" data-aos="zoom-out-down">Your Review:</label>
+        <textarea id="user-review" name="user-review" rows="5" required data-aos="zoom-out-down"></textarea>
 
-    // Get existing reviews from local storage or initialize as an empty array
-    let reviews = JSON.parse(localStorage.getItem('reviews')) || [];
-
-    // Add the new review to the beginning of the array
-    reviews.unshift(newReview); // Adds new review to the top
-
-    // Store the updated array back in local storage
-    localStorage.setItem('reviews', JSON.stringify(reviews));
-
-    // Clear the form fields after submission
-    document.getElementById('user-name').value = '';
-    document.getElementById('user-review').value = '';
-
-    alert('Thank you for sharing your review!'); // Show a success message
-  }
-</script>
-
+        <button type="submit" class="submit-button"  data-aos="zoom-out-down">Submit Review</button>
+      </form>
+    </div>
+  </div>
 </section>
-
-<script>
-  //chatbot added here!
-  window.embeddedChatbotConfig = {
-  chatbotId: "oSyGH_33H4whnPVyaVVwa",
-  domain: "www.chatbase.co"
-  }
-  </script>
-  <script
-  src="https://www.chatbase.co/embed.min.js"
-  chatbotId="oSyGH_33H4whnPVyaVVwa"
-  domain="www.chatbase.co"
-  defer>
-  </script>
 <!--Review adding section ended here-->
 <br>
+<style>
+  body {
+      font-family: Arial, sans-serif; /* Modern font style */
+      background-color: #fff; /* Default light background */
+      color: black; /* Default text color */
+      margin: 0;
+      padding: 20px;
+      transition: background-color 0.5s, color 0.5s; /* Smooth transition for theme change */
+  }
+
+  .footer-content {
+      max-width: 100%; /* Fit the box to the full screen width */
+      margin: 0 auto; /* Center the content */
+      background-color: #f8f9fa; /* Light background for FAQ section */
+      border-radius: 8px; /* Rounded corners */
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+      padding: 20px; /* Inner padding */
+      transition: background-color 0.5s; /* Smooth transition for background */
+  }
+
+  .faq-heading {
+      text-align: center; /* Center-aligns the heading */
+      margin-bottom: 20px; /* Space below the heading */
+      color: gold; /* Gold color for the heading */
+      font-size: 7em; /* Increase font size */
+  }
+
+  .faq-list {
+      list-style: none; /* Remove default list styling */
+      padding: 0; /* Remove default padding */
+  }
+
+  .faq-list li {
+      border-bottom: 1px solid #e9ecef; /* Separator between questions */
+      padding: 15px 0; /* Padding for each question */
+      transition: background-color 0.3s; /* Smooth background transition */
+  }
+
+  .faq-list li:last-child {
+      margin-bottom: 20px; /* Space below the last question */
+  }
+
+  .faq-question {
+      color: #007bff; /* Bright blue color for questions */
+      font-weight: bold; /* Bold font for questions */
+      cursor: pointer; /* Pointer cursor for clickable questions */
+      font-size: 2em; /* Increased font size for questions */
+  }
+
+  .faq-answer {
+      color: gold; /* Gold color for answers */
+      margin-top: 5px; /* Space above the answer */
+      margin-bottom: 10px; /* Space below the answer */
+      font-size: 2em; /* Smaller font size for answers */
+      display: none; /* Hide answers by default */
+  }
+
+  /* Dark Mode Styles */
+  [data-theme="dark"] {
+      background-color: #000; /* Dark black background */
+      color: white; /* White text for dark mode */
+  }
+
+  [data-theme="dark"] .footer-content {
+      background-color: #343a40; /* Darker background for the FAQ section in dark mode */
+  }
+
+  [data-theme="dark"] .faq-list li {
+      background-color: #495057; /* Darker background for FAQ list items in dark mode */
+  }
+
+  [data-theme="dark"] .faq-list li:hover {
+      background-color: #6c757d; /* Darker background on hover in dark mode */
+  }
+</style>
+</head>
+<body>
+
+<div class="footer-content">
+<h2 class="faq-heading">Frequently Asked Questions (FAQ)</h2>
+
+<ul class="faq-list">
+  <li>
+      <strong class="faq-question" onclick="toggleAnswer('answer1')">1. What flavors of ice cream do you offer?</strong>
+      <p class="faq-answer" id="answer1">We offer a variety of flavors including classic options like vanilla, chocolate, and strawberry, as well as unique flavors like mint chocolate chip and cookie dough. Check our menu for the full list!</p>
+  </li>
+  <li>
+      <strong class="faq-question" onclick="toggleAnswer('answer2')">2. Do you offer dairy-free or vegan options?</strong>
+      <p class="faq-answer" id="answer2">Yes! We have several dairy-free and vegan ice cream options made from almond milk, coconut milk, and other plant-based ingredients. Ask our staff for recommendations.</p>
+  </li>
+  <li>
+      <strong class="faq-question" onclick="toggleAnswer('answer3')">3. Can I customize my ice cream order?</strong>
+      <p class="faq-answer" id="answer3">Absolutely! You can mix and match flavors, add toppings, and create your own sundaes. Let us know what you’d like, and we’ll make it happen!</p>
+  </li>
+  <li>
+      <strong class="faq-question" onclick="toggleAnswer('answer4')">4. Do you offer ice cream cakes?</strong>
+      <p class="faq-answer" id="answer4">Yes, we do! Our ice cream cakes are made to order and can be customized with your favorite flavors and decorations. Please place your order at least 24 hours in advance.</p>
+  </li>
+  <li>
+      <strong class="faq-question" onclick="toggleAnswer('answer5')">5. What are your hours of operation?</strong>
+      <p class="faq-answer" id="answer5">We are open from 12 PM to 10 PM, seven days a week. Check our website for any holiday hours or special events.</p>
+  </li>
+</ul>
+</div>
+
+<script>
+const checkbox = document.getElementById('checkbox');
+const modeLabel = document.getElementById('mode-label');
+
+// Check if dark mode is already enabled
+if (localStorage.getItem('theme') === 'dark') {
+document.documentElement.setAttribute('data-theme', 'dark');
+checkbox.checked = true;
+modeLabel.textContent = 'Dark Mode';
+}
+
+// Add event listener for toggle switch
+checkbox.addEventListener('change', () => {
+if (checkbox.checked) {
+  document.documentElement.setAttribute('data-theme', 'dark');
+  localStorage.setItem('theme', 'dark');
+  modeLabel.textContent = 'Dark Mode';
+} else {
+  document.documentElement.setAttribute('data-theme', 'light');
+  localStorage.setItem('theme', 'light');
+  modeLabel.textContent = 'Light Mode';
+}
+});
+
+// Function to toggle FAQ answer visibility
+function toggleAnswer(answerId) {
+const answerElement = document.getElementById(answerId);
+if (answerElement.style.display === "none" || answerElement.style.display === "") {
+  answerElement.style.display = "block"; // Show answer
+} else {
+  answerElement.style.display = "none"; // Hide answer
+}
+}
+</script>
+
+</body>
+
+
+
+
+
+  
+  
 
 
 <!-- Footer Section Starts Here -->
@@ -1491,6 +1431,7 @@ document.addEventListener('click', function (event) {
     
           
     
+       
     
             // Animate the search form
             gsap.from(".search-form", { opacity: 0, x: -100, duration: 1, ease: "power2.out" });
@@ -1591,9 +1532,5 @@ document.addEventListener('click', function (event) {
         // Start the animation
         animateCircles();
       </script>
-      <div class="gtranslate_wrapper"></div>
-      <script>window.gtranslateSettings = {"default_language":"en","detect_browser_language":true,"wrapper_selector":".gtranslate_wrapper"}</script>
-      <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
-</body>
 
-</html>
+</body>
