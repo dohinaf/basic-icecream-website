@@ -308,61 +308,108 @@
         <div class="box six"></div>
       </div>
     </div>
-  </div>
+</div>
 
-  <!-- Circles -->
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-
-
-  <button id="backToTop" style="font-size: 30px; font-weight: bold;">&#8673;</button>
-
-  <!-- Header Starts Here -->
-  <header class="header">
-
-    <a href="#" class="logo">
-      <img
-        src="https://purepng.com/public/uploads/large/purepng.com-ice-creamice-creamcreamfrozensweet-1411527617895aiuhx.png"
-        alt="Logo">
-    </a>
-    <!-- ... existing code ... -->
-    <h1 class="site-title">ArcticDelights</h1>
-
-    <nav class="navbar">
+<!-- Circles -->
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
 
 
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#menu">Menu</a>
-      <a href="#review-section">Review</a>
-      <a href="blog.html">Blogs</a>
-      <a href="contact.html">Contact Us</a>
-      <a href="#" id="my-order-btn">My Orders</a>
-    </nav>
+    <button id="backToTop" style="font-size: 30px; font-weight: bold;">&#8673;</button>
+
+    <!-- Header Starts Here -->
+    <header class="header">
+
+        <a href="#" class="logo">
+            <img src="https://purepng.com/public/uploads/large/purepng.com-ice-creamice-creamcreamfrozensweet-1411527617895aiuhx.png"
+                alt="Logo">
+        </a>
+        <!-- Toggle Button (Hamburger) -->
+<div class="menu-btn" id="menu-btn">
+  <span class="fas fa-bars"></span>
+</div>
+        <h1 class="site-title">ArcticDelights</h1> 
 
 
-    <div class="icons">
-      <div class="fas fa-heart" id="wishlist-btn"></div>
-      <div class="fas fa-search" id="search-btn"></div>
-      <div class="fas fa-shopping-cart" id="cart-btn"><span id="cart-count">(0)</span></div>
+<nav class="navbar">
+
+
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#menu">Menu</a>
+<a href="offers.html">Offers</a>
+<a href="#review-section">Review</a>
+<a href="blog.html">Blogs</a>
+<a href="contact.html">Contact Us</a>
+<a href="privacy.html">Privacy Policy</a>
+<a href="#" id="my-order-btn">My Orders</a>
+</nav>
+
+
+
+        <div class="icons">
+            <div class = "fas fa-heart" id = "wishlist-btn"></div>
+            <div class="fas fa-search" id="search-btn"></div>
+            <div class="fas fa-shopping-cart" id="cart-btn"><span id="cart-count">(0)</span></div>
+          
+        </div>
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox">
+                <div class="slider"></div>
+            </label>
+            <span id="mode-label">Light Mode</span>
+        </div>
+        <div class="search-form">
+            <input type="search" id="search-box" placeholder="Search...">
+            <label for="search-box" class="fas fa-search"></label>
+        </div>
+        <div class="wishlist-container">
+            <ul id="wishlistItems"></ul>
+            <button class="clear-from-wishlist-btn" onclick="clearWishlist()">Clear Wishlist</button>
+        </div>
+        <div class="cart-items-container">
+            <div class="cart">
+                <ul id="cartItems">
+                    <!-- Cart items will be displayed here -->
+                </ul>
+                <h3>
+                    <div id="total">Total:$0.00
+                    </div>
+                </h3>
+                <button id="checkout-button" onclick="checkout()">Checkout</button>
+            </div>
+        </div>
+        <div class="my-order-container">
+            <h2>My Order</h2>
+            <div id="order-details">
+                <!-- Order details will be displayed here -->
+            </div>
+            <div class="order-actions">
+                <button onclick="trackOrder()">Track Order</button>
+                <button onclick="editOrder()">Edit Order</button>
+            </div>
+            
+        </div>
+        <div class="icons login-signup-collection">
 
     </div>
     <div class="theme-switch-wrapper">

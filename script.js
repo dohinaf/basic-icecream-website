@@ -14,6 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
         searchForm.classList.toggle('active');
         navbar.classList.remove('active');
         cartItem.classList.remove('active');
+        wishlistContainer.classList.remove('active');
+
     };
 
     document.querySelector('#cart-btn').onclick = () => {
@@ -21,6 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
         myOrderContainer.classList.remove('active');
         navbar.classList.remove('active');
         searchForm.classList.remove('active');
+        wishlistContainer.classList.remove('active');
+
     };
 
     document.querySelector('#my-order-btn').onclick = () => {
@@ -49,6 +53,8 @@ document.addEventListener('DOMContentLoaded', () => {
         navbar.classList.remove('active');
         searchForm.classList.remove('active');
         cartItem.classList.remove('active');
+        wishlistContainer.classList.remove('active');
+
     };
     function filterItems() {
         const selectedPrice = priceFilter.value;
