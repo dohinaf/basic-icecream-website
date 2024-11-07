@@ -2466,3 +2466,129 @@ form h3 {
   background-color: #0056b3;
   /* Darken on hover */
 }
+
+#column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  margin-top: 60px;
+}
+
+@media(min-width: 768px) {
+  #column {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+.column-left, #column-right {
+  width: 100%;
+  padding: 20px;
+}
+
+@media(min-width: 768px) {
+  .column-left, #column-right {
+    width: 50%;
+  }
+}
+
+.contact-form h2 {
+  padding-top: 40px;
+  margin-bottom: 30px;
+  text-align: center;
+  color: #333;
+  font-size: 1.8em;
+  line-height: 1.4;
+}
+
+form {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+form:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+label {
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: #333;
+  font-weight: 500;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+input:focus, textarea:focus {
+  border-color: #ff7f50;
+  background-color: #f9f9f9;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+@media(min-width: 768px) {
+  form {
+    width: 90%;
+  }
+}
+.button.submit-btn {
+  color: #FFF;
+  transition: all 0.5s;
+  position: relative;
+  justify-content: center;
+}
+.button.submit-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: rgba(255,255,255,0.1);
+  transition: all 0.3s;
+}
+.button.submit-btn:hover::before {
+  opacity: 0 ;
+  transform: scale(0.5,0.5);
+}
+.button.submit-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+  transition: all 0.3s;
+  border: 1px solid rgba(255,255,255,0.5);
+  transform: scale(1.2,1.2);
+}
+.btn-three:hover::after {
+  opacity: 1;
+  transform: scale(1,1);
+}
