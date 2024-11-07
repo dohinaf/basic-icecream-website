@@ -186,10 +186,14 @@ button:hover {
 }
 
 .wishlist-container::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, rgb(198, 6, 153), rgb(232, 167, 218)); /* Same gradient as the cart scrollbar */
-  border-radius: 4px; /* Rounded edges */
-  border: 1px solid rgb(217, 60, 178); /* Same border color */
-  transition:  0.3s ease-in-out; /* Smooth transition */
+  background: linear-gradient(135deg, rgb(198, 6, 153), rgb(232, 167, 218));
+  /* Same gradient as the cart scrollbar */
+  border-radius: 4px;
+  /* Rounded edges */
+  border: 1px solid rgb(217, 60, 178);
+  /* Same border color */
+  transition: background 0.3s ease-in-out;
+  /* Smooth transition */ 
 }
 
 .wishlist-container::-webkit-scrollbar-thumb:hover {
