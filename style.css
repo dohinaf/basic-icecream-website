@@ -192,7 +192,8 @@ button:hover {
   /* Rounded edges */
   border: 1px solid rgb(217, 60, 178);
   /* Same border color */
-  transition: background 0.3s ease-in-out; /* Smooth transition */ 
+  transition: background 0.3s ease-in-out;
+  /* Smooth transition */
 }
 
 .wishlist-container::-webkit-scrollbar-thumb:hover {
