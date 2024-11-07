@@ -7,25 +7,70 @@ document.addEventListener('DOMContentLoaded', () => {
     const priceFilter = document.getElementById('price-filter');
     const flavorFilter = document.getElementById('flavor-filter');
     const menuItems = document.querySelectorAll('.menu .box');
+    const searchBtn = document.querySelector('#search-btn');
+    const cartBtn = document.querySelector('#cart-btn');
+    const wishlistBtn = document.querySelector('#wishlist-btn');
+    let wishlistContainer = document.querySelector('.wishlist-container');
 
+    
     applyFilterButton.addEventListener('click', filterItems);
 
-    document.querySelector('#search-btn').onclick = () => {
-        searchForm.classList.toggle('active');
-        navbar.classList.remove('active');
-        cartItem.classList.remove('active');
-        wishlistContainer.classList.remove('active');
-
+    searchBtn.onclick = () => {
+        if (!searchForm.classList.contains('active')) {
+            searchForm.classList.add('active');
+            navbar.classList.remove('active');
+            cartItem.classList.remove('active');
+            wishlistContainer.classList.remove('active');
+        } else {
+            searchForm.classList.remove('active');
+        }
     };
-
-    document.querySelector('#cart-btn').onclick = () => {
-        cartItem.classList.toggle('active');
-        myOrderContainer.classList.remove('active');
-        navbar.classList.remove('active');
-        searchForm.classList.remove('active');
-        wishlistContainer.classList.remove('active');
-
+    wishlistBtn.onclick = () => {
+        if (!wishlistContainer.classList.contains('active')) {
+            wishlistContainer.classList.add('active');
+            navbar.classList.remove('active');
+            cartItem.classList.remove('active');
+            searchForm.classList.remove('active');
+        } else {
+            wishlistContainer.classList.remove('active');
+        }
     };
+    
+    // Toggle the cart item container when clicking the cart button
+    cartBtn.onclick = () => {
+        if (!cartItem.classList.contains('active')) {
+            cartItem.classList.add('active');
+            navbar.classList.remove('active');
+            searchForm.classList.remove('active');
+            wishlistContainer.classList.remove('active');
+        } else {
+            cartItem.classList.remove('active');
+        }
+    };
+    
+    // Close the search form or cart item container when clicking outside of them
+    window.onclick = (event) => {
+        if (!searchForm.contains(event.target) && event.target !== searchBtn) {
+            searchForm.classList.remove('active');
+        }
+    
+        if (!cartItem.contains(event.target) && event.target !== cartBtn) {
+            cartItem.classList.remove('active');
+        }
+        if (!wishlistContainer.contains(event.target) && event.target !== wishlistBtn) {
+            wishlistContainer.classList.remove('active');
+        }
+    };
+    
+
+    // document.querySelector('#cart-btn').onclick = () => {
+    //     cartItem.classList.toggle('active');
+    //     myOrderContainer.classList.remove('active');
+    //     navbar.classList.remove('active');
+    //     searchForm.classList.remove('active');
+    //     wishlistContainer.classList.remove('active');
+
+    // };
 
     document.querySelector('#my-order-btn').onclick = () => {
         myOrderContainer.classList.toggle('active');//Order container shown
@@ -134,14 +179,7 @@ document.getElementById('remove-filter').addEventListener('click', function() {
 });
 // Function to add items to cart
 
-let wishlistContainer = document.querySelector('.wishlist-container');
 
-document.querySelector('#wishlist-btn').onclick = () => {
-    wishlistContainer.classList.toggle('active');
-    navbar.classList.remove('active');
-    searchForm.classList.remove('active');
-    cartItem.classList.remove('active');
-};
 
 function addToWishlist(productName, price) {
     const existingItem = wishlist.find(item => item.name === productName);
