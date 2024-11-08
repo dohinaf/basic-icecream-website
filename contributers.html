@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub Repository Contributors</title>
+  
+  <!-- Link to Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css"> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+  <style>
+    /* Apply the custom fonts */
+    body {
+      font-family: 'Roboto', sans-serif; /* Default font is Roboto */
+      padding: 20px;
+      background-color: #f4f4f9;
+      color: #333;
+    }
+
+    h4 { 
+      font-family: 'Poppins', sans-serif; /* Use Poppins for headings */
+      text-align: center;
+      color: #333;
+      font-size: 4.5rem;
+      margin-bottom: 35px;
+      margin-top: 20px;
+    }
+
+    .contributors {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .contributor {
+      width: 250px;
+      height: 200px;
+      padding: 20px;
+      text-align: center;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      font-family: 'Roboto', sans-serif; /* Contributor box text */
+    }
+
+    .contributor:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .contributor img {
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+
+    .contributor p {
+      margin-top: 5px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .commits {
+      font-size: 14px;
+      color: #777;
+      font-weight: 400;
+    }
+  </style>
+</head>
+<body>
+      <!-- Header Starts Here -->
+      <header class="header">
+
+        <a href="#" class="logo">
+            <img src="https://purepng.com/public/uploads/large/purepng.com-ice-creamice-creamcreamfrozensweet-1411527617895aiuhx.png"
+                alt="Logo">
+        </a>
+        <!-- ... existing code ... -->
+        <h1 class="site-title">ArcticDelights</h1>
+
+<nav class="navbar">
+
+
+<a href="index.html #home">Home</a>
+<a href="index.html #about">About</a>
+<a href="index.html #menu">Menu</a>
+<a href="offers.html">Offers</a>
+<a href="index.html #review-section">Review</a>
+<a href="blog.html">Blogs</a>
+<a href="contributers.html">Contributers</a>
+<a href="contact.html">Contact Us</a>
+<a href="#" id="my-order-btn">My Orders</a>
+</nav>
+
+
+        <div class="icons">
+            <div class = "fas fa-heart" id = "wishlist-btn"></div>
+            <div class="fas fa-search" id="search-btn"></div>
+            <div class="fas fa-shopping-cart" id="cart-btn"><span id="cart-count">(0)</span></div>
+          
+        </div>
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox">
+                <div class="slider"></div>
+            </label>
+            <span id="mode-label">Light Mode</span>
+        </div>
+        <div class="search-form">
+            <input type="search" id="search-box" placeholder="Search...">
+            <label for="search-box" class="fas fa-search"></label>
+        </div>
+        <div class="wishlist-container">
+            <ul id="wishlistItems"></ul>
+            <button class="clear-from-wishlist-btn" onclick="clearWishlist()">Clear Wishlist</button>
+        </div>
+        <div class="cart-items-container">
+            <div class="cart">
+                <ul id="cartItems">
+                    <!-- Cart items will be displayed here -->
+                </ul>
+                <h3>
+                    <div id="total">Total:$0.00
+                    </div>
+                </h3>
+                <button id="checkout-button" onclick="checkout()">Checkout</button>
+            </div>
+        </div>
+        <div class="my-order-container">
+            <h2>My Order</h2>
+            <div id="order-details">
+                <!-- Order details will be displayed here -->
+            </div>
+            <div class="order-actions">
+                <button onclick="trackOrder()">Track Order</button>
+                <button onclick="editOrder()">Edit Order</button>
+            </div>
+            
+        </div>
+        <div class="icons login-signup-collection">
+
+<!-- 
+            <button style="max-height: 40px;" id="login-btn" class="auth-btn">Login</button>
+            <p style="padding-right: 10px;">        </p>
+            <button style="max-height: 40px;" id="signup-btn" class="auth-btn">SignUp</button> -->
+
+             <button  style="max-height: 40px;" id="login-btn" class="auth-btn"><a href="./login/login.html">Login</a></button>
+             <button style="max-height: 40px;" id="login-btn" class="auth-btn"><a href="./signup/signup.html">signUp</a></button>
+
+        </div>
+
+    </header>
+    <!-- Header Ends Here -->
+
+    <script src="./darkMode.js"></script>
+
+    <br><br><br><br><br><br><br>
+  <h4>Our Valueable Contributors</h4>
+  <div id="contributors" class="contributors"></div>
+
+  <script>
+    const repoOwner = "dohinaf"; 
+    const repoName = "basic-icecream-website"; 
+
+    // Function to fetch contributors from GitHub API
+    async function fetchContributors() {
+      const url = `https://api.github.com/repos/dohinaf/basic-icecream-website/contributors`;
+      const response = await fetch(url);
+      const data = await response.json();
+
+      if (data.message) {
+        alert("Error: " + data.message);
+        return;
+      }
+
+      const contributorsContainer = document.getElementById("contributors");
+
+      // Loop through contributors and display them
+      data.forEach(contributor => {
+        const contributorDiv = document.createElement("div");
+        contributorDiv.classList.add("contributor");
+
+        const contributorImage = document.createElement("img");
+        contributorImage.src = contributor.avatar_url;
+        contributorImage.alt = contributor.login;
+
+        const contributorName = document.createElement("p");
+        contributorName.textContent = contributor.login;
+
+        const commitCount = document.createElement("div");
+        commitCount.classList.add("commits");
+        commitCount.textContent = `${contributor.contributions} commits`;
+
+        // Append all elements to the contributor box
+        contributorDiv.appendChild(contributorImage);
+        contributorDiv.appendChild(contributorName);
+
+        // Append contributor box to the main container
+        contributorsContainer.appendChild(contributorDiv);
+      });
+    }
+
+    // Fetch and display contributors when the page loads
+    window.onload = fetchContributors;
+  </script>
+<br><br><br><br><br><br><br>
+</body>
+</html>
