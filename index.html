@@ -338,8 +338,13 @@
         <div class="icons">
             <div class = "fas fa-heart" id = "wishlist-btn"></div>
             <div class="fas fa-search" id="search-btn"></div>
-            <div class="fas fa-shopping-cart" id="cart-btn"><span id="cart-count">(0)</span></div>
-          
+            <a href="/cart.html">
+
+            
+            <div class="fas fa-shopping-cart" id="cart-btn">
+              
+              <span id="cart-count">(0)</span></div>
+            </a>
         </div>
         <div class="theme-switch-wrapper">
             <label class="theme-switch" for="checkbox">
@@ -356,18 +361,17 @@
             <ul id="wishlistItems"></ul>
             <button class="clear-from-wishlist-btn" onclick="clearWishlist()">Clear Wishlist</button>
         </div>
-        <div class="cart-items-container">
+        <!-- <div class="cart-items-container">
             <div class="cart">
                 <ul id="cartItems">
-                    <!-- Cart items will be displayed here -->
+                Cart items will be displayed here 
                 </ul>
                 <h3>
                     <div id="total">Total:$0.00
                     </div>
                 </h3>
-                <button id="checkout-button" onclick="checkout()">Checkout</button>
             </div>
-        </div>
+        </div> -->
         <div class="my-order-container">
             <h2>My Order</h2>
             <div id="order-details">
@@ -615,7 +619,7 @@ document.addEventListener('click', function (event) {
                 <div class="flip">A delightful blend of crunchy nuts and rich butterscotch, creating a sweet and savory treat that melts in your mouth!</div>
             </div>
                 <div class="price"> $15.99 <span>20.99</span></div>
-                <button  id="inbox" onclick="addToCart('Nutty Butterscotch', 15.99)">Add to Cart</button><br>
+                <button id="inbox" onclick="addToCart('Nutty Butterscotch', 15.99,'https://plus.unsplash.com/premium_photo-1678198786405-28e947bb8a12')">Add to Cart</button><br>
                 <div class="noofitems">
                   <button class="plus-minus" onclick="decreaseQuantity('Nutty Butterscotch')">-</button>
                   <span id="itemQuantity-Nutty Butterscotch">1</span>
@@ -637,7 +641,7 @@ document.addEventListener('click', function (event) {
             </div>
 
                 <div class="price"> $18.99 <span>20.99</span></div>
-                <button  id="inbox" onclick="addToCart('Berry Pops', 18.99)">Add to Cart</button><br>
+                <button  id="inbox" onclick="addToCart('Berry Pops', 18.99,'https://images.unsplash.com/photo-1488900128323-21503983a07e')">Add to Cart</button><br>
                 <div class="noofitems">
                   <button class="plus-minus" onclick="decreaseQuantity('Berry Pops')">-</button>
                   <span class ="text" id="itemQuantity-Berry Pops">1</span>
@@ -660,7 +664,7 @@ document.addEventListener('click', function (event) {
                 </div>
 
                 <div class="price"> $18.99 <span>20.99</span></div>
-                <button  id="inbox" onclick="addToCart('Cherry Sherbet Pops', 18.99)">Add to Cart</button><br>
+                <button  id="inbox" onclick="addToCart('Cherry Sherbet Pops', 18.99,'https://images.unsplash.com/photo-1633933037611-f26e54366832')">Add to Cart</button><br>
                 <div class="noofitems">
                   <button class="plus-minus" onclick="decreaseQuantity('Cherry Sherbet Pops')">-</button>
                   <span id="itemQuantity-Cherry Sherbet Pops">1</span>
@@ -687,7 +691,7 @@ document.addEventListener('click', function (event) {
 
         
                 <div class="price"> $15.99 <span>20.99</span></div>
-                <button  id="inbox" onclick="addToCart('Dripping Vannila', 15.99)">Add to Cart</button><br>
+                <button  id="inbox" onclick="addToCart('Dripping Vannila', 15.99,'https://images.unsplash.com/photo-1570197788417-0e82375c9371')">Add to Cart</button><br>
                 <div class="noofitems">
                   <button class="plus-minus" onclick="decreaseQuantity('Dripping Vannila')">-</button>
                   <span id="itemQuantity-Dripping Vannila">1</span>
@@ -710,7 +714,7 @@ document.addEventListener('click', function (event) {
 
        
                 <div class="price"> $16.99 <span>20.99</span></div>
-                <button  id="inbox" onclick="addToCart('Very Berry Strawberry', 16.99)">Add to Cart</button><br>
+                <button  id="inbox" onclick="addToCart('Very Berry Strawberry', 16.99,'https://images.unsplash.com/photo-1532678465554-94846274c297')">Add to Cart</button><br>
                 <div class="noofitems">
                   <button class="plus-minus" onclick="decreaseQuantity('Very Berry Strawberry')">-</button>
                   <span id="itemQuantity-Very Berry Strawberry">1</span>
@@ -732,7 +736,7 @@ document.addEventListener('click', function (event) {
  
             
                 <div class="price"> $18.99 <span>20.99</span></div>
-                <button  id="inbox" onclick="addToCart('Rainbow Classic Cone', 18.99)">Add to Cart</button><br>
+                <button  id="inbox" onclick="addToCart('Rainbow Classic Cone', 18.99,'https://images.unsplash.com/photo-1705103654898-d663145f5f50')">Add to Cart</button><br>
                 <div class="noofitems">
                   <button class="plus-minus" onclick="decreaseQuantity('Rainbow Classic Cone')">-</button>
                   <span id="itemQuantity-Rainbow Classic Cone">1</span>
@@ -755,7 +759,7 @@ document.addEventListener('click', function (event) {
             
 
                 <div class="price"> $12.99 <span>20.99</span></div>
-                <button  id="inbox" onclick="addToCart('Orange Pops', 12.99)">Add to Cart</button><br>
+                <button  id="inbox" onclick="addToCart('Orange Pops', 12.99,'https://images.unsplash.com/photo-1559340160-146586a4f9b6')">Add to Cart</button><br>
                 <div class="noofitems">
                   <button class="plus-minus" onclick="decreaseQuantity('Orange Pops')">-</button>
                   <span id="itemQuantity-Orange Pops">1</span>
@@ -779,7 +783,7 @@ document.addEventListener('click', function (event) {
 
             
                 <div class="price"> $18.99 <span>20.99</span></div>
-                <button  id="inbox" onclick="addToCart('Choco-Hazel Pops', 18.99)">Add to Cart</button><br>
+                <button  id="inbox" onclick="addToCart('Choco-Hazel Pops', 18.99,'https://images.unsplash.com/photo-1594305178909-03ab72b8205e')">Add to Cart</button><br>
                 <div class="noofitems">
                   <button class="plus-minus" onclick="decreaseQuantity('Choco-Hazel Pops')">-</button>
                   <span id="itemQuantity-Choco-Hazel Pops">1</span>
@@ -801,7 +805,7 @@ document.addEventListener('click', function (event) {
             </div>
 
                 <div class="price"> $15.99 <span>20.99</span></div>
-                <button  id="inbox" onclick="addToCart('Very Very Peachy',15.99)">Add to Cart</button><br>
+                <button  id="inbox" onclick="addToCart('Very Very Peachy',15.99,'https://images.unsplash.com/photo-1499638472904-ea5c6178a300')">Add to Cart</button><br>
                 <div class="noofitems">
                   <button class="plus-minus" onclick="decreaseQuantity('Very Very Peachy')">-</button>
                   <span id="itemQuantity-Very Very Peachy">1</span>
@@ -823,7 +827,7 @@ document.addEventListener('click', function (event) {
                 <div class="flip">Refreshing frozen delights bursting with zesty orange flavor, offering a sunny, sweet, and tangy treat that’s perfect for cooling off on a hot day!</div>
             </div>
                 <div class="price"> $12.99 <span>20.99</span></div>
-                <button  id="inbox" onclick="addToCart('Orange Pops', 12.99)">Add to Cart</button><br>
+                <button  id="inbox" onclick="addToCart('Orange Pops', 12.99,'https://images.unsplash.com/photo-1559340160-146586a4f9b6')">Add to Cart</button><br>
                 <div class="noofitems">
                   <button class="plus-minus" onclick="decreaseQuantity('Orange Pops')">-</button>
                   <span id="itemQuantity-Orange Pops">1</span>
@@ -846,7 +850,7 @@ document.addEventListener('click', function (event) {
             </div>
 
                 <div class="price"> $18.99 <span>20.99</span></div>
-                <button  id="inbox" onclick="addToCart('Choco-Hazel Pops', 18.99)">Add to Cart</button><br>
+                <button  id="inbox" onclick="addToCart('Choco-Hazel Pops', 18.99,'https://images.unsplash.com/photo-1594305178909-03ab72b8205e')">Add to Cart</button><br>
                 <div class="noofitems">
                   <button class="plus-minus" onclick="decreaseQuantity('Choco-Hazel Pops')">-</button>
                   <span id="itemQuantity-Choco-Hazel Pops">1</span>
@@ -870,7 +874,7 @@ document.addEventListener('click', function (event) {
             </div>
 
                 <div class="price"> $15.99 <span>20.99</span></div>
-                <button  id="inbox" onclick="addToCart('Very Very Peachy',15.99)">Add to Cart</button><br>
+                <button  id="inbox" onclick="addToCart('Very Very Peachy',15.99,'https://images.unsplash.com/photo-1499638472904-ea5c6178a300')">Add to Cart</button><br>
                 <div class="noofitems">
                   <button class="plus-minus" onclick="decreaseQuantity('Very Very Peachy')">-</button>
                   <span id="itemQuantity-Very Very Peachy">1</span>
