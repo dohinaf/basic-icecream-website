@@ -333,21 +333,32 @@ button:hover {
   color: rgb(51, 168, 235) !important;
 }
 
-.header .icons {
+
+.icons {
   display: flex;
-  align-items: center;
+  gap: 15px; /* Space between icons */
 }
 
-.header .icons div {
-  background-color: var(--background-color);
+.icon-button {
+  background: none;
+  border: none;
   cursor: pointer;
-  font-size: 2.5rem;
-  margin-left: 2rem;
+  font-size: 24px; /* Adjust icon size */
+  color: #333; /* Default icon color */
+  transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for color and zoom */
 }
 
-.header .icons div:hover {
-  color: var(--text-color);
+.icon-button:hover {
+  color: pink; /* Change color on hover */
+  transform: scale(1.2); /* Zoom effect */
 }
+
+#cart-count {
+  font-size: 14px; /* Adjust font size for cart count */
+  margin-left: 5px; /* Space between icon and count */
+}
+
+
 
 
 .menu-btn {

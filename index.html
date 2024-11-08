@@ -19,6 +19,30 @@
     
 
     <style>
+      .icons {
+    display: flex;
+    gap: 15px; /* Space between icons */
+}
+
+.icon-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px; /* Adjust icon size */
+    color: #333; /* Default icon color */
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for color and zoom */
+}
+
+.icon-button:hover {
+    color: pink; /* Change color on hover */
+    transform: scale(1.2); /* Zoom effect */
+}
+
+#cart-count {
+    font-size: 14px; /* Adjust font size for cart count */
+    margin-left: 5px; /* Space between icon and count */
+}
+
         .chatbot-container {
             position: fixed;
             bottom: 20px; /* Adjust the distance from the bottom */
@@ -232,6 +256,7 @@
     z-index: 99999999;
     /* Stays on top of all elements */
   }
+  
 </style>
 <style>
   .social-icons a {
@@ -332,16 +357,27 @@
 <a href="privacy.html">Privacy Policy</a>
 <a href="#" id="my-order-btn">My Orders</a>
 </nav>
-
-
-
-        <div class="icons">
-            <div class = "fas fa-heart" id = "wishlist-btn"></div>
-            <div class="fas fa-search" id="search-btn"></div>
-            <div class="fas fa-shopping-cart" id="cart-btn"><span id="cart-count">(0)</span></div>
-          
-        </div>
-        <div class="theme-switch-wrapper">
+<div class="icons">
+  <!-- Wishlist Button -->
+  <button class="icon-button" id="wishlist-btn" aria-label="Wishlist" 
+          style="background: none; border: none; cursor: pointer; font-size: 24px; color: #333;">
+      <i class="fas fa-heart"></i>
+  </button>
+  
+  <!-- Search Button -->
+  <button class="icon-button" id="search-btn" aria-label="Search" 
+          style="background: none; border: none; cursor: pointer; font-size: 24px; color: #333;">
+      <i class="fas fa-search"></i>
+  </button>
+  
+  <!-- Cart Button with Count -->
+  <button class="icon-button" id="cart-btn" aria-label="Shopping Cart" 
+          style="background: none; border: none; cursor: pointer; font-size: 24px; color: #333;">
+      <i class="fas fa-shopping-cart"></i>
+      <span id="cart-count" style="font-size: 14px; margin-left: 5px;">(0)</span>
+  </button>
+</div>
+       <div class="theme-switch-wrapper">
             <label class="theme-switch" for="checkbox">
                 <input type="checkbox" id="checkbox">
                 <div class="slider"></div>
