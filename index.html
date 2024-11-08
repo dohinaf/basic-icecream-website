@@ -232,6 +232,17 @@
     z-index: 99999999;
     /* Stays on top of all elements */
   }
+  .progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 5px;
+    background: rgb(244, 143, 160);
+    border-radius: 4px; /* You can change this color */
+    width: 0;
+    transition: width 0.1s ease-in-out;
+    z-index: 9999; /* Make sure it's above other content */
+  }
 </style>
 <style>
   .social-icons a {
@@ -392,8 +403,7 @@
 <div class="circle"></div>
 <div class="circle"></div>
 <div class="circle"></div>
-
-
+    <div id="scrollProgressBar" class="progress-bar"></div>
     <button id="backToTop" style="font-size: 30px; font-weight: bold;">&#8673;</button>
 
     <!-- Header Starts Here -->
@@ -542,6 +552,12 @@
       // Redirect to profile.html after sign-up
       window.location.href = 'profile.html'; // Redirect user to the profile page
   });
+  window.addEventListener('scroll', () => {
+    const scrollProgressBar = document.getElementById('scrollProgressBar');
+    const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progressHeight = (window.scrollY / totalHeight) * 100;
+    scrollProgressBar.style.width = progressHeight + '%';
+});
 </script>
 
     <!--  Pop-up for Discount and Sign up Ends here  -->
