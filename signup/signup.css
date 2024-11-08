@@ -1,162 +1,162 @@
 body {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #f0f0f0;
-  }
-  
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 650px;
+  width: 100%;
+}
+
+.signup-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.signup-box {
+  width: 53%;
+  padding: 20px;
+  position: relative;
+  margin-left: 300px;
+}
+
+.createAcc {
+  text-align: center;
+}
+
+.ice-cream-image {
+  position: absolute;
+  width: 300px;
+  height: 485px;
+  border-radius: 10px 0px 0px 10px;
+  margin-right: 390px;
+}
+
+.signup-box h2 {
+  color: #FF69B4;
+  margin-bottom: 30px;
+  font-size: 28px;
+}
+
+.signup-btn {
+  width: 100%;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 25px;
+  background-color: #F0F0F0;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.input-group label {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.input-group input:focus + label,
+.input-group input:valid + label {
+  top: -10px;
+  left: 10px;
+  font-size: 12px;
+  color: #FF69B4;
+  background-color: white;
+  padding: 0 5px;
+}
+
+.signup-btn {
+  padding: 12px;
+  background-color: #FF69B4;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.signup-btn:hover {
+  background-color: #FF1493;
+  transform: scale(1.05);
+}
+
+.extra-links {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.home-btn,
+.login-btn {
+  background: none;
+  border: none;
+  color: #FF69B4;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.home-btn:hover,
+.login-btn:hover {
+  color: #FF1493;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
   .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 20px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    max-width: 650px;
-    width: 100%;
-    gap: 20px;
-  }
-  
-  .signup-container {
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    width: 100%;
-  }
-  
-  .signup-box {
-    width: 53%;
-    padding: 20px;
-    position: relative;
+    flex-direction: column;
+    padding: 10px;
   }
 
-  .createAcc{
-    text-align: center;
+  .signup-box {
+    width: 100%;
   }
-  
+
   .ice-cream-image {
-    position: absolute;
-    width: 270px;
-    height: 430px;
-    border-radius: 10px 0px 0px 10px;
-    right: 760px;
+    width: 200px;
+    height: auto;
   }
-  
-  .signup-box h2 {
-    color: #FF69B4;
-    margin-bottom: 30px;
-    font-size: 28px;
-  }
-  
-  .signup-btn {
-    width: 370px;
-  }
-  
-  .signup-form {
-    display: flex;
+}
+
+@media (max-width: 480px) {
+  .signup-container {
     flex-direction: column;
   }
-  
-  .input-group {
-    position: relative;
-    margin-bottom: 20px;
+
+  .ice-cream-image {
+    width: 150px;
+    height: auto;
   }
-  
-  .input-group input {
-    width: 100%;
-    padding: 12px;
-    border: none;
-    border-radius: 25px;
-    background-color: #F0F0F0;
-    font-size: 16px;
-    transition: all 0.3s ease;
-  }
-  
-  .input-group label {
-    position: absolute;
-    left: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #999;
-    pointer-events: none;
-    transition: all 0.3s ease;
-  }
-  
-  .input-group input:focus + label,
-  .input-group input:valid + label {
-    top: -10px;
-    left: 10px;
-    font-size: 12px;
-    color: #FF69B4;
-    background-color: white;
-    padding: 0 5px;
-  }
-  
-  .signup-btn {
-    padding: 12px;
-    background-color: #FF69B4;
-    color: white;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: all 0.3s ease;
-  }
-  
-  .signup-btn:hover {
-    background-color: #FF1493;
-    transform: scale(1.05);
-  }
-  
-  .extra-links {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-  }
-  
-  .home-btn, .login-btn {
-    background: none;
-    border: none;
-    color: #FF69B4;
-    cursor: pointer;
-    font-size: 14px;
-    transition: all 0.3s ease;
-  }
-  
-  .home-btn:hover, .login-btn:hover {
-    color: #FF1493;
-  }
-  
-  /* Responsive design */
-  @media (max-width: 768px) {
-    .container {
-      flex-direction: column;
-      padding: 10px;
-    }
-  
-    .signup-box {
-      width: 100%;
-      margin-bottom: 20px;
-    }
-  
-    .ice-cream-image {
-      width: 200px;
-      height: auto;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .signup-container {
-      flex-direction: column;
-    }
-  
-    .ice-cream-image {
-      width: 150px;
-      height: auto;
-    }
-  }
-  
+}

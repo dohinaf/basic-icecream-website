@@ -14,6 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
         searchForm.classList.toggle('active');
         navbar.classList.remove('active');
         cartItem.classList.remove('active');
+        wishlistContainer.classList.remove('active');
+
     };
 
     document.querySelector('#cart-btn').onclick = () => {
@@ -21,6 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
         myOrderContainer.classList.remove('active');
         navbar.classList.remove('active');
         searchForm.classList.remove('active');
+        wishlistContainer.classList.remove('active');
+
     };
 
     document.querySelector('#my-order-btn').onclick = () => {
@@ -49,6 +53,8 @@ document.addEventListener('DOMContentLoaded', () => {
         navbar.classList.remove('active');
         searchForm.classList.remove('active');
         cartItem.classList.remove('active');
+        wishlistContainer.classList.remove('active');
+
     };
     function filterItems() {
         const selectedPrice = priceFilter.value;
@@ -75,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Array to store cart items
-let cart = [];
+
 
 let wishlist = [];
 
@@ -201,18 +207,32 @@ let quantities = {
   }
 
 
- 
+  function getCart() {
+    const cartString = localStorage.getItem('cart');
+    return cartString ? JSON.parse(cartString) : []; // Parse the JSON string or return an empty array
+}
+
+// Function to save cart to localStorage
+function saveCart(cart) {
+    localStorage.setItem('cart', JSON.stringify(cart)); // Convert cart to JSON string and save
+}
+
+// Initialize cart from localStorage
+let cart = getCart();
+
 
 
 // Function to add items to the cart
-function addToCart(productName, price) {
+function addToCart(productName, price,imageUrl) {
     const existingItem = cart.find(item => item.name === productName);
     
     if (existingItem) {
         // Add the product to the cart
-        cart.push({ name: productName, price: price });
+        cart.push({ name: productName, price: price,image: imageUrl });
          // Notify the user
         displayCart(); // Update the cart display
+        
+        saveCart(cart); 
 
         // Show notification tooltip
         const notification = document.getElementById('notification-tooltip');
@@ -229,10 +249,13 @@ function addToCart(productName, price) {
             removeFromWishlist(wishlistIndex);
         }
     } else {
-        cart.push({ name: productName, price: price });
+        cart.push({ name: productName, price: price,image:imageUrl });
         // Notify the user
+        saveCart(cart); 
        displayCart(); 
+      
     }
+    console.log(cart);
 }
 
 
@@ -240,39 +263,33 @@ function addToCart(productName, price) {
 
 // Function to remove items from the cart
 function removeFromCart(index) {
-    cart.splice(index, 1); // Remove item from cart array
+    
+    cart.splice(index, 1);
+    saveCart(cart);  // Remove item from cart array
     displayCart(); // Update the cart display
+    
 }
 
 // Function to display cart items and calculate total
 // Function to display cart items and calculate total
 function displayCart() {
-    const cartItemsElement = document.getElementById('cartItems');
-    const totalElement = document.getElementById('total');
+    const cart = JSON.parse(localStorage.getItem('cart')) || []; // Retrieve cart from localStorage
+
+    // Calculate the total number of items in the cart
+    const itemCount = cart.reduce((total, item) => total + (item.quantity || 1), 0);
+
+    // Update the cart count element
     const cartCountElement = document.getElementById('cart-count'); // Element to show item count
-    let cartItemsHTML = '';
-    let total = 0;
-
-    // Count the number of items in the cart
-    const itemCount = cart.length;
-    cart.forEach((item, index) => {
-        const quantity=quantities[item.name];
-        cartItemsHTML += `<li>${item.name} - (${quantity}) price= $${quantity*item.price.toFixed(2)} <button onclick="removeFromCart(${index})">Remove</button></li>`;
-        total += item.price*quantity;
-    });
-
-    // Update cart items display
-    cartItemsElement.innerHTML = cartItemsHTML;
-
-    // Update total price display
-    totalElement.textContent = `Total: $${total.toFixed(2)}`;
-
-    // Update cart count display
     cartCountElement.textContent = `(${itemCount})`;
 
-    // Optionally display an order summary or other elements
-    displayOrder();
+    console.log('Cart:', cart); // For debugging purposes
 }
+
+
+    // Optionally display an order summary or other elements
+    
+    window.onload = displayCart;
+
 
 
 // // Function to display cart items and calculate total
