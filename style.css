@@ -521,9 +521,6 @@ button:hover {
   border: none;
   outline: none;
 }
-[data-theme="dark"] .header .search-form input {
-  color: black;
-}
 
 .header .search-form label {
   cursor: pointer;
