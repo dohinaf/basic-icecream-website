@@ -749,17 +749,20 @@ button:hover {
 }
 
 .home .content {
-  max-width: 60rem;
+  max-width: 65rem;
 }
 
 .home .content h3 {
-  font-size: 50px;
+
+  font-size: 49px;
+  margin-left: 42px;
   text-transform: uppercase;
   /* color: var(--text-color); */
   color: #fff;
 }
 
 .home .content p {
+  margin-left: 45px; ;
   font-size: 20px;
   font-weight: lighter;
   /* color: var(--text-color); */
