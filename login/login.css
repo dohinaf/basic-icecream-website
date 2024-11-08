@@ -159,3 +159,17 @@ input:focus{
     outline: none;
     box-shadow: 0px 4px 10px rgba(255, 138, 0, 0.2); /* Subtle shadow on focus */
 }
+.logout-btn {
+    padding: 10px;
+    border: none;
+    border-radius: 30px;
+    background-color: #ff8a00; /* Different color for logout */
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.logout-btn:hover {
+    background-color: #e52e71; /* Hover effect */
+}
