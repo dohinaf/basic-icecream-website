@@ -2152,10 +2152,23 @@ body {
 /* Footer Styling */
 .footer {
   text-align: center;
-  padding: 0;
+  padding: 30px;
   background-color: var(--background-color);
   margin-top: auto;
+  color: var(--primary-text-color);
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  border-top: 1px solid var(--border-color);
+  box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1);
 }
+
+@media (max-width: 600px) {
+  .footer {
+    padding: 20px;
+    font-size: 14px;
+  }
+}
+
 
 /* Box Hover Effect */
 .box {
