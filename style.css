@@ -880,9 +880,9 @@ button:hover {
 
 /* filter box styles end */
 
-/* Blogs Styles */
+Blogs Styles
 
-.heading {
+/* .heading {
   text-align: center;
   color: var(--text-color);
   text-transform: uppercase;
@@ -924,8 +924,58 @@ button:hover {
   color: var(--text-color);
   padding: 1rem 0;
   line-height: 1.8;
+} */
+
+/* New styles for hover pop-up effect */
+.blog-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
 }
 
+.blog {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--background-color);
+  border-radius: 1rem;
+  padding: 2rem;
+  width: 500px;
+  box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for scaling and shadow */
+}
+
+.blog:hover {
+  transform: scale(1.05); /* Scale up by 5% on hover */
+  box-shadow: 12px 12px 30px rgba(0, 0, 0, 0.5); /* Deeper shadow on hover */
+}
+
+.blog-image {
+  width: 70%;
+  border-radius: 10rem;
+}
+
+.blog h3 {
+  font-size: 2rem;
+  color: #ffbe0b;
+  margin: 5px;
+}
+
+.blog p {
+  font-size: 1.7rem;
+  margin: 1rem 0;
+}
+
+.btn {
+  background: linear-gradient(to right, #ff4e50, #fc913a);
+  color: var(--text-color);
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
 /* Menu Styles */
 
 #menu h1 {
