@@ -435,15 +435,20 @@ button:hover {
     transition: max-height 0.3s ease;
   }
   
-  .header .navbar a {
+  .header .navbar a {   
+    border-radius: 11px;
+    padding: 8px 7px;
+    border: 2px solid #2f2c2c;
     margin: 0 1rem;
     font-size: 1.6rem;
     color: var(--text-color);
-    white-space: nowrap; /* Prevent text from breaking into two lines */
-  }
+    white-space: nowrap;
+}
+  
   
   .header .navbar a:hover {
     color: rgb(51, 168, 235) !important;
+    background-color: #2f2c2c;;
   }
   
   .header .icons {
