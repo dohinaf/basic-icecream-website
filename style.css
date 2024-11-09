@@ -511,7 +511,7 @@ button:hover {
 .header .search-form input {
   width: 100%;
   font-size: 1.6rem;
-  color: var(--text-color);
+  color: black;
   padding: 0.5rem;
   border: none;
   outline: none;
