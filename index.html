@@ -305,6 +305,8 @@
 
     <button id="backToTop" style="font-size: 30px; font-weight: bold;">&#8673;</button>
 
+    <div class="scroll-progress" id="scrollProgress"></div>
+
     <!-- Header Starts Here -->
     <header class="header">
 
@@ -1497,6 +1499,20 @@ document.addEventListener('click', function (event) {
     opacity: 0;
   }
 }
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px; /* Distance from the bottom of the page */
+    right: 40px; /* Distance from the right of the page */
+    background-color: transparent; /* Transparent background */
+    border: none; /* Remove border */
+    cursor: pointer; /* Change cursor to pointer */
+    z-index: 100; /* Ensure it’s above other content */
+}
+
+.scroll-to-top img {
+    width: 60px; /* Adjust size of the cone image */
+    height: auto; /* Maintain aspect ratio */
+}
 
 </style>
 <script>
@@ -1648,8 +1664,12 @@ document.addEventListener('click', function (event) {
 
 </section>
 
+<button id="scrollToTop" class="scroll-to-top">
+        <img src="cone.png" alt="Scroll to Top" />
+    </button>
+
 <script>
-  //chatbot added here!
+ //chatbot added here!
   window.embeddedChatbotConfig = {
   chatbotId: "oSyGH_33H4whnPVyaVVwa",
   domain: "www.chatbase.co"
@@ -1832,6 +1852,7 @@ document.addEventListener('click', function (event) {
       <div class="gtranslate_wrapper"></div>
       <script>window.gtranslateSettings = {"default_language":"en","detect_browser_language":true,"wrapper_selector":".gtranslate_wrapper"}</script>
       <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+      <script src="script2.js"></script>
 </body>
 
 </html>
