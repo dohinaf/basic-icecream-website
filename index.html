@@ -74,6 +74,15 @@
       z-index: 1000;
     }
 
+    .chatbot-button {
+        background-color: #007bff; /* Button color */
+        border: none;
+        border-radius: 50%; /* Makes the button circular */
+        padding: 10px;
+        cursor: pointer;
+        transition: transform 0.3s; /* Animation for hover */
+        position: relative; /* Required for the tooltip */
+      }
     .popup-content {
       display: flex;
       background-color: white;
@@ -84,39 +93,74 @@
       position: relative;
     }
 
-    .popup-left img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    .chatbot-button:hover {
+        transform: scale(1.1); /* Scale up on hover */
     }
 
+    .corner{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      }
     .popup-right {
       padding-left: 20px;
       padding-top: 30px;
       width: 35%;
       position: relative;
+
+    }
+    .tooltip-text {
+        display: none;
+        position: absolute;
+        bottom: 60px; /* Position the tooltip above the button */
+        right: 0;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 5px;
+        border-radius: 5px;
+        white-space: nowrap;
+        z-index: 1001; /* Ensure tooltip is above other elements */
     }
 
-    .close-btn {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      font-size: 30px;
-      cursor: pointer;
+    .chatbot-button:hover .tooltip-text {
+        display: block; /* Show tooltip on hover */
     }
+</style>
 
-    h2 {
-      font-size: 24px;
-      margin-bottom: 10px;
-    }
-    h3{
-      font-weight: 700;
-    }
 
-    p {
-      margin-bottom: 30px;
-      font-size: small;
-    }
+
+<style>
+  /* Styling for the pop-up Discount */
+.popup {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.5);
+justify-content: center;
+align-items: center;
+z-index: 1000;
+}
+.home {
+  position: static;
+}
+.popup-content {
+display: flex;
+background-color: white;
+border-radius: 10px;
+width: 500px;
+height: 350px;
+overflow: hidden;
+position: relative;
+}
+
+.popup-left img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
 
     input[type="name"] {
       width: 95%;
@@ -146,78 +190,117 @@
       font-size: 14px;
       margin-bottom: 0px;
     }
-    
- 
 
-    .signup-btn {
-      width: 100%;
-      padding: 8px;
-      background-color: black;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
-    }
 
-    .signup-btn:hover {
-      background-color: #00ff15;
-    }
+.popup-right {
+padding-left: 20px;
+padding-top: 30px;
+width: 50%;
+position: relative;
+}
 
-    .no-thanks {
-      display: block;
-      margin-top: 10px;
-      text-align: center;
-      color: #1173f3;
-      text-decoration: none;
-      font-size: small;
-    }
+.close-btn {
+position: absolute;
+top: 10px;
+right: 10px;
+font-size: 30px;
+cursor: pointer;
+}
 
-    .terms {
-      margin-top: 10px;
-      font-size: 12px;
-      text-align: center;
-      color: #aaa;
-    }
+h2 {
+font-size: 24px;
+margin-bottom: 10px;
+}
+h3{
+font-weight: 700;
+}
 
-    .terms a {
-      color: #888;
-      text-decoration: underline;
-    }
+p {
+margin-bottom: 30px;
+font-size: small;
+}
 
-    /* Main content styling */
-    .content {
-      text-align: center;
-      margin-top: 50px;
-    }
+input[type="email"] {
+width: 100%;
+padding: 10px;
+margin-bottom: 10px;
+border: 1px solid #ccc;
+border-radius: 5px;
+font-size: 14px;
+margin-bottom: 20px;
+}
+input[type="password"] {
+width: 100%;
+padding: 10px;
+margin-bottom: 10px;
+border: 1px solid #ccc;
+border-radius: 5px;
+font-size: 14px;
+margin-bottom: 20px;
+}
 
-    .pass-btn{
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      background-color: var(--background-color);
-      border: 1px solid var(--main-color);
-      border-radius: 5px;
-      color: #000000;
-  
-    }
-    .sign-btn{
-      width: 100%;
-      background-color: #fb285d;
-      border: none;
-      color: white;
-      font-size: 16px;
-      height: 40px;
-    }
-    .plus-minus{
-      background-color: #fff8e7;
-      border: 0.5px solid #c69861;
-      color: #d3ad7f;
-      width: fit-content;
-      transition: background-color 0.3s ease, color 0.3s ease,
-      border-color 0.3s ease;
-    }
-  </style>
+.signup-btn {
+width: 100%;
+padding: 10px;
+background-color: black;
+color: white;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+font-size: 16px;
+}
+
+.signup-btn:hover {
+background-color: #333;
+}
+
+.no-thanks {
+display: block;
+margin-top: 10px;
+text-align: center;
+color: #1173f3;
+text-decoration: none;
+font-size: small;
+}
+
+.terms {
+margin-top: 10px;
+font-size: 12px;
+text-align: center;
+color: #aaa;
+}
+
+.terms a {
+color: #888;
+text-decoration: underline;
+}
+
+/* Main content styling */
+.content {
+text-align: center;
+margin-top: 50px;
+}
+
+.pass-btn{
+width: 100%;
+padding: 10px;
+margin-bottom: 15px;
+background-color: var(--background-color);
+border: 1px solid var(--main-color);
+border-radius: 5px;
+color: #000000;
+
+}
+.sign-btn{
+width: 100%;
+background-color: #fb285d;
+border: none;
+color: white;
+font-size: 16px;
+height: 40px;
+}
+</style>
+
 <style>
   /* Circle styles */
   .circle {
@@ -233,6 +316,101 @@
     /* Stays on top of all elements */
   }
 </style>
+  <!--Hamburger responsivenss Styling-->
+  <style>
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      font-size: 2rem;
+    }
+
+    /* Mobile view */
+    @media (max-width: 980px) {
+
+      .navbar {
+  display: none;
+  flex-direction: column;
+  background-color: #fff;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  padding: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-height: 300px; /* Set max-height for scroll */
+  overflow-y: auto; /* Enable vertical scroll */
+  border-radius: 0 0 50px 50px;
+}
+
+.header .navbar {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-color);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transform: translateY(-900px); /* Start position above the view */
+  opacity: 0; /* Initially hidden */
+  transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition */
+  max-height: 70vh; /* Set max-height for scroll */
+  overflow-y: auto; /* Enable vertical scroll */
+}
+.corner{
+  flex-direction: column;
+}
+
+.header .navbar a {
+  padding: 3rem;
+  color: #f9657f;
+}
+
+.header .navbar.active {
+  transform: translateY(0); /* Move to original position */
+  opacity: 1; /* Fade in */
+}
+
+.hamburger {
+  display: block;
+  font-size: x-large;
+}
+
+.navbar.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.auth-btn {
+  padding: 2rem 4rem;
+  margin: 2rem;
+}
+    }
+
+
+    /* Progress Bar Styles */
+    #progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 5px;
+      background: linear-gradient(90deg, #9c27b0, #ff9800);
+      width: 0;
+      z-index: 9999;
+      transition: width 0.1s;
+      box-shadow: 0 0 10px rgba(156, 39, 176, 0.8), 0 0 20px rgba(255, 152, 0, 0.8);
+    }
+
+    #progress-bar.full {
+      background: linear-gradient(90deg, #7b1fa2, #ff5722);
+      /* Darker gradient when fully scrolled */
+      box-shadow: 0 0 15px rgba(123, 31, 162, 0.8), 0 0 30px rgba(255, 87, 34, 0.8);
+      /* Darker glow effect */
+    }
+  </style>
+
 <style>
   .social-icons a {
     text-decoration: none;
@@ -279,8 +457,7 @@
         </div>
     </div>
 </div>
-
-<!-- Circles -->
+  <!-- Circles -->
 <div class="circle"></div>
 <div class="circle"></div>
 <div class="circle"></div>
@@ -302,103 +479,91 @@
 <div class="circle"></div>
 <div class="circle"></div>
 
+<button id="backToTop" style="font-size: 30px; font-weight: bold;">&#8673;</button>
+  <!-- Header Starts Here -->
+  <header class="header">
+    <div class="corner">
+    <a href="#" class="logo">
+      <img
+        src="https://purepng.com/public/uploads/large/purepng.com-ice-creamice-creamcreamfrozensweet-1411527617895aiuhx.png"
+        alt="Logo">
+    </a>
 
-    <button id="backToTop" style="font-size: 30px; font-weight: bold;">&#8673;</button>
+    <h1 class="site-title">ArcticDelights</h1>
+  </div>
 
-    <!-- Header Starts Here -->
-    <header class="header">
+    <nav class="navbar" id="navbar">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#menu">Menu</a>
+      <a href="offers.html">Offers</a>
+      <a href="#review-section">Review</a>
+      <a href="blog.html">Blogs</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="#" id="my-order-btn">My Orders</a>
+      <div class="icons login-signup-collection">
+        <button id="login-btn" class="auth-btn">Login</button>
+        <!-- <p style="padding-right: 10px;">        </p> -->
+        <button id="signup-btn" class="auth-btn">Sign Up</button>
+      </div>
+    </nav>
 
-        <a href="#" class="logo">
-            <img src="https://purepng.com/public/uploads/large/purepng.com-ice-creamice-creamcreamfrozensweet-1411527617895aiuhx.png"
-                alt="Logo">
-        </a>
-        <!-- Toggle Button (Hamburger) -->
-<div class="menu-btn" id="menu-btn">
-  <span class="fas fa-bars"></span>
-</div>
-        <h1 class="site-title">ArcticDelights</h1> 
-
-
-<nav class="navbar">
-
-
-<a href="#home">Home</a>
-<a href="#about">About</a>
-<a href="#menu">Menu</a>
-<a href="offers.html">Offers</a>
-<a href="#review-section">Review</a>
-<a href="blog.html">Blogs</a>
-<a href="contact.html">Contact Us</a>
-<a href="privacy.html">Privacy Policy</a>
-<a href="#" id="my-order-btn">My Orders</a>
-</nav>
+    <!-- Hamburger icon -->
+    <div class="hamburger" id="hamburger">
+      <i class="fas fa-bars"></i>
+    </div>
 
 
+    <div class="icons">
+      <div class = "fas fa-heart" id = "wishlist-btn"></div>
+      <div class="fas fa-search" id="search-btn"></div>   
+      <div class="fas fa-shopping-cart" id="cart-btn"><span id="cart-count">(0)</span></div>
+    </div>
+    
+    <div class="theme-switch-wrapper">
+      <label class="theme-switch" for="checkbox">
+        <input type="checkbox" id="checkbox">
+        <div class="slider"></div>
+      </label>
+    </div>
+    <div class="search-form">
+      <input type="search" id="search-box" placeholder="Search...">
+      <label for="search-box" class="fas fa-search"></label>
+    </div>
+    <div class="wishlist-container">
+      <ul id="wishlistItems"></ul>
+      <button class="clear-from-wishlist-btn" onclick="clearWishlist()">Clear Wishlist</button>
+  </div>
+    <div class="cart-items-container">
+      <div class="cart">
+        <ul id="cartItems">
+            <!-- Cart items will be displayed here -->
+        </ul>
+        <h3>
+            <div id="total">Total:$0.00
 
-        <div class="icons">
-            <div class = "fas fa-heart" id = "wishlist-btn"></div>
-            <div class="fas fa-search" id="search-btn"></div>
-            <a href="/cart.html">
-
-            
-            <div class="fas fa-shopping-cart" id="cart-btn">
-              
-              <span id="cart-count">(0)</span></div>
-            </a>
-        </div>
-        <div class="theme-switch-wrapper">
-            <label class="theme-switch" for="checkbox">
-                <input type="checkbox" id="checkbox">
-                <div class="slider"></div>
-            </label>
-            <span id="mode-label">Light Mode</span>
-        </div>
-        <div class="search-form">
-            <input type="search" id="search-box" placeholder="Search...">
-            <label for="search-box" class="fas fa-search"></label>
-        </div>
-        <div class="wishlist-container">
-            <ul id="wishlistItems"></ul>
-            <button class="clear-from-wishlist-btn" onclick="clearWishlist()">Clear Wishlist</button>
-        </div>
-        <!-- <div class="cart-items-container">
-            <div class="cart">
-                <ul id="cartItems">
-                Cart items will be displayed here 
-                </ul>
-                <h3>
-                    <div id="total">Total:$0.00
-                    </div>
-                </h3>
             </div>
-        </div> -->
-        <div class="my-order-container">
-            <h2>My Order</h2>
-            <div id="order-details">
-                <!-- Order details will be displayed here -->
-            </div>
-            <div class="order-actions">
-                <button onclick="trackOrder()">Track Order</button>
-                <button onclick="editOrder()">Edit Order</button>
-            </div>
-            
-        </div>
-        <div class="icons login-signup-collection">
+        </h3>
+        <button id="checkout-button" onclick="checkout()">Checkout</button>
+    </div>
+    </div>
+    <div class="my-order-container">
+      <h2>My Order</h2>
+      <div id="order-details">
+        <!-- Order details will be displayed here -->
+      </div>
+      <div class="order-actions">
+        <button onclick="trackOrder()">Track Order</button>
+        <button onclick="editOrder()">Edit Order</button>
+      </div>
+    </div>
 
-<!-- 
-            <button style="max-height: 40px;" id="login-btn" class="auth-btn">Login</button>
-            <p style="padding-right: 10px;">        </p>
-            <button style="max-height: 40px;" id="signup-btn" class="auth-btn">SignUp</button> -->
-
-             <button  style="max-height: 40px;" id="login-btn" class="auth-btn"><a href="./login/login.html">Login</a></button>
-             <button style="max-height: 40px;" id="login-btn" class="auth-btn"><a href="./signup/signup.html">signUp</a></button>
-
-        </div>
-
-    </header>
-    <!-- Header Ends Here -->
+  </header>
+  <div id="progress-bar"></div>
+  <!-- Header Ends Here -->
      <!-- preloader styling js -->
     <script src="preloader.js"></script>
+
 
     <!-- Home Section Starts Here -->
     <br><br><br><br><br><br><section class="home" id="home"  data-aos="fade-up"
@@ -1834,4 +1999,61 @@ document.addEventListener('click', function (event) {
       <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
 </body>
 
+
+    // Animation function to move the circles
+    function animateCircles() {
+      let x = coords.x;
+      let y = coords.y;
+
+      circles.forEach(function (circle, index) {
+        // Update the position and scale of each circle
+        circle.style.left = x - 12 + "px";
+        circle.style.top = y - 12 + "px";
+        circle.style.scale = (circles.length - index) / circles.length;
+
+        circle.x = x;
+        circle.y = y;
+
+        // Get the next circle in the sequence
+        const nextCircle = circles[index + 1] || circles[0];
+        x += (nextCircle.x - x) * 0.3;
+        y += (nextCircle.y - y) * 0.3;
+      });
+
+      // Repeat the animation
+      requestAnimationFrame(animateCircles);
+    }
+
+    // Start the animation
+    animateCircles();
+  </script>
+  <script>
+    // Progress Bar
+    window.addEventListener('scroll', function () {
+      // Calculate the scroll progress
+      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrollPercent = (scrollTop / scrollHeight) * 100;
+
+      // Update the width of the progress bar
+      const progressBar = document.getElementById('progress-bar');
+      progressBar.style.width = scrollPercent + '%';
+
+      // Add class when scrolled to the bottom
+      if (scrollPercent >= 100) {
+        progressBar.classList.add('full');
+      } else {
+        progressBar.classList.remove('full');
+      }
+    });
+
+    //Hamburger Functionality
+    const hamburger = document.getElementById('hamburger');
+    const navbar = document.getElementById('navbar');
+
+    hamburger.addEventListener('click', () => {
+      navbar.classList.toggle('active'); // Toggle the 'active' class on the navbar
+    });
+  </script>
+</body>
 </html>
