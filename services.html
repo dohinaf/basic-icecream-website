@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services</title>
+    <link rel="stylesheet" href="preloaderStyle.css">
+    <link rel="icon" href="https://purepng.com/public/uploads/large/purepng.com-ice-creamice-creamcreamfrozensweet-1411527617895aiuhx.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"> <!-- Updated to latest version -->
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <header class="header">
+
+        <style>
+            .services {
+                display: flex; /* Flexbox for layout */
+                flex-wrap: wrap; /* Wrap items to next line if necessary */
+                justify-content: center; /* Center the items */
+                padding: 20px; /* Padding for services section */
+                margin-top: 40px; /* Gap from header */
+            }
+
+            .service-item {
+                background-color: #fff; /* White background for each service */
+                color: black; /* Changed text color to black for visibility */
+                border: 1px solid #ddd; /* Light border */
+                border-radius: 8px; /* Rounded corners */
+                margin: 10px; /* Margin around each service item */
+                padding: 20px; /* Padding inside each service item */
+                width: calc(30% - 40px); /* Adjust width based on desired layout */
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow effect */
+                transition: transform 0.2s; /* Smooth scaling effect */
+            }
+
+            .service-item:hover {
+                transform: scale(1.05); /* Slightly scale up on hover */
+            }
+
+            .service-item h2 {
+                color: #ff5733; /* Customize service title color */
+            }
+
+            /* Optional: To make the body background color less bright */
+            body {
+                background-color: #f9f9f9; /* Light grey background for contrast */
+            }
+        </style>
+
+        <a href="#" class="logo">
+            <img src="https://purepng.com/public/uploads/large/purepng.com-ice-creamice-creamcreamfrozensweet-1411527617895aiuhx.png"
+                alt="Logo">
+        </a>
+        <!-- Toggle Button (Hamburger) -->
+        <div class="menu-btn" id="menu-btn">
+            <span class="fas fa-bars"></span>
+        </div>
+        <h1 class="site-title">ArcticDelights</h1>
+
+        <nav class="navbar">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#menu">Menu</a>
+            <a href="offers.html">Offers</a>
+            <a href="#review-section">Review</a>
+            <a href="blog.html">Blogs</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="#" id="my-order-btn">My Orders</a>
+            <a href="services.html">Services</a>
+        </nav>
+
+        <div class="icons">
+            <div class="fas fa-heart" id="wishlist-btn"></div>
+            <div class="fas fa-search" id="search-btn"></div>
+            <a href="/cart.html">
+                <div class="fas fa-shopping-cart" id="cart-btn">
+                    <span id="cart-count">(0)</span>
+                </div>
+            </a>
+        </div>
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox">
+                <div class="slider"></div>
+            </label>
+            <span id="mode-label">Light Mode</span>
+        </div>
+        <div class="search-form">
+            <input type="search" id="search-box" placeholder="Search...">
+            <label for="search-box" class="fas fa-search"></label>
+        </div>
+        <div class="wishlist-container">
+            <ul id="wishlistItems"></ul>
+            <button class="clear-from-wishlist-btn" onclick="clearWishlist()">Clear Wishlist</button>
+        </div>
+        <div class="my-order-container">
+            <h2>My Order</h2>
+            <div id="order-details">
+                <!-- Order details will be displayed here -->
+            </div>
+            <div class="order-actions">
+                <button onclick="trackOrder()">Track Order</button>
+                <button onclick="editOrder()">Edit Order</button>
+            </div>
+        </div>
+        <div class="icons login-signup-collection">
+            <button style="max-height: 40px;" id="login-btn" class="auth-btn"><a href="./login/login.html">Login</a></button>
+            <button style="max-height: 40px;" id="signup-btn" class="auth-btn"><a href="./signup/signup.html">SignUp</a></button>
+        </div>
+    </header>
+
+    <h1>Our Services</h1>
+    <p>Discover the delightful services we offer at our Ice Cream Shop!</p>
+
+    <section class="services">
+        <div class="service-item">
+            <h2>Ice Cream Catering</h2>
+            <p>Elevate your events with our delicious ice cream catering service! Whether it’s a wedding, birthday party, corporate event, or family gathering, we provide a wide variety of flavors and toppings that will delight your guests. Let us take care of the sweet treats while you enjoy the celebration!</p>
+        </div>
+        <div class="service-item">
+            <h2>Custom Ice Cream Flavors</h2>
+            <p>Unleash your creativity with our custom ice cream flavor creation service! Perfect for special occasions like birthdays or anniversaries, you can work with our expert team to design a flavor that reflects your personality or theme. Choose your base, mix-ins, and toppings for a truly personalized ice cream experience.</p>
+        </div>
+        <div class="service-item">
+            <h2>Ice Cream Truck Rentals</h2>
+            <p>Bring the fun of an ice cream truck to your next event! Our ice cream truck rentals are perfect for outdoor parties, community events, and school functions. We offer a variety of ice cream treats, and our friendly staff will serve your guests delicious ice cream right on-site, creating unforgettable memories.</p>
+        </div>
+        <div class="service-item">
+            <h2>Ice Cream Workshops</h2>
+            <p>Join us for a hands-on ice cream-making workshop! Perfect for both adults and children, our workshops teach you the art of crafting your own ice cream from scratch. Learn about flavor combinations, techniques, and enjoy tasting your creations. It’s a fun and educational experience for all ages!</p>
+        </div>
+        <div class="service-item">
+            <h2>Seasonal Flavors and Limited-Time Offers</h2>
+            <p>Stay tuned for our seasonal flavors and limited-time offers that change throughout the year! From pumpkin spice in the fall to refreshing sorbets in the summer, our rotating selection keeps things exciting. Check our website regularly to discover new and unique flavors that you won't want to miss!</p>
+        </div>
+        <div class="service-item">
+            <h2>Delivery and Takeout</h2>
+            <p>Enjoy your favorite ice cream from the comfort of your home with our convenient delivery and takeout service! Browse our menu online, place your order, and we’ll prepare your ice cream just the way you like it. Perfect for cozy nights in or surprise treats for family and friends.</p>
+        </div>
+        <div class="service-item">
+            <h2>Fundraising Programs</h2>
+            <p>Partner with us for your next fundraising event! We offer special fundraising programs where a portion of the proceeds from ice cream sales goes directly to your cause. It’s a sweet way to support schools, charities, and community organizations while enjoying delicious ice cream.</p>
+        </div>
+        <div class="service-item">
+            <h2>Ice Cream Sundae Bar</h2>
+            <p>Create your own sundae with our ice cream sundae bar service! Perfect for parties and events, we provide a selection of ice cream flavors, toppings, sauces, and whipped cream so guests can build their perfect sundae. It's a fun and interactive treat for everyone!</p>
+        </div>
+        <div class="service-item">
+            <h2>Ice Cream Socials</h2>
+            <p>Host an ice cream social with our all-inclusive packages! We provide everything you need, including ice cream, toppings, cups, spoons, and setup. Whether it's a birthday party, a school event, or a community gathering, our ice cream socials are a hit for all ages!</p>
+        </div>
+    </section>
+    <!-- <div class="footercolor"> -->
+  <section class="footer" id="footer" style="background-color: black ">
+    <hr> <!-- Horizontal line -->
+  
+    <!-- Parent div wrapping all footer content -->
+    <div class="footer-row">
+      
+      <!-- Child div for 'About Scruter' -->
+      <div class="footer-column">
+        <h3>About ArcticDelights </h3>
+        <p>At Arctic Delights, we believe that every scoop of ice cream should be a masterpiece. We handpick the finest, sustainably sourced ingredients to craft flavors that not only cool you down but also take your taste buds on an unforgettable journey. </p>
+      </div>
+  
+      <!-- Child div for 'Quick Links' -->
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <a href="#">About Us</a>
+        <a href="#">Our Team</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Our Contributors</a>
+      </div>
+  
+      <!-- Child div for 'Help Desk' -->
+      <div class="footer-column">
+        <h3>Help Desk</h3>
+        <a href="#">Help Center</a>
+        <a href="#">FAQ</a>
+        <a href="#">Contact Us</a>
+        <a href="#">Support</a>
+      </div>
+  
+      <!-- Child div for 'Follow Us' -->
+      <div class="footer-column">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="#"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#"><i class="fa-brands fa-x-twitter"></i></a> <!-- Updated X icon -->
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-pinterest"></i></a>
+        </div>
+      </div>
+  
+    </div>
+  
+    <!-- Footer credit -->
+    <div class="credit">
+      <p>created by Dohina</p>
+    </div>
+  </section>
+<!-- </div> -->
+
+    <!-- Footer Section Ends Here -->
+
+    <!-- JavaScript File -->
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    
+          
+    
+    
+            // Animate the search form
+            gsap.from(".search-form", { opacity: 0, x: -100, duration: 1, ease: "power2.out" });
+    
+            // Animate the cart container
+            gsap.from(".cart-items-container", { opacity: 0, y: 100, duration: 1.5, ease: "power2.out" });
+    
+            // Animate the 'My Order' container
+            gsap.from(".my-order-container", { opacity: 0, x: 100, duration: 1.5, ease: "power2.out" });
+    
+            // Animate home section content
+            gsap.from(".home .content h3", { opacity: 0, x: -100, duration: 1.5, delay :0.1, ease: "power2.out" });
+            gsap.from(".home .content p", { opacity: 0, x: -100, duration: 1.5, delay: 0.1, ease: "power2.out" });
+            gsap.from(".home .animated-button", { opacity: 0, x: -100, duration: 1.5, delay: 0.1, ease: "power2.out" });
+    
+            // Animate buttons on hover for scaling effect
+            const buttons = document.querySelectorAll("button");
+            buttons.forEach(button => {
+                button.addEventListener('mouseover', () => {
+                    gsap.to(button, { scale: 1.1, duration: 0.2 });
+                });
+                button.addEventListener('mouseout', () => {
+                    gsap.to(button, { scale: 1, duration: 0.2 });
+                });
+            });
+    
+        });
+        document.getElementById('learnMoreBtn').addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent default anchor behavior
+        var moreContent = document.getElementById('moreContent');
+        if (moreContent.style.display === "none") {
+            moreContent.style.display = "block";
+            this.textContent = "Show Less"; // Change button text
+        } else {
+            moreContent.style.display = "none";
+            this.textContent = "Learn More"; // Revert button text
+        }
+    });
+        
+    </script>
+    
+    
+    <script src="./darkMode.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+      </script>
+      <script>
+        // Coordinates for the cursor
+        const coords = { x: 0, y: 0 };
+        const circles = document.querySelectorAll(".circle");
+
+        // Colors for the circles
+        const colors = [
+          "#ffb56b", "#fdaf69", "#f89d63", "#f59761", "#ef865e", "#ec805d",
+          "#e36e5c", "#df685c", "#d5585c", "#d1525c", "#c5415d", "#c03b5d",
+          "#b22c5e", "#ac265e", "#9c155f", "#950f5f", "#830060", "#7c0060",
+          "#680060", "#60005f", "#48005f", "#3d005e"
+        ];
+
+        // Assign colors and initial position to each circle
+        circles.forEach(function (circle, index) {
+          circle.x = 0;
+          circle.y = 0;
+          circle.style.backgroundColor = colors[index % colors.length];
+        });
+
+        // Update the coordinates when the mouse moves
+        window.addEventListener("mousemove", function (e) {
+          coords.x = e.clientX;
+          coords.y = e.clientY;
+        });
+
+        // Animation function to move the circles
+        function animateCircles() {
+          let x = coords.x;
+          let y = coords.y;
+
+          circles.forEach(function (circle, index) {
+            // Update the position and scale of each circle
+            circle.style.left = x - 12 + "px";
+            circle.style.top = y - 12 + "px";
+            circle.style.scale = (circles.length - index) / circles.length;
+
+            circle.x = x;
+            circle.y = y;
+
+            // Get the next circle in the sequence
+            const nextCircle = circles[index + 1] || circles[0];
+            x += (nextCircle.x - x) * 0.3;
+            y += (nextCircle.y - y) * 0.3;
+          });
+
+          // Repeat the animation
+          requestAnimationFrame(animateCircles);
+        }
+
+        // Start the animation
+        animateCircles();
+      </script>
+      <div class="gtranslate_wrapper"></div>
+      <script>window.gtranslateSettings = {"default_language":"en","detect_browser_language":true,"wrapper_selector":".gtranslate_wrapper"}</script>
+      <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+</body>
+</html>
