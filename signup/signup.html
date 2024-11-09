@@ -8,6 +8,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+    <!-- preloader -->
+    <div id="preloader">
+        <div class="wrapper">
+            <div class="box-wrap">
+                <div class="box one"></div>
+                <div class="box two"></div>
+                <div class="box three"></div>
+                <div class="box four"></div>
+                <div class="box five"></div>
+                <div class="box six"></div>
+            </div>
+        </div>
+    </div>
+    <div class="signup-container">
+        <div id="signup-box" class="signup-box">
+            <h2>Create an Account</h2>
+            <form action="#" class="signup-form" id="signup-form">
     <div class="signup-container">
         <div id="signup-box" class="signup-box">
             <h2>Create an Account</h2>
@@ -17,6 +34,17 @@
                     <label>Username</label>
                 </div>
                 <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="email" required>
+                    <label>Email</label>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password" required>
+                    <label>Password</label>
+                    <span class="toggle-password" onclick="togglePasswordVisibility()">
+                        <i class="fas fa-eye" id="eye-icon"></i>
+                    </span>
                     <input type="email" name="email" required>
                     <label>Email</label>
                 </div>
@@ -32,6 +60,38 @@
             </form>
         </div>
     </div>
+    <script src="../preloader.js"></script>
+    <script>
+        // Trusted email domains
+        const trustedDomains = ["gmail.com", "outlook.com", "yahoo.com", "hotmail.com" , "protonmail.com" , "icloud.com" , "tutanota.com"];
+
+        document.getElementById('signup-form').addEventListener('submit', function(event) {
+            const emailInput = document.getElementById('email');
+            const email = emailInput.value.trim();
+            const emailDomain = email.substring(email.lastIndexOf('@') + 1);
+
+            if (!trustedDomains.includes(emailDomain)) {
+                event.preventDefault(); // Prevent form submission
+                alert('Please use a valid email address from a trusted provider (e.g., Gmail, Outlook, Yahoo).');
+                emailInput.focus(); // Focus on the email input
+            }
+        });
+
+        function togglePasswordVisibility() {
+            const passwordInput = document.getElementById('password');
+            const eyeIcon = document.getElementById('eye-icon');
+
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                eyeIcon.classList.remove('fa-eye');
+                eyeIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                eyeIcon.classList.remove('fa-eye-slash');
+                eyeIcon.classList.add('fa-eye');
+            }
+        }
+    </script>
     <script src="signup.js"></script>
 </body>
 </html>
