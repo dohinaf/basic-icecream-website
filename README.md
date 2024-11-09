@@ -1,4 +1,5 @@
-# 🍦 **Arctic Delights** 🍨  
+<h1 align="center">🍦 Arctic Delights 🍨</h1>
+
 Welcome to **Arctic Delights**! A visually stunning, beginner-friendly ice cream website designed to showcase the art of web development through a fun and delicious medium. Whether you're exploring flavors or admiring the responsive layout, this project is a sweet introduction to HTML, CSS, and JavaScript.
 
 <div align = "center">
@@ -54,7 +55,9 @@ Welcome to **Arctic Delights**! A visually stunning, beginner-friendly ice cream
 </table>
 <br>
 
-## 📚 Table of Contents
+
+ <details>
+   <summary><h2>📚 Table of Contents:</h2></summary>
 
 1. [Features](#-features)
 2. [Technologies Used](#-technologies-used)
@@ -67,6 +70,10 @@ Welcome to **Arctic Delights**! A visually stunning, beginner-friendly ice cream
 9. [Forkers](#forkers)
 10. [Website Preview](#website-preview)
 11. [Code of Conduct](#code-of-conduct)
+
+</details>
+
+<hr>
 
 ## ✨ **Features**
 - 🍧 **Beautiful Design**: A minimalistic yet attractive user interface that invites visitors to explore a wide range of delectable ice cream flavors, complete with vibrant imagery.
@@ -145,4 +152,13 @@ We are committed to fostering a welcoming and inclusive environment for everyone
 Please read and follow our [Code of Conduct](Code_of_Conduct.md) to foster an inclusive community.
 If anyone violates these standards, they may be banned from the community.
 
-# Thanks for reading!!!
+<div>
+  <h2><img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f64f_1f3fb/512.webp" width="35" height="35"> Support </h2>
+</div>
+
+<div>
+  Don't forget to leave a star<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f31f/512.webp" width="35" height="30"> for this project!
+</div> <br>
+
+
+<a href="#top"><img src="https://img.shields.io/badge/-Back%20to%20Top-red?style=for-the-badge" align="right"/></a>

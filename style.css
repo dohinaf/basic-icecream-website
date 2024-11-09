@@ -1393,63 +1393,82 @@ button:hover {
 }
 
 /* Footer Styles */
+/* Footer styles */
+
 
 .footer {
-  background-color: var(--background-color);
+  padding: 20px;
+  background-color: #FF6F61; /* Ice cream color */
+  color: white;
+  width: 100%;
+}
+
+.footer hr {
+  border: 0;
+  border-top: 1px solid white;
+  margin: 20px 0;
+}
+
+/* Parent div styling */
+.footer-row {
+  display: flex;
+  justify-content: space-between; /* Ensures space between child divs */
+  flex-wrap: nowrap; /* Prevent wrapping */
+  align-items: flex-start; /* Aligns child divs at the top */
+}
+
+/* Child div styling */
+.footer-column {
+  flex: 1;
+  min-width: 200px; /* Ensures child divs do not shrink too much */
+  margin: 0 15px;
+}
+
+.footer h3 {
+  margin-bottom: 10px;
+  font-size: 1.5vw;
+  color: white;
+}
+
+.footer a {
+  display: block;
+  color: white;
+  transition: color 0.3s;
+  margin-bottom: 5px;
+  size: 1vw;
+}
+
+.footer a:hover {
+  color: #ddd; /* Subtle hover effect */
+}
+
+/* Social icons container */
+.footer .social-icons {
+  display: flex;
+  justify-content: center; /* Center align icons */
+}
+a{
+  font-size: 1vw;
+}
+
+.footer .social-icons a {
+  margin: 0 10px;
+  color: white;
+  transition: color 0.3s;
+  margin-top: 2vw;
+}
+
+.footer .social-icons a:hover {
+  color: #ddd; /* Subtle hover effect */
+}
+
+/* Footer credit */
+.footer .credit {
+  margin-top: 20px;
+  width: 100%;
   text-align: center;
 }
-
-.footer .share {
-  padding: 1rem 0;
-}
-
-.footer .share a {
-  height: 5rem;
-  width: 5rem;
-  line-height: 5rem;
-  font-size: 2rem;
-  color: var(--text-color);
-  border: var(--border);
-  margin: 0.3rem;
-  border-radius: 50%;
-}
-
-.footer .share a:hover {
-  background-color: var(--background-color);
-}
-
-.footer .links {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding: 10px 0;
-  gap: 10px;
-}
-
-.footer .links a {
-  padding: 0.7rem 2rem;
-  color: var(--text-color);
-  border: var(--border);
-  font-size: 2rem;
-}
-
-.footer .links a:hover {
-  background-color: var(--background-color);
-}
-
-footer .credit {
-  font-size: 2rem;
-  font-weight: lighter;
-  padding: 1.5rem;
-}
-
-.footer .credit p {
-  color: var(--text-color);
-}
-
-.footer .credit span {
-  color: var(--text-color);
-}
+/* Footer Styles */
 
 /* Media Queries */
 @media (max-width: 991px) {

@@ -82,6 +82,15 @@
         cursor: pointer;
         transition: transform 0.3s; /* Animation for hover */
         position: relative; /* Required for the tooltip */
+      }
+    .popup-content {
+      display: flex;
+      background-color: white;
+      border-radius: 10px;
+      width: 1000px;
+      height: 400px;
+      overflow: hidden;
+      position: relative;
     }
 
     .chatbot-button:hover {
@@ -92,6 +101,13 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      }
+    .popup-right {
+      padding-left: 20px;
+      padding-top: 30px;
+      width: 35%;
+      position: relative;
+
     }
     .tooltip-text {
         display: none;
@@ -110,6 +126,7 @@
         display: block; /* Show tooltip on hover */
     }
 </style>
+
 
 
 <style>
@@ -144,6 +161,36 @@ width: 100%;
 height: 100%;
 object-fit: cover;
 }
+
+    input[type="name"] {
+      width: 95%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    input[type="email"] {
+      width: 95%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+    input[type="password"] {
+      width: 95%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+      margin-bottom: 0px;
+    }
+
 
 .popup-right {
 padding-left: 20px;
@@ -466,6 +513,7 @@ height: 40px;
       <i class="fas fa-bars"></i>
     </div>
 
+
     <div class="icons">
       <div class = "fas fa-heart" id = "wishlist-btn"></div>
       <div class="fas fa-search" id="search-btn"></div>   
@@ -493,6 +541,7 @@ height: 40px;
         </ul>
         <h3>
             <div id="total">Total:$0.00
+
             </div>
         </h3>
         <button id="checkout-button" onclick="checkout()">Checkout</button>
@@ -531,7 +580,7 @@ height: 40px;
       <div id="popup" class="popup">
         <div class="popup-content">
           <div class="popup-left">
-            <img src="ICECREAM.jpg" alt="Discount Image">
+            <img src="OFFER1.png" alt="Discount Image">
           </div>
           <div class="popup-right">
             <span class="close-btn">&times;</span>
@@ -564,6 +613,9 @@ height: 40px;
 
     <!--  Pop-up for Discount and Sign up Ends here  -->
     
+    <!-- Toast notification container -->
+    <div id="toast" class="toast-notification"></div>
+
     <!-- Script for pop up discount Starts Here -->
     <script>
      // Get the toggle button, the navbar (menu), and all the navbar links
@@ -594,58 +646,130 @@ document.addEventListener('click', function (event) {
       document.getElementById('popup').style.display = 'flex';
     };
 
-    // Close the pop-up when the user clicks the close button
-    document.querySelector('.close-btn').addEventListener('click', function() {
-      document.getElementById('popup').style.display = 'none';
-    });
 
-    // Handle form submission
-    document.getElementById('emailForm').addEventListener('submit', function(event) {
-      event.preventDefault();
-      
-      const email = document.getElementById('email').value;
-      if (email) {
-        alert(`Thank you! A 20% discount code has been sent to ${email}`);
-        document.getElementById('popup').style.display = 'none';
+    <!-- CSS for toast notification -->
+    <style>
+      .toast-notification {
+        visibility: hidden;
+        min-width: 250px;
+        margin-left: -125px;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        position: fixed;
+        z-index: 1;
+        left: 50%;
+        bottom: 30px;
+        font-size: 17px;
       }
-    });
 
-    // Handle "No thanks" link
-    document.querySelector('.no-thanks').addEventListener('click', function(event) {
-      event.preventDefault();
-      document.getElementById('popup').style.display = 'none';
-    });
-  </script>
+      .toast-notification.show {
+        visibility: visible;
+        -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        animation: fadein 0.5s, fadeout 0.5s 2.5s;
+      }
+
+      @-webkit-keyframes fadein {
+        from {bottom: 0; opacity: 0;} 
+        to {bottom: 30px; opacity: 1;}
+      }
+
+      @keyframes fadein {
+        from {bottom: 0; opacity: 0;}
+        to {bottom: 30px; opacity: 1;}
+      }
+
+      @-webkit-keyframes fadeout {
+        from {bottom: 30px; opacity: 1;} 
+        to {bottom: 0; opacity: 0;}
+      }
+
+      @keyframes fadeout {
+        from {bottom: 30px; opacity: 1;}
+        to {bottom: 0; opacity: 0;}
+      }
+    </style>
+
+    <!-- Script for pop up discount -->
+    <script>
+      // Show the pop-up automatically when the page loads
+      window.onload = function() {
+        document.getElementById('popup').style.display = 'flex';
+      };
+
+      // Close the pop-up when the user clicks the close button
+      document.querySelector('.close-btn').addEventListener('click', function() {
+        document.getElementById('popup').style.display = 'none';
+      });
+
+      // Function to show toast notification
+      function showToast(message) {
+        var toast = document.getElementById("toast");
+        toast.className = "toast-notification show";
+        toast.textContent = message;
+        setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
+      }
+
+      // Handle form submission
+      document.getElementById('emailForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const email = document.getElementById('email').value;
+        if (email) {
+          showToast(`Thank you! A 20% discount code has been sent to ${email}`);
+          document.getElementById('popup').style.display = 'none';
+        }
+      });
+
+      // Handle "No thanks" link
+      document.querySelector('.no-thanks').addEventListener('click', function(event) {
+        event.preventDefault();
+        document.getElementById('popup').style.display = 'none';
+      });
+    </script>
+    
     <!-- Script for pop up discount ends Here -->
 
     <!-- About Section Starts Here -->
-    <section class="about" id="about">
-      <h1 class="heading" 
-      style="text-align: center; font-size: 3em; line-height: 1.2;" 
-      data-aos="fade-up" 
-      data-aos-duration="1200" 
-      data-aos-delay="200" 
-      data-aos-anchor-placement="top-bottom">
-      <span style="color: orangered;">about</span> us
-  </h1>  
-      <div class="row" style="display: flex; align-items: center; justify-content: flex-end;">
-          <div class="image" style="margin-right: 30px;">
-              <img src="ice cream.jpg" alt="ice cream" style="width: 500px; height: auto;" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200" data-aos-anchor-placement="top-bottom">
-          </div>
-          <div class="content" style="text-align: right;" data-aos-anchor-placement="top-bottom">
-              <h3 data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">What Makes Our Ice Cream Special?</h3>
-              <p data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
-                  At Arctic Delights, we believe that every scoop of ice cream should be a masterpiece. We handpick the finest, sustainably sourced ingredients to craft flavors that not only cool you down but also take your taste buds on an unforgettable journey. Whether you crave something classic or adventurous, we offer a wide range of flavors designed to surprise and delight.
-              </p>
-              <p data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
-                  Customize your perfect treat with our signature toppings, sauces, and add-ons to create a unique dessert experience tailored just for you. At Arctic Delights, we’re not just about ice cream—we’re about crafting moments of joy in every bite!
-              </p>
-              <a href="about_us_page.html" class="button" style="display: inline-block; padding: 15px 30px; font-size: 18px; color: #FFFFFF; background-color: #002855; border: 2px solid #FF00FF; border-radius: 10px; text-decoration: none; margin-top: 20px;">
+  <!-- About Section Starts Here -->
+<section class="about" id="about">
+    <h1 class="heading" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200" data-aos-anchor-placement="top-bottom">
+        <span style="color: orangered;">about</span> us
+    </h1>
+
+    <div class="row" style="display: flex; align-items: center; justify-content: center;">
+        <div class="image" style="margin-right: 30px;">
+            <img src="ice cream.jpg" alt="ice cream" style="width: 500px; height: auto;" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200" data-aos-anchor-placement="top-bottom">
+        </div>
+
+        <div class="content" style="text-align: left;" data-aos-anchor-placement="top-bottom">
+            <h3 data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">What Makes Our Ice Cream Special?</h3>
+            <p data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
+                At Arctic Delights, we believe that every scoop of ice cream should be a masterpiece. We handpick the finest, sustainably sourced ingredients to craft flavors that not only cool you down but also take your taste buds on an unforgettable journey. Whether you crave something classic or adventurous, we offer a wide range of flavors designed to surprise and delight.
+            </p>
+            <p data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
+                Customize your perfect treat with our signature toppings, sauces, and add-ons to create a unique dessert experience tailored just for you. At Arctic Delights, we’re not just about ice cream—we’re about crafting moments of joy in every bite!
+            </p>
+
+            <!-- Hidden section to reveal on button click -->
+            <div id="moreContent" style="display: none;" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                <p>
+                    Our ice creams are made using traditional methods, ensuring each batch is churned to perfection. From locally sourced dairy to organic fruits, nuts, and chocolates, we are committed to sustainability and exceptional taste. We also offer dairy-free and vegan options to cater to every lifestyle and preference.
+                </p>
+                <p>
+                    Whether you're enjoying a scoop in-store or ordering our handcrafted pints to your home, Arctic Delights promises the best quality and an unforgettable experience with every bite.
+                </p>
+            </div>
+
+            <a href="#" class="btn" id="learnMoreBtn" style="display: inline-block; padding: 15px 30px; font-size: 18px; color: #FFFFFF; background-color: #002855; border: 2px solid #FF00FF; border-radius: 10px; text-decoration: none; margin-top: 20px;">
                 Learn More <i class="fas fa-arrow-right"></i>
-            </a>            
-          </div>
-      </div>
-  </section>
+            </a>
+        </div>
+    </div>
+</section>
+
   
 
     <!-- Login Modal -->
@@ -716,18 +840,27 @@ document.addEventListener('click', function (event) {
         <div class="filter-box">
           
             <h3 id="filter-head">Filter Ice Creams</h3>
-            <select id="price-filter">
-                <option value="all">All Prices</option>
-                <option value="under-15">Under $15</option>
-                <option value="15-20">$15 - $20</option>
-                <option value="over-20">Over $20</option>
+            <!-- Price filter dropdown -->
+            <select id="price-filter" style="height: 50px; padding: 4px; font-size: 14px; border-radius: 4px; border: 1px solid #ccc;">
+            <option value="all">All Prices</option>
+            <option value="under-15">Under $15</option>
+            <option value="15-20">$15 - $20</option>
+            <option value="over-20">Over $20</option>
             </select>
+
+            <!-- Allergy filter form -->
+            <form id="allergy-form" style="display: flex; align-items: center; gap: 12px; margin-bottom: 15px;">
+              <label for="allergy-input" style="font-size: 14px; font-weight: 500; color: #333; margin-right: 8px;">
+                Allergy (if any)
+            </label>
+            <input type="text" id="allergy-input" placeholder="e.g., no nuts, no dairy" style="padding: 4px 10px; font-size: 14px; width: 140px; border: 1px solid #ccc; border-radius: 4px;" />
+        </form>
+
             <button id="apply-filter">Apply Filter</button>
             <button id="remove-filter">Remove Filter</button> <!-- New Remove Filter Button -->
         </div>
         <div class="box-container">
-
-            <div class="box"  data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200"
+            <div class="my_style2 box"  data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200"
             data-aos-anchor-placement="top-bottom">
             <div class="picture">
                 <img src="https://plus.unsplash.com/premium_photo-1678198786405-28e947bb8a12" alt="">
@@ -735,15 +868,20 @@ document.addEventListener('click', function (event) {
                 <div class="flip">A delightful blend of crunchy nuts and rich butterscotch, creating a sweet and savory treat that melts in your mouth!</div>
             </div>
                 <div class="price"> $15.99 <span>20.99</span></div>
-                <button  id="inbox" onclick="addToCart('Nutty Butterscotch', 15.99)">Add to Cart</button><br>
+                <button id="inbox" onclick="addToCart('Nutty Butterscotch', 15.99,'https://plus.unsplash.com/premium_photo-1678198786405-28e947bb8a12')">Add to Cart</button><br>
                 <div class="noofitems">
                   <button class="plus-minus" onclick="decreaseQuantity('Nutty Butterscotch')">-</button>
                   <span id="itemQuantity-Nutty Butterscotch">1</span>
                   <button class="plus-minus" onclick="increaseQuantity('Nutty Butterscotch')">+</button>
               </div>
-                <button  id="inbox" onclick="addToWishlist('Nutty Butterscoth', 15.99)">Add to wishlist</button>
-                <button id="inbox" onclick="window.location.href='nut_butter.html';">Read more</button>
-
+                <button class="my_style3" id="inbox" onclick="addToWishlist('Nutty Butterscoth', 15.99)">Add to wishlist</button>
+                <button class="my_style3" id="inbox" onclick="window.location.href='nut_butter.html';">Read more</button>
+              <style>
+                .my_style3:hover {
+                  background: linear-gradient(90deg, orange, yellow);
+                  color: white !important;
+                }
+              </style>
 
           </div>
         
@@ -757,14 +895,14 @@ document.addEventListener('click', function (event) {
             </div>
 
                 <div class="price"> $18.99 <span>20.99</span></div>
-                <button  id="inbox" onclick="addToCart('Berry Pops', 18.99)">Add to Cart</button><br>
+                <button  id="inbox" onclick="addToCart('Berry Pops', 18.99,'https://images.unsplash.com/photo-1488900128323-21503983a07e')">Add to Cart</button><br>
                 <div class="noofitems">
                   <button class="plus-minus" onclick="decreaseQuantity('Berry Pops')">-</button>
                   <span class ="text" id="itemQuantity-Berry Pops">1</span>
                   <button class="plus-minus" onclick="increaseQuantity('Berry Pops')">+</button>
               </div>
-                <button  id="inbox" onclick="addToWishlist('Berry Pops', 18.99)">Add to wishlist</button>
-                <button id="inbox" onclick="window.location.href='berry_pops.html';">Read more</button>
+                <button class="my_style3" id="inbox" onclick="addToWishlist('Berry Pops', 18.99)">Add to wishlist</button>
+                <button class="my_style3" id="inbox" onclick="window.location.href='berry_pops.html';">Read more</button>
 
 
             </div>
@@ -780,14 +918,14 @@ document.addEventListener('click', function (event) {
                 </div>
 
                 <div class="price"> $18.99 <span>20.99</span></div>
-                <button  id="inbox" onclick="addToCart('Cherry Sherbet Pops', 18.99)">Add to Cart</button><br>
+                <button  id="inbox" onclick="addToCart('Cherry Sherbet Pops', 18.99,'https://images.unsplash.com/photo-1633933037611-f26e54366832')">Add to Cart</button><br>
                 <div class="noofitems">
                   <button class="plus-minus" onclick="decreaseQuantity('Cherry Sherbet Pops')">-</button>
                   <span id="itemQuantity-Cherry Sherbet Pops">1</span>
                   <button class="plus-minus" onclick="increaseQuantity('Cherry Sherbet Pops')">+</button>
               </div>
-                <button  id="inbox" onclick="addToWishlist('Cherry Sherbet Pops', 18.99)">Add to wishlist</button>
-                <button id="inbox" onclick="window.location.href='cherry_pops.html';">Read more</button>
+                <button class="my_style3" id="inbox" onclick="addToWishlist('Cherry Sherbet Pops', 18.99)">Add to wishlist</button>
+                <button class="my_style3" id="inbox" onclick="window.location.href='cherry_pops.html';">Read more</button>
 
 
             </div>
@@ -807,14 +945,14 @@ document.addEventListener('click', function (event) {
 
         
                 <div class="price"> $15.99 <span>20.99</span></div>
-                <button  id="inbox" onclick="addToCart('Dripping Vannila', 15.99)">Add to Cart</button><br>
+                <button  id="inbox" onclick="addToCart('Dripping Vannila', 15.99,'https://images.unsplash.com/photo-1570197788417-0e82375c9371')">Add to Cart</button><br>
                 <div class="noofitems">
                   <button class="plus-minus" onclick="decreaseQuantity('Dripping Vannila')">-</button>
                   <span id="itemQuantity-Dripping Vannila">1</span>
                   <button class="plus-minus" onclick="increaseQuantity('Dripping Vannila')">+</button>
               </div>
-                <button  id="inbox" onclick="addToWishlist('Dripping Vannila', 15.99)">Add to wishlist</button>
-                <button id="inbox" onclick="window.location.href='drip_vanilla.html';">Read more</button>
+                <button class="my_style3" id="inbox" onclick="addToWishlist('Dripping Vannila', 15.99)">Add to wishlist</button>
+                <button class="my_style3" id="inbox" onclick="window.location.href='drip_vanilla.html';">Read more</button>
             </div>
 
             <div class="box"  data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200"
@@ -830,14 +968,14 @@ document.addEventListener('click', function (event) {
 
        
                 <div class="price"> $16.99 <span>20.99</span></div>
-                <button  id="inbox" onclick="addToCart('Very Berry Strawberry', 16.99)">Add to Cart</button><br>
+                <button  id="inbox" onclick="addToCart('Very Berry Strawberry', 16.99,'https://images.unsplash.com/photo-1532678465554-94846274c297')">Add to Cart</button><br>
                 <div class="noofitems">
                   <button class="plus-minus" onclick="decreaseQuantity('Very Berry Strawberry')">-</button>
                   <span id="itemQuantity-Very Berry Strawberry">1</span>
                   <button class="plus-minus" onclick="increaseQuantity('Very Berry Strawberry')">+</button>
               </div>
-                <button  id="inbox" onclick="addToWishlist('Very Berry Strawberry', 16.99)">Add to wishlist</button>
-                <button id="inbox" onclick="window.location.href='very_straw.html';">Read more</button>
+                <button class="my_style3" id="inbox" onclick="addToWishlist('Very Berry Strawberry', 16.99)">Add to wishlist</button>
+                <button class="my_style3" id="inbox" onclick="window.location.href='very_straw.html';">Read more</button>
             </div>
 
             <div class="box"  data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
@@ -852,14 +990,14 @@ document.addEventListener('click', function (event) {
  
             
                 <div class="price"> $18.99 <span>20.99</span></div>
-                <button  id="inbox" onclick="addToCart('Rainbow Classic Cone', 18.99)">Add to Cart</button><br>
+                <button  id="inbox" onclick="addToCart('Rainbow Classic Cone', 18.99,'https://images.unsplash.com/photo-1705103654898-d663145f5f50')">Add to Cart</button><br>
                 <div class="noofitems">
                   <button class="plus-minus" onclick="decreaseQuantity('Rainbow Classic Cone')">-</button>
                   <span id="itemQuantity-Rainbow Classic Cone">1</span>
                   <button class="plus-minus" onclick="increaseQuantity('Rainbow Classic Cone')">+</button>
               </div>
-                <button  id="inbox" onclick="addToWishlist('Rainbow Classic Cone', 18.99)">Add to wishlist</button>
-                <button id="inbox" onclick="window.location.href='rain_classic.html';">Read more</button>
+                <button class="my_style3" id="inbox" onclick="addToWishlist('Rainbow Classic Cone', 18.99)">Add to wishlist</button>
+                <button class="my_style3" id="inbox" onclick="window.location.href='rain_classic.html';">Read more</button>
             </div>
 
             <div class="box"  data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
@@ -868,21 +1006,21 @@ document.addEventListener('click', function (event) {
                 <img src="https://images.unsplash.com/photo-1559340160-146586a4f9b6" alt="">
                 <h3 id="pro-name">Orange Pops</h3>
 
-                <div class="flip">Refreshing frozen delights bursting with zesty orange flavor, offering a sunny, sweet, and tangy treat that’s perfect for cooling off on a hot day!</div>
+                <div class="flip">Refreshing frozen delights bursting with zesty orange flavor, offering a sunny, sweet, and tangy treat that's perfect for cooling off on a hot day!</div>
             </div>
         
 
             
 
                 <div class="price"> $12.99 <span>20.99</span></div>
-                <button  id="inbox" onclick="addToCart('Orange Pops', 12.99)">Add to Cart</button><br>
+                <button  id="inbox" onclick="addToCart('Orange Pops', 12.99,'https://images.unsplash.com/photo-1559340160-146586a4f9b6')">Add to Cart</button><br>
                 <div class="noofitems">
                   <button class="plus-minus" onclick="decreaseQuantity('Orange Pops')">-</button>
                   <span id="itemQuantity-Orange Pops">1</span>
                   <button class="plus-minus" onclick="increaseQuantity('Orange Pops')">+</button>
               </div>
-                <button  id="inbox" onclick="addToWishlist('Orange Pops', 12.99)">Add to wishlist</button>
-                <button id="inbox" onclick="window.location.href='orange_pops.html';">Read more</button>
+                <button class="my_style3" id="inbox" onclick="addToWishlist('Orange Pops', 12.99)">Add to wishlist</button>
+                <button class="my_style3" id="inbox" onclick="window.location.href='orange_pops.html';">Read more</button>
 
             </div>
 
@@ -899,14 +1037,14 @@ document.addEventListener('click', function (event) {
 
             
                 <div class="price"> $18.99 <span>20.99</span></div>
-                <button  id="inbox" onclick="addToCart('Choco-Hazel Pops', 18.99)">Add to Cart</button><br>
+                <button  id="inbox" onclick="addToCart('Choco-Hazel Pops', 18.99,'https://images.unsplash.com/photo-1594305178909-03ab72b8205e')">Add to Cart</button><br>
                 <div class="noofitems">
                   <button class="plus-minus" onclick="decreaseQuantity('Choco-Hazel Pops')">-</button>
                   <span id="itemQuantity-Choco-Hazel Pops">1</span>
                   <button class="plus-minus" onclick="increaseQuantity('Choco-Hazel Pops')">+</button>
               </div>
-                <button  id="inbox" onclick="addToWishlist('Choco-Hazel Pops', 18.99)">Add to wishlist</button>
-                <button id="inbox" onclick="window.location.href='choco_hazel.html';">Read more</button>
+                <button class="my_style3" id="inbox" onclick="addToWishlist('Choco-Hazel Pops', 18.99)">Add to wishlist</button>
+                <button class="my_style3" id="inbox" onclick="window.location.href='choco_hazel.html';">Read more</button>
 
             </div>
 
@@ -921,14 +1059,14 @@ document.addEventListener('click', function (event) {
             </div>
 
                 <div class="price"> $15.99 <span>20.99</span></div>
-                <button  id="inbox" onclick="addToCart('Very Very Peachy',15.99)">Add to Cart</button><br>
+                <button  id="inbox" onclick="addToCart('Very Very Peachy',15.99,'https://images.unsplash.com/photo-1499638472904-ea5c6178a300')">Add to Cart</button><br>
                 <div class="noofitems">
                   <button class="plus-minus" onclick="decreaseQuantity('Very Very Peachy')">-</button>
                   <span id="itemQuantity-Very Very Peachy">1</span>
                   <button class="plus-minus" onclick="increaseQuantity('Very Very Peachy')">+</button>
               </div>
-                <button  id="inbox" onclick="addToWishlist('Very Very Peachy', 15.99)">Add to wishlist</button>
-                <button id="inbox" onclick="window.location.href='very_peachy.html';">Read more</button>
+                <button class="my_style3" id="inbox" onclick="addToWishlist('Very Very Peachy', 15.99)">Add to wishlist</button>
+                <button class="my_style3" id="inbox" onclick="window.location.href='very_peachy.html';">Read more</button>
             </div>
         
 
@@ -940,17 +1078,17 @@ document.addEventListener('click', function (event) {
 
                 <h3 id="pro-name">Orange Pops</h3>
 
-                <div class="flip">Refreshing frozen delights bursting with zesty orange flavor, offering a sunny, sweet, and tangy treat that’s perfect for cooling off on a hot day!</div>
+                <div class="flip">Refreshing frozen delights bursting with zesty orange flavor, offering a sunny, sweet, and tangy treat that's perfect for cooling off on a hot day!</div>
             </div>
                 <div class="price"> $12.99 <span>20.99</span></div>
-                <button  id="inbox" onclick="addToCart('Orange Pops', 12.99)">Add to Cart</button><br>
+                <button  id="inbox" onclick="addToCart('Orange Pops', 12.99,'https://images.unsplash.com/photo-1559340160-146586a4f9b6')">Add to Cart</button><br>
                 <div class="noofitems">
                   <button class="plus-minus" onclick="decreaseQuantity('Orange Pops')">-</button>
                   <span id="itemQuantity-Orange Pops">1</span>
                   <button class="plus-minus" onclick="increaseQuantity('Orange Pops')">+</button>
               </div>
-                <button  id="inbox" onclick="addToWishlist('Orange Pops', 12.99)">Add to wishlist</button>
-                <button id="inbox" onclick="window.location.href='orange_pops1.html';">Read more</button>
+                <button class="my_style3" id="inbox" onclick="addToWishlist('Orange Pops', 12.99)">Add to wishlist</button>
+                <button class="my_style3" id="inbox" onclick="window.location.href='orange_pops1.html';">Read more</button>
             </div>
             
 
@@ -966,14 +1104,14 @@ document.addEventListener('click', function (event) {
             </div>
 
                 <div class="price"> $18.99 <span>20.99</span></div>
-                <button  id="inbox" onclick="addToCart('Choco-Hazel Pops', 18.99)">Add to Cart</button><br>
+                <button  id="inbox" onclick="addToCart('Choco-Hazel Pops', 18.99,'https://images.unsplash.com/photo-1594305178909-03ab72b8205e')">Add to Cart</button><br>
                 <div class="noofitems">
                   <button class="plus-minus" onclick="decreaseQuantity('Choco-Hazel Pops')">-</button>
                   <span id="itemQuantity-Choco-Hazel Pops">1</span>
                   <button class="plus-minus" onclick="increaseQuantity('Choco-Hazel Pops')">+</button>
               </div>
-                <button  id="inbox" onclick="addToWishlist('Choco-Hazel Pops', 18.99)">Add to wishlist</button>
-                <button id="inbox" onclick="window.location.href='choco_hazel.html';">Read more</button>
+                <button class="my_style3" id="inbox" onclick="addToWishlist('Choco-Hazel Pops', 18.99)">Add to wishlist</button>
+                <button class="my_style3" id="inbox" onclick="window.location.href='choco_hazel.html';">Read more</button>
             </div>
        
 
@@ -990,14 +1128,14 @@ document.addEventListener('click', function (event) {
             </div>
 
                 <div class="price"> $15.99 <span>20.99</span></div>
-                <button  id="inbox" onclick="addToCart('Very Very Peachy',15.99)">Add to Cart</button><br>
+                <button  id="inbox" onclick="addToCart('Very Very Peachy',15.99,'https://images.unsplash.com/photo-1499638472904-ea5c6178a300')">Add to Cart</button><br>
                 <div class="noofitems">
                   <button class="plus-minus" onclick="decreaseQuantity('Very Very Peachy')">-</button>
                   <span id="itemQuantity-Very Very Peachy">1</span>
                   <button class="plus-minus" onclick="increaseQuantity('Very Very Peachy')">+</button>
               </div>
-                <button  id="inbox" onclick="addToWishlist('Very Very Peachy', 15.99)">Add to wishlist</button>
-                <button id="inbox" onclick="window.location.href='very_peachy2.html';">Read more</button>
+                <button class="my_style3" id="inbox" onclick="addToWishlist('Very Very Peachy', 15.99)">Add to wishlist</button>
+                <button class="my_style3" id="inbox" onclick="window.location.href='very_peachy2.html';">Read more</button>
 
 
             </div>
@@ -1012,6 +1150,113 @@ document.addEventListener('click', function (event) {
 
         
     </section>
+
+    <!-- JavaScript Functionality -->
+<script>
+  // Sample product data
+  const products = [
+      { name: 'Nutty Butterscotch', price: 15.99, allergies: ['nuts'], elementId: 'itemQuantity-Nutty Butterscotch' },
+      // Add more product objects here
+  ];
+
+  document.getElementById('allergy-form').addEventListener('submit', function (event) {
+      event.preventDefault();
+      const allergyInfo = document.getElementById('allergy-input').value.trim().toLowerCase();
+      if (allergyInfo) {
+          filterProducts({ allergies: allergyInfo });
+      } else {
+          alert("Please enter specific allergy information.");
+      }
+  });
+
+  document.getElementById('apply-filter').addEventListener('click', () => {
+      const priceFilter = document.getElementById('price-filter').value;
+      const flavorFilter = document.getElementById('flavor-filter').value.trim().toLowerCase();
+      filterProducts({ price: priceFilter, flavor: flavorFilter });
+  });
+
+  document.getElementById('remove-filter').addEventListener('click', resetFilters);
+
+  function filterProducts({ allergies = '', price = 'all', flavor = '' }) {
+      products.forEach(product => {
+          const element = document.getElementById(product.elementId).closest('.box');
+          let show = true;
+
+          if (allergies && product.allergies.some(allergy => allergies.includes(allergy))) {
+              show = false;
+          }
+          if (price === 'under-15' && product.price >= 15) show = false;
+          if (price === '15-20' && (product.price < 15 || product.price > 20)) show = false;
+          if (price === 'over-20' && product.price <= 20) show = false;
+          if (flavor && !product.name.toLowerCase().includes(flavor)) show = false;
+
+          element.style.display = show ? 'block' : 'none';
+      });
+  }
+
+  function resetFilters() {
+      document.getElementById('flavor-filter').value = '';
+      document.getElementById('price-filter').value = 'all';
+      document.getElementById('allergy-input').value = '';
+      products.forEach(product => {
+          const element = document.getElementById(product.elementId).closest('.box');
+          element.style.display = 'block';
+      });
+  }
+</script>
+
+
+    
+    <!-- Menu Section Ends Here -->
+
+
+<!-- Blogs Section Starts Here -->
+<section class="blogs" id="blogs">
+  <h1 class="heading"  data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
+  data-aos-anchor-placement="top-bottom">Our <span style="color: orangered;">Blogs</span></h1>
+  <div class="blog-container">
+
+    <div class="blog"  data-aos="fade-up-right" data-aos-duration="1200" data-aos-delay="200">
+      <img  src="https://plus.unsplash.com/premium_photo-1658526992090-e15722e684c0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8aWNlY3JlYW0lMjBzaG9wfGVufDB8fDB8fHww" alt="Blog Post 1" class="blog-image">
+      <h3>The Journey of Artic Delights</h3>
+      <p>Discover how our ice cream shop began its journey with a passion for creating unique flavors that delight the taste buds. From humble beginnings to a beloved local favorite, read about our story and what makes us special.</p>
+      <a href="icecream-details.html" class="btn">Read More</a>
+    </div>
+
+    <div class="blog" data-aos="fade-up-left" data-aos-duration="1200" data-aos-delay="200">
+        <img style="border-radius: 15px; width: 300px; display: block"
+         src="https://th.bing.com/th/id/R.676adb6d7539038b901d8242cc145fa1?rik=VtRfS5RbwsuVWQ&riu=http%3a%2f%2fimages6.fanpop.com%2fimage%2fphotos%2f34700000%2fIce-Creams-ice-cream-34733250-1200-972.jpg&ehk=%2baCoHwlvOoQkOsJx859JKiu%2fVnB7JSAfddJUpaHxeQo%3d&risl=&pid=ImgRaw&r=0">
+        <h3>The Art of Perfect Ice Cream Scoops</h3>
+        <p>Learn the craft behind creating the perfect scoop of ice cream. Explore the process from churning to serving, and discover the science that makes each scoop smooth and creamy.</p>
+        <a href="icecream-details.html" class="btn">Read More</a>
+      </div>
+
+    <div class="blog" data-aos="fade-up-right" data-aos-duration="1200" data-aos-delay="200">
+        <img style="border-radius: 15px; width: 300px; display: block"
+         src="https://th.bing.com/th/id/R.342ee8a18ef0c4c428ff5288e7567400?rik=nrNVZmqpGpWe9g&riu=http%3a%2f%2fwallpapercave.com%2fwp%2fTS014mt.jpg&ehk=xOshdAfsEoqt8T%2bU%2fZtJiZCXCT8PRAv8B6aLJ4FMWZ0%3d&risl=&pid=ImgRaw&r=0">
+         <h3>Chilling Adventures with Exotic Flavors</h3>
+  <p>Step into a world of cool treats with our adventurous range of exotic ice cream flavors. From tropical fruits to rare spices, explore how we push the boundaries of ice cream craftsmanship.</p>
+  <a href="icecream-details.html" class="btn">Read More</a>
+      </div>
+
+    <div class="blog" data-aos="fade-up-left" data-aos-duration="1200" data-aos-delay="200">
+      <img src="https://images.unsplash.com/photo-1591261730540-1ab1db33ac78?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGljZWNyZWFtJTIwc2hvcHxlbnwwfHwwfHx8MA%3D%3D" alt="Blog Post 2" class="blog-image">
+      <h3>Crafting the Perfect Scoop</h3>
+      <p>Learn about our meticulous process of crafting the perfect ice cream scoop. We source only the finest ingredients and use artisanal methods to ensure every bite is a delicious experience.</p>
+      <a href="icecream-details.html" class="btn">Read More</a>
+    </div>
+
+    <div class="blog" data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200">
+      <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8dGVhbSUyMHdvcmtlcnN8ZW58MHx8MHx8fDA%3D" alt="Blog Post 3" class="blog-image">
+      <h3>Behind the Scenes at Artic Delights</h3>
+      <p>Get a sneak peek behind the scenes at our shop! Meet our passionate team and see how we create our delicious ice cream flavors daily.</p>
+      <a href="icecream-details.html" class="btn">Read More</a>
+    </div>
+
+  </div>
+</section>
+<!-- Blogs Section Ends Here -->
+<!-- Blogs Section Ends Here -->
 
 
 <!-- Payment Section Starts Here -->
@@ -1084,6 +1329,7 @@ document.addEventListener('click', function (event) {
 </button>
 <!-- partial -->
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script><script  src="./script.js"></script>
+  <script src="./filter.js"></script>
 <style>
   :root {
   --primary: #f6f8ff;
@@ -1458,7 +1704,14 @@ document.addEventListener('click', function (event) {
     <button data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200" class="custom-btn">Read our customer stories</button>
   </div>
   <div class="container__right">
-    <div class="card" data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200">
+    <style>
+      
+      .my_style1:hover {
+        background-color: orange;
+        box-shadow: 0 0 20px orange;
+      }
+    </style>
+    <div class="card my_style1" data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200">
       <img src="https://images.unsplash.com/photo-1482961674540-0b0e8363a005?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fG1hbnxlbnwwfHwwfHx8MA%3D%3D" alt="customer" />
       <div class="card__content">
         <span><i class="ri-double-quotes-l"></i></span>
@@ -1470,7 +1723,7 @@ document.addEventListener('click', function (event) {
         </div>
       </div>
     </div>
-    <div class="card" data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200">
+    <div class="card my_style1" data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200">
       <img src="https://plus.unsplash.com/premium_photo-1689539137236-b68e436248de?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="customer" width="400"/>
       <div class="card__content">
         <span><i class="ri-double-quotes-l"></i></span>
@@ -1482,7 +1735,7 @@ document.addEventListener('click', function (event) {
         </div>
       </div>
     </div>
-    <div class="card" data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200">
+    <div class="card my_style1" data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200">
       <img src="https://plus.unsplash.com/premium_photo-1688385848467-781c5394c017?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHdvbWFufGVufDB8fDB8fHww" alt="customer" />
       <div class="card__content">
         <span><i class="ri-double-quotes-l"></i></span>
@@ -1512,9 +1765,14 @@ document.addEventListener('click', function (event) {
   <input type="text" id="user-name" name="user-name" data-aos="zoom-out-down" required>
   
   <label for="user-review" data-aos="zoom-out-down" data-aos-duration="1200" data-aos-delay="200">Your Review:</label>
-  <textarea id="user-review" name="user-review" rows="5" required data-aos="zoom-out-down"></textarea>
-  
-  <button type="submit" class="submit-button" data-aos="zoom-out-down">Submit Review</button>
+  <textarea id="user-review" name="user-review" rows="5" required data-aos="zoom-out-down" style="resize: none;"></textarea>
+  <style>
+    .my_style4 {
+      font-size: 1.6rem;
+      height: 50px;
+    }
+  </style>
+  <button class="my_style4" type="submit" class="submit-button" data-aos="zoom-out-down">Submit Review</button>
 </form>
 <script>
   // Function to store multiple reviews as JSON in local storage
@@ -1574,34 +1832,58 @@ document.addEventListener('click', function (event) {
 
 <!-- Footer Section Starts Here -->
 
-    <section class="footer" id="footer">
-<div>
-    <img src="https://hits.sh/arcticdelights.netlify.app.svg?label=Website%20Visitors&extraCount=6520&color=FE6648&labelColor=white" alt="web-views">
-</div>
-<div class="social-icons">
-    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-    <a href="#"><i class="fa-brands fa-facebook"></i></a>
-    <a href="#"><i class="fa-brands fa-x-twitter"></i></a> <!-- Updated X icon -->
-    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-    <a href="#"><i class="fa-brands fa-pinterest"></i></a>
-</div>
-</div>
-
-        <!--  
-<div class="links">
-<a href="#">Home</a>
-<a href="#">About</a>
-<a href="#">Menu</a>
-<a href="#">Review</a>
-<a href="#">Blogs</a>
-</div> -->
-
-        <div class="credit">
-            <p> created by <span> Dohina</span> | <a href="copyright.html"> &copy;Copyright 2024 </a> | all rights reserved
-            <p>
+<!-- <div class="footercolor"> -->
+  <section class="footer" id="footer" style="background-color: black ">
+    <hr> <!-- Horizontal line -->
+  
+    <!-- Parent div wrapping all footer content -->
+    <div class="footer-row">
+      
+      <!-- Child div for 'About Scruter' -->
+      <div class="footer-column">
+        <h3>About ArcticDelights </h3>
+        <p>At Arctic Delights, we believe that every scoop of ice cream should be a masterpiece. We handpick the finest, sustainably sourced ingredients to craft flavors that not only cool you down but also take your taste buds on an unforgettable journey. </p>
+      </div>
+  
+      <!-- Child div for 'Quick Links' -->
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <a href="#">About Us</a>
+        <a href="#">Our Team</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Our Contributors</a>
+      </div>
+  
+      <!-- Child div for 'Help Desk' -->
+      <div class="footer-column">
+        <h3>Help Desk</h3>
+        <a href="#">Help Center</a>
+        <a href="#">FAQ</a>
+        <a href="#">Contact Us</a>
+        <a href="#">Support</a>
+      </div>
+  
+      <!-- Child div for 'Follow Us' -->
+      <div class="footer-column">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="#"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#"><i class="fa-brands fa-x-twitter"></i></a> <!-- Updated X icon -->
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-pinterest"></i></a>
         </div>
-
-    </section>
+      </div>
+  
+    </div>
+  
+    <!-- Footer credit -->
+    <div class="credit">
+      <p>created by Dohina</p>
+    </div>
+  </section>
+<!-- </div> -->
 
     <!-- Footer Section Ends Here -->
 
