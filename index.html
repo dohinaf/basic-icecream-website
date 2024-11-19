@@ -480,7 +480,7 @@ document.addEventListener('click', function (event) {
     };
 
 
-    <!-- CSS for toast notification -->
+    // <!-- CSS for toast notification -->
     <style>
       .toast-notification {
         visibility: hidden;
@@ -542,7 +542,7 @@ document.addEventListener('click', function (event) {
         var toast = document.getElementById("toast");
         toast.className = "toast-notification show";
         toast.textContent = message;
-        setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
+        setTimeout(function(){ toast.className = toast.className.replace("show", "")}, 3000);
       }
 
       // Handle form submission
@@ -1698,11 +1698,26 @@ document.addEventListener('click', function (event) {
       <div class="footer-column">
         <h3>Follow Us</h3>
         <div class="social-icons">
-          <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-          <a href="#"><i class="fa-brands fa-facebook"></i></a>
-          <a href="#"><i class="fa-brands fa-x-twitter"></i></a> <!-- Updated X icon -->
-          <a href="#"><i class="fa-brands fa-instagram"></i></a>
-          <a href="#"><i class="fa-brands fa-pinterest"></i></a>
+          <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+  <i class="fa-brands fa-linkedin"></i>
+</a>
+
+<a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+  <i class="fa-brands fa-facebook"></i>
+</a>
+
+<a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
+  <i class="fa-brands fa-x-twitter"></i> <!-- Updated X icon for Twitter -->
+</a>
+
+<a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+  <i class="fa-brands fa-instagram"></i>
+</a>
+
+<a href="https://www.pinterest.com" target="_blank" rel="noopener noreferrer">
+  <i class="fa-brands fa-pinterest"></i>
+</a>
+
         </div>
       </div>
   
