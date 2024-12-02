@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Artic Delights Blog</title>
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -96,42 +98,57 @@
 <a href="#" id="my-order-btn">My Orders</a>
 </nav>
 
-        <div class="theme-switch-wrapper">
-            <label class="theme-switch" for="checkbox">
-                <input type="checkbox" id="checkbox">
-                <div class="slider"></div>
-            </label>
-            <span id="mode-label">Light Mode</span>
-        </div>
-        <div class="search-form">
-            <input type="search" id="search-box" placeholder="Search...">
-            <label for="search-box" class="fas fa-search"></label>
-        </div>
-        <div class="wishlist-container">
-            <ul id="wishlistItems"></ul>
-            <button class="clear-from-wishlist-btn" onclick="clearWishlist()">Clear Wishlist</button>
-        </div>
-        <div class="cart-items-container">
-            <div class="cart">
-                <ul id="cartItems">
-                    <!-- Cart items will be displayed here -->
-                </ul>
-                <h3>
-                    <div id="total">Total:$0.00
-                    </div>
-                </h3>
-                <button id="checkout-button" onclick="checkout()">Checkout</button>
+
+<div class="icons">
+    <div class = "fas fa-heart" id = "wishlist-btn"></div>
+    <div class="fas fa-search" id="search-btn"></div>
+    <a href="/cart.html">
+
+    
+    <div class="fas fa-shopping-cart" id="cart-btn">
+      
+      <span id="cart-count">(0)</span></div>
+    </a>
+</div>
+<div class="theme-switch-wrapper">
+    <label class="theme-switch" for="checkbox">
+        <input type="checkbox" id="checkbox">
+        <div class="slider"></div>
+    </label>
+    <span id="mode-label">Light Mode</span>
+</div>
+<div class="search-form">
+    <input type="search" id="search-box" placeholder="Search...">
+    <label for="search-box" class="fas fa-search"></label>
+</div>
+<div class="wishlist-container">
+    <ul id="wishlistItems"></ul>
+    <button class="clear-from-wishlist-btn" onclick="clearWishlist()">Clear Wishlist</button>
+</div>
+<!-- <div class="cart-items-container">
+    <div class="cart">
+        <ul id="cartItems">
+        Cart items will be displayed here 
+        </ul>
+        <h3>
+            <div id="total">Total:$0.00
             </div>
-        </div>
-        <div class="my-order-container">
-            <h2>My Order</h2>
-            <div id="order-details">
-                <!-- Order details will be displayed here -->
-            </div>
-            <div class="order-actions">
-                <button onclick="trackOrder()">Track Order</button>
-                <button onclick="editOrder()">Edit Order</button>
-            </div>
+        </h3>
+    </div>
+</div> -->
+<div class="my-order-container">
+    <h2>My Order</h2>
+    <div id="order-details">
+        <!-- Order details will be displayed here -->
+    </div>
+    <div class="order-actions">
+        <button onclick="trackOrder()">Track Order</button>
+        <button onclick="editOrder()">Edit Order</button>
+    </div>
+    
+</div>
+<div class="icons login-signup-collection">
+    
             
         </div>
         <div class="icons login-signup-collection">
