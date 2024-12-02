@@ -90,8 +90,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-
-
 // password toggle feature
 function togglePasswordVisibility() {
   const passwordInput = document.getElementById("password");
